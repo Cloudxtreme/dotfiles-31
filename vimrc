@@ -48,7 +48,7 @@ set gdefault
 "set hidden
 
 " Turn word wrap off
-set nowrap
+"set nowrap
 
 " Allow backspace to delete end of line, indent and start of line characters
 set backspace=indent,eol,start
@@ -196,6 +196,7 @@ inoremap " ""<esc>i
 inoremap ( ()<esc>i
 inoremap [ []<esc>i
 inoremap { {}<esc>i
+inoremap ` ``<esc>i
 
 " switch to normal mode
 inoremap jk <esc>
@@ -217,7 +218,14 @@ inoremap <leader>u <esc>lviw<s-u><s-w>i
 "Autocmd Settings {{{
 
 " Start vim with NERDTree
+
 autocmd vimenter * if !argc() | NERDTree | endif
+""autocmd VimEnter * NERDTree
+
+" Move the cursor in the editor window
+""autocmd VimEnter * wincmd p
+" Auto close NERDTree if it is the only window open
+"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 " Folding with marker
 autocmd BufRead * setlocal foldmethod=marker
@@ -227,3 +235,4 @@ autocmd BufRead * normal zM
 autocmd BufNewFile *-bst3.html 0r ~/Sites/boilerplate/bst3.html
 
 "}}}
+
