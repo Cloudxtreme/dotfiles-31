@@ -122,6 +122,12 @@ let g:netrw_liststyle=3
 "autocmd BufWinEnter * highlight ColorColumn ctermbg=darkred
 "set colorcolumn=80
 
+" set up the map leader
+let mapleader = "\<Space>"
+
+" set up the local leader key
+let maplocalleader = "\\"
+
 " }}}
 
 " Plugin {{{
@@ -137,20 +143,27 @@ colorscheme spacegray
 " Airline (status line)
 let g:airline_powerline_fonts = 1
 
+" Syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+" Emmit
 " CtrlP
+" Type <Space>o to open a new file
+nnoremap <Leader>o :CtrlP<CR>
+
+" Toggle NERDTree
+map <leader>n :NERDTreeToggle<CR>
 
 " }}}
 
 " Mappings {{{
-
-" set up the map leader
-let mapleader = ","
-
-" set up the local leader key
-let maplocalleader = "\\"
-
-" Toggle NERDTree
-map <leader>n :NERDTreeToggle<CR>
 
 " Searching
 nnoremap / /\v
@@ -158,11 +171,27 @@ vnoremap / /\v
 nnoremap ? ?\v
 vnoremap ? ?\v
 
-" Get rid of  Search Highlight
-nnoremap <leader><space> :noh<CR>
 
 " Switch window
 nnoremap <leader>w <C-w>
+
+" Type <leader>s to save file
+nnoremap <leader>s :w<CR>
+
+" Type <leader>q to quit  buffer
+nnoremap <leader>q :q<CR>
+
+" Get rid of  Search Highlight
+nnoremap <leader>h :noh<CR>
+
+" Enter visual line mode with <Space><Space>
+nmap <leader><leader> V
+
+" Type 12<Enter> to go to line 12 and Hit ENTER to go to end of file
+nnoremap <CR> G
+
+"  Hit Backspace to go to beginning of file
+nnoremap <BS> gg
 
 "delete the current line then paste it below the one we're on now
 nnoremap <leader>- ddp
@@ -178,12 +207,6 @@ nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 
 " Source the vimrc file
 nnoremap <leader>sv :source $MYVIMRC<cr>
-
-"Add double quotes to seleted word
-nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>lel
-
-"add single quotes to selected word
-nnoremap <leader>' viw<esc>a'<esc>hbi'<esc>lel
 
 " Move cursor to the begining of the line
 nnoremap <s-h> 0
