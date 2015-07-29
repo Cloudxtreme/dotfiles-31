@@ -1,3 +1,38 @@
+" Vundle and plugin setup {{{
+
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+" plugin on GitHub repo
+Plugin 'bling/vim-airline'
+Plugin 'Tpope/vim-commentary'
+Plugin 'tpope/vim-fugitive'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'digitalToad/vim-jade'
+Plugin 'Tpope/vim-surround'
+Plugin 'godlygeek/tabular'
+Plugin 'scrooloose/syntastic'
+Plugin 'scrooloose/nerdtree'
+Plugin 'kien/ctrlp.vim'
+Plugin 'ajh17/Spacegray.vim'
+Plugin 'mtth/scratch.vim'
+" git repos on your local machine (i.e. when working on your own plugin)
+"Plugin 'file:///home/gmarik/path/to/plugin'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+"}}}
+
 " Setting {{{
 
 "Switch syntax highlight on, when the terminal has colors
@@ -57,10 +92,10 @@ set backspace=indent,eol,start
 set expandtab
 
 " Set tab size in spaces (this is for manual editing)
-set tabstop=2
+set tabstop=4
 
 " The number of spaces inserted for a tab (used for auto indenting)
-set shiftwidth=2
+set shiftwidth=4
 
 " Turn on line numbers
 set number
@@ -131,9 +166,9 @@ let maplocalleader = "\\"
 " }}}
 
 " Plugin {{{
-call pathogen#infect()
-Helptags
-filetype plugin indent on " required by Pathogen Plugin Manager
+"call pathogen#infect()
+"Helptags
+"filetype plugin indent on " required by Pathogen Plugin Manager
 
 " Colorscheme & background
 set t_Co=256
