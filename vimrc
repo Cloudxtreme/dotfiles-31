@@ -25,6 +25,12 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'kien/ctrlp.vim'
 Plugin 'ajh17/Spacegray.vim'
 Plugin 'mtth/scratch.vim'
+Plugin 'majutsushi/tagbar'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'mattn/emmet-vim'
+Plugin 'othree/html5.vim'
+Plugin 'nanotech/jellybeans.vim'
+Plugin 'Townk/vim-autoclose'
 " git repos on your local machine (i.e. when working on your own plugin)
 "Plugin 'file:///home/gmarik/path/to/plugin'
 
@@ -38,6 +44,8 @@ filetype plugin indent on    " required
 "Switch syntax highlight on, when the terminal has colors
 syntax on
 
+" Set buffer modifiable
+set modifiable
 " Use vim, not vi api
 set nocompatible
 
@@ -158,7 +166,7 @@ let g:netrw_liststyle=3
 "set colorcolumn=80
 
 " set up the map leader
-let mapleader = "\<Space>"
+let mapleader = ","
 
 " set up the local leader key
 let maplocalleader = "\\"
@@ -172,8 +180,8 @@ let maplocalleader = "\\"
 
 " Colorscheme & background
 set t_Co=256
-set background=light
-colorscheme spacegray
+"set background=light
+colorscheme jellybeans
 
 " Airline (status line)
 let g:airline_powerline_fonts = 1
@@ -188,13 +196,22 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
+" Tagbar
+nmap <F8> :TagbarToggle<CR>
+
 " Emmit
+let g:user_emmet_leader_key='<C-A>'
 " CtrlP
 " Type <Space>o to open a new file
 nnoremap <Leader>o :CtrlP<CR>
 
 " Toggle NERDTree
 map <leader>n :NERDTreeToggle<CR>
+
+" Markdown-syntax
+" disable markdown-syntax folding
+let g:vim_markdown_folding_disabled=1
+
 
 " }}}
 
@@ -206,7 +223,6 @@ vnoremap / /\v
 nnoremap ? ?\v
 vnoremap ? ?\v
 
-
 " Switch window
 nnoremap <leader>w <C-w>
 
@@ -217,7 +233,7 @@ nnoremap <leader>s :w<CR>
 nnoremap <leader>q :q<CR>
 
 " Get rid of  Search Highlight
-nnoremap <leader>h :noh<CR>
+nnoremap <leader><space> :noh<CR>
 
 " Enter visual line mode with <Space><Space>
 nmap <leader><leader> V
@@ -234,9 +250,6 @@ nnoremap <leader>- ddp
 "delete the current line then paste it above the one we're on now
 nnoremap <leader>_ ddkP
 
-"convert the current word to uppercase and move the cursor to the next word
-nnoremap <leader>u viw<s-u><s-w>
-
 " Edit vimrc file in a vertically split window
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 
@@ -249,27 +262,17 @@ nnoremap <s-h> 0
 " Move the cursor to the end of the line
 nnoremap <s-l> $
 
-"Insert Mode Mapping
-inoremap " ""<esc>i
-inoremap ( ()<esc>i
-inoremap [ []<esc>i
-inoremap { {}<esc>i
-inoremap ` ``<esc>i
-
 " switch to normal mode
 inoremap jk <esc>
 
 " Start a new line below the current line
 inoremap jo <esc>o
 
+" Start a new line above the current line
+inoremap jO <esc>O
+
 " Move to end of line
 inoremap ja <esc>A
-
-"delete the current line
-inoremap <leader>d <esc>ddi
-
-"convert the current word to uppercase and move the cursor to next word
-inoremap <leader>u <esc>lviw<s-u><s-w>i
 
 " }}}
 
@@ -291,6 +294,5 @@ autocmd BufRead * normal zM
 
 " Bootstrap 3 boilerplat CDN
 autocmd BufNewFile *-bst3.html 0r ~/Sites/boilerplate/bst3.html
-
 "}}}
 
