@@ -18,6 +18,7 @@ Plugin 'Tpope/vim-commentary'
 Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'digitalToad/vim-jade'
+Plugin 'tpope/vim-markdown'
 Plugin 'Tpope/vim-surround'
 Plugin 'godlygeek/tabular'
 Plugin 'scrooloose/syntastic'
@@ -91,7 +92,7 @@ set gdefault
 "set hidden
 
 " Turn word wrap off
-"set nowrap
+set nowrap
 
 " Allow backspace to delete end of line, indent and start of line characters
 set backspace=indent,eol,start
@@ -162,8 +163,8 @@ let g:netrw_liststyle=3
 " Always highlight column 80 so it's easier to see where cutoff appears on
 " longer screen
 
-"autocmd BufWinEnter * highlight ColorColumn ctermbg=darkred
-"set colorcolumn=80
+autocmd BufWinEnter * highlight ColorColumn ctermbg=darkred
+set colorcolumn=80
 
 " set up the map leader
 let mapleader = ","
