@@ -32,6 +32,8 @@ Plugin 'mattn/emmet-vim'
 Plugin 'othree/html5.vim'
 Plugin 'nanotech/jellybeans.vim'
 Plugin 'Townk/vim-autoclose'
+Plugin 'bronson/vim-trailing-whitespace'
+
 " git repos on your local machine (i.e. when working on your own plugin)
 "Plugin 'file:///home/gmarik/path/to/plugin'
 
@@ -110,7 +112,7 @@ set shiftwidth=4
 set number
 
 " Highlight tailing whitespace
-set list listchars=tab:\ \ ,trail:<
+" set list listchars=tab:\ \ ,trail:<
 
 " Get rid of the delay when pressing 0 (for example)
 set timeout timeoutlen=1000 ttimeoutlen=100
@@ -163,8 +165,8 @@ let g:netrw_liststyle=3
 " Always highlight column 80 so it's easier to see where cutoff appears on
 " longer screen
 
-autocmd BufWinEnter * highlight ColorColumn ctermbg=darkred
-set colorcolumn=80
+"autocmd BufWinEnter * highlight ColorColumn ctermbg=darkred
+"set colorcolumn=80
 
 " set up the map leader
 let mapleader = ","
@@ -275,6 +277,9 @@ inoremap jO <esc>O
 " Move to end of line
 inoremap ja <esc>A
 
+" Map omni-completion key to Ctrl-Space
+inoremap <leader>, <C-x><C-o>
+
 " }}}
 
 "Autocmd Settings {{{
@@ -292,6 +297,8 @@ autocmd vimenter * if !argc() | NERDTree | endif
 " Folding with marker
 autocmd BufRead * setlocal foldmethod=marker
 autocmd BufRead * normal zM
+
+set omnifunc=syntaxcomplete#Complete
 
 " Bootstrap 3 boilerplat CDN
 autocmd BufNewFile *-bst3.html 0r ~/Sites/boilerplate/bst3.html
