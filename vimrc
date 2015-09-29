@@ -94,7 +94,7 @@ set gdefault
 "set hidden
 
 " Turn word wrap off
-set nowrap
+" set nowrap
 
 " Allow backspace to delete end of line, indent and start of line characters
 set backspace=indent,eol,start
@@ -105,14 +105,44 @@ set expandtab
 " Set tab size in spaces (this is for manual editing)
 set tabstop=4
 
+" Set softtabstop equal to shiftwidth
+set softtabstop=4
 " The number of spaces inserted for a tab (used for auto indenting)
 set shiftwidth=4
+
+" Set tabstop, softtabstop and shiftwidth to the same value
+command! -nargs=* Stab call Stab()
+function! Stab()
+  let l:tabstop = 1 * input('set tabstop = softtabstop = shiftwidth = ')
+  if l:tabstop > 0
+    let &l:sts = l:tabstop
+    let &l:ts = l:tabstop
+    let &l:sw = l:tabstop
+  endif
+  call SummarizeTabs()
+endfunction
+
+function! SummarizeTabs()
+  try
+    echohl ModeMsg
+    echon 'tabstop='.&l:ts
+    echon ' shiftwidth='.&l:sw
+    echon ' softtabstop='.&l:sts
+    if &l:et
+      echon ' expandtab'
+    else
+      echon ' noexpandtab'
+    endif
+  finally
+    echohl None
+  endtry
+endfunction
 
 " Turn on line numbers
 set number
 
 " Highlight tailing whitespace
-" set list listchars=tab:\ \ ,trail:<
+set listchars=tab:▸\ ,eol:¬
 
 " Get rid of the delay when pressing 0 (for example)
 set timeout timeoutlen=1000 ttimeoutlen=100
@@ -121,7 +151,8 @@ set timeout timeoutlen=1000 ttimeoutlen=100
 set laststatus=2
 
 " Set the status line to something useful
-set statusline=%f\ \ line:%l/%L\ %p%%\ %y
+" set statusline=%f\ \ line:%l/%L\ %p%%\ %y
+set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 
 " Hide the toolbar
 set guioptions-=T
@@ -177,17 +208,17 @@ let maplocalleader = "\\"
 " }}}
 
 " Plugin {{{
-"call pathogen#infect()
-"Helptags
-"filetype plugin indent on " required by Pathogen Plugin Manager
 
 " Colorscheme & background
 set t_Co=256
-"set background=light
 colorscheme jellybeans
 
 " Airline (status line)
 let g:airline_powerline_fonts = 1
+
+" Fugitive
+nnoremap <Leader>gs :Gstatus<CR>
+nnoremap <Leader>gc :Gcommit<CR>
 
 " Syntastic
 set statusline+=%#warningmsg#
@@ -195,18 +226,47 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
+let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+" Type <leader>lc to close Syntastic list window
+nnoremap <Leader>lc :lclose<CR>
+
+" Type <leader>le to open error list window
+nnoremap <Leader>le :Errors<CR>
+
+" Type <leader>ln to go to next error
+nnoremap <leader>ln :lnext<CR>
+
+" Type <leader>lp to go to previous error
+nnoremap <leader>lp :lprev<CR>
+
+" Type <leader>mc to do a syntast"uic manual check
+nnoremap <leader>sc :SyntasticCheck<CR>
+
+" Better :sign interface symbols
+let g:syntastic_error_symbol = '✗'
+let g:syntastic_warning_symbol = '!'
+
+" Disable the less checker
+" let g:syntastic_less_checkers=['']
 
 " Tagbar
 nmap <F8> :TagbarToggle<CR>
 
 " Emmit
 let g:user_emmet_leader_key='<C-A>'
+
 " CtrlP
-" Type <Space>o to open a new file
+" Type <Leader>o to open a new file
 nnoremap <Leader>o :CtrlP<CR>
+
+" modify default opening behavior with an interactive argument <C-o>
+let g:ctrlp_arg_map = 1
+
+" Add the Silver Searcher as the backend to use the agignore with ctrlp
+let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
 
 " Toggle NERDTree
 map <leader>n :NERDTreeToggle<CR>
@@ -244,9 +304,6 @@ nmap <leader><leader> V
 " Type 12<Enter> to go to line 12 and Hit ENTER to go to end of file
 nnoremap <CR> G
 
-"  Hit Backspace to go to beginning of file
-nnoremap <BS> gg
-
 "delete the current line then paste it below the one we're on now
 nnoremap <leader>- ddp
 
@@ -264,6 +321,9 @@ nnoremap <s-h> 0
 
 " Move the cursor to the end of the line
 nnoremap <s-l> $
+
+" Shortcut to rapidly toggle 'set list'
+nmap <leader>l :set list!<CR>
 
 " switch to normal mode
 inoremap jk <esc>
