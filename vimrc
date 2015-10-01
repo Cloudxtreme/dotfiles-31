@@ -33,6 +33,8 @@ Plugin 'othree/html5.vim'
 Plugin 'nanotech/jellybeans.vim'
 Plugin 'Townk/vim-autoclose'
 Plugin 'bronson/vim-trailing-whitespace'
+Plugin 'easymotion/vim-easymotion'
+Plugin 'mustache/vim-mustache-handlebars'
 
 " git repos on your local machine (i.e. when working on your own plugin)
 "Plugin 'file:///home/gmarik/path/to/plugin'
@@ -103,40 +105,13 @@ set backspace=indent,eol,start
 set expandtab
 
 " Set tab size in spaces (this is for manual editing)
-set tabstop=4
+set tabstop=2
 
 " Set softtabstop equal to shiftwidth
-set softtabstop=4
+set softtabstop=2
 " The number of spaces inserted for a tab (used for auto indenting)
-set shiftwidth=4
+set shiftwidth=2
 
-" Set tabstop, softtabstop and shiftwidth to the same value
-command! -nargs=* Stab call Stab()
-function! Stab()
-  let l:tabstop = 1 * input('set tabstop = softtabstop = shiftwidth = ')
-  if l:tabstop > 0
-    let &l:sts = l:tabstop
-    let &l:ts = l:tabstop
-    let &l:sw = l:tabstop
-  endif
-  call SummarizeTabs()
-endfunction
-
-function! SummarizeTabs()
-  try
-    echohl ModeMsg
-    echon 'tabstop='.&l:ts
-    echon ' shiftwidth='.&l:sw
-    echon ' softtabstop='.&l:sts
-    if &l:et
-      echon ' expandtab'
-    else
-      echon ' noexpandtab'
-    endif
-  finally
-    echohl None
-  endtry
-endfunction
 
 " Turn on line numbers
 set number
@@ -205,6 +180,11 @@ let mapleader = ","
 " set up the local leader key
 let maplocalleader = "\\"
 
+" Set syntax complete function on
+set omnifunc=syntaxcomplete#Complete
+
+" Auto load file when changes detected
+set autoread
 " }}}
 
 " Plugin {{{
@@ -250,18 +230,15 @@ let g:syntastic_error_symbol = '✗'
 let g:syntastic_warning_symbol = '!'
 
 " Disable the less checker
-" let g:syntastic_less_checkers=['']
+let g:syntastic_less_checkers=['']
 
 " Tagbar
 nmap <F8> :TagbarToggle<CR>
 
 " Emmit
-let g:user_emmet_leader_key='<C-A>'
+let g:user_emmet_leader_key=','
 
 " CtrlP
-" Type <Leader>o to open a new file
-nnoremap <Leader>o :CtrlP<CR>
-
 " modify default opening behavior with an interactive argument <C-o>
 let g:ctrlp_arg_map = 1
 
@@ -286,29 +263,36 @@ vnoremap / /\v
 nnoremap ? ?\v
 vnoremap ? ?\v
 
-" Switch window
+" Remap Ctrl-W
 nnoremap <leader>w <C-w>
+
+" Switch window
+nmap <silent> <C-h> :wincmd h<CR>
+nmap <silent> <C-j> :wincmd j<CR>
+nmap <silent> <C-k> :wincmd k<CR>
+nmap <silent> <C-l> :wincmd l<CR>
+
+" Quickly resize vertical window
+map - <C-W>-
+map + <C-W>+
+" Quickly increase/decrease the width of the window
+map <C-n> <C-W><
+map <C-b> <C-W>>
 
 " Type <leader>s to save file
 nnoremap <leader>s :w<CR>
-
+inoremap <leader>s <esc>:w<CR>i
 " Type <leader>q to quit  buffer
 nnoremap <leader>q :q<CR>
+
+" Open the current buffer window in a new tab
+nnoremap tt :tab split<CR>
 
 " Get rid of  Search Highlight
 nnoremap <leader><space> :noh<CR>
 
-" Enter visual line mode with <Space><Space>
-nmap <leader><leader> V
-
 " Type 12<Enter> to go to line 12 and Hit ENTER to go to end of file
 nnoremap <CR> G
-
-"delete the current line then paste it below the one we're on now
-nnoremap <leader>- ddp
-
-"delete the current line then paste it above the one we're on now
-nnoremap <leader>_ ddkP
 
 " Edit vimrc file in a vertically split window
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
@@ -337,30 +321,100 @@ inoremap jO <esc>O
 " Move to end of line
 inoremap ja <esc>A
 
+" move up one line and indent
+inoremap kk <esc>ki<Tab>
 " Map omni-completion key to Ctrl-Space
-inoremap <leader>, <C-x><C-o>
+inoremap <leader>d <C-x><C-o>
 
+" Copy to system clipboard in visual mode.
+vnoremap <C-c> "*y
+
+" Paste from the system clipboard to vim in insert mode
+nnoremap <leader>v "*pa
+inoremap <leader>v <C-r><C-p>*
+
+" quick access to the register
+nnoremap <leader>r :reg<CR>
+inoremap <leader>r <esc>:reg<CR>
+
+" quick set the filetype to less
+nnoremap <leader>less :setfiletype less<CR>
 " }}}
 
 "Autocmd Settings {{{
+if has("autocmd")
+    " Start vim with NERDTree
+    autocmd vimenter * if !argc() | NERDTree | endif
+    " Move the cursor in the editor window
+    ""autocmd VimEnter * wincmd p
+    " Auto close NERDTree if it is the only window open
+    "autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
-" Start vim with NERDTree
+    " Folding with marker
+    autocmd BufRead * setlocal foldmethod=marker
+    autocmd BufRead * normal zM
 
-autocmd vimenter * if !argc() | NERDTree | endif
-""autocmd VimEnter * NERDTree
+    " Customisations based on house-style
+    autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
+    autocmd FileType css setlocal ts=2 sts=2 sw=2 expandtab
+    autocmd FileType less setlocal ts=2 sts=2 sw=2 expandtab
+    autocmd FileType javascript setlocal ts=4 sts=4 sw=4 noexpandtab relativenumber
+    autocmd FileType json setlocal ts=2 sts=2 sw=2 noexpandtab
 
-" Move the cursor in the editor window
-""autocmd VimEnter * wincmd p
-" Auto close NERDTree if it is the only window open
-"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+    " Treat .rss files as XML
+    autocmd BufNewFile,BufRead *.rss, *.atom setfiletype xml
 
-" Folding with marker
-autocmd BufRead * setlocal foldmethod=marker
-autocmd BufRead * normal zM
-
-set omnifunc=syntaxcomplete#Complete
-
-" Bootstrap 3 boilerplat CDN
-autocmd BufNewFile *-bst3.html 0r ~/Sites/boilerplate/bst3.html
+    " Bootstrap 3 boilerplat CDN
+    autocmd BufNewFile *-bst3.html 0r ~/Sites/boilerplate/bst3.html
+endif
 "}}}
 
+"Functions {{{
+
+" Set tabstop, softtabstop and shiftwidth to the same value
+command! -nargs=* Stab call Stab()
+function! Stab()
+  let l:tabstop = 1 * input('set tabstop = softtabstop = shiftwidth = ')
+  if l:tabstop > 0
+    let &l:sts = l:tabstop
+    let &l:ts = l:tabstop
+    let &l:sw = l:tabstop
+  endif
+  call SummarizeTabs()
+endfunction
+
+function! SummarizeTabs()
+  try
+    echohl ModeMsg
+    echon 'tabstop='.&l:ts
+    echon ' shiftwidth='.&l:sw
+    echon ' softtabstop='.&l:sts
+    if &l:et
+      echon ' expandtab'
+    else
+      echon ' noexpandtab'
+    endif
+  finally
+    echohl None
+  endtry
+endfunction
+
+"Strip Trailing spaces
+
+" Hit <F2> to strip trailing spaces.
+nnoremap <silent> <F2> :call <SID>StripTrailingWhitespaces()<CR>
+function! <SID>StripTrailingWhitespaces()
+    " Preparation: save last search, and cursor position.
+    let _s=@/
+    let l = line(".")
+    let c = col(".")
+    " Do the business:
+    %s/\s\+$//e
+    " Clean up: restore previous search history, and cursor position
+    let @/=_s
+    call cursor(l, c)
+endfunction
+
+" Delete blank lines
+nnoremap <F3> :g/^$/d<CR>
+"}}}
