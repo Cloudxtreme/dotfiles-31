@@ -276,8 +276,8 @@ nmap <silent> <C-l> :wincmd l<CR>
 map - <C-W>-
 map + <C-W>+
 " Quickly increase/decrease the width of the window
-map <C-n> <C-W><
-map <C-b> <C-W>>
+map <F7> <C-W><
+map <F9> <C-W>>
 
 " Type <leader>s to save file
 nnoremap <leader>s :w<CR>
