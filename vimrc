@@ -35,7 +35,8 @@ Plugin 'Townk/vim-autoclose'
 Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'mustache/vim-mustache-handlebars'
-
+Plugin '29decibel/codeschool-vim-theme'
+Plugin 'chriskempson/vim-tomorrow-theme'
 " git repos on your local machine (i.e. when working on your own plugin)
 "Plugin 'file:///home/gmarik/path/to/plugin'
 
@@ -93,7 +94,7 @@ set gdefault
 " currently loaded in a window. If you try to quit Vim while there are hidden
 " buffers you will raise an error: E162: No write since last change for buffer
 " "a.txt"
-"set hidden
+set hidden
 
 " Turn word wrap off
 " set nowrap
@@ -128,9 +129,6 @@ set laststatus=2
 " Set the status line to something useful
 " set statusline=%f\ \ line:%l/%L\ %p%%\ %y
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
-
-" Hide the toolbar
-set guioptions-=T
 
 " UTF encoding
 set fileencoding=utf-8
@@ -183,15 +181,26 @@ let maplocalleader = "\\"
 " Set syntax complete function on
 set omnifunc=syntaxcomplete#Complete
 
+
 " Auto load file when changes detected
 set autoread
 " }}}
 
-" Plugin {{{
-
-" Colorscheme & background
+" Colorscheme & background {{{
 set t_Co=256
+set background=dark
 colorscheme jellybeans
+
+" Set gui vim font
+if has('gui_running')
+  set guioptions-=T " Hide toolbar in GUI vim
+  set guifont=Sauce\ Code\ Powerline:h13
+  colorscheme codeschool
+endif
+
+" }}}
+
+" Plugin {{{
 
 " Airline (status line)
 let g:airline_powerline_fonts = 1
@@ -230,7 +239,7 @@ let g:syntastic_error_symbol = '✗'
 let g:syntastic_warning_symbol = '!'
 
 " Disable the less checker
-let g:syntastic_less_checkers=['']
+" let g:syntastic_less_checkers=['']
 
 " Tagbar
 nmap <F8> :TagbarToggle<CR>
@@ -247,6 +256,7 @@ let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
 
 " Toggle NERDTree
 map <leader>n :NERDTreeToggle<CR>
+" let g:NERDTreeWinPos = "right"
 
 " Markdown-syntax
 " disable markdown-syntax folding
@@ -267,10 +277,10 @@ vnoremap ? ?\v
 nnoremap <leader>w <C-w>
 
 " Switch window
-nmap <silent> <C-h> :wincmd h<CR>
-nmap <silent> <C-j> :wincmd j<CR>
-nmap <silent> <C-k> :wincmd k<CR>
-nmap <silent> <C-l> :wincmd l<CR>
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
 
 " Quickly resize vertical window
 map - <C-W>-
@@ -282,11 +292,34 @@ map <F9> <C-W>>
 " Type <leader>s to save file
 nnoremap <leader>s :w<CR>
 inoremap <leader>s <esc>:w<CR>i
+
 " Type <leader>q to quit  buffer
 nnoremap <leader>q :q<CR>
+nnoremap <leader>aq :wqa<CR>
+
+" Buffer mappings
+nnoremap <silent> [b :bprevious<CR>
+nnoremap <silent> ]b :bnext<CR>
+nnoremap <silent> [B :bfirst<CR>
+nnoremap <silent> ]B :blast<CR>
 
 " Open the current buffer window in a new tab
 nnoremap tt :tab split<CR>
+" Move the current window to a new tab
+nnoremap TT <C-w>T
+
+"Tab Mapping with Cmd Key
+map <D-1> 1gt
+map <D-2> 2gt
+map <D-3> 3gt
+map <D-4> 4gt
+map <D-0> :tablast<CR>
+
+" Indentation mapping
+nmap <D-[> <<
+nmap <D-]> >>
+vmap <D-[> <gv
+vmap <D-]> >gv
 
 " Get rid of  Search Highlight
 nnoremap <leader><space> :noh<CR>
@@ -417,4 +450,103 @@ endfunction
 
 " Delete blank lines
 nnoremap <F3> :g/^$/d<CR>
+
+" Function to Watch for changes if buffer changed on disk
+function! WatchForChanges(bufname, ...)
+  " Figure out which options are in effect
+  if a:bufname == '*'
+    let id = 'WatchForChanges'.'AnyBuffer'
+    " If you try to do checktime *, you'll get E93: More than one match for * is given
+    let bufspec = ''
+  else
+    if bufnr(a:bufname) == -1
+      echoerr "Buffer " . a:bufname . " doesn't exist"
+      return
+    end
+    let id = 'WatchForChanges'.bufnr(a:bufname)
+    let bufspec = a:bufname
+  end
+  if len(a:000) == 0
+    let options = {}
+  else
+    if type(a:1) == type({})
+      let options = a:1
+    else
+      echoerr "Argument must be a Dict"
+    end
+  end
+  let autoread    = has_key(options, 'autoread')    ? options['autoread']    : 0
+  let toggle      = has_key(options, 'toggle')      ? options['toggle']      : 0
+  let disable     = has_key(options, 'disable')     ? options['disable']     : 0
+  let more_events = has_key(options, 'more_events') ? options['more_events'] : 1
+  let while_in_this_buffer_only = has_key(options, 'while_in_this_buffer_only') ? options['while_in_this_buffer_only'] : 0
+  if while_in_this_buffer_only
+    let event_bufspec = a:bufname
+  else
+    let event_bufspec = '*'
+  end
+  let reg_saved = @"
+  "let autoread_saved = &autoread
+  let msg = "\n"
+  " Check to see if the autocommand already exists
+  redir @"
+    silent! exec 'au '.id
+  redir END
+  let l:defined = (@" !~ 'E216: No such group or event:')
+  " If not yet defined...
+  if !l:defined
+    if l:autoread
+      let msg = msg . 'Autoread enabled - '
+      if a:bufname == '*'
+        set autoread
+      else
+        setlocal autoread
+      end
+    end
+    silent! exec 'augroup '.id
+      if a:bufname != '*'
+        "exec "au BufDelete    ".a:bufname . " :silent! au! ".id . " | silent! augroup! ".id
+        "exec "au BufDelete    ".a:bufname . " :echomsg 'Removing autocommands for ".id."' | au! ".id . " | augroup! ".id
+        exec "au BufDelete    ".a:bufname . " execute 'au! ".id."' | execute 'augroup! ".id."'"
+      end
+        exec "au BufEnter     ".event_bufspec . " :checktime ".bufspec
+        exec "au CursorHold   ".event_bufspec . " :checktime ".bufspec
+        exec "au CursorHoldI  ".event_bufspec . " :checktime ".bufspec
+      " The following events might slow things down so we provide a way to disable them...
+      " vim docs warn:
+      "   Careful: Don't do anything that the user does
+      "   not expect or that is slow.
+      if more_events
+        exec "au CursorMoved  ".event_bufspec . " :checktime ".bufspec
+        exec "au CursorMovedI ".event_bufspec . " :checktime ".bufspec
+      end
+    augroup END
+    let msg = msg . 'Now watching ' . bufspec . ' for external updates...'
+  end
+  " If they want to disable it, or it is defined and they want to toggle it,
+  if l:disable || (l:toggle && l:defined)
+    if l:autoread
+      let msg = msg . 'Autoread disabled - '
+      if a:bufname == '*'
+        set noautoread
+      else
+        setlocal noautoread
+      end
+    end
+    " Using an autogroup allows us to remove it easily with the following
+    " command. If we do not use an autogroup, we cannot remove this
+    " single :checktime command
+    " augroup! checkforupdates
+    silent! exec 'au! '.id
+    silent! exec 'augroup! '.id
+    let msg = msg . 'No longer watching ' . bufspec . ' for external updates.'
+  elseif l:defined
+    let msg = msg . 'Already watching ' . bufspec . ' for external updates'
+  end
+  " echo msg
+  let @"=reg_saved
+endfunction
+
+let autoreadargs={'autoread':1}
+execute WatchForChanges("*",autoreadargs)
 "}}}
