@@ -17,24 +17,32 @@ Plugin 'bling/vim-airline'
 Plugin 'Tpope/vim-commentary'
 Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'digitalToad/vim-jade'
-Plugin 'tpope/vim-markdown'
 Plugin 'Tpope/vim-surround'
 Plugin 'godlygeek/tabular'
 Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdtree'
+Plugin 'mattn/emmet-vim'
 Plugin 'kien/ctrlp.vim'
-Plugin 'ajh17/Spacegray.vim'
+Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'mtth/scratch.vim'
+Plugin 'easymotion/vim-easymotion'
+" New Plugins to study
+Plugin 'ervandew/supertab'
 Plugin 'majutsushi/tagbar'
 Plugin 'Valloric/YouCompleteMe'
-Plugin 'mattn/emmet-vim'
 Plugin 'othree/html5.vim'
-Plugin 'nanotech/jellybeans.vim'
 Plugin 'Townk/vim-autoclose'
-Plugin 'bronson/vim-trailing-whitespace'
-Plugin 'easymotion/vim-easymotion'
+Plugin 'tpope/vim-repeat'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+" Syntax Highlight
+Plugin 'digitalToad/vim-jade'
 Plugin 'mustache/vim-mustache-handlebars'
+Plugin 'tpope/vim-markdown'
+Plugin 'pangloss/vim-javascript'
+" Vim Themes
+Plugin 'nanotech/jellybeans.vim'
+Plugin 'ajh17/Spacegray.vim'
 Plugin '29decibel/codeschool-vim-theme'
 Plugin 'chriskempson/vim-tomorrow-theme'
 " git repos on your local machine (i.e. when working on your own plugin)
@@ -65,7 +73,7 @@ set nowritebackup
 set noswapfile
 
 " Command history
-set history=100
+set history=200
 
 " Always show cursor
 set ruler
@@ -149,6 +157,7 @@ set splitright
 
 " Visual autocomplete for command menu
 set wildmenu
+set wildmode=full
 
 " Ensure vim doesn't beep at you everyt time you make a mistype
 set visualbell
@@ -262,6 +271,20 @@ map <leader>n :NERDTreeToggle<CR>
 " disable markdown-syntax folding
 let g:vim_markdown_folding_disabled=1
 
+" UltiSnips
+
+" make YCM compatible with UltiSnips (using supertab)
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
+
+" better key bindings for UltiSnipsExpandTrigger
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
 
 " }}}
 
@@ -273,6 +296,8 @@ vnoremap / /\v
 nnoremap ? ?\v
 vnoremap ? ?\v
 
+" Double tab 'v' to visual-line mode
+nnoremap vv V
 " Remap Ctrl-W
 nnoremap <leader>w <C-w>
 
@@ -372,6 +397,14 @@ inoremap <leader>r <esc>:reg<CR>
 
 " quick set the filetype to less
 nnoremap <leader>less :setfiletype less<CR>
+
+" Command Mapping
+cnoremap <C-p> <Up>
+cnoremap <C-n> <Down>
+
+" Move cursor up or down in insert mode
+inoremap <C-j> <C-g>j
+inoremap <C-k> <C-g>k
 " }}}
 
 "Autocmd Settings {{{
@@ -452,101 +485,102 @@ endfunction
 nnoremap <F3> :g/^$/d<CR>
 
 " Function to Watch for changes if buffer changed on disk
-function! WatchForChanges(bufname, ...)
-  " Figure out which options are in effect
-  if a:bufname == '*'
-    let id = 'WatchForChanges'.'AnyBuffer'
-    " If you try to do checktime *, you'll get E93: More than one match for * is given
-    let bufspec = ''
-  else
-    if bufnr(a:bufname) == -1
-      echoerr "Buffer " . a:bufname . " doesn't exist"
-      return
-    end
-    let id = 'WatchForChanges'.bufnr(a:bufname)
-    let bufspec = a:bufname
-  end
-  if len(a:000) == 0
-    let options = {}
-  else
-    if type(a:1) == type({})
-      let options = a:1
-    else
-      echoerr "Argument must be a Dict"
-    end
-  end
-  let autoread    = has_key(options, 'autoread')    ? options['autoread']    : 0
-  let toggle      = has_key(options, 'toggle')      ? options['toggle']      : 0
-  let disable     = has_key(options, 'disable')     ? options['disable']     : 0
-  let more_events = has_key(options, 'more_events') ? options['more_events'] : 1
-  let while_in_this_buffer_only = has_key(options, 'while_in_this_buffer_only') ? options['while_in_this_buffer_only'] : 0
-  if while_in_this_buffer_only
-    let event_bufspec = a:bufname
-  else
-    let event_bufspec = '*'
-  end
-  let reg_saved = @"
-  "let autoread_saved = &autoread
-  let msg = "\n"
-  " Check to see if the autocommand already exists
-  redir @"
-    silent! exec 'au '.id
-  redir END
-  let l:defined = (@" !~ 'E216: No such group or event:')
-  " If not yet defined...
-  if !l:defined
-    if l:autoread
-      let msg = msg . 'Autoread enabled - '
-      if a:bufname == '*'
-        set autoread
-      else
-        setlocal autoread
-      end
-    end
-    silent! exec 'augroup '.id
-      if a:bufname != '*'
-        "exec "au BufDelete    ".a:bufname . " :silent! au! ".id . " | silent! augroup! ".id
-        "exec "au BufDelete    ".a:bufname . " :echomsg 'Removing autocommands for ".id."' | au! ".id . " | augroup! ".id
-        exec "au BufDelete    ".a:bufname . " execute 'au! ".id."' | execute 'augroup! ".id."'"
-      end
-        exec "au BufEnter     ".event_bufspec . " :checktime ".bufspec
-        exec "au CursorHold   ".event_bufspec . " :checktime ".bufspec
-        exec "au CursorHoldI  ".event_bufspec . " :checktime ".bufspec
-      " The following events might slow things down so we provide a way to disable them...
-      " vim docs warn:
-      "   Careful: Don't do anything that the user does
-      "   not expect or that is slow.
-      if more_events
-        exec "au CursorMoved  ".event_bufspec . " :checktime ".bufspec
-        exec "au CursorMovedI ".event_bufspec . " :checktime ".bufspec
-      end
-    augroup END
-    let msg = msg . 'Now watching ' . bufspec . ' for external updates...'
-  end
-  " If they want to disable it, or it is defined and they want to toggle it,
-  if l:disable || (l:toggle && l:defined)
-    if l:autoread
-      let msg = msg . 'Autoread disabled - '
-      if a:bufname == '*'
-        set noautoread
-      else
-        setlocal noautoread
-      end
-    end
-    " Using an autogroup allows us to remove it easily with the following
-    " command. If we do not use an autogroup, we cannot remove this
-    " single :checktime command
-    " augroup! checkforupdates
-    silent! exec 'au! '.id
-    silent! exec 'augroup! '.id
-    let msg = msg . 'No longer watching ' . bufspec . ' for external updates.'
-  elseif l:defined
-    let msg = msg . 'Already watching ' . bufspec . ' for external updates'
-  end
-  " echo msg
-  let @"=reg_saved
-endfunction
-
-let autoreadargs={'autoread':1}
-execute WatchForChanges("*",autoreadargs)
+"function! WatchForChanges(bufname, ...)
+  "" Figure out which options are in effect
+  "if a:bufname == '*'
+    "let id = 'WatchForChanges'.'AnyBuffer'
+    "" If you try to do checktime *, you'll get E93: More than one match for * is given
+    "let bufspec = ''
+  "else
+    "if bufnr(a:bufname) == -1
+      "echoerr "Buffer " . a:bufname . " doesn't exist"
+      "return
+    "end
+    "let id = 'WatchForChanges'.bufnr(a:bufname)
+    "let bufspec = a:bufname
+  "end
+  "if len(a:000) == 0
+    "let options = {}
+  "else
+    "if type(a:1) == type({})
+      "let options = a:1
+    "else
+      "echoerr "Argument must be a Dict"
+    "end
+  "end
+  "let autoread    = has_key(options, 'autoread')    ? options['autoread']    : 0
+  "let toggle      = has_key(options, 'toggle')      ? options['toggle']      : 0
+  "let disable     = has_key(options, 'disable')     ? options['disable']     : 0
+  "let more_events = has_key(options, 'more_events') ? options['more_events'] : 1
+  "let while_in_this_buffer_only = has_key(options, 'while_in_this_buffer_only') ? options['while_in_this_buffer_only'] : 0
+  "if while_in_this_buffer_only
+    "let event_bufspec = a:bufname
+  "else
+    "let event_bufspec = '*'
+  "end
+  "let reg_saved = @"
+  ""let autoread_saved = &autoread
+  "let msg = "\n"
+  "" Check to see if the autocommand already exists
+  "redir @"
+    "silent! exec 'au '.id
+  "redir END
+  "let l:defined = (@" !~ 'E216: No such group or event:')
+  "" If not yet defined...
+  "if !l:defined
+    "if l:autoread
+      "let msg = msg . 'Autoread enabled - '
+      "if a:bufname == '*'
+        "set autoread
+      "else
+        "setlocal autoread
+      "end
+    "end
+    "silent! exec 'augroup '.id
+      "if a:bufname != '*'
+        ""exec "au BufDelete    ".a:bufname . " :silent! au! ".id . " | silent! augroup! ".id
+        ""exec "au BufDelete    ".a:bufname . " :echomsg 'Removing autocommands for ".id."' | au! ".id . " | augroup! ".id
+        "exec "au BufDelete    ".a:bufname . " execute 'au! ".id."' | execute 'augroup! ".id."'"
+      "end
+        "exec "au BufEnter     ".event_bufspec . " :checktime ".bufspec
+        "exec "au CursorHold   ".event_bufspec . " :checktime ".bufspec
+        "exec "au CursorHoldI  ".event_bufspec . " :checktime ".bufspec
+      "" The following events might slow things down so we provide a way to disable them...
+      "" vim docs warn:
+      ""   Careful: Don't do anything that the user does
+      ""   not expect or that is slow.
+      "if more_events
+        "exec "au CursorMoved  ".event_bufspec . " :checktime ".bufspec
+        "exec "au CursorMovedI ".event_bufspec . " :checktime ".bufspec
+      "end
+    "augroup END
+    "let msg = msg . 'Now watching ' . bufspec . ' for external updates...'
+  "end
+  "" If they want to disable it, or it is defined and they want to toggle it,
+  "if l:disable || (l:toggle && l:defined)
+    "if l:autoread
+      "let msg = msg . 'Autoread disabled - '
+      "if a:bufname == '*'
+        "set noautoread
+      "else
+        "setlocal noautoread
+      "end
+    "end
+    "" Using an autogroup allows us to remove it easily with the following
+    "" command. If we do not use an autogroup, we cannot remove this
+    "" single :checktime command
+    "" augroup! checkforupdates
+    "silent! exec 'au! '.id
+    "silent! exec 'augroup! '.id
+    "let msg = msg . 'No longer watching ' . bufspec . ' for external updates.'
+  "elseif l:defined
+    "let msg = msg . 'Already watching ' . bufspec . ' for external updates'
+  "end
+  "" echo msg
+  "let @"=reg_saved
+"endfunction
+"
+"let autoreadargs={'autoread':1}
+"execute WatchForChanges("*",autoreadargs)
 "}}}
+
