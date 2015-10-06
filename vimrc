@@ -289,6 +289,9 @@ let g:UltiSnipsEditSplit="vertical"
 " }}}
 
 " Mappings {{{
+" Delete everything is the buffer and enter insert mode
+nnoremap <leader>d gg<S-v><S-g>c
+imap <leader>d <esc>gg<S-v><S-g>c
 
 " Searching
 nnoremap / /\v
@@ -381,8 +384,9 @@ inoremap ja <esc>A
 
 " move up one line and indent
 inoremap kk <esc>ki<Tab>
+
 " Map omni-completion key to Ctrl-Space
-inoremap <leader>d <C-x><C-o>
+inoremap <leader>x <C-x><C-o>
 
 " Copy to system clipboard in visual mode.
 vnoremap <C-c> "*y

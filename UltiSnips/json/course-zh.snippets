@@ -1,0 +1,205 @@
+snippet course-zh
+{
+	"_id": "course",
+	"_type": "course",
+	"title": "${1:title}",
+	"displayTitle": "${2:$1}",
+	"body": "${3:body}",
+	"_buttons": {
+			"_submit": {
+					"buttonText": "提交答案",
+					"ariaLabel": "选择这里提交你的答案"
+			},
+			"_reset": {
+					"buttonText": "再试一次",
+					"ariaLabel": "选择这里重新尝试答题"
+			},
+			"_showCorrectAnswer": {
+					"buttonText": "正确答案",
+					"ariaLabel": "选择这里显示正确答案"
+			},
+			"_hideCorrectAnswer": {
+					"buttonText": "你的答案",
+					"ariaLabel": "选择这里显示你提交的答案"
+			},
+			"_showFeedback": {
+					"buttonText": "反馈信息",
+					"ariaLabel": "选择这里显示反馈信息"
+			},
+			"remainingAttemptsText": "还可以尝试",
+			"remainingAttemptText": "最后一次机会",
+			"disabledAriaLabel": "该按钮目前不可用"
+	},
+	"_globals": {
+		"_components": {
+			"_accordion": {
+				"ariaRegion": "这是一个手风琴式折叠组件。它由几个可展开的文字项目组成。选择一个文字项目的标题可以展开该项目并显示其内容。",
+				"instruction": ""
+			},
+			"_blank": {
+				"ariaRegion": "",
+				"instruction": ""
+			},
+			"_gmcq": {
+				"ariaRegion": "这是一个图片式多项选择题组件。它的答案选项由多个图片组成。用户选择其中的一个或多个图片后，选择下面的提交答案按钮。",
+				"instruction": ""
+			},
+			"_graphic": {
+				"ariaRegion": "",
+				"instruction": ""
+			},
+			"_hotGraphic": {
+				"ariaRegion": "这是一个热点图片组件。用户通过选择图片上的热点打开一个弹窗。弹窗的内容包括图片和文字。关闭弹窗请选择关闭按钮。",
+				"instruction": ""
+			},
+			"_matching": {
+				"ariaRegion": "这是一个下拉菜单选择题组件。用户可以从下拉的菜单选项中选择一个答案，然后选择下面的提交答案按钮。",
+				"instruction": ""
+			},
+			"_mcq": {
+				"ariaRegion": "这是一个多项选择题组件。用户选择完毕后，选择下面的提交答案按钮。",
+				"instruction": ""
+			},
+			"_media": {
+				"ariaRegion": "这个一个多媒体播放组件。它可以播放视频和音频。用户通过选择播放、暂停按钮来控制播放视频或音频，还可以点击下面的按钮来阅读字幕副本。",
+				"instruction": ""
+			},
+			"_narrative": {
+				"ariaRegion": "这是一个图片艺廊组件，它包含一组图片及文字说明。请使用下一个、上一个按钮来查看图片及其文字说明。",
+				"instruction": ""
+			},
+			"_slider": {
+				"ariaRegion": "这是一个滑块问题组件。用户拖动滑块选择一个数值作为答案，然后选择下面的提交答案按钮。",
+				"instruction": ""
+			},
+			"_text": {
+				"ariaRegion": "",
+				"instruction": ""
+			},
+			"_textInput": {
+				"ariaRegion": "这是一个文本输入题组件。用户在提供的文本框中输入答案，然后选择下面的提交答案按钮。",
+				"instruction": ""
+			}
+		},
+		"_extensions": {
+			"_pageLevelProgress": {
+				"pageLevelProgress": "页面内容部分",
+				"pageLevelProgressIndicatorBar": "进度条。选择这里查看当前学习进度，然后在打开的菜单中选择一个项目并跳转到该项目在页面上的位置。已完成。",
+				"pageLevelProgressEnd": "已到达页面内容部分列表底部。",
+				"optionalContent": "可选内容"
+			}
+		},
+		"_menu": {
+			"_boxmenu": {
+							"ariaRegion": "课程菜单",
+							"menuItem": "课程菜单项。",
+							"menuEnd": "已到达菜单底部。"
+						}
+		},
+		"_accessibility": {
+			"_accessibilityToggleTextOn": "是否开启辅助功能？",
+			"_accessibilityToggleTextOff": "是否关闭辅助功能？",
+			"_accessibilityInstructions": {
+				"touch": "触摸屏设备使用说明：向屏幕左侧滑动进入下一项，向屏幕右侧滑动返回前一项。双击屏幕以选择项目，两指向屏幕上方滑动以快速返回到页面顶端。",
+				"notouch": "非触摸屏设备使用说明：使用Tab键进入下一项，使用Shift 和 Tab键返回前一项。使用回车键选择项目。使用Escape键快速返回到页面顶端。",
+				"ipad": "iPad使用说明： 向屏幕左侧滑动进入下一项，向屏幕右侧滑动返回前一项。双击屏幕以选择项目，两指向屏幕上方滑动以快速返回到页面顶端。iPad按键控制使用说明：左箭头进入下一项，右箭头返回前一项。同时按下上下箭头以选择项目。"
+			},
+			"_ariaLabels": {
+				"navigation": "课程导航栏",
+				"menuLoaded": "课程菜单加载完毕。",
+				"menu": "课程菜单",
+				"page": "页面",
+				"pageLoaded": "页面加载完毕。",
+				"pageEnd": "已到达页面底部。",
+				"previous": "前一项",
+				"navigationBack": "返回",
+				"navigationDrawer": "打开课程辅助学习资源。",
+				"close": "关闭",
+				"closeDrawer": "关闭系统抽屉",
+				"closeResources": "关闭课程辅助学习资源",
+				"resourcesEnd": "已到达课程辅助学习资源底部",
+				"drawerBack": "返回系统抽屉",
+				"drawer": "系统抽屉顶部",
+				"closePopup": "关闭弹窗",
+				"next": "下一项",
+				"done": "完成",
+				"complete": "已完成",
+				"incomplete": "未完成",
+				"incorrect": "错误",
+				"correct": "正确",
+				"locked": "锁定",
+				"accessibilityToggleButton": "选择这里决定是否打开或关闭辅助功能。",
+				"feedbackPopUp": "弹窗已打开。",
+				"menuBack": "返回到课程菜单",
+				"visited": "已访问"
+			}
+		}
+	},
+	"_resources": {
+			"title": "辅助学习资源",
+			"description": "点击这里显示该课程相关辅助学习资源",
+			"_filterButtons": {
+					"all": "全部显示",
+					"document": "PDF文件",
+					"media": "多媒体文件",
+					"link": "外部链接"
+			},
+			"_filterAria": {
+					"allAria": "显示所有资料",
+					"documentAria": "显示PDF资料",
+					"mediaAria": "显示多媒体资料",
+					"linkAria": "显示外部链接"
+			},
+			"_resourcesItems": [
+					{
+							"_type": "document",
+							"title": "${4:title}",
+							"description": "${5:description}",
+							"_link": "course/en/pdf/${7:link}.${8:pdf}"
+					},
+					{
+							"_type": "media",
+							"title": "${9:title}",
+							"description": "${10:description}",
+							"_link": "course/en/media/${12:link}.${13:mp4}"
+					},
+					{
+							"_type": "link",
+							"title": "${14:title}",
+							"description": "${15:description}",
+							"_link": "http://$16"
+					}
+			]
+	},
+	"_pageLevelProgress": {
+		"_isEnabled": ${17:true},
+		"_altText": "该页面已完成内容"
+	},
+	"_assessment": {
+			"_postTotalScoreToLms": true,
+			"_isPercentageBased": true,
+			"_scoreToPass": 75,
+			"_requireAssessmentPassed": true
+	},
+	"_bookmarking": {
+			"_isEnabled": ${18:true},
+			"_comment": "_level = page | block | component",
+			"_level": "block",
+			"title": "'继续学习' 或 '重新开始'",
+			"body": "请选择是否从上次停止处继续学习？",
+			"_buttons": {
+					"yes": "继续学习",
+					"no": "重新开始"
+			}
+	},
+	"_trickle": {
+		"_isEnabled": ${19:true},
+		"button": {
+			"_isEnabled": true,
+			"text": "Continue"
+		}
+	}
+}$0
+
+endsnippet
+

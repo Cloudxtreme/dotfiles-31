@@ -1,219 +1,12 @@
-snippet accordion
+# General Snippets: course/contentobjects/article/block
+
+snippet course-en
 {
-	"_id": "${1:componentID}",
-	"_parentId": "${2:blockID}",
-	"_type": "component",
-	"_component": "accordion",
-	"_classes": "",
-	"_layout": "layout",
-	"title": "title",
-	"displayTitle": "title",
-	"body": "body",
-	"instruction": "instruction",
-	"_items": [
-		{
-			"title": "title",
-			"body": "body",
-			"_graphic": {
-				"src": "course/en/images/componentID-1.jpg",
-				"alt": ""
-			}
-		},
-		{
-			"title": "title",
-			"body": "body",
-			"_graphic": {
-				"src": "course/en/images/componentID-2.jpg",
-				"alt": ""
-			}
-		},
-		{
-			"title": "title",
-			"body": "body",
-			"_graphic": {
-				"src": "course/en/images/componentID-3.jpg",
-				"alt": ""
-			}
-		},
-		{
-			"title": "title",
-			"body": "body",
-			"_graphic": {
-				"src": "course/en/images/componentID-4.jpg",
-				"alt": ""
-			}
-		},
-		{
-			"title": "title",
-			"body": "body",
-			"_graphic": {
-				"src": "course/en/images/componentID-5.jpg",
-				"alt": ""
-			}
-		},
-		{
-			"title": "title",
-			"body": "body",
-			"_graphic": {
-				"src": "course/en/images/componentID-6.jpg",
-				"alt": ""
-			}
-		}
-	],
-	"_pageLevelProgress": {
-		"_isEnabled": true
-	}
-}
-endsnippet
-snippet article
-{
-	"_id": "a-${1:05}",
-	"_parentId": "co-$2",
-	"_type": "article",
-	"_classes": "$3",
-	"title": "a-$1",
-	"displayTitle": "${4:displayTitle}",
-	"body": "${5:body}"
-}$0
-endsnippet
-snippet assessmentresults
-{
-	"_id": "componentID",
-	"_parentId": "blockID",
-	"_type": "component",
-	"_component": "assessmentResults",
-	"_classes": "",
-	"_layout": "layout",
-	"_isVisibleBeforeCompletion": false,
-	"_assessmentId": "articleID",
-	"title": "title",
-	"displayTitle": "title",
-	"body": "",
-	"instruction": "instruction",
-	"_retry": {
-		"button": "Retry Assessment",
-		"_comment": "use {{attempts}}, {{attemptsSpent}} and {{attemptsLeft}} to display attempts",
-		"feedback": "feedback"
-	},
-	"_comment": "use {{score}}, {{maxScore}} and {{scoreAsPercent}} to display score and percentage",
-	"_completionBody": "{{{feedback}}}",
-	"_bands": [
-		{
-			"_score": 0,
-			"feedback": "feedback",
-			"_allowRetry": true
-		},
-		{
-			"_score": 25,
-			"feedback": "feedback",
-			"_allowRetry": true
-		},
-		{
-			"_score": 50,
-			"feedback": "feedback",
-			"_allowRetry": true
-		},
-		{
-			"_score": 75,
-			"feedback": "feedback",
-			"_allowRetry": false
-		}
-	],
-	"_pageLevelProgress": {
-		"_isEnabled": true
-	}
-}
-endsnippet
-snippet assessment
-"_assessment": {
-	"_isEnabled": true,
-	"_id": "articleID",
-	"_isPercentageBased": true,
-	"_scoreToPass": 75,
-	"_includeInTotalScore": true,
-	"_assessmentWeight": 1,
-	"_banks": {
-		"_isEnabled": false,
-		"_split": "2,1",
-		"_randomisation": false
-	},
-	"_randomisation": {
-		"_isEnabled": false,
-		"_blockCount": 1
-	},
-	"_questions": {
-		"_resetType": "hard",
-		"_canShowFeedback": true,
-		"_canShowMarking": true
-	},
-	"_isResetOnRevisit": true,
-	"_attempts": "infinite"
-}
-endsnippet
-snippet blank
-{
-	"_id": "componentID",
-	"_parentId": "blockID",
-	"_type": "component",
-	"_component": "blank",
-	"_classes": "",
-	"_layout": "layout",
-	"title": "componentID"
-}
-endsnippet
-snippet block
-{
-	"_id": "b-${1:05}",
-	"_parentId": "a-${2:05}",
-	"_type": "block",
-	"_classes": "$3",
-	"title": "b-$1",
-	"displayTitle": "${4:displayTitle}",
-	"body": "${5:body}"
-}$0
-endsnippet
-snippet bookmarking
-"_bookmarking": {
-	"_isEnabled": true,
-	"_comment": "_level = page | block | component",
-	"_level": "block",
-	"title": "Bookmarking",
-	"body": "Would you like to continue where you left off?",
-	"_buttons": {
-		"yes": "Yes",
-		"no": "No"
-	}
-}
-endsnippet
-snippet contentobject
-{
-	"_id": "contentObjectID",
-	"_parentId": "parentID",
-	"_type": "type",
-	"_classes": "",
-	"title": "title",
-	"displayTitle": "title",
-	"body": "body",
-	"pageBody": "pageBody",
-	"_graphic": {
-		"src": "course/en/images/contentObjectID.jpg",
-		"alt": ""
-	},
-	"linkText": "View",
-	"durationLabel": "Duration:",
-	"duration": "xx mins",
-	"_pageLevelProgress": {
-		"_isEnabled": true
-	}
-}
-endsnippet
-snippet course
-{
-	"_id": "courseID",
+	"_id": "course",
 	"_type": "course",
-	"title": "title",
-	"displayTitle": "title",
-	"body": "body",
+	"title": "${1:title}",
+	"displayTitle": "${2:$1}",
+	"body": "${3:body}",
 	"_buttons": {
 		"_submit": {
 			"buttonText": "Submit",
@@ -345,8 +138,208 @@ snippet course
 		}
 	},
 	"_pageLevelProgress": {
-		"_isEnabled": true,
+		"_isEnabled": ${4:true},
 		"_altText": "of components completed on this page."
+	}
+}$0
+endsnippet
+
+snippet contentobject
+{
+	"_id": "co-${1:05}",
+	"_parentId": "course",
+	"_type": "type",
+	"_classes": "",
+	"title": "${3:title}",
+	"displayTitle": "${4:$3}",
+	"body": "${5:body}",
+	"pageBody": "${6:pageBody}",
+	"_graphic": {
+		"src": "course/en/images/co-$1.${7:jpg}}",
+		"alt": "${8:$3}"
+	},
+	"linkText": "${9:开始}",
+	"durationLabel": "${10:~}",
+	"duration": "${11:10}分钟",
+	"_pageLevelProgress": {
+		"_isEnabled": ${12:true}
+	}
+}$0
+endsnippet
+
+snippet article
+{
+	"_id": "a-${1:05}",
+	"_parentId": "co-${2:05}",
+	"_type": "article",
+	"_classes": "",
+	"title": "${3:a-$1}",
+	"displayTitle": "${4:$3}",
+	"body": "$5"
+}$0
+endsnippet
+
+snippet block
+{
+	"_id": "b-${1:05}",
+	"_parentId": "a-${2:$1}",
+	"_type": "block",
+	"_classes": "",
+	"title": "${3:b-$1}",
+	"displayTitle": "${4:$3}",
+	"body": "${5:body}"
+}$0
+endsnippet
+
+# Presentation Components
+snippet accordion
+{
+	"_id": "c-${1:05}",
+	"_parentId": "b-${2:$1}",
+	"_type": "component",
+	"_component": "accordion",
+	"_classes": "",
+	"_layout": "${3:full}",
+	"title": "${4:title}",
+	"displayTitle": "${5:$4}",
+	"body": "${6:body}",
+	"instruction": "${7:instruction}",
+	"_items": [
+		{
+			"title": "${8:title}",
+			"body": "${9:body}",
+			"_graphic": {
+				"src": "course/en/images/c-$1.jpg",
+				"alt": "$8"
+			}
+		},
+		{
+			"title": "${10:title}",
+			"body": "${11:body}",
+			"_graphic": {
+				"src": "course/en/images/c-$1-2.jpg",
+				"alt": "$10"
+			}
+		},
+		{
+			"title": "${12:title}",
+			"body": "${13:body}",
+			"_graphic": {
+				"src": "course/en/images/c-$1-3.jpg",
+				"alt": "$12"
+			}
+		},
+		{
+			"title": "${14:title}",
+			"body": "${15:body}",
+			"_graphic": {
+				"src": "course/en/images/c-$1-4.jpg",
+				"alt": "$14"
+			}
+		}
+	],
+	"_pageLevelProgress": {
+		"_isEnabled": ${15:true}
+	}
+}$0
+endsnippet
+
+snippet blank
+{
+	"_id": "c-${1:05}",
+	"_parentId": "b-${2:$1}",
+	"_type": "component",
+	"_component": "blank",
+	"_classes": "",
+	"_layout": "${3:full}",
+	"title": "c-$1"
+}$0
+endsnippet
+
+snippet assessmentresults
+{
+	"_id": "componentID",
+	"_parentId": "blockID",
+	"_type": "component",
+	"_component": "assessmentResults",
+	"_classes": "",
+	"_layout": "layout",
+	"_isVisibleBeforeCompletion": false,
+	"_assessmentId": "articleID",
+	"title": "title",
+	"displayTitle": "title",
+	"body": "",
+	"instruction": "instruction",
+	"_retry": {
+		"button": "Retry Assessment",
+		"_comment": "use {{attempts}}, {{attemptsSpent}} and {{attemptsLeft}} to display attempts",
+		"feedback": "feedback"
+	},
+	"_comment": "use {{score}}, {{maxScore}} and {{scoreAsPercent}} to display score and percentage",
+	"_completionBody": "{{{feedback}}}",
+	"_bands": [
+		{
+			"_score": 0,
+			"feedback": "feedback",
+			"_allowRetry": true
+		},
+		{
+			"_score": 25,
+			"feedback": "feedback",
+			"_allowRetry": true
+		},
+		{
+			"_score": 50,
+			"feedback": "feedback",
+			"_allowRetry": true
+		},
+		{
+			"_score": 75,
+			"feedback": "feedback",
+			"_allowRetry": false
+		}
+	],
+	"_pageLevelProgress": {
+		"_isEnabled": true
+	}
+}
+endsnippet
+snippet assessment
+"_assessment": {
+	"_isEnabled": true,
+	"_id": "articleID",
+	"_isPercentageBased": true,
+	"_scoreToPass": 75,
+	"_includeInTotalScore": true,
+	"_assessmentWeight": 1,
+	"_banks": {
+		"_isEnabled": false,
+		"_split": "2,1",
+		"_randomisation": false
+	},
+	"_randomisation": {
+		"_isEnabled": false,
+		"_blockCount": 1
+	},
+	"_questions": {
+		"_resetType": "hard",
+		"_canShowFeedback": true,
+		"_canShowMarking": true
+	},
+	"_isResetOnRevisit": true,
+	"_attempts": "infinite"
+}
+endsnippet
+snippet bookmarking
+"_bookmarking": {
+	"_isEnabled": true,
+	"_comment": "_level = page | block | component",
+	"_level": "block",
+	"title": "Bookmarking",
+	"body": "Would you like to continue where you left off?",
+	"_buttons": {
+		"yes": "Yes",
+		"no": "No"
 	}
 }
 endsnippet
