@@ -253,80 +253,92 @@ endsnippet
 
 snippet narrative
 {
-	"_id": "componentID",
-	"_parentId": "blockID",
+	"_id": "c-${1:05}",
+	"_parentId": "b-${2:$1}",
 	"_type": "component",
 	"_component": "narrative",
 	"_classes": "",
-	"_layout": "layout",
+	"_layout": "${3:full}",
 	"_comment": "setCompletionOn = inview | allItems",
 	"_setCompletionOn": "allItems",
 	"_hasNavigationInTextArea": false,
-	"title": "title",
-	"displayTitle": "title",
-	"body": "body",
-	"instruction": "instruction",
+	"title": "${4:title}",
+	"displayTitle": "${5:$4}",
+	"body": "${6:body}",
+	"instruction": "${7:instruction}",
 	"mobileInstruction": "",
 	"_items": [
 		{
-			"title": "title",
-			"body": "body",
+			"title": "$8",
+			"body": "$9",
 			"_graphic": {
-				"src": "course/en/images/componentID-1.jpg",
-				"alt": ""
+				"src": "course/en/images/c-$1-1.${10:jpg}",
+				"alt": "${11:$8}"
 			},
-			"strapline": "title"
+			"strapline": "${12:$8}"
 		},
 		{
-			"title": "title",
-			"body": "body",
+			"title": "$13",
+			"body": "$14",
 			"_graphic": {
-				"src": "course/en/images/componentID-2.jpg",
-				"alt": ""
+				"src": "course/en/images/c-$1-2.${15:jpg}",
+				"alt": "${16:$13}"
 			},
-			"strapline": "title"
+			"strapline": "${17:$13}"
 		},
 		{
-			"title": "title",
-			"body": "body",
+			"title": "$18",
+			"body": "$19",
 			"_graphic": {
-				"src": "course/en/images/componentID-3.jpg",
-				"alt": ""
+				"src": "course/en/images/c-$1-3.${20:jpg}",
+				"alt": "${21:$18}"
 			},
-			"strapline": "title"
+			"strapline": "${22:$18}"
 		},
 		{
-			"title": "title",
-			"body": "body",
+			"title": "$23",
+			"body": "$24",
 			"_graphic": {
-				"src": "course/en/images/componentID-4.jpg",
-				"alt": ""
+				"src": "course/en/images/c-$1-4.${25:jpg}",
+				"alt": "${26:$23}"
 			},
-			"strapline": "title"
+			"strapline": "${27:$23}"
 		},
 		{
-			"title": "title",
-			"body": "body",
+			"title": "$28",
+			"body": "$29",
 			"_graphic": {
-				"src": "course/en/images/componentID-5.jpg",
-				"alt": ""
+				"src": "course/en/images/c-$1-5.${30:jpg}",
+				"alt": "${31:$28}"
 			},
-			"strapline": "title"
+			"strapline": "${32:$28}"
 		},
 		{
-			"title": "title",
-			"body": "body",
+			"title": "$33",
+			"body": "$34",
 			"_graphic": {
-				"src": "course/en/images/componentID-6.jpg",
-				"alt": ""
+				"src": "course/en/images/c-$1-6.${35:jpg}",
+				"alt": "${36:$33}"
 			},
-			"strapline": "title"
+			"strapline": "${37:$33}"
 		}
 	],
 	"_pageLevelProgress": {
 		"_isEnabled": true
 	}
 }
+endsnippet
+
+snippet narrative-item "a single narrative item" b
+{
+	"title": "$1",
+	"body": "$2",
+	"_graphic": {
+		"src": "course/en/images/c-$3-${4:4}.${5:jpg}",
+		"alt": "${7:$1}"
+	},
+	"strapline": "${8:$1}"
+}$0
 endsnippet
 
 snippet slider
