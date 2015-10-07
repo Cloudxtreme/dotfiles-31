@@ -1,124 +1,138 @@
 # Question Components
 snippet assessmentresults
 {
-	"_id": "componentID",
-	"_parentId": "blockID",
+	"_id": "c-${1:05}",
+	"_parentId": "b-${2:$1}",
 	"_type": "component",
 	"_component": "assessmentResults",
 	"_classes": "",
-	"_layout": "layout",
+	"_layout": "${3:full}",
 	"_isVisibleBeforeCompletion": false,
-	"_assessmentId": "articleID",
-	"title": "title",
-	"displayTitle": "title",
-	"body": "",
-	"instruction": "instruction",
+	"_assessmentId": "a-$4",
+	"title": "${5:title}",
+	"displayTitle": "${6:$5}",
+	"body": "${7:body}",
+	"instruction": "${8:instruction}",
 	"_retry": {
-		"button": "Retry Assessment",
+		"button": "${9:Retry Assessment}",
 		"_comment": "use {{attempts}}, {{attemptsSpent}} and {{attemptsLeft}} to display attempts",
-		"feedback": "feedback"
+		"feedback": "${10:feedback}"
 	},
 	"_comment": "use {{score}}, {{maxScore}} and {{scoreAsPercent}} to display score and percentage",
 	"_completionBody": "{{{feedback}}}",
 	"_bands": [
 		{
-			"_score": 0,
-			"feedback": "feedback",
-			"_allowRetry": true
+			"_score": $11,
+			"feedback": "${12:feedback}",
+			"_allowRetry": ${13:true}
 		},
 		{
-			"_score": 25,
-			"feedback": "feedback",
-			"_allowRetry": true
+			"_score": $14,
+			"feedback": "${15:feedback}",
+			"_allowRetry": ${16:true}
 		},
 		{
-			"_score": 50,
-			"feedback": "feedback",
-			"_allowRetry": true
+			"_score": $17,
+			"feedback": "${18:feedback}",
+			"_allowRetry": ${19:true}
 		},
 		{
-			"_score": 75,
-			"feedback": "feedback",
-			"_allowRetry": false
+			"_score": $20,
+			"feedback": "${21:feedback}",
+			"_allowRetry": ${22:true}
 		}
 	],
 	"_pageLevelProgress": {
-		"_isEnabled": true
+		"_isEnabled": ${23:true}
 	}
-}
+}$0
 endsnippet
+
 snippet gmcq
 {
-	"_id": "componentID",
-	"_parentId": "blockID",
+	"_id": "c-${1:05}",
+	"_parentId": "b-${2:$1}",
 	"_type": "component",
 	"_component": "gmcq",
 	"_classes": "",
-	"_layout": "layout",
-	"_attempts": 2,
+	"_layout": "${3:full}",
+	"_attempts": ${4:2},
 	"_questionWeight": 1,
-	"_canShowModelAnswer": true,
-	"_shouldDisplayAttempts": false,
-	"_isRandom": true,
-	"_selectable": 4,
-	"title": "title",
-	"displayTitle": "title",
-	"body": "body",
-	"instruction": "instruction",
+	"_canShowModelAnswer": ${5:true},
+	"_shouldDisplayAttempts": ${6:false},
+	"_isRandom": ${7:true},
+	"_selectable": ${8:4},
+	"title": "${9:title}",
+	"displayTitle": "${10:$9}",
+	"body": "${11:body}",
+	"instruction": "${12:instruction}",
 	"_items": [
 		{
-			"text": "text",
-			"_shouldBeSelected": false,
+			"text": "${13:text}",
+			"_shouldBeSelected": ${14:false},
 			"_graphic": {
-				"large": "course/en/images/componentID-1.jpg",
-				"small": "course/en/images/componentID-1.jpg",
-				"alt": ""
+				"large": "course/en/images/c-$1-1.${15:jpg}",
+				"small": "course/en/images/c-$1-1${16:-sm}.$15",
+				"alt": "${17:$13}"
 			}
 		},
 		{
-			"text": "text",
-			"_shouldBeSelected": false,
+			"text": "${18:text}",
+			"_shouldBeSelected": ${19:false},
 			"_graphic": {
-				"large": "course/en/images/componentID-2.jpg",
-				"small": "course/en/images/componentID-2.jpg",
-				"alt": ""
+				"large": "course/en/images/c-$1-2.$15}",
+				"small": "course/en/images/c-$1-2${20:-sm}.$15",
+				"alt": "${21:$18}"
 			}
 		},
 		{
-			"text": "text",
-			"_shouldBeSelected": false,
+			"text": "${22:text}",
+			"_shouldBeSelected": ${23:false},
 			"_graphic": {
-				"large": "course/en/images/componentID-3.jpg",
-				"small": "course/en/images/componentID-3.jpg",
-				"alt": ""
+				"large": "course/en/images/c-$1-3.$15}",
+				"small": "course/en/images/c-$1-3${24:-sm}.$15",
+				"alt": "${25:$22}"
 			}
 		},
 		{
-			"text": "text",
-			"_shouldBeSelected": false,
+			"text": "${26:text}",
+			"_shouldBeSelected": ${27:false},
 			"_graphic": {
-				"large": "course/en/images/componentID-4.jpg",
-				"small": "course/en/images/componentID-4.jpg",
-				"alt": ""
+				"large": "course/en/images/c-$1-4.$15}",
+				"small": "course/en/images/c-$1-4${28:-sm}.$15",
+				"alt": "${29:$26}"
 			}
 		}
 	],
 	"_feedback": {
-		"correct": "correct",
+		"correct": "${30:correct}",
 		"_partlyCorrect": {
-			"notFinal": "notFinal",
-			"final": "final"
+			"notFinal": "${31:notFinal}",
+			"final": "${32:final}"
 		},
 		"_incorrect": {
-			"notFinal": "notFinal",
-			"final": "final"
+			"notFinal": "${33:notFinal}",
+			"final": "${34:final}"
 		}
 	},
 	"_pageLevelProgress": {
-		"_isEnabled": true
+		"_isEnabled": ${35:true}
 	}
-}
+}$0
 endsnippet
+
+snippet gmcq-item "single option of gmcq component" b
+{
+	"text": "${1:text}",
+	"_shouldBeSelected": ${2:false},
+	"_graphic": {
+		"large": "course/en/images/c-${3:05}-${4}.${5:jpg}",
+		"small": "course/en/images/c-$1-$4${6:-sm}.$5",
+		"alt": "${7:$1}"
+	}
+}$0
+endsnippet
+
 snippet mcqindividual
 {
 	"_id": "componentID",
@@ -541,3 +555,4 @@ snippet slider
 	}
 }$0
 endsnippet
+# vim:ft=snippets:
