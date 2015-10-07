@@ -132,324 +132,174 @@ snippet gmcq-item "single option of gmcq component" b
 	}
 }$0
 endsnippet
+snippet mcq
+{
+	"_id": "c-${1:05}",
+	"_parentId": "b-${2:$1}",
+	"_type": "component",
+	"_component": "mcq",
+	"_classes": "",
+	"_layout": "${3:full}",
+	"_attempts": ${4:2},
+	"_questionWeight": 1,
+	"_canShowModelAnswer": ${5:true},
+	"_shouldDisplayAttempts": ${6:false},
+	"_isRandom": ${7:true},
+	"_selectable": ${8:4},
+	"title": "${9:title}",
+	"displayTitle": "${10:$9}",
+	"body": "${11:body}",
+	"instruction": "${12:instruction}",
+	"_items": [
+		{
+			"text": "${13:text}",
+			"_shouldBeSelected": ${14:false}
+		},
+		{
+			"text": "${15:text}",
+			"_shouldBeSelected": ${16:false}
+		},
+		{
+			"text": "${17:text}",
+			"_shouldBeSelected": ${18:false}
+		},
+		{
+			"text": "${19:text}",
+			"_shouldBeSelected": ${20:false}
+		}
+	],
+	"_feedback": {
+		"correct": "${21:correct}",
+		"_partlyCorrect": {
+			"notFinal": "${22:notFinal}",
+			"final": "${23:final}"
+		},
+		"_incorrect": {
+			"notFinal": "${24:notFinal}",
+			"final": "${25:final}"
+		}
+	},
+	"_pageLevelProgress": {
+		"_isEnabled": ${26:true}
+	}
+}$0
+endsnippet
 
-snippet mcqindividual
+snippet mcq-item "single option of mcq components" b
 {
-	"_id": "componentID",
-	"_parentId": "blockID",
-	"_type": "component",
-	"_component": "mcq",
-	"_classes": "",
-	"_layout": "layout",
-	"_attempts": 1,
-	"_questionWeight": 1,
-	"_canShowModelAnswer": true,
-	"_shouldDisplayAttempts": false,
-	"_isRandom": true,
-	"_selectable": 1,
-	"title": "title",
-	"displayTitle": "title",
-	"body": "body",
-	"instruction": "instruction",
-	"_items": [
-		{
-			"text": "text",
-			"_shouldBeSelected": true
-		},
-		{
-			"text": "text",
-			"_shouldBeSelected": false,
-			"feedback": "feedback"
-		},
-		{
-			"text": "text",
-			"_shouldBeSelected": false,
-			"feedback": "feedback"
-		},
-		{
-			"text": "text",
-			"_shouldBeSelected": false,
-			"feedback": "feedback"
-		},
-		{
-			"text": "text",
-			"_shouldBeSelected": false,
-			"feedback": "feedback"
-		},
-		{
-			"text": "text",
-			"_shouldBeSelected": false,
-			"feedback": "feedback"
-		}
-	],
-	"_feedback": {
-		"correct": "correct"
-	},
-	"_pageLevelProgress": {
-		"_isEnabled": true
-	}
-}
+	"text": "${1:text}",
+	"_shouldBeSelected": ${2:false}
+}$0
 endsnippet
-snippet mcqmultiple2
-{
-	"_id": "componentID",
-	"_parentId": "blockID",
-	"_type": "component",
-	"_component": "mcq",
-	"_classes": "",
-	"_layout": "layout",
-	"_attempts": 2,
-	"_questionWeight": 1,
-	"_canShowModelAnswer": true,
-	"_shouldDisplayAttempts": false,
-	"_isRandom": true,
-	"_selectable": 6,
-	"title": "title",
-	"displayTitle": "title",
-	"body": "body",
-	"instruction": "instruction",
-	"_items": [
-		{
-			"text": "text",
-			"_shouldBeSelected": false
-		},
-		{
-			"text": "text",
-			"_shouldBeSelected": false
-		},
-		{
-			"text": "text",
-			"_shouldBeSelected": false
-		},
-		{
-			"text": "text",
-			"_shouldBeSelected": false
-		},
-		{
-			"text": "text",
-			"_shouldBeSelected": false
-		},
-		{
-			"text": "text",
-			"_shouldBeSelected": false
-		}
-	],
-	"_feedback": {
-		"correct": "correct",
-		"_partlyCorrect": {
-			"notFinal": "notFinal",
-			"final": "final"
-		},
-		"_incorrect": {
-			"notFinal": "notFinal",
-			"final": "final"
-		}
-	},
-	"_pageLevelProgress": {
-		"_isEnabled": true
-	}
-}
-endsnippet
-snippet mcqmultiple
-{
-	"_id": "componentID",
-	"_parentId": "blockID",
-	"_type": "component",
-	"_component": "mcq",
-	"_classes": "",
-	"_layout": "layout",
-	"_attempts": 1,
-	"_questionWeight": 1,
-	"_canShowModelAnswer": true,
-	"_shouldDisplayAttempts": false,
-	"_isRandom": true,
-	"_selectable": 6,
-	"title": "title",
-	"displayTitle": "title",
-	"body": "body",
-	"instruction": "instruction",
-	"_items": [
-		{
-			"text": "text",
-			"_shouldBeSelected": false
-		},
-		{
-			"text": "text",
-			"_shouldBeSelected": false
-		},
-		{
-			"text": "text",
-			"_shouldBeSelected": false
-		},
-		{
-			"text": "text",
-			"_shouldBeSelected": false
-		},
-		{
-			"text": "text",
-			"_shouldBeSelected": false
-		},
-		{
-			"text": "text",
-			"_shouldBeSelected": false
-		}
-	],
-	"_feedback": {
-		"correct": "correct",
-		"_partlyCorrect": {
-			"final": "final"
-		},
-		"_incorrect": {
-			"final": "final"
-		}
-	},
-	"_pageLevelProgress": {
-		"_isEnabled": true
-	}
-}
-endsnippet
-snippet mcqsingle
-{
-	"_id": "componentID",
-	"_parentId": "blockID",
-	"_type": "component",
-	"_component": "mcq",
-	"_classes": "",
-	"_layout": "layout",
-	"_attempts": 1,
-	"_questionWeight": 1,
-	"_canShowModelAnswer": true,
-	"_shouldDisplayAttempts": false,
-	"_isRandom": true,
-	"_selectable": 1,
-	"title": "title",
-	"displayTitle": "title",
-	"body": "body",
-	"instruction": "instruction",
-	"_items": [
-		{
-			"text": "text",
-			"_shouldBeSelected": false
-		},
-		{
-			"text": "text",
-			"_shouldBeSelected": false
-		},
-		{
-			"text": "text",
-			"_shouldBeSelected": false
-		},
-		{
-			"text": "text",
-			"_shouldBeSelected": false
-		},
-		{
-			"text": "text",
-			"_shouldBeSelected": false
-		},
-		{
-			"text": "text",
-			"_shouldBeSelected": false
-		}
-	],
-	"_feedback": {
-		"correct": "correct",
-		"_incorrect": {
-			"final": "final"
-		}
-	},
-	"_pageLevelProgress": {
-		"_isEnabled": true
-	}
-}
-endsnippet
+
 snippet matching
 {
-	"_id": "componentID",
-	"_parentId": "blockID",
+	"_id": "c-${1:05}",
+	"_parentId": "b-${2:$1}",
 	"_type": "component",
 	"_component": "matching",
 	"_classes": "",
-	"_layout": "layout",
-	"_attempts": 2,
+	"_layout": "${3:full}",
+	"_attempts": ${4:2},
 	"_questionWeight": 1,
-	"_canShowModelAnswer": true,
-	"_shouldDisplayAttempts": false,
-	"_isRandom": true,
-	"title": "title",
-	"displayTitle": "title",
-	"body": "body",
-	"instruction": "instruction",
-	"placeholder": "Select an option",
+	"_canShowModelAnswer": ${5:true},
+	"_shouldDisplayAttempts": ${6:false},
+	"_isRandom": ${7:true},
+	"title": "${8:title}",
+	"displayTitle": "${9:$8}",
+	"body": "${10:body}",
+	"instruction": "${11:instruction}",
+	"placeholder": "${12: 请选择 }",
 	"_items": [
 		{
-			"text": "text",
+			"text": "${13:question text}",
 			"_options": [
 				{
-					"text": "text",
-					"_isCorrect": false
+					"text": "${14:text}",
+					"_isCorrect": ${15:false}
 				},
 				{
-					"text": "text",
-					"_isCorrect": false
+					"text": "${16:text}",
+					"_isCorrect": ${17:false}
 				},
 				{
-					"text": "text",
-					"_isCorrect": false
+					"text": "${18:text}",
+					"_isCorrect": ${19:false}
 				}
 			]
 		},
 		{
-			"text": "text",
+			"text": "${20:text}",
 			"_options": [
 				{
-					"text": "text",
-					"_isCorrect": false
+					"text": "${21:text}",
+					"_isCorrect": ${22:false}
 				},
 				{
-					"text": "text",
-					"_isCorrect": false
+					"text": "${23:text}",
+					"_isCorrect": ${24:false}
 				},
 				{
-					"text": "text",
-					"_isCorrect": false
+					"text": "${25:text}",
+					"_isCorrect": ${26:false}
 				}
 			]
 		},
 		{
-			"text": "text",
+			"text": "${27:text}",
 			"_options": [
 				{
-					"text": "text",
-					"_isCorrect": false
+					"text": "${28:text}",
+					"_isCorrect": ${29:false}
 				},
 				{
-					"text": "text",
-					"_isCorrect": false
+					"text": "${30:text}",
+					"_isCorrect": ${31:false}
 				},
-				{
-					"text": "text",
-					"_isCorrect": false
+					{
+					"text": "${32:text}",
+					"_isCorrect": ${33:false}
 				}
 			]
 		}
 	],
 	"_feedback": {
-		"correct": "correct",
+		"correct": "${34:correct}",
 		"_partlyCorrect": {
-			"notFinal": "notFinal",
-			"final": "final"
+			"notFinal": "${35:notFinal}",
+			"final": "${36:final}"
 		},
 		"_incorrect": {
-			"notFinal": "notFinal",
-			"final": "final"
+			"notFinal": "${37:notFinal}",
+			"final": "${38:final}"
 		}
 	},
 	"_pageLevelProgress": {
-		"_isEnabled": true
+		"_isEnabled": ${39:true}
 	}
+}$0
+endsnippet
+
+snippet matching-item "single option of matching component" b
+{
+	"text": "${1:text}",
+	"_options": [
+		{
+			"text": "${2:text}",
+			"_isCorrect": ${3:false}
+		},
+		{
+			"text": "${4:text}",
+			"_isCorrect": ${5:false}
+		},
+			{
+			"text": "${6:text}",
+			"_isCorrect": ${7:false}
+		}
+	]
 }
 endsnippet
+
 snippet textinput
 {
 	"_id": "componentID",
