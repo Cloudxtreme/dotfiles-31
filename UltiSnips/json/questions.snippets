@@ -1,4 +1,11 @@
-# Question Components
+#######################################################################
+#                         Question Component                          #
+#######################################################################
+
+########################
+#  Assessment Results  #
+########################
+
 snippet assessmentresults
 {
 	"_id": "c-${1:05}",
@@ -48,6 +55,9 @@ snippet assessmentresults
 }$0
 endsnippet
 
+#########
+#  GMCQ  #
+#########
 snippet gmcq
 {
 	"_id": "c-${1:05}",
@@ -121,6 +131,10 @@ snippet gmcq
 }$0
 endsnippet
 
+##################
+#  GMCQ Options  #
+##################
+
 snippet gmcq-item "single option of gmcq component" b
 {
 	"text": "${1:text}",
@@ -132,6 +146,11 @@ snippet gmcq-item "single option of gmcq component" b
 	}
 }$0
 endsnippet
+
+#########
+#  MCQ  #
+#########
+
 snippet mcq
 {
 	"_id": "c-${1:05}",
@@ -185,12 +204,20 @@ snippet mcq
 }$0
 endsnippet
 
+################
+#  MCQ Option  #
+###############
+
 snippet mcq-item "single option of mcq components" b
 {
 	"text": "${1:text}",
 	"_shouldBeSelected": ${2:false}
 }$0
 endsnippet
+
+##############
+#  Matching  #
+##############
 
 snippet matching
 {
@@ -280,6 +307,10 @@ snippet matching
 }$0
 endsnippet
 
+#####################
+#  Matching Option  #
+#####################
+
 snippet matching-item "single option of matching component" b
 {
 	"text": "${1:text}",
@@ -300,71 +331,95 @@ snippet matching-item "single option of matching component" b
 }
 endsnippet
 
+###############
+#  Textinput  #
+###############
+
 snippet textinput
 {
-	"_id": "componentID",
-	"_parentId": "blockID",
+	"_id": "c-${1:05}",
+	"_parentId": "b-${2:$1}",
 	"_type": "component",
 	"_component": "textinput",
 	"_classes": "",
-	"_layout": "layout",
-	"_attempts": 2,
+	"_layout": "${3:full}",
+	"_attempts": ${4:2},
 	"_questionWeight": 1,
-	"_canShowModelAnswer": true,
-	"_shouldDisplayAttempts": false,
-	"_isRandom": true,
-	"_allowsAnyCase": true,
-	"_allowsPunctuation": true,
-	"title": "title",
-	"displayTitle": "displayTitle",
-	"body": "body",
-	"instruction": "instruction",
+	"_canShowModelAnswer": ${5:true},
+	"_shouldDisplayAttempts": ${6:false},
+	"_isRandom": ${7:true},
+	"_allowsAnyCase": ${8:true},
+	"_allowsPunctuation": ${9:true},
+	"title": "${10:title}",
+	"displayTitle": "${11:$10}",
+	"body": "${12:body}",
+	"instruction": "${13:instruction}",
 	"_answers": [],
 	"_items": [
 		{
-			"prefix": "prefix",
-			"placeholder": "Enter answer here",
+			"prefix": "${14:prefix}",
+			"placeholder": "请在此处输入你的答案",
 			"_answers": [
-				"answer",
-				"answer"
+				"${15:answer-01}",
+				"${16:answer-02}"
 			],
-			"suffix": "suffix"
+			"suffix": "${17:suffix}"
 		},
 		{
-			"prefix": "prefix",
-			"placeholder": "Enter answer here",
+			"prefix": "${18:prefix}",
+			"placeholder": "请在此处输入你的答案",
 			"_answers": [
-				"answer",
-				"answer"
+				"${19:answer-01}",
+				"${20:answer-02}"
 			],
-			"suffix": "suffix"
+			"suffix": "${21:suffix}"
 		},
 		{
-			"prefix": "prefix",
-			"placeholder": "Enter answer here",
+			"prefix": "${22:prefix}",
+			"placeholder": "请在此处输入你的答案",
 			"_answers": [
-				"answer",
-				"answer"
+				"${23:answer-01}",
+				"${24:answer-02}"
 			],
-			"suffix": "suffix"
+			"suffix": "${25:suffix}"
 		}
 	],
 	"_feedback": {
-		"correct": "correct",
+		"correct": "${26:correct}",
 		"_partlyCorrect": {
-			"notFinal": "notFinal",
-			"final": "final"
+			"notFinal": "${27:notFinal}",
+			"final": "${28:final}"
 		},
 		"_incorrect": {
-			"notFinal": "notFinal",
-			"final": "final"
+			"notFinal": "${29:notFinal}",
+			"final": "${30:final}"
 		}
 	},
 	"_pageLevelProgress": {
-		"_isEnabled": true
+		"_isEnabled": ${31:true}
 	}
-}
+}$0
 endsnippet
+
+######################
+#  TextInput Option  #
+######################
+
+snippet TextInput-item "single item of textinput" b
+{
+	"prefix": "${1:prefix}",
+	"placeholder": "请在此处输入你的答案",
+	"_answers": [
+		"${2:answer-01}",
+		"${3:answer-02}"
+	],
+	"suffix": "${4:suffix}"
+}$0
+endsnippet
+
+############
+#  Slider  #
+############
 
 snippet slider
 {
