@@ -140,8 +140,8 @@ snippet course-en
 	"_pageLevelProgress": {
 		"_isEnabled": ${4:true},
 		"_altText": "of components completed on this page."
-	}
-}$0
+	}$0
+}
 endsnippet
 
 snippet contentobject
@@ -328,71 +328,11 @@ snippet course-zh
 			}
 		}
 	},
-	"_resources": {
-			"title": "辅助学习资源",
-			"description": "点击这里显示该课程相关辅助学习资源",
-			"_filterButtons": {
-					"all": "全部显示",
-					"document": "PDF文件",
-					"media": "多媒体文件",
-					"link": "外部链接"
-			},
-			"_filterAria": {
-					"allAria": "显示所有资料",
-					"documentAria": "显示PDF资料",
-					"mediaAria": "显示多媒体资料",
-					"linkAria": "显示外部链接"
-			},
-			"_resourcesItems": [
-					{
-							"_type": "document",
-							"title": "${4:title}",
-							"description": "${5:description}",
-							"_link": "course/en/pdf/${7:link}.${8:pdf}"
-					},
-					{
-							"_type": "media",
-							"title": "${9:title}",
-							"description": "${10:description}",
-							"_link": "course/en/media/${12:link}.${13:mp4}"
-					},
-					{
-							"_type": "link",
-							"title": "${14:title}",
-							"description": "${15:description}",
-							"_link": "http://$16"
-					}
-			]
-	},
 	"_pageLevelProgress": {
 		"_isEnabled": ${17:true},
 		"_altText": "该页面已完成内容"
-	},
-	"_assessment": {
-			"_postTotalScoreToLms": true,
-			"_isPercentageBased": true,
-			"_scoreToPass": 75,
-			"_requireAssessmentPassed": true
-	},
-	"_bookmarking": {
-			"_isEnabled": ${18:true},
-			"_comment": "_level = page | block | component",
-			"_level": "block",
-			"title": "'继续学习' 或 '重新开始'",
-			"body": "请选择是否从上次停止处继续学习？",
-			"_buttons": {
-					"yes": "继续学习",
-					"no": "重新开始"
-			}
-	},
-	"_trickle": {
-		"_isEnabled": ${19:true},
-		"button": {
-			"_isEnabled": true,
-			"text": "Continue"
-		}
-	}
-}$0
+	}$0
+}
 
 endsnippet
 # vim:ft=snippets:
