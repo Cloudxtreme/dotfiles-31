@@ -1,0 +1,93 @@
+# Extensions snippets
+
+snippet assessment
+"_assessment": {
+	"_isEnabled": true,
+	"_id": "articleID",
+	"_isPercentageBased": true,
+	"_scoreToPass": 75,
+	"_includeInTotalScore": true,
+	"_assessmentWeight": 1,
+	"_banks": {
+		"_isEnabled": false,
+		"_split": "2,1",
+		"_randomisation": false
+	},
+	"_randomisation": {
+		"_isEnabled": false,
+		"_blockCount": 1
+	},
+	"_questions": {
+		"_resetType": "hard",
+		"_canShowFeedback": true,
+		"_canShowMarking": true
+	},
+	"_isResetOnRevisit": true,
+	"_attempts": "infinite"
+}
+endsnippet
+
+snippet bookmarking
+"_bookmarking": {
+	"_isEnabled": true,
+	"_comment": "_level = page | block | component",
+	"_level": "block",
+	"title": "Bookmarking",
+	"body": "Would you like to continue where you left off?",
+	"_buttons": {
+		"yes": "Yes",
+		"no": "No"
+	}
+}
+endsnippet
+
+snippet resources
+"_resources": {
+	"title": "Resources",
+	"description": "Select here to view resources for this course",
+	"_filterButtons": {
+		"all": "All",
+		"document": "PDF",
+		"media": "Media",
+		"link": "Link"
+	},
+	"_filterAria": {
+		"allAria": "View all resources",
+		"documentAria": "View document resources",
+		"mediaAria": "View media resources",
+		"linkAria": "View resource links"
+	},
+	"_resourcesItems": [
+		{
+			"_type": "document",
+			"title": "title",
+			"description": "description",
+			"_link": "course/en/pdf/filename.pdf"
+		},
+		{
+			"_type": "media",
+			"title": "title",
+			"description": "description",
+			"_link": "link"
+		},
+		{
+			"_type": "link",
+			"title": "title",
+			"description": "description",
+			"_link": "link"
+		}
+	]
+}
+endsnippet
+
+snippet trickle
+"_trickle": {
+	"_isEnabled": true,
+	"button": {
+		"_isEnabled": true,
+		"text": "Continue"
+	}
+}
+endsnippet
+
+# vim:ft=snippets:
