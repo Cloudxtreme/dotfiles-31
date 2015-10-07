@@ -66,23 +66,23 @@ endsnippet
 
 snippet graphic
 {
-	"_id": "componentID",
-	"_parentId": "blockID",
+	"_id": "c-${1:05}",
+	"_parentId": "b-${2:$1}",
 	"_type": "component",
 	"_component": "graphic",
 	"_classes": "",
-	"_layout": "layout",
-	"title": "componentID",
-	"displayTitle": "",
-	"body": "",
-	"instruction": "",
+	"_layout": "${3:full}",
+	"title": "$4",
+	"displayTitle": "${5:$4}",
+	"body": "${6:body}",
+	"instruction": "${7:instruction}",
 	"_graphic": {
-		"large": "course/en/images/componentID.jpg",
-		"small": "course/en/images/componentID.jpg",
-		"alt": "",
-		"attribution": ""
+		"large": "course/en/images/c-${8:$1}.${9:jpg}",
+		"small": "course/en/images/c-${10:$1}-sm.${11:jpg}",
+		"alt": "${12:$4}",
+		"attribution": "$13"
 	}
-}
+}$0
 endsnippet
 
 snippet hotgraphic
