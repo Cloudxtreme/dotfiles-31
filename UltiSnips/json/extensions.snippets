@@ -56,6 +56,36 @@ snippet trickle-in-course "trickle in the course.json" b
 }$0
 endsnippet
 
+snippet trickle-in-article "enable trickle for all blocks in an article" b
+"_trickle": {
+		"_isEnabled": ${1:true}
+},$0
+endsnippet
+
+snippet trickle-in-block "manulally add trickle for each block" b
+"_trickle": {
+"_isEnabled": ${1:true},
+"_scrollDuration": 500,
+"_autoScroll": ${2:true},
+"_scrollTo": "${3:@block +1}",
+"_button": {
+		"_isEnabled": ${4:true},
+		"_styleBeforeCompletion": "${5:hidden}",
+		"_styleAfterClick": "${6:hidden}",
+		"_isFullWidth": ${7:true},
+		"_autoHide": ${8:true},
+		"_className": "${9:trickle-round-arrow}",
+		"text": "${10:继续}",
+		"finalText": "${11:结束}",
+		"_component": "trickle-button"
+},
+"_stepLocking": {
+		"_isEnabled": true,
+		"_isCompletionRequired": true,
+		"_isLockedOnRevisit": false
+}
+},$0
+endsnippet
 #################
 #  Bookmarking  #
 #################
