@@ -191,3 +191,35 @@ snippet resources-item "add a resources item" b
 		"_link": "${4:course/en/${5:pdf}/${6:file_name}.${7:pdf}}"
 }$0
 endsnippet
+
+###############
+#  Inspector  #
+###############
+
+snippet Inspector "add this to the config.json" b
+"_inspector": {
+		"_isEnabled": ${1:true},
+		"_tracUrl": ""
+}$0
+endsnippet
+
+###############
+#  Covermenu  #
+###############
+
+snippet Covermenu "add the covermenu into the contentObjects.json for each menu object. Replace the _graphic object" b
+"_coverMenu":{
+		"_backgroundGraphic": {
+				"alt": "${1:This is a picture of Adapt's origami birds.}",
+				"src": "course/en/images/menu-item-${2:01}.${3:jpg}"
+		},
+		"_indicatorGraphic": {
+				"_isComplete": "course/en/images/$2-menu-complete.$3",
+				"_isVisited": "course/en/images/$2-menu-visited.$3",
+				"_isLocked":"course/en/images/$2-menu-default.$3",
+				"_default":"course/en/images/$2-menu-default.$3",
+				"_accessibilityEnabled": "course/en/images/$2-menu-default.$3"
+		}
+},$0
+endsnippet
+# vim:ft=snippets:
