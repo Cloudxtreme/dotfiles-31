@@ -6,7 +6,7 @@
 #  Course English  #
 ####################
 
-snippet course-en
+snippet course-en "english version" b
 {
 	"_id": "course",
 	"_type": "course",
@@ -154,7 +154,7 @@ endsnippet
 #  contentObject  #
 ###################
 
-snippet contentobject
+snippet contentobject "Page or menu item add to the contentObject.json" b
 {
 	"_id": "co-${1:05}",
 	"_parentId": "course",
@@ -181,7 +181,7 @@ endsnippet
 #  Article  #
 #############
 
-snippet article
+snippet article "add to the articles.json" b
 {
 	"_id": "a-${1:05}",
 	"_parentId": "co-${2:05}",
@@ -197,7 +197,7 @@ endsnippet
 #  Block  #
 ###########
 
-snippet block
+snippet block "add to the blocks.json" b
 {
 	"_id": "b-${1:05}",
 	"_parentId": "a-${2:$1}",
@@ -213,7 +213,7 @@ endsnippet
 #  Course Chinese  #
 ####################
 
-snippet course-zh
+snippet course-zh "The Chinese version for the course.json" b
 {
 	"_id": "course",
 	"_type": "course",

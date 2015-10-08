@@ -45,6 +45,7 @@ Plugin 'nanotech/jellybeans.vim'
 Plugin 'ajh17/Spacegray.vim'
 Plugin '29decibel/codeschool-vim-theme'
 Plugin 'chriskempson/vim-tomorrow-theme'
+Plugin 'severin-lemaignan/vim-minimap'
 " git repos on your local machine (i.e. when working on your own plugin)
 "Plugin 'file:///home/gmarik/path/to/plugin'
 
