@@ -419,7 +419,7 @@ if has("autocmd")
     " Move the cursor in the editor window
     ""autocmd VimEnter * wincmd p
     " Auto close NERDTree if it is the only window open
-    "autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+    autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
     " Folding with marker
     autocmd BufRead * setlocal foldmethod=marker
