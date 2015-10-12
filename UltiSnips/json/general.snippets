@@ -157,15 +157,15 @@ endsnippet
 snippet contentobject "Page or menu item add to the contentObject.json" b
 {
 	"_id": "co-${1:05}",
-	"_parentId": "course",
-	"_type": "type",
+	"_parentId": "${2:course}",
+	"_type": "page",
 	"_classes": "",
 	"title": "${3:title}",
 	"displayTitle": "${4:$3}",
 	"body": "${5:body}",
 	"pageBody": "${6:pageBody}",
 	"_graphic": {
-		"src": "course/en/images/co-$1.${7:jpg}}",
+		"src": "course/en/images/co-$1.${7:jpg}",
 		"alt": "${8:$3}"
 	},
 	"linkText": "${9:开始}",
