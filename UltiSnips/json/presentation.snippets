@@ -397,5 +397,96 @@ snippet text "a simple text component" b
 }$0
 endsnippet
 
+#############
+#  Hotgrid  #
+#############
+
+snippet hotgrid "hotgrid component" b
+{
+	"_id": "c-${1:05}",
+	"_parentId": "b-${2:$1}",
+	"_type": "component",
+	"_component": "hotgrid",
+	"_classes": "",
+	"_layout": "${3:full}",
+	"title": "${4:title}",
+	"displayTitle": "${5:$4}",
+	"body": "${6:body}",
+	"instruction": "${7:instruction}",
+	"_columns":${8:3},
+	"_items": [
+			{
+					"title": "$9",
+					"body": "$10",
+					"_graphic": {
+							"src": "course/en/images/c-$1-1.${11:png}",
+							"srcHover":"course/en/images/c-$1-1-hover.$11",
+							"srcVisited":"course/en/images/c-$1-1-visited.$11",
+							"alt": "$12",
+							"title": "${13:$9}"
+					},
+					"_itemGraphic": {
+							"src": "course/en/images/c-$1-1.$11",
+							"alt": "${14:$12}"
+					}
+			},
+			{
+					"title": "$15",
+					"body": "$16",
+					"_graphic": {
+							"src": "course/en/images/c-$1-2.$11",
+							"srcHover":"course/en/images/c-$1-2-hover.$11",
+							"srcVisited":"course/en/images/c-$1-2-visited.$11",
+							"alt": "$18",
+							"title": "${19:$15}"
+					},
+					"_itemGraphic": {
+							"src": "course/en/images/c-$1-2.$11",
+							"alt": "${20:$18}"
+					}
+			},
+			{
+					"title": "$21",
+					"body": "$22",
+					"_graphic": {
+							"src": "course/en/images/c-$1-3.$11",
+							"srcHover":"course/en/images/c-$1-3-hover.$11",
+							"srcVisited":"course/en/images/c-$1-3-visited.$11",
+							"alt": "$23",
+							"title": "${24:$21}"
+					},
+					"_itemGraphic": {
+							"src": "course/en/images/c-$1-3.$11",
+							"alt": "${25:$23}"
+					}
+			}
+	],
+	"_pageLevelProgress": {
+		"_isEnabled": ${26:true}
+	}
+}$0
+endsnippet
+
+##################
+#  hotgrid item  #
+##################
+
+snippet hotgrid-item "a single item of the hotgrid component" b
+{
+		"title": "$1",
+		"body": "$2",
+		"_graphic": {
+				"src": "course/en/images/c-$3-$4.${5:png}",
+				"srcHover":"course/en/images/c-$3-$4-hover.$5",
+				"srcVisited":"course/en/images/c-$3-$4-visited.$5",
+				"alt": "$6",
+				"title": "${7:$1}"
+		},
+		"_itemGraphic": {
+				"src": "course/en/images/c-$3-$4.$5",
+				"alt": "${8:$6}"
+		}
+}$0
+endsnippet
 # vim:ft=snippets:
 
