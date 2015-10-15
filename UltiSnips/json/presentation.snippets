@@ -16,48 +16,62 @@ snippet accordion "the accordion component" b
 	"_layout": "${3:full}",
 	"title": "${4:title}",
 	"displayTitle": "${5:$4}",
-	"body": "${6:body}",
-	"instruction": "${7:instruction}",
+	"body": "$6",
+	"instruction": "$7",
 	"_items": [
 		{
-			"title": "${8:title}",
-			"body": "${9:body}",
+			"title": "$8",
+			"body": "$9",
 			"_graphic": {
-				"src": "course/en/images/c-$1.jpg",
-				"alt": "$8"
+				"src": "course/en/images/c-$1-1.${10:png}",
+				"alt": "${11:$8}"
 			}
 		},
 		{
-			"title": "${10:title}",
-			"body": "${11:body}",
+			"title": "$12",
+			"body": "$13",
 			"_graphic": {
-				"src": "course/en/images/c-$1-2.jpg",
-				"alt": "$10"
+				"src": "course/en/images/c-$1-2.$10",
+				"alt": "${14:$12}"
 			}
 		},
 		{
-			"title": "${12:title}",
-			"body": "${13:body}",
+			"title": "$15",
+			"body": "$16",
 			"_graphic": {
-				"src": "course/en/images/c-$1-3.jpg",
-				"alt": "$12"
+				"src": "course/en/images/c-$1-3.$10",
+				"alt": "${17:$15}"
 			}
 		},
 		{
-			"title": "${14:title}",
-			"body": "${15:body}",
+			"title": "$18",
+			"body": "$19",
 			"_graphic": {
-				"src": "course/en/images/c-$1-4.jpg",
-				"alt": "$14"
+				"src": "course/en/images/c-$1-4.$10",
+				"alt": "${20:$18}"
 			}
 		}
 	],
 	"_pageLevelProgress": {
-		"_isEnabled": ${15:true}
+		"_isEnabled": ${21:true}
 	}
 }$0
 endsnippet
 
+#######################
+#  Accordion Options  #
+#######################
+
+snippet accordion-item "a single accordion option" b
+{
+	"title": "$1",
+		"body": "$2",
+		"_graphic": {
+			"src": "course/en/images/c-$3-$4.${5:png}",
+			"alt": "${6:$1}"
+		}
+}$0
+endsnippet
 ###########
 #  Blank  #
 ###########
@@ -88,11 +102,11 @@ snippet graphic "a graphic component" b
 	"_layout": "${3:full}",
 	"title": "$4",
 	"displayTitle": "${5:$4}",
-	"body": "${6:body}",
-	"instruction": "${7:instruction}",
+	"body": "$6",
+	"instruction": "$7",
 	"_graphic": {
-		"large": "course/en/images/c-${8:$1}.${9:jpg}",
-		"small": "course/en/images/c-${10:$1}-sm.${11:jpg}",
+		"large": "course/en/images/c-${8:$1}.${9:png}",
+		"small": "course/en/images/c-${10:$1}-${11:sm}.$9",
 		"alt": "${12:$4}",
 		"attribution": "$13"
 	}
@@ -118,12 +132,12 @@ snippet hotgraphic "a hotgraphic component" b
 	"_useGraphicsAsPins": ${7:false},
 	"title": "$8",
 	"displayTitle": "${9:$8}",
-	"body": "${10:body}",
+	"body": "$10",
 	"mobileBody": "$11",
-	"instruction": "${12:instruction}",
+	"instruction": "$12",
 	"mobileInstruction": "$13",
 	"_graphic": {
-		"src": "course/en/images/c-${14:$1}.${15:jpg}",
+		"src": "course/en/images/c-${14:$1}.${15:png}",
 		"alt": "${16:$8}"
 	},
 	"_items": [
@@ -131,7 +145,7 @@ snippet hotgraphic "a hotgraphic component" b
 			"title": "$17",
 			"body": "$18",
 			"_graphic": {
-				"src": "course/en/images/c-$1-1.${19:jpg}",
+				"src": "course/en/images/c-$1-1.${19:png}",
 				"alt": "${20:$17}",
 				"_classes": ""
 			},
@@ -144,7 +158,7 @@ snippet hotgraphic "a hotgraphic component" b
 			"title": "$24",
 			"body": "$25",
 			"_graphic": {
-				"src": "course/en/images/c-$1-2.${26:jpg}",
+				"src": "course/en/images/c-$1-2.$19",
 				"alt": "${27:$24}",
 				"_classes": ""
 			},
@@ -157,7 +171,7 @@ snippet hotgraphic "a hotgraphic component" b
 			"title": "$31",
 			"body": "$32",
 			"_graphic": {
-				"src": "course/en/images/c-$1-3.${33:jpg}",
+				"src": "course/en/images/c-$1-3.$19",
 				"alt": "${34:$31}",
 				"_classes": ""
 			},
@@ -170,7 +184,7 @@ snippet hotgraphic "a hotgraphic component" b
 			"title": "$38",
 			"body": "$39",
 			"_graphic": {
-				"src": "course/en/images/c-$1-4.${40:jpg}",
+				"src": "course/en/images/c-$1-4.$19",
 				"alt": "${41:$38}",
 				"_classes": ""
 			},
@@ -183,7 +197,7 @@ snippet hotgraphic "a hotgraphic component" b
 			"title": "$45",
 			"body": "$46",
 			"_graphic": {
-				"src": "course/en/images/c-$1-5.${47:jpg}",
+				"src": "course/en/images/c-$1-5.$19",
 				"alt": "${48:$45}",
 				"_classes": ""
 			},
@@ -196,7 +210,7 @@ snippet hotgraphic "a hotgraphic component" b
 			"title": "$52",
 			"body": "$53",
 			"_graphic": {
-				"src": "course/en/images/c-$1-6.${54:jpg}",
+				"src": "course/en/images/c-$1-6.$19",
 				"alt": "${55:$52}",
 				"_classes": ""
 			},
@@ -221,7 +235,7 @@ snippet hotgraphic-item "a single hotgraphic item" b
 	"title": "$1",
 	"body": "$2",
 	"_graphic": {
-		"src": "course/en/images/c-$3-$4.${5:jpg}",
+		"src": "course/en/images/c-$3-$4.${5:png}",
 		"alt": "${6:$1}",
 		"_classes": ""
 	},
