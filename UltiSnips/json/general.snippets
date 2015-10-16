@@ -10,9 +10,9 @@ snippet course-en "english version" b
 {
 	"_id": "course",
 	"_type": "course",
-	"title": "${1:title}",
+	"title": "$1",
 	"displayTitle": "${2:$1}",
-	"body": "${3:body}",
+	"body": "$3",
 	"_buttons": {
 		"_submit": {
 			"buttonText": "Submit",
@@ -164,10 +164,10 @@ snippet contentobject "Page or menu item add to the contentObject.json" b
 	"_parentId": "${2:course}",
 	"_type": "page",
 	"_classes": "",
-	"title": "${3:title}",
+	"title": "$3",
 	"displayTitle": "${4:$3}",
-	"body": "${5:body}",
-	"pageBody": "${6:pageBody}",
+	"body": "$5",
+	"pageBody": "${6:$5}",
 	"_graphic": {
 		"src": "course/en/images/co-$1.${7:jpg}",
 		"alt": "${8:$3}"
@@ -192,7 +192,7 @@ snippet article "add to the articles.json" b
 	"_type": "article",
 	"_classes": "",
 	"title": "${3:a-$1}",
-	"displayTitle": "${4:$3}",
+	"displayTitle": "$4",
 	"body": "$5"
 }$0
 endsnippet
@@ -208,7 +208,7 @@ snippet block "add to the blocks.json" b
 	"_type": "block",
 	"_classes": "",
 	"title": "${3:b-$1}",
-	"displayTitle": "${4:$3}",
+	"displayTitle": "$4",
 	"body": "$5"
 }$0
 endsnippet
@@ -221,9 +221,9 @@ snippet course-zh "The Chinese version for the course.json" b
 {
 	"_id": "course",
 	"_type": "course",
-	"title": "${1:title}",
+	"title": "$1",
 	"displayTitle": "${2:$1}",
-	"body": "${3:body}",
+	"body": "$3",
 	"_buttons": {
 			"_submit": {
 					"buttonText": "提交答案",
