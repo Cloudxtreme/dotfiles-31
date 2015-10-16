@@ -92,16 +92,16 @@ endsnippet
 
 snippet bookmarking-en "add bookmarking in the course.json" b
 "_bookmarking": {
-	"_isEnabled": true,
+	"_isEnabled": ${1:true},
 	"_comment": "_level = page | block | component",
-	"_level": "block",
+	"_level": "${2:block}",
 	"title": "Bookmarking",
 	"body": "Would you like to continue where you left off?",
 	"_buttons": {
 		"yes": "Yes",
 		"no": "No"
 	}
-}
+}$0
 endsnippet
 
 ####################
@@ -146,20 +146,20 @@ snippet resources-en "add this to the course.json" b
 		"_resourcesItems": [
 			{
 				"_type": "document",
-				"title": "${4:title}",
-				"description": "${5:description}",
-				"_link": "course/en/pdf/${7:link}.${8:pdf}"
+				"title": "$4",
+				"description": "$5",
+				"_link": "course/en/${6:pdf}/${7:link}.${8:pdf}"
 			},
 			{
 				"_type": "media",
-				"title": "${9:title}",
-				"description": "${10:description}",
-				"_link": "course/en/media/${12:link}.${13:mp4}"
+				"title": "$9",
+				"description": "$10",
+				"_link": "course/en/${11:media}/${12:link}.${13:mp4}"
 			},
 			{
 				"_type": "link",
-				"title": "${14:title}",
-				"description": "${15:description}",
+				"title": "$14",
+				"description": "$15",
 				"_link": "http://$16"
 			}
 		]
@@ -189,20 +189,20 @@ snippet resources-zh "add this to the course.json" b
 		"_resourcesItems": [
 				{
 						"_type": "document",
-						"title": "${4:title}",
-						"description": "${5:description}",
-						"_link": "course/en/pdf/${7:link}.${8:pdf}"
+						"title": "$4",
+						"description": "$5",
+						"_link": "course/en/${6:pdf}/${7:link}.${8:pdf}"
 				},
 				{
 						"_type": "media",
-						"title": "${9:title}",
-						"description": "${10:description}",
-						"_link": "course/en/media/${12:link}.${13:mp4}"
+						"title": "$9",
+						"description": "$10",
+						"_link": "course/en/${11:media}/${12:link}.${13:mp4}"
 				},
 				{
 						"_type": "link",
-						"title": "${14:title}",
-						"description": "${15:description}",
+						"title": "$14",
+						"description": "$15",
 						"_link": "http://$16"
 				}
 		]
@@ -216,8 +216,8 @@ endsnippet
 snippet resources-item "add a resources item" b
 {
 	"_type": "${1:document|media|link}",
-		"title": "${2:title}",
-		"description": "${3:description}",
+		"title": "$2",
+		"description": "$3",
 		"_link": "${4:course/en/${5:pdf}/${6:file_name}.${7:pdf}}"
 }$0
 endsnippet
@@ -240,15 +240,15 @@ endsnippet
 snippet Covermenu "add the covermenu into the contentObjects.json for each menu object. Replace the _graphic object" b
 "_coverMenu":{
 		"_backgroundGraphic": {
-				"alt": "${1:This is a picture of Adapt's origami birds.}",
+				"alt": "${1:alt}",
 				"src": "course/en/images/menu-item-${2:01}.${3:jpg}"
 		},
 		"_indicatorGraphic": {
-				"_isComplete": "course/en/images/$2-menu-complete.$3",
-				"_isVisited": "course/en/images/$2-menu-visited.$3",
-				"_isLocked":"course/en/images/$2-menu-default.$3",
-				"_default":"course/en/images/$2-menu-default.$3",
-				"_accessibilityEnabled": "course/en/images/$2-menu-default.$3"
+				"_isComplete": "course/en/images/menu-item-$2-complete.$3",
+				"_isVisited": "course/en/images/menu-item-$2-visited.$3",
+				"_isLocked":"course/en/images/menu-item-$2-default.$3",
+				"_default":"course/en/images/menu-item-$2-default.$3",
+				"_accessibilityEnabled": "course/en/images/menu-item-$2-default.$3"
 		}
 },$0
 endsnippet
