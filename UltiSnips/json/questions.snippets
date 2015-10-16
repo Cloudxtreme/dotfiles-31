@@ -13,15 +13,15 @@ snippet assessmentresults "put this in a different article from the questions ar
 	"_type": "component",
 	"_component": "assessmentResults",
 	"_classes": "",
-	"_layout": "${3:full}",
+	"_layout": "$3",
 	"_isVisibleBeforeCompletion": false,
 	"_assessmentId": "a-$4",
-	"title": "${5:title}",
+	"title": "$5",
 	"displayTitle": "${6:$5}",
-	"body": "${7:body}",
-	"instruction": "${8:instruction}",
+	"body": "$7",
+	"instruction": "$8",
 	"_retry": {
-		"button": "${9:Retry Assessment}",
+		"button": "${9:重新测验}",
 		"_comment": "use {{attempts}}, {{attemptsSpent}} and {{attemptsLeft}} to display attempts",
 		"feedback": "${10:feedback}"
 	},
@@ -73,23 +73,23 @@ snippet gmcq "a graphic mcq question component" b
 	"_shouldDisplayAttempts": ${6:false},
 	"_isRandom": ${7:true},
 	"_selectable": ${8:4},
-	"title": "${9:title}",
+	"title": "$9",
 	"displayTitle": "${10:$9}",
-	"body": "${11:body}",
-	"instruction": "${12:instruction}",
+	"body": "$11",
+	"instruction": "$12",
 	"_items": [
 		{
-			"text": "${13:text}",
-			"_shouldBeSelected": ${14:false},
+			"text": "$13",
+			"_shouldBeSelected": ${14:true},
 			"_graphic": {
-				"large": "course/en/images/c-$1-1.${15:jpg}",
+				"large": "course/en/images/c-$1-1.${15:png}",
 				"small": "course/en/images/c-$1-1${16:-sm}.$15",
 				"alt": "${17:$13}"
 			}
 		},
 		{
-			"text": "${18:text}",
-			"_shouldBeSelected": ${19:false},
+			"text": "$18",
+			"_shouldBeSelected": ${19:true},
 			"_graphic": {
 				"large": "course/en/images/c-$1-2.$15}",
 				"small": "course/en/images/c-$1-2${20:-sm}.$15",
@@ -98,7 +98,7 @@ snippet gmcq "a graphic mcq question component" b
 		},
 		{
 			"text": "${22:text}",
-			"_shouldBeSelected": ${23:false},
+			"_shouldBeSelected": ${23:true},
 			"_graphic": {
 				"large": "course/en/images/c-$1-3.$15}",
 				"small": "course/en/images/c-$1-3${24:-sm}.$15",
@@ -107,7 +107,7 @@ snippet gmcq "a graphic mcq question component" b
 		},
 		{
 			"text": "${26:text}",
-			"_shouldBeSelected": ${27:false},
+			"_shouldBeSelected": ${27:true},
 			"_graphic": {
 				"large": "course/en/images/c-$1-4.$15}",
 				"small": "course/en/images/c-$1-4${28:-sm}.$15",
@@ -138,10 +138,10 @@ endsnippet
 
 snippet gmcq-item "single option of gmcq component" b
 {
-	"text": "${1:text}",
-	"_shouldBeSelected": ${2:false},
+	"text": "$1",
+	"_shouldBeSelected": ${2:true},
 	"_graphic": {
-		"large": "course/en/images/c-${3:05}-${4}.${5:jpg}",
+		"large": "course/en/images/c-${3:05}-$4.${5:png}",
 		"small": "course/en/images/c-$1-$4${6:-sm}.$5",
 		"alt": "${7:$1}"
 	}
@@ -166,37 +166,37 @@ snippet mcq "a multiple choice question component" b
 	"_shouldDisplayAttempts": ${6:false},
 	"_isRandom": ${7:true},
 	"_selectable": ${8:4},
-	"title": "${9:title}",
+	"title": "$9",
 	"displayTitle": "${10:$9}",
-	"body": "${11:body}",
-	"instruction": "${12:instruction}",
+	"body": "$11",
+	"instruction": "$12",
 	"_items": [
 		{
-			"text": "${13:text}",
-			"_shouldBeSelected": ${14:false}
+			"text": "$13",
+			"_shouldBeSelected": ${14:true}
 		},
 		{
 			"text": "${15:text}",
 			"_shouldBeSelected": ${16:false}
 		},
 		{
-			"text": "${17:text}",
-			"_shouldBeSelected": ${18:false}
+			"text": "$17",
+			"_shouldBeSelected": ${18:true}
 		},
 		{
-			"text": "${19:text}",
-			"_shouldBeSelected": ${20:false}
+			"text": "$19",
+			"_shouldBeSelected": ${20:true}
 		}
 	],
 	"_feedback": {
-		"correct": "${21:correct}",
+		"correct": "$21",
 		"_partlyCorrect": {
-			"notFinal": "${22:notFinal}",
-			"final": "${23:final}"
+			"notFinal": "$22",
+			"final": "$23"
 		},
 		"_incorrect": {
-			"notFinal": "${24:notFinal}",
-			"final": "${25:final}"
+			"notFinal": "$24",
+			"final": "$25"
 		}
 	},
 	"_pageLevelProgress": {
@@ -211,8 +211,8 @@ endsnippet
 
 snippet mcq-item "single option of mcq components" b
 {
-	"text": "${1:text}",
-	"_shouldBeSelected": ${2:false}
+	"text": "$1",
+	"_shouldBeSelected": ${2:true}
 }$0
 endsnippet
 
@@ -233,73 +233,73 @@ snippet matching "a matching question component" b
 	"_canShowModelAnswer": ${5:true},
 	"_shouldDisplayAttempts": ${6:false},
 	"_isRandom": ${7:true},
-	"title": "${8:title}",
+	"title": "$8",
 	"displayTitle": "${9:$8}",
-	"body": "${10:body}",
-	"instruction": "${11:instruction}",
+	"body": "$10",
+	"instruction": "$11",
 	"placeholder": "${12: 请选择 }",
 	"_items": [
 		{
-			"text": "${13:question text}",
+			"text": "$13",
 			"_options": [
 				{
-					"text": "${14:text}",
+					"text": "$14",
 					"_isCorrect": ${15:false}
 				},
 				{
-					"text": "${16:text}",
+					"text": "$16",
 					"_isCorrect": ${17:false}
 				},
 				{
-					"text": "${18:text}",
+					"text": "$18",
 					"_isCorrect": ${19:false}
 				}
 			]
 		},
 		{
-			"text": "${20:text}",
+			"text": "$20",
 			"_options": [
 				{
-					"text": "${21:text}",
+					"text": "$21",
 					"_isCorrect": ${22:false}
 				},
 				{
-					"text": "${23:text}",
+					"text": "$23",
 					"_isCorrect": ${24:false}
 				},
 				{
-					"text": "${25:text}",
+					"text": "$25",
 					"_isCorrect": ${26:false}
 				}
 			]
 		},
 		{
-			"text": "${27:text}",
+			"text": "$27",
 			"_options": [
 				{
-					"text": "${28:text}",
+					"text": "$28",
 					"_isCorrect": ${29:false}
 				},
 				{
-					"text": "${30:text}",
+					"text": "$30",
 					"_isCorrect": ${31:false}
 				},
 					{
-					"text": "${32:text}",
+					"text": "$32",
 					"_isCorrect": ${33:false}
 				}
 			]
 		}
 	],
 	"_feedback": {
-		"correct": "${34:correct}",
+		"correct": "$34",
 		"_partlyCorrect": {
-			"notFinal": "${35:notFinal}",
-			"final": "${36:final}"
+			"notFinal": "$35",
+			"final": "$36"
 		},
 		"_incorrect": {
-			"notFinal": "${37:notFinal}",
-			"final": "${38:final}"
+			"notFinal": "$37",
+			"final": "$38"
 		}
 	},
 	"_pageLevelProgress": {
@@ -314,22 +314,22 @@ endsnippet
 
 snippet matching-item "single option of matching component" b
 {
-	"text": "${1:text}",
+	"text": "$1",
 	"_options": [
 		{
-			"text": "${2:text}",
+			"text": "$2",
 			"_isCorrect": ${3:false}
 		},
 		{
-			"text": "${4:text}",
+			"text": "$4",
 			"_isCorrect": ${5:false}
 		},
 			{
-			"text": "${6:text}",
+			"text": "$6",
 			"_isCorrect": ${7:false}
 		}
 	]
-}
+}$0
 endsnippet
 
 ###############
@@ -351,49 +351,49 @@ snippet textinput "a text input question component" b
 	"_isRandom": ${7:true},
 	"_allowsAnyCase": ${8:true},
 	"_allowsPunctuation": ${9:true},
-	"title": "${10:title}",
+	"title": "$10",
 	"displayTitle": "${11:$10}",
-	"body": "${12:body}",
-	"instruction": "${13:instruction}",
+	"body": "$12",
+	"instruction": "$13",
 	"_answers": [],
 	"_items": [
 		{
-			"prefix": "${14:prefix}",
+			"prefix": "$14",
 			"placeholder": "请在此处输入你的答案",
 			"_answers": [
 				"${15:answer-01}",
 				"${16:answer-02}"
 			],
-			"suffix": "${17:suffix}"
+			"suffix": "$17"
 		},
 		{
-			"prefix": "${18:prefix}",
+			"prefix": "$18",
 			"placeholder": "请在此处输入你的答案",
 			"_answers": [
 				"${19:answer-01}",
 				"${20:answer-02}"
 			],
-			"suffix": "${21:suffix}"
+			"suffix": "$21"
 		},
 		{
-			"prefix": "${22:prefix}",
+			"prefix": "$22",
 			"placeholder": "请在此处输入你的答案",
 			"_answers": [
 				"${23:answer-01}",
 				"${24:answer-02}"
 			],
-			"suffix": "${25:suffix}"
+			"suffix": "$25"
 		}
 	],
 	"_feedback": {
-		"correct": "${26:correct}",
+		"correct": "$26",
 		"_partlyCorrect": {
-			"notFinal": "${27:notFinal}",
-			"final": "${28:final}"
+			"notFinal": "$27",
+			"final": "$28"
 		},
 		"_incorrect": {
-			"notFinal": "${29:notFinal}",
-			"final": "${30:final}"
+			"notFinal": "$29",
+			"final": "$30"
 		}
 	},
 	"_pageLevelProgress": {
@@ -408,13 +408,13 @@ endsnippet
 
 snippet TextInput-item "single item of textinput" b
 {
-	"prefix": "${1:prefix}",
+	"prefix": "$1",
 	"placeholder": "请在此处输入你的答案",
 	"_answers": [
 		"${2:answer-01}",
 		"${3:answer-02}"
 	],
-	"suffix": "${4:suffix}"
+	"suffix": "$4"
 }$0
 endsnippet
 
@@ -438,22 +438,22 @@ snippet slider "a slider question component" b
 	"_showScaleIndicator": ${8:true},
 	"_scaleStart": ${9:1},
 	"_scaleEnd": ${10:10},
-	"title": "${11:title}",
+	"title": "$11",
 	"displayTitle": "${12:$11}",
-	"body": "${13:body}",
-	"instruction": "${14:instruction}",
-	"labelStart": "${15:labelStart}",
-	"labelEnd": "${16:labelEnd}",
-	"_correctAnswer": "${17:correct answer}",
+	"body": "$13",
+	"instruction": "$14",
+	"labelStart": "$15",
+	"labelEnd": "$16",
+	"_correctAnswer": "$17",
 	"_correctRange": {
 		"_bottom": ${18:4},
 		"_top": ${19:9}
 	},
 	"_feedback": {
-		"correct": "${20:correct}",
+		"correct": "$20",
 		"_incorrect": {
-			"notFinal": "${21:notFinal}",
-			"final": "${22:final}"
+			"notFinal": "$21",
+			"final": "$22"
 		}
 	},
 	"_pageLevelProgress": {
