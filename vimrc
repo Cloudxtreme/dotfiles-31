@@ -384,7 +384,7 @@ inoremap jO <esc>O
 inoremap ja <esc>A
 
 " move up one line and indent
-inoremap kk <esc>ki<Tab>
+inoremap kk <esc>kA<CR>
 
 " Map omni-completion key to Ctrl-Space
 inoremap <leader>x <C-x><C-o>
@@ -410,6 +410,13 @@ cnoremap <C-n> <Down>
 " Move cursor up or down in insert mode
 inoremap <C-j> <C-g>j
 inoremap <C-k> <C-g>k
+
+" Mapping F4 to execute javascript in nodejs;
+map <F4> :call RunJavascript() <CR>
+function RunJavascript()
+  exec "! node %"
+endfunction
+
 " }}}
 
 "Autocmd Settings {{{
