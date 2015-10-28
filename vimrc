@@ -320,7 +320,7 @@ map <F9> <C-W>>
 
 " Type <leader>s to save file
 nnoremap <leader>s :w<CR>
-inoremap <leader>s <esc>:w<CR>i
+inoremap <leader>s <esc>:w<CR>
 
 " Type <leader>q to quit  buffer
 nnoremap <leader>q :q<CR>
