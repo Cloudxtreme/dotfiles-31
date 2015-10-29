@@ -383,6 +383,9 @@ inoremap jO <esc>O
 " Move to end of line
 inoremap ja <esc>A
 
+" Move behind next letter in insert mode
+inoremap jl <esc>2li
+
 " move up one line and indent
 inoremap kk <esc>kA<CR>
 
