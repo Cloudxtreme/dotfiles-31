@@ -42,6 +42,7 @@ Plugin 'tpope/vim-markdown'
 Plugin 'pangloss/vim-javascript'
 " Vim Themes
 Plugin 'nanotech/jellybeans.vim'
+Plugin 'kristijanhusak/vim-hybrid-material'
 Plugin 'ajh17/Spacegray.vim'
 Plugin '29decibel/codeschool-vim-theme'
 Plugin 'chriskempson/vim-tomorrow-theme'
@@ -199,13 +200,14 @@ set autoread
 " Colorscheme & background {{{
 set t_Co=256
 set background=dark
-colorscheme jellybeans
+colorscheme hybrid_reverse
+let g:enable_bold_font = 1 " set some code to be bold
 
 " Set gui vim font
 if has('gui_running')
   set guioptions-=T " Hide toolbar in GUI vim
   set guifont=Sauce\ Code\ Powerline:h13
-  colorscheme codeschool
+  colorscheme hybrid_reverse
 endif
 
 " }}}
@@ -214,6 +216,7 @@ endif
 
 " Airline (status line)
 let g:airline_powerline_fonts = 1
+let g:airline_theme = "hybrid"
 
 " Fugitive
 nnoremap <Leader>gs :Gstatus<CR>
