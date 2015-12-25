@@ -12,6 +12,7 @@ alias tree3='tree -L 3' # show directory sturcture 3 level
 alias tree4='tree -L 4'
 alias :q="exit"
 alias rub="./rub"
+alias mongobrew="mongod --config /usr/local/etc/mongod.conf"
 # CDPATH
 CDPATH=:/Volumes/Data/Download/:/Volumes/Data/Documents/elearningfriendly/:/Volumes/Data/coding/
 
