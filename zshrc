@@ -44,7 +44,7 @@ plugins=(git colored-man colorize github brew zsh-syntax-highlighting osx vi-mod
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=/usr/local/bin:/usr/local/sbin:~/bin:/usr/bin:/bin:/usr/sbin:/sbin:$Home/.rvm/bin
+export PATH=/usr/local/bin:/usr/local/sbin:~/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/.rvm/bin
 
 # Set Editor to Vim
 export EDITOR=vim
