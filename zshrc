@@ -5,7 +5,7 @@ ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="ys"
+ZSH_THEME="xxf"
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -36,7 +36,7 @@ ZSH_THEME="ys"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git colored-man colorize github brew zsh-syntax-highlighting osx vi-mode tmux npm extract node bower sublime sudo web-search)
+plugins=(git colored-man colorize github brew zsh-syntax-highlighting nvm osx vi-mode tmux npm extract node bower sublime sudo web-search)
 
 # Include z Configuration
 . `brew --prefix`/etc/profile.d/z.sh
@@ -44,7 +44,7 @@ plugins=(git colored-man colorize github brew zsh-syntax-highlighting osx vi-mod
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=/usr/local/bin:/usr/local/sbin:~/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/.rvm/bin
+export PATH=/usr/local/bin:/usr/local/sbin:~/bin:$PATH
 
 # Set Editor to Vim
 export EDITOR=vim
@@ -52,11 +52,15 @@ export EDITOR=vim
 # Zsh Completions
 fpath=(/usr/local/share/zsh-completions $fpath)
 
-#export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-
 export NVM_DIR="/Users/sam/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-#export PATH="/usr/local/sbin:$PATH"
-#
+
 #Enabling Syntax highlighting for cheat
 export CHEATCOLORS=true
+
+# rbenv initialisation
+eval "$(rbenv init -)"
+
+# Add tmuxinator completion file
+source ~/.bin/tmuxinator.zsh
+
