@@ -122,7 +122,7 @@ fi
 # update documentation site
 function documentation() {
     cd /Volumes/Data/Documents/docs/documentation/
-    php generate.php
+    ./generate
     cp -r static ~/Sites/
     open http://localhost/static/
 

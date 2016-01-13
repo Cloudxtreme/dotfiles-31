@@ -62,5 +62,5 @@ export CHEATCOLORS=true
 eval "$(rbenv init -)"
 
 # Add tmuxinator completion file
-source ~/.bin/tmuxinator.zsh
+source ~/bin/dotfiles/tmuxinator.zsh
 
