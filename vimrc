@@ -3,32 +3,31 @@
 " let vim-plug manage my Plugins
 call plug#begin('~/.vim/bundle') "Set the plugins path
 
-" plugin on GitHub repo
-Plug 'bling/vim-airline'
-Plug 'Tpope/vim-commentary'
-Plug 'Tpope/vim-surround'
+
+" Utilities
 Plug 'godlygeek/tabular'
 Plug 'scrooloose/nerdtree'
 Plug 'mattn/emmet-vim'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'ervandew/supertab'
+Plug 'majutsushi/tagbar'
+Plug 'Valloric/YouCompleteMe'
+Plug 'severin-lemaignan/vim-minimap'
+
+" Editing
+Plug 'Townk/vim-autoclose'
+Plug 'tpope/vim-repeat'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'mtth/scratch.vim'
+Plug 'Tpope/vim-commentary'
+Plug 'Tpope/vim-surround'
 Plug 'easymotion/vim-easymotion'
+Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
 " Git Helpers
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'Xuyuanp/nerdtree-git-plugin'
-
-" New Plugins to study
-Plug 'ervandew/supertab'
-Plug 'majutsushi/tagbar'
-Plug 'Valloric/YouCompleteMe'
-
-Plug 'Townk/vim-autoclose'
-Plug 'tpope/vim-repeat'
-Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
-Plug 'severin-lemaignan/vim-minimap'
 
 " Syntax
 Plug 'digitalToad/vim-jade'
@@ -45,6 +44,7 @@ Plug 'othree/javascript-libraries-syntax.vim'
 
 
 " Vim Themes and Icons
+Plug 'bling/vim-airline'
 Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'ryanoasis/vim-devicons'
 Plug 'kien/rainbow_parentheses.vim'
