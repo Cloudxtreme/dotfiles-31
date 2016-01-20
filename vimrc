@@ -1,22 +1,7 @@
 " Vim-plug setup {{{
 
-"""""""""" VUNDEL SETTINGS START""""""""""""""""
-" set nocompatible              " be iMproved, required
-" filetype off                  " required
-
-" set the runtime path to include Vundle and initialize
-" set rtp+=~/.vim/bundle/Vundle.vim
-" call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
-" Plugin 'gmarik/Vundle.vim'
-
-""""""""""""VUNDLE SETTINGS ENDS""""""""""""""""
-
 " let vim-plug manage my Plugins
-call plug#begin('~/.vim/bundle')
+call plug#begin('~/.vim/bundle') "Set the plugins path
 
 " plugin on GitHub repo
 Plug 'bling/vim-airline'
@@ -27,7 +12,6 @@ Plug 'scrooloose/syntastic'
 Plug 'scrooloose/nerdtree'
 Plug 'mattn/emmet-vim'
 Plug 'ctrlpvim/ctrlp.vim'
-" Plug 'kien/ctrlp.vim'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'mtth/scratch.vim'
 Plug 'easymotion/vim-easymotion'
@@ -55,18 +39,16 @@ Plug 'tpope/vim-markdown'
 Plug 'pangloss/vim-javascript'
 
 " Vim Themes and Icons
-"Plug 'nanotech/jellybeans.vim'
+
 Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'ryanoasis/vim-devicons'
+" Plug 'nanotech/jellybeans.vim'
 " Plug 'ajh17/Spacegray.vim'
 " Plug '29decibel/codeschool-vim-theme'
 " Plug 'chriskempson/vim-tomorrow-theme'
 
-
 " All of your Plugins must be added before the following line
 call plug#end() " required
-
-" call vundle#end()            " required
 
 "}}}
 
@@ -78,6 +60,7 @@ syntax on
 
 " Set buffer modifiable
 set modifiable
+
 " Use vim, not vi api
 set nocompatible
 

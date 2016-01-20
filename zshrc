@@ -46,8 +46,8 @@ source $ZSH/oh-my-zsh.sh
 # Customize to your needs...
 export PATH=/usr/local/bin:/usr/local/sbin:~/bin:$PATH
 
-# Set Editor to Vim
-export EDITOR=vim
+# Set Editor to Nvim
+export EDITOR=nvim
 
 # Zsh Completions
 fpath=(/usr/local/share/zsh-completions $fpath)

@@ -13,7 +13,7 @@ alias tree4='tree -L 4'
 alias :q="exit"
 alias rub="./rub"
 alias mongobrew="mongod --config /usr/local/etc/mongod.conf"
-
+alias vim="nvim"
 # Finder aliases
 alias ll="ls -lhFA"
 alias l="ls -lhF"
