@@ -222,11 +222,11 @@ set background=dark
 colorscheme hybrid_reverse
 let g:enable_bold_font = 1 " set some code to be bold
 
-" Set gui vim font
+"Set gui vim font
 if has('gui_running')
   set guioptions-=T " Hide toolbar in GUI vim
-  set guifont=Sauce\ Code\ Powerline:h13
-  colorscheme hybrid_reverse
+  " set guifont=Sauce\ Code\ Powerline:h13
+  " colorscheme hybrid_reverse
 endif
 
 " }}}
@@ -236,7 +236,7 @@ endif
 " Airline (status line)
 let g:airline_powerline_fonts = 1
 let g:airline_theme = "hybrid"
-" set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Nerd\ Font\ Complete\ Mono:h13
+set guifont=Sauce\ Code\ Pro\ Nerd\ Font\ Complete:h13
 
 " Fugitive
 nnoremap <Leader>gs :Gstatus<CR>
