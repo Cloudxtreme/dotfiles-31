@@ -1,57 +1,62 @@
 " Vundle and plugin setup {{{
 
-set nocompatible              " be iMproved, required
-filetype off                  " required
+" set nocompatible              " be iMproved, required
+" filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+" set rtp+=~/.vim/bundle/Vundle.vim
+" call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+" Plugin 'gmarik/Vundle.vim'
+
+" let vim-plug manage my Plugins
+call plug#begin('~/.vim/bundle')
 
 " plugin on GitHub repo
-Plugin 'bling/vim-airline'
-Plugin 'Tpope/vim-commentary'
-Plugin 'tpope/vim-fugitive'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'Tpope/vim-surround'
-Plugin 'godlygeek/tabular'
-Plugin 'scrooloose/syntastic'
-Plugin 'scrooloose/nerdtree'
-Plugin 'mattn/emmet-vim'
-Plugin 'kien/ctrlp.vim'
-Plugin 'bronson/vim-trailing-whitespace'
-Plugin 'mtth/scratch.vim'
-Plugin 'easymotion/vim-easymotion'
+Plug 'bling/vim-airline'
+Plug 'Tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+Plug 'Tpope/vim-surround'
+Plug 'godlygeek/tabular'
+Plug 'scrooloose/syntastic'
+Plug 'scrooloose/nerdtree'
+Plug 'mattn/emmet-vim'
+Plug 'kien/ctrlp.vim'
+Plug 'bronson/vim-trailing-whitespace'
+Plug 'mtth/scratch.vim'
+Plug 'easymotion/vim-easymotion'
 " New Plugins to study
-Plugin 'ervandew/supertab'
-Plugin 'majutsushi/tagbar'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'othree/html5.vim'
-Plugin 'Townk/vim-autoclose'
-Plugin 'tpope/vim-repeat'
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
+Plug 'ervandew/supertab'
+Plug 'majutsushi/tagbar'
+Plug 'Valloric/YouCompleteMe'
+Plug 'othree/html5.vim'
+Plug 'Townk/vim-autoclose'
+Plug 'tpope/vim-repeat'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 " Syntax Highlight
-Plugin 'digitalToad/vim-jade'
-Plugin 'mustache/vim-mustache-handlebars'
-Plugin 'tpope/vim-markdown'
-Plugin 'pangloss/vim-javascript'
+Plug 'digitalToad/vim-jade'
+Plug 'mustache/vim-mustache-handlebars'
+Plug 'tpope/vim-markdown'
+Plug 'pangloss/vim-javascript'
 " Vim Themes
-Plugin 'nanotech/jellybeans.vim'
-Plugin 'kristijanhusak/vim-hybrid-material'
-Plugin 'ajh17/Spacegray.vim'
-Plugin '29decibel/codeschool-vim-theme'
-Plugin 'chriskempson/vim-tomorrow-theme'
-Plugin 'severin-lemaignan/vim-minimap'
+Plug 'nanotech/jellybeans.vim'
+Plug 'kristijanhusak/vim-hybrid-material'
+Plug 'ajh17/Spacegray.vim'
+Plug '29decibel/codeschool-vim-theme'
+Plug 'chriskempson/vim-tomorrow-theme'
+Plug 'severin-lemaignan/vim-minimap'
 " git repos on your local machine (i.e. when working on your own plugin)
 "Plugin 'file:///home/gmarik/path/to/plugin'
 
 " All of your Plugins must be added before the following line
-call vundle#end()            " required
+call plug#end()
+
+" call vundle#end()            " required
 filetype plugin indent on    " required
 "}}}
 
@@ -191,6 +196,9 @@ let maplocalleader = "\\"
 
 " Set syntax complete function on
 set omnifunc=syntaxcomplete#Complete
+
+" Set python interpreter
+let g:python_host_prog = '/usr/bin/python'
 
 
 " Auto load file when changes detected
@@ -418,10 +426,10 @@ inoremap <C-j> <C-g>j
 inoremap <C-k> <C-g>k
 
 " Mapping F4 to execute javascript in nodejs;
-map <F4> :call RunJavascript() <CR>
-function RunJavascript()
-  exec "! node %"
-endfunction
+" map <F4> :call RunJavascript() <CR>
+" function RunJavascript()
+"   exec "! node %"
+" endfunction
 
 " }}}
 
