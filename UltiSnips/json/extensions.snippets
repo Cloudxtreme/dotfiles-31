@@ -9,7 +9,7 @@
 snippet assessment-in-article "assessment in the article.json" b
 "_assessment": {
 	"_isEnabled": true,
-	"_id": "${1:articleID}",
+	"_id": "a-${1:articleID}",
 	"_isPercentageBased": ${2:true},
 	"_scoreToPass": 75,
 	"_includeInTotalScore": true,
@@ -144,6 +144,7 @@ snippet resources-en "add this to the course.json" b
 			"mediaAria": "View media resources",
 			"linkAria": "View resource links"
 		},
+		"itemAriaExternal": "This content will open in a new window",
 		"_resourcesItems": [
 			{
 				"_type": "document",
@@ -187,6 +188,7 @@ snippet resources-zh "add this to the course.json" b
 				"mediaAria": "显示多媒体资料",
 				"linkAria": "显示外部链接"
 		},
+		"itemAriaExternal": "此内容将会在一个新窗口中打开。",
 		"_resourcesItems": [
 				{
 						"_type": "document",
