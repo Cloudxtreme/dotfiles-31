@@ -1,5 +1,6 @@
-" Vundle and plugin setup {{{
+" Vim-plug setup {{{
 
+"""""""""" VUNDEL SETTINGS START""""""""""""""""
 " set nocompatible              " be iMproved, required
 " filetype off                  " required
 
@@ -12,23 +13,30 @@
 " let Vundle manage Vundle, required
 " Plugin 'gmarik/Vundle.vim'
 
+""""""""""""VUNDLE SETTINGS ENDS""""""""""""""""
+
 " let vim-plug manage my Plugins
 call plug#begin('~/.vim/bundle')
 
 " plugin on GitHub repo
 Plug 'bling/vim-airline'
 Plug 'Tpope/vim-commentary'
-Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
 Plug 'Tpope/vim-surround'
 Plug 'godlygeek/tabular'
 Plug 'scrooloose/syntastic'
 Plug 'scrooloose/nerdtree'
 Plug 'mattn/emmet-vim'
-Plug 'kien/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim'
+" Plug 'kien/ctrlp.vim'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'mtth/scratch.vim'
 Plug 'easymotion/vim-easymotion'
+
+" Git Helpers
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+
 " New Plugins to study
 Plug 'ervandew/supertab'
 Plug 'majutsushi/tagbar'
@@ -38,31 +46,34 @@ Plug 'Townk/vim-autoclose'
 Plug 'tpope/vim-repeat'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
+Plug 'severin-lemaignan/vim-minimap'
+
 " Syntax Highlight
 Plug 'digitalToad/vim-jade'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'tpope/vim-markdown'
 Plug 'pangloss/vim-javascript'
-" Vim Themes
-Plug 'nanotech/jellybeans.vim'
+
+" Vim Themes and Icons
+"Plug 'nanotech/jellybeans.vim'
 Plug 'kristijanhusak/vim-hybrid-material'
-Plug 'ajh17/Spacegray.vim'
-Plug '29decibel/codeschool-vim-theme'
-Plug 'chriskempson/vim-tomorrow-theme'
-Plug 'severin-lemaignan/vim-minimap'
-" git repos on your local machine (i.e. when working on your own plugin)
-"Plugin 'file:///home/gmarik/path/to/plugin'
+Plug 'ryanoasis/vim-devicons'
+" Plug 'ajh17/Spacegray.vim'
+" Plug '29decibel/codeschool-vim-theme'
+" Plug 'chriskempson/vim-tomorrow-theme'
+
 
 " All of your Plugins must be added before the following line
-call plug#end()
+call plug#end() " required
 
 " call vundle#end()            " required
-filetype plugin indent on    " required
+
 "}}}
 
 " Setting {{{
 
 "Switch syntax highlight on, when the terminal has colors
+filetype plugin indent on    " required
 syntax on
 
 " Set buffer modifiable
@@ -225,6 +236,7 @@ endif
 " Airline (status line)
 let g:airline_powerline_fonts = 1
 let g:airline_theme = "hybrid"
+" set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Nerd\ Font\ Complete\ Mono:h13
 
 " Fugitive
 nnoremap <Leader>gs :Gstatus<CR>
