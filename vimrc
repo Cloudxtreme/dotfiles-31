@@ -8,7 +8,6 @@ Plug 'bling/vim-airline'
 Plug 'Tpope/vim-commentary'
 Plug 'Tpope/vim-surround'
 Plug 'godlygeek/tabular'
-Plug 'scrooloose/syntastic'
 Plug 'scrooloose/nerdtree'
 Plug 'mattn/emmet-vim'
 Plug 'ctrlpvim/ctrlp.vim'
@@ -25,23 +24,31 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'ervandew/supertab'
 Plug 'majutsushi/tagbar'
 Plug 'Valloric/YouCompleteMe'
-Plug 'othree/html5.vim'
+
 Plug 'Townk/vim-autoclose'
 Plug 'tpope/vim-repeat'
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
+Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'severin-lemaignan/vim-minimap'
 
-" Syntax Highlight
+" Syntax
 Plug 'digitalToad/vim-jade'
+Plug 'othree/html5.vim'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'tpope/vim-markdown'
-Plug 'pangloss/vim-javascript'
+Plug 'scrooloose/syntastic'
+Plug 'tmux-plugins/vim-tmux' "Add Tmux syntax highlight
+Plug 'pangloss/vim-javascript' | Plug 'mxw/vim-jsx'
+Plug '1995eaton/vim-better-javascript-completion'
+Plug 'elzr/vim-json'
+Plug 'othree/javascript-libraries-syntax.vim'
+
+
 
 " Vim Themes and Icons
-
 Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'ryanoasis/vim-devicons'
+Plug 'kien/rainbow_parentheses.vim'
+Plug 'gorodinskiy/vim-coloresque'
 " Plug 'nanotech/jellybeans.vim'
 " Plug 'ajh17/Spacegray.vim'
 " Plug '29decibel/codeschool-vim-theme'
@@ -141,7 +148,9 @@ set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 
 " UTF encoding
 set fileencoding=utf-8
-set encoding=utf-8
+if !has('nvim')
+  set encoding=utf-8
+endif
 
 " Autoload files that have changed outside of vim
 set autoread
@@ -215,6 +224,12 @@ endif
 " }}}
 
 " Plugin {{{
+
+"==========RainbowParentheses============"
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
 
 " Airline (status line)
 let g:airline_powerline_fonts = 1
