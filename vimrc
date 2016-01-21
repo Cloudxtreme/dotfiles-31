@@ -3,7 +3,6 @@
 " let vim-plug manage my Plugins
 call plug#begin('~/.vim/bundle') "Set the plugins path
 
-
 " Utilities
 Plug 'godlygeek/tabular'
 Plug 'scrooloose/nerdtree'
@@ -49,13 +48,13 @@ Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'ryanoasis/vim-devicons'
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'gorodinskiy/vim-coloresque'
+
 " Plug 'nanotech/jellybeans.vim'
 " Plug 'ajh17/Spacegray.vim'
 " Plug '29decibel/codeschool-vim-theme'
 " Plug 'chriskempson/vim-tomorrow-theme'
 
-" All of your Plugins must be added before the following line
-call plug#end() " required
+call plug#end() " required/end of plugins loading
 
 "}}}
 
@@ -185,12 +184,6 @@ set showmatch
 " plugin
 let g:netrw_liststyle=3
 
-" Always highlight column 80 so it's easier to see where cutoff appears on
-" longer screen
-
-"autocmd BufWinEnter * highlight ColorColumn ctermbg=darkred
-"set colorcolumn=80
-
 " set up the map leader
 let mapleader = ","
 
@@ -203,38 +196,42 @@ set omnifunc=syntaxcomplete#Complete
 " Set python interpreter
 let g:python_host_prog = '/usr/bin/python'
 
-
 " Auto load file when changes detected
 set autoread
 " }}}
 
 " Colorscheme & background {{{
+
 set t_Co=256
 set background=dark
 colorscheme hybrid_reverse
 let g:enable_bold_font = 1 " set some code to be bold
 
-"Set gui vim font
+"Set gui vim
 if has('gui_running')
   set guioptions-=T " Hide toolbar in GUI vim
-  " set guifont=Sauce\ Code\ Powerline:h13
-  " colorscheme hybrid_reverse
 endif
 
 " }}}
 
-" Plugin {{{
+" Plugins Options {{{
 
-"==========RainbowParentheses============"
+""""""""""""""""""""""""
+"  RainbowParentheses  "
+""""""""""""""""""""""""
+
 au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 
-" Airline (status line)
-let g:airline_powerline_fonts = 1
-let g:airline_theme = "hybrid"
-set guifont=Sauce\ Code\ Pro\ Nerd\ Font\ Complete:h13
+"""""""""""""
+"  Airline  "
+"""""""""""""
+
+let g:airline_powerline_fonts = 1 "use powerline font
+let g:airline_theme = "hybrid" "set airline theme to hybrid-material
+set guifont=Sauce\ Code\ Pro\ Nerd\ Font\ Complete:h13 "set gui powerline font
 
 " Fugitive
 nnoremap <Leader>gs :Gstatus<CR>
@@ -519,104 +516,4 @@ endfunction
 
 " Delete blank lines
 nnoremap <F3> :g/^$/d<CR>
-
-" Function to Watch for changes if buffer changed on disk
-"function! WatchForChanges(bufname, ...)
-  "" Figure out which options are in effect
-  "if a:bufname == '*'
-    "let id = 'WatchForChanges'.'AnyBuffer'
-    "" If you try to do checktime *, you'll get E93: More than one match for * is given
-    "let bufspec = ''
-  "else
-    "if bufnr(a:bufname) == -1
-      "echoerr "Buffer " . a:bufname . " doesn't exist"
-      "return
-    "end
-    "let id = 'WatchForChanges'.bufnr(a:bufname)
-    "let bufspec = a:bufname
-  "end
-  "if len(a:000) == 0
-    "let options = {}
-  "else
-    "if type(a:1) == type({})
-      "let options = a:1
-    "else
-      "echoerr "Argument must be a Dict"
-    "end
-  "end
-  "let autoread    = has_key(options, 'autoread')    ? options['autoread']    : 0
-  "let toggle      = has_key(options, 'toggle')      ? options['toggle']      : 0
-  "let disable     = has_key(options, 'disable')     ? options['disable']     : 0
-  "let more_events = has_key(options, 'more_events') ? options['more_events'] : 1
-  "let while_in_this_buffer_only = has_key(options, 'while_in_this_buffer_only') ? options['while_in_this_buffer_only'] : 0
-  "if while_in_this_buffer_only
-    "let event_bufspec = a:bufname
-  "else
-    "let event_bufspec = '*'
-  "end
-  "let reg_saved = @"
-  ""let autoread_saved = &autoread
-  "let msg = "\n"
-  "" Check to see if the autocommand already exists
-  "redir @"
-    "silent! exec 'au '.id
-  "redir END
-  "let l:defined = (@" !~ 'E216: No such group or event:')
-  "" If not yet defined...
-  "if !l:defined
-    "if l:autoread
-      "let msg = msg . 'Autoread enabled - '
-      "if a:bufname == '*'
-        "set autoread
-      "else
-        "setlocal autoread
-      "end
-    "end
-    "silent! exec 'augroup '.id
-      "if a:bufname != '*'
-        ""exec "au BufDelete    ".a:bufname . " :silent! au! ".id . " | silent! augroup! ".id
-        ""exec "au BufDelete    ".a:bufname . " :echomsg 'Removing autocommands for ".id."' | au! ".id . " | augroup! ".id
-        "exec "au BufDelete    ".a:bufname . " execute 'au! ".id."' | execute 'augroup! ".id."'"
-      "end
-        "exec "au BufEnter     ".event_bufspec . " :checktime ".bufspec
-        "exec "au CursorHold   ".event_bufspec . " :checktime ".bufspec
-        "exec "au CursorHoldI  ".event_bufspec . " :checktime ".bufspec
-      "" The following events might slow things down so we provide a way to disable them...
-      "" vim docs warn:
-      ""   Careful: Don't do anything that the user does
-      ""   not expect or that is slow.
-      "if more_events
-        "exec "au CursorMoved  ".event_bufspec . " :checktime ".bufspec
-        "exec "au CursorMovedI ".event_bufspec . " :checktime ".bufspec
-      "end
-    "augroup END
-    "let msg = msg . 'Now watching ' . bufspec . ' for external updates...'
-  "end
-  "" If they want to disable it, or it is defined and they want to toggle it,
-  "if l:disable || (l:toggle && l:defined)
-    "if l:autoread
-      "let msg = msg . 'Autoread disabled - '
-      "if a:bufname == '*'
-        "set noautoread
-      "else
-        "setlocal noautoread
-      "end
-    "end
-    "" Using an autogroup allows us to remove it easily with the following
-    "" command. If we do not use an autogroup, we cannot remove this
-    "" single :checktime command
-    "" augroup! checkforupdates
-    "silent! exec 'au! '.id
-    "silent! exec 'augroup! '.id
-    "let msg = msg . 'No longer watching ' . bufspec . ' for external updates.'
-  "elseif l:defined
-    "let msg = msg . 'Already watching ' . bufspec . ' for external updates'
-  "end
-  "" echo msg
-  "let @"=reg_saved
-"endfunction
-"
-"let autoreadargs={'autoread':1}
-"execute WatchForChanges("*",autoreadargs)
-"}}}
 
