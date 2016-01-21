@@ -233,7 +233,10 @@ let g:airline_powerline_fonts = 1 "use powerline font
 let g:airline_theme = "hybrid" "set airline theme to hybrid-material
 set guifont=Sauce\ Code\ Pro\ Nerd\ Font\ Complete:h13 "set gui powerline font
 
-" Fugitive
+""""""""""""""
+"  Fugitive  "
+""""""""""""""
+
 nnoremap <Leader>gs :Gstatus<CR>
 nnoremap <Leader>gc :Gcommit<CR>
 
