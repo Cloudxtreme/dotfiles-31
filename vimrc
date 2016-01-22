@@ -363,6 +363,11 @@ let g:UltiSnipsEditSplit="vertical"
 nnoremap <leader>d gg<S-v><S-g>c
 imap <leader>d <esc>gg<S-v><S-g>c
 
+" Fix for C-h conflic in Neovim
+if has('nvim')
+  nmap <BS> <C-W>h
+endif
+
 " Searching
 nnoremap / /\v
 vnoremap / /\v
