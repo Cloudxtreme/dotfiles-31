@@ -20,7 +20,7 @@ Plug 'bronson/vim-trailing-whitespace'
 Plug 'mtth/scratch.vim'
 Plug 'Tpope/vim-commentary'
 Plug 'Tpope/vim-surround'
-Plug 'easymotion/vim-easymotion'
+" Plug 'easymotion/vim-easymotion'
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
 " Git Helpers
@@ -44,15 +44,10 @@ Plug 'othree/javascript-libraries-syntax.vim'
 
 " Vim Themes and Icons
 Plug 'bling/vim-airline'
-Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'ryanoasis/vim-devicons'
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'gorodinskiy/vim-coloresque'
-
-" Plug 'nanotech/jellybeans.vim'
-" Plug 'ajh17/Spacegray.vim'
-" Plug '29decibel/codeschool-vim-theme'
-" Plug 'chriskempson/vim-tomorrow-theme'
+Plug 'nanotech/jellybeans.vim'
 
 call plug#end() " required/end of plugins loading
 
@@ -204,7 +199,7 @@ set autoread
 
 set t_Co=256
 set background=dark
-colorscheme hybrid_reverse
+colorscheme jellybeans "hybrid_reverse
 let g:enable_bold_font = 1 " set some code to be bold
 
 "Set gui vim
@@ -230,8 +225,35 @@ au Syntax * RainbowParenthesesLoadBraces
 """""""""""""
 
 let g:airline_powerline_fonts = 1 "use powerline font
-let g:airline_theme = "hybrid" "set airline theme to hybrid-material
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline#extensions#tabline#show_tab_nr = 1
 set guifont=Sauce\ Code\ Pro\ Nerd\ Font\ Complete:h13 "set gui powerline font
+
+
+
+" Tabline part of vim-airline
+
+" Close the current buffer and move to the previous one
+" This replicates the idea of closing a tab
+nmap <leader>x :bp <BAR> bd #<CR>
+" This replaes :tabnew which I used to bind to this mapping
+nmap <leader>n :enew<cr>
+" Move to the next buffer
+nmap <leader>, :bnext<CR>
+" Move to the previous buffer
+nmap <leader>. :bprevious<CR>
+
+let g:airline#extensions#tabline#buffer_idx_mode = 1
+nmap <leader>1 <Plug>AirlineSelectTab1
+nmap <leader>2 <Plug>AirlineSelectTab2
+nmap <leader>3 <Plug>AirlineSelectTab3
+nmap <leader>4 <Plug>AirlineSelectTab4
+nmap <leader>5 <Plug>AirlineSelectTab5
+nmap <leader>6 <Plug>AirlineSelectTab6
+nmap <leader>7 <Plug>AirlineSelectTab7
+nmap <leader>8 <Plug>AirlineSelectTab8
+nmap <leader>9 <Plug>AirlineSelectTab9
 
 """"""""""""""
 "  Fugitive  "
@@ -240,7 +262,10 @@ set guifont=Sauce\ Code\ Pro\ Nerd\ Font\ Complete:h13 "set gui powerline font
 nnoremap <Leader>gs :Gstatus<CR>
 nnoremap <Leader>gc :Gcommit<CR>
 
-" Syntastic
+"""""""""""""""
+"  Syntastic  "
+"""""""""""""""
+
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
@@ -250,50 +275,73 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
-" Type <leader>lc to close Syntastic list window
+" Close Syntastic list window
 nnoremap <Leader>lc :lclose<CR>
 
-" Type <leader>le to open error list window
+" Open error list window
 nnoremap <Leader>le :Errors<CR>
 
-" Type <leader>ln to go to next error
+" Go to next error
 nnoremap <leader>ln :lnext<CR>
 
-" Type <leader>lp to go to previous error
+" Go to previous error
 nnoremap <leader>lp :lprev<CR>
 
-" Type <leader>mc to do a syntast"uic manual check
+" Do a syntastic manual check
 nnoremap <leader>sc :SyntasticCheck<CR>
 
-" Better :sign interface symbols
+" Better interface symbols
 let g:syntastic_error_symbol = '✗'
 let g:syntastic_warning_symbol = '!'
 
 " Disable the less checker
-" let g:syntastic_less_checkers=['']
+let g:syntastic_less_checkers=['']
 
-" Tagbar
+""""""""""""
+"  Tagbar  "
+""""""""""""
+
 nmap <F8> :TagbarToggle<CR>
 
-" Emmit
-let g:user_emmet_leader_key=','
+"""""""""""
+"  Emmet  "
+"""""""""""
 
-" CtrlP
+" Remap <C-y>
+" let g:user_emmet_leader_key='e'
+imap   <leader>,   <plug>(emmet-expand-abbr)
+
+let g:user_emmet_install_global = 0
+autocmd FileType html,css,ejs EmmetInstall
+
+"""""""""""
+"  CtrlP  "
+"""""""""""
+
 " modify default opening behavior with an interactive argument <C-o>
 let g:ctrlp_arg_map = 1
 
 " Add the Silver Searcher as the backend to use the agignore with ctrlp
 let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
 
+""""""""""""""
+"  NERDTree  "
+""""""""""""""
+
 " Toggle NERDTree
-map <leader>n :NERDTreeToggle<CR>
+map <leader>t :NERDTreeToggle<CR>
 " let g:NERDTreeWinPos = "right"
 
-" Markdown-syntax
+""""""""""""""
+"  Markdown  "
+""""""""""""""
+
 " disable markdown-syntax folding
 let g:vim_markdown_folding_disabled=1
 
-" UltiSnips
+"""""""""""""""
+"  UltiSnips  "
+"""""""""""""""
 
 " make YCM compatible with UltiSnips (using supertab)
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']

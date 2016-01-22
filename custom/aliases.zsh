@@ -13,7 +13,7 @@ alias tree4='tree -L 4'
 alias :q="exit"
 alias rub="./rub"
 alias mongobrew="mongod --config /usr/local/etc/mongod.conf"
-alias vim="nvim"
+
 # Finder aliases
 alias ll="ls -lhFA"
 alias l="ls -lhF"
@@ -74,7 +74,7 @@ alias vhttpd="ps aux | grep httpd"
 alias vmysql="ps aux | grep mysql"
 
 function killnamed() {
-    ps ax | grep $1 | cut -d ' ' -f 1 | xargs kill 
+    ps ax | grep $1 | cut -d ' ' -f 1 | xargs kill
 }
 
 # Apache
@@ -84,7 +84,7 @@ alias startapache="sudo apachectl start"
 
 # Google Chrome Download
 function googledownload() {
-    wget -O googlechrome-stable.dmg https://dl.google.com/chrome/mac/stable/GGRO/googlechrome.dmg 
+    proxychains4 wget -O googlechrome-stable.dmg https://dl.google.com/chrome/mac/stable/GGRO/googlechrome.dmg
     #wget -O GoogleChrome-beta64.dmg https://dl.google.com/chrome/mac/beta/GoogleChrome.dmg
     #wget -O GoogleChrome-canary.dmg https://storage.googleapis.com/chrome-canary/GoogleChromeCanary.dmg
 }
@@ -95,7 +95,7 @@ function zipr() {
 }
 
 function tarz() {
-    tar -czvf $1.tgz $* 
+    tar -czvf $1.tgz $*
 }
 
 function tarx() {
