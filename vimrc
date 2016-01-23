@@ -195,11 +195,11 @@ let g:python_host_prog = '/usr/bin/python'
 set autoread
 " }}}
 
-" Colorscheme & background {{{
+" Colorscheme & background, Fonts {{{
 
 set t_Co=256
 set background=dark
-colorscheme jellybeans "hybrid_reverse
+colorscheme jellybeans
 let g:enable_bold_font = 1 " set some code to be bold
 set guifont=Ubuntu\ Mono\ derivative\ Powerline\ Nerd\ Font\ Complete:h15 "set gui powerline font
 
@@ -231,16 +231,18 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline#extensions#tabline#show_tab_nr = 1
 
 
-
 " Tabline part of vim-airline
 
 " Close the current buffer and move to the previous one
 " This replicates the idea of closing a tab
 nmap <leader>x :bp <BAR> bd #<CR>
+
 " This replaes :tabnew which I used to bind to this mapping
 nmap <leader>n :enew<cr>
+
 " Move to the next buffer
 nmap <leader>, :bnext<CR>
+
 " Move to the previous buffer
 nmap <leader>. :bprevious<CR>
 
