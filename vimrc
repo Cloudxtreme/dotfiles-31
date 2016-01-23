@@ -201,6 +201,7 @@ set t_Co=256
 set background=dark
 colorscheme jellybeans "hybrid_reverse
 let g:enable_bold_font = 1 " set some code to be bold
+set guifont=Ubuntu\ Mono\ derivative\ Powerline\ Nerd\ Font\ Complete:h15 "set gui powerline font
 
 "Set gui vim
 if has('gui_running')
@@ -228,7 +229,6 @@ let g:airline_powerline_fonts = 1 "use powerline font
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline#extensions#tabline#show_tab_nr = 1
-set guifont=Sauce\ Code\ Pro\ Nerd\ Font\ Complete:h13 "set gui powerline font
 
 
 
