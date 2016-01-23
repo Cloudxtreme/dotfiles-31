@@ -5,14 +5,7 @@ alias ea="vim ~/.oh-my-zsh/custom/aliases.zsh && reload" # edit custom aliases a
 alias eg="vim ~/.oh-my-zsh/custom/gitaliases.zsh && reload" # edit custom git aliases and functions config and reload
 alias et="vim ~/.tmux.conf" # edit tmux configuration
 alias vimrc="vim ~/.vimrc" # Edit vimrc
-alias coda='open -a "Coda 2"' # open in coda 2
-alias tree1='tree -L 1' # show directory structure one level
-alias tree2='tree -L 2' # show directory structure two level
-alias tree3='tree -L 3' # show directory sturcture 3 level
-alias tree4='tree -L 4'
-alias :q="exit"
-alias rub="./rub"
-alias mongobrew="mongod --config /usr/local/etc/mongod.conf"
+
 
 # Finder aliases
 alias ll="ls -lhFA"
@@ -23,39 +16,33 @@ alias dl="cd /Volumes/Data/Download/"
 alias dc="cd /Volumes/Data/Documents/"
 alias sb="cd ~/Documents/sandbox"
 alias cdd="cd -"
+
 alias c="clear"
 alias cl="clear; l"
 alias h="history"
 
-# NPM
-alias npmlsg="npm list -g --depth=0"
-alias npmls="npm list --depth=0"
-
-# Functions
-function cdl() {
-    cd $1; l
-} # enter a directory and list its contents
-
-function ag() {
-    alias | grep "$1"
-} # grep related alias
-
-function fd() {
-    find . -iname "$1" $2
-}
-
 alias shutdown="sudo shutdown -h now"
 alias reboot="sudo shutdown -r now"
+
+alias rub="./rub"
+alias mongobrew="mongod --config /usr/local/etc/mongod.conf"
+
 alias e="exit"
+alias :q="exit"
+
 alias o="open ."
 alias md="mkdir -p"
 alias rm="rm -i"
 
-# Functions
-function take() {
-    mkdir $1
-    cd $1
-} # create a new directory and cd into that directory
+# Tree Commands
+alias tree1='tree -L 1' # show directory structure one level
+alias tree2='tree -L 2' # show directory structure two level
+alias tree3='tree -L 3' # show directory sturcture 3 level
+alias tree4='tree -L 4'
+
+# NPM
+alias npmlsg="npm list -g --depth=0"
+alias npmls="npm list --depth=0"
 
 alias tuts="cd /Volumes/MB3/tutorials/Tutsplus/; lg"
 alias lynda="cd /Volumes/MB3/tutorials/Lynda.com/; lg"
@@ -73,20 +60,44 @@ alias tm="top -o vsize" # memory
 alias vhttpd="ps aux | grep httpd"
 alias vmysql="ps aux | grep mysql"
 
-function killnamed() {
-    ps ax | grep $1 | cut -d ' ' -f 1 | xargs kill
-}
-
 # Apache
 alias restartapache="sudo apachectl restart"
 alias stopapache="sudo apachectl stop"
 alias startapache="sudo apachectl start"
 
+# Functions
+function cdl() {
+    cd $1; l
+} # enter a directory and list its contents
+
+function ag() {
+    alias | grep "$1"
+} # grep related alias
+
+function fd() {
+    find . -iname "$1" $2
+}
+
+
+# Functions
+function take() {
+    mkdir $1
+    cd $1
+} # create a new directory and cd into that directory
+
+
+function killnamed() {
+    ps ax | grep $1 | cut -d ' ' -f 1 | xargs kill
+}
+
+
 # Google Chrome Download
 function googledownload() {
     proxychains4 wget -O googlechrome-stable.dmg https://dl.google.com/chrome/mac/stable/GGRO/googlechrome.dmg
-    #wget -O GoogleChrome-beta64.dmg https://dl.google.com/chrome/mac/beta/GoogleChrome.dmg
-    #wget -O GoogleChrome-canary.dmg https://storage.googleapis.com/chrome-canary/GoogleChromeCanary.dmg
+}
+function canarydownload() {
+    proxychains4 wget -O GoogleChrome-canary.dmg https://storage.googleapis.com/chrome-canary/GoogleChromeCanary.dmg
+
 }
 
 # Misc.
