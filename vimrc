@@ -4,23 +4,25 @@
 call plug#begin('~/.vim/bundle') "Set the plugins path
 
 " Utilities
+Plug 'Chiel92/vim-autoformat'
 Plug 'godlygeek/tabular'
 Plug 'scrooloose/nerdtree'
 Plug 'mattn/emmet-vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'ervandew/supertab'
 Plug 'majutsushi/tagbar'
+Plug 'christoomey/vim-tmux-navigator'
 Plug 'Valloric/YouCompleteMe'
 Plug 'severin-lemaignan/vim-minimap'
 
 " Editing
-Plug 'Townk/vim-autoclose'
+Plug 'Raimondi/delimitMate'
+Plug 'Valloric/MatchTagAlways'
 Plug 'tpope/vim-repeat'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'mtth/scratch.vim'
 Plug 'Tpope/vim-commentary'
 Plug 'Tpope/vim-surround'
-" Plug 'easymotion/vim-easymotion'
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
 " Git Helpers
@@ -46,8 +48,8 @@ Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'bling/vim-airline'
 Plug 'ryanoasis/vim-devicons'
 Plug 'kien/rainbow_parentheses.vim'
-Plug 'gorodinskiy/vim-coloresque'
 Plug 'nanotech/jellybeans.vim'
+Plug 'chrisbra/Colorizer'
 
 call plug#end() " required/end of plugins loading
 
@@ -199,7 +201,10 @@ set autoread
 
 set t_Co=256
 set background=dark
+syntax enable
 colorscheme jellybeans
+
+"Fonts
 let g:enable_bold_font = 1 " set some code to be bold
 set guifont=Ubuntu\ Mono\ derivative\ Powerline\ Nerd\ Font\ Complete:h15 "set gui powerline font
 
@@ -221,6 +226,28 @@ au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 
+"""""""""""""""
+"  Colorizer  "
+"""""""""""""""
+
+" Make files look nice
+autocmd FileType css,scss,sass,less :ColorHighlight "For Colorizer Plugin
+
+"""""""""""""""""""
+"  Autoformatter  "
+"""""""""""""""""""
+
+" Plugin autoformat
+noremap <c-t> :Autoformat<CR>
+
+""""""""""""""""""""
+"  MatchTagAlways  "
+""""""""""""""""""""
+let g:mta_use_matchparen_group = 0
+let g:mta_set_default_matchtag_color = 0
+highlight MatchTag ctermfg=black ctermbg=lightgreen guifg=black guibg=lightgreen
+nnoremap <localleader>m :MtaJumpToOtherTag<cr>
+
 """""""""""""
 "  Airline  "
 """""""""""""
@@ -241,10 +268,10 @@ nmap <leader>x :bp <BAR> bd #<CR>
 nmap <leader>n :enew<cr>
 
 " Move to the next buffer
-nmap <leader>, :bnext<CR>
+nmap <leader>. :bnext<CR>
 
 " Move to the previous buffer
-nmap <leader>. :bprevious<CR>
+nmap <leader>, :bprevious<CR>
 
 let g:airline#extensions#tabline#buffer_idx_mode = 1
 nmap <leader>1 <Plug>AirlineSelectTab1
@@ -314,7 +341,7 @@ nmap <F8> :TagbarToggle<CR>
 imap   <leader>,   <plug>(emmet-expand-abbr)
 
 let g:user_emmet_install_global = 0
-autocmd FileType html,css,ejs EmmetInstall
+autocmd FileType html,css,less,scss EmmetInstall
 
 """""""""""
 "  CtrlP  "
@@ -332,7 +359,6 @@ let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
 
 " Toggle NERDTree
 map <leader>t :NERDTreeToggle<CR>
-" let g:NERDTreeWinPos = "right"
 
 """"""""""""""
 "  Markdown  "
@@ -521,8 +547,7 @@ if has("autocmd")
     " Treat .rss files as XML
     autocmd BufNewFile,BufRead *.rss, *.atom setfiletype xml
 
-    " Bootstrap 3 boilerplat CDN
-    autocmd BufNewFile *-bst3.html 0r ~/Sites/boilerplate/bst3.html
+
 endif
 "}}}
 
