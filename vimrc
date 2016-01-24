@@ -396,6 +396,10 @@ if has('nvim')
   nmap <BS> <C-W>h
 endif
 
+" Space to toggle folds.
+nnoremap <Space> za
+vnoremap <Space> za
+
 " Searching
 nnoremap / /\v
 vnoremap / /\v
@@ -407,11 +411,11 @@ nnoremap vv V
 " Remap Ctrl-W
 nnoremap <leader>w <C-w>
 
-" Switch window
-map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
+" " Switch window
+" map <C-h> <C-w>h
+" map <C-j> <C-w>j
+" map <C-k> <C-w>k
+" map <C-l> <C-w>l
 
 " Quickly resize vertical window
 map - <C-W>-
@@ -526,26 +530,26 @@ inoremap <C-k> <C-g>k
 
 "Autocmd Settings {{{
 if has("autocmd")
-    " Start vim with NERDTree
-    autocmd vimenter * if !argc() | NERDTree | endif
-    " Move the cursor in the editor window
-    ""autocmd VimEnter * wincmd p
-    " Auto close NERDTree if it is the only window open
-    autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+  " Start vim with NERDTree
+  autocmd vimenter * if !argc() | NERDTree | endif
+  " Move the cursor in the editor window
+  ""autocmd VimEnter * wincmd p
+  " Auto close NERDTree if it is the only window open
+  autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
-    " Folding with marker
-    autocmd BufRead * setlocal foldmethod=marker
-    autocmd BufRead * normal zM
+  " Folding with marker
+  autocmd BufRead * setlocal foldmethod=marker
+  autocmd BufRead * normal zM
 
-    " Customisations based on house-style
-    autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
-    autocmd FileType css setlocal ts=2 sts=2 sw=2 expandtab
-    autocmd FileType less setlocal ts=2 sts=2 sw=2 expandtab
-    autocmd FileType javascript setlocal ts=4 sts=4 sw=4 noexpandtab relativenumber
-    autocmd FileType json setlocal ts=2 sts=2 sw=2 noexpandtab
+  " Customisations based on house-style
+  autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
+  autocmd FileType css setlocal ts=2 sts=2 sw=2 expandtab
+  autocmd FileType less setlocal ts=2 sts=2 sw=2 expandtab
+  autocmd FileType javascript setlocal ts=4 sts=4 sw=4 noexpandtab relativenumber
+  autocmd FileType json setlocal ts=2 sts=2 sw=2 noexpandtab
 
-    " Treat .rss files as XML
-    autocmd BufNewFile,BufRead *.rss, *.atom setfiletype xml
+  " Treat .rss files as XML
+  autocmd BufNewFile,BufRead *.rss, *.atom setfiletype xml
 
 
 endif
@@ -586,15 +590,15 @@ endfunction
 " Hit <F2> to strip trailing spaces.
 nnoremap <silent> <F2> :call <SID>StripTrailingWhitespaces()<CR>
 function! <SID>StripTrailingWhitespaces()
-    " Preparation: save last search, and cursor position.
-    let _s=@/
-    let l = line(".")
-    let c = col(".")
-    " Do the business:
-    %s/\s\+$//e
-    " Clean up: restore previous search history, and cursor position
-    let @/=_s
-    call cursor(l, c)
+  " Preparation: save last search, and cursor position.
+  let _s=@/
+  let l = line(".")
+  let c = col(".")
+  " Do the business:
+  %s/\s\+$//e
+  " Clean up: restore previous search history, and cursor position
+  let @/=_s
+  call cursor(l, c)
 endfunction
 
 " Delete blank lines
