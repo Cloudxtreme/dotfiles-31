@@ -1,10 +1,10 @@
 # utility
 alias reload="source ~/.zshrc"
-alias ez="vim ~/.zshrc && reload" # Edit default zsh config file and reload
-alias ea="vim ~/.oh-my-zsh/custom/aliases.zsh && reload" # edit custom aliases and functions config and reload
-alias eg="vim ~/.oh-my-zsh/custom/gitaliases.zsh && reload" # edit custom git aliases and functions config and reload
-alias et="vim ~/.tmux.conf" # edit tmux configuration
-alias vimrc="vim ~/.vimrc" # Edit vimrc
+alias ez="nvim ~/.zshrc && reload" # Edit default zsh config file and reload
+alias ea="nvim ~/.oh-my-zsh/custom/aliases.zsh && reload" # edit custom aliases and functions config and reload
+alias eg="nvim ~/.oh-my-zsh/custom/gitaliases.zsh && reload" # edit custom git aliases and functions config and reload
+alias et="nvim ~/.tmux.conf" # edit tmux configuration
+alias vimrc="nvim ~/.vimrc" # Edit vimrc
 
 
 # Finder aliases
@@ -26,6 +26,7 @@ alias reboot="sudo shutdown -r now"
 
 alias rub="./rub"
 alias mongobrew="mongod --config /usr/local/etc/mongod.conf"
+alias vim="nvim" # use nvim as default vim
 
 alias e="exit"
 alias :q="exit"

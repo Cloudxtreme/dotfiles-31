@@ -14,8 +14,11 @@ Plug 'majutsushi/tagbar'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'Valloric/YouCompleteMe'
 Plug 'severin-lemaignan/vim-minimap'
+Plug 'rking/ag.vim'
 
 " Editing
+Plug 'terryma/vim-multiple-cursors'
+Plug 'matze/vim-move'
 Plug 'Raimondi/delimitMate'
 Plug 'Valloric/MatchTagAlways'
 Plug 'tpope/vim-repeat'
@@ -176,10 +179,6 @@ set lazyredraw
 
 " When a bracket is inserted, briefly jump to the matching one
 set showmatch
-
-" Set build-in file system explorer to use layout similar to the NERDTree
-" plugin
-let g:netrw_liststyle=3
 
 " set up the map leader
 let mapleader = ","
@@ -358,7 +357,7 @@ let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
 """"""""""""""
 
 " Toggle NERDTree
-map <C-\> :NERDTreeToggle<CR>
+map <leader>t :NERDTreeToggle<CR>
 
 """"""""""""""
 "  Markdown  "
@@ -383,6 +382,11 @@ let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
+
+""""""""
+"  Ag  "
+""""""""
+nnoremap <leader>a :Ag<space>
 
 " }}}
 
