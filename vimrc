@@ -391,14 +391,12 @@ nnoremap <leader>a :Ag<space>
 " }}}
 
 " Mappings {{{
-" The best mapping
-nnoremap ; :
 
-" Delete everything is the buffer and enter insert mode
+" Delete everything in the buffer and enter insert mode
 nnoremap <leader>d gg<S-v><S-g>c
 imap <leader>d <esc>gg<S-v><S-g>c
 
-" Fix for C-h conflic in Neovim
+  " Fix the C-h conflict in Neovim
 if has('nvim')
   nmap <BS> <C-W>h
 endif
