@@ -55,7 +55,7 @@ call plug#end() " required/end of plugins loading
 
 "}}}
 
-" Setting {{{
+" General Settings {{{
 
 "Switch syntax highlight on, when the terminal has colors
 filetype plugin indent on    " required
@@ -358,7 +358,7 @@ let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
 """"""""""""""
 
 " Toggle NERDTree
-map <leader>t :NERDTreeToggle<CR>
+map <C-\> :NERDTreeToggle<CR>
 
 """"""""""""""
 "  Markdown  "
@@ -387,6 +387,9 @@ let g:UltiSnipsEditSplit="vertical"
 " }}}
 
 " Mappings {{{
+" The best mapping
+nnoremap ; :
+
 " Delete everything is the buffer and enter insert mode
 nnoremap <leader>d gg<S-v><S-g>c
 imap <leader>d <esc>gg<S-v><S-g>c
