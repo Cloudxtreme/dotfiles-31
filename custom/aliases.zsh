@@ -66,6 +66,9 @@ alias restartapache="sudo apachectl restart"
 alias stopapache="sudo apachectl stop"
 alias startapache="sudo apachectl start"
 
+# Run PlexConnect
+alias plex="sudo ~/Applications/PlexConnect/PlexConnect.py"
+
 # Functions
 function cdl() {
     cd $1; l
