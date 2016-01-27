@@ -60,6 +60,9 @@ call plug#end() " required/end of plugins loading
 
 " General Settings {{{
 
+" Set relative line numbers
+set relativenumber
+
 "Switch syntax highlight on, when the terminal has colors
 filetype plugin indent on    " required
 syntax on
@@ -391,10 +394,12 @@ nnoremap <leader>a :Ag<space>
 " }}}
 
 " Mappings {{{
-
 " Delete everything in the buffer and enter insert mode
 nnoremap <leader>d gg<S-v><S-g>c
 imap <leader>d <esc>gg<S-v><S-g>c
+
+" Delete line and into insert mode
+inoremap <C-d> <esc>ddi
 
   " Fix the C-h conflict in Neovim
 if has('nvim')
@@ -404,6 +409,9 @@ endif
 " Space to toggle folds.
 nnoremap <Space> za
 vnoremap <Space> za
+
+" Capital R to reveal all folds
+nnoremap R zr
 
 " Searching
 nnoremap / /\v
@@ -472,12 +480,6 @@ nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 
 " Source the vimrc file
 nnoremap <leader>sv :source $MYVIMRC<cr>
-
-" Move cursor to the begining of the line
-nnoremap <s-h> 0
-
-" Move the cursor to the end of the line
-nnoremap <s-l> $
 
 " Shortcut to rapidly toggle 'set list'
 nmap <leader>l :set list!<CR>
