@@ -85,7 +85,7 @@ set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 " UTF encoding
 set fileencoding=utf-8
 if !has('nvim')
-  set encoding=utf-8
+	set encoding=utf-8
 endif
 " Set buffer modifiable
 set modifiable
@@ -127,6 +127,52 @@ set cursorline
 " Always show cursor
 set ruler
 "}}}
+" Tab, Backspace, Wordwrap, hidden etc. {{{
+" A buffer is marked as 'hidden' if it has unsaved changes, and it is not
+" currently loaded in a window. If you try to quit Vim while there are hidden
+" buffers you will raise an error: E162: No write since last change for buffer
+" "a.txt"
+set hidden
+
+" Turn word wrap off
+" set nowrap
+
+" Allow backspace to delete end of line, indent and start of line characters
+set backspace=indent,eol,start
+
+" Convert tabs to spaces
+set expandtab
+
+" Set tab size in spaces (this is for manual editing)
+set tabstop=2
+
+" Set softtabstop equal to shiftwidth
+set softtabstop=2
+
+" The number of spaces inserted for a tab (used for auto indenting)
+set shiftwidth=2
+
+" Highlight tailing whitespace
+set listchars=tab:▸\ ,eol:¬
+
+" }}}
+" Search {{{
+" Incremental Searching (search as you type)
+set incsearch
+
+" Highlight search matches
+set hlsearch
+
+" Ignore case in search
+set smartcase
+
+" Make sure any searches /searchPhrase doesn't need the \c escape character
+set ignorecase
+
+" When substitute, all match in a line is substituted instead of one
+set gdefault
+
+" }}} Search
 " Leader mapping {{{
 " set up the map leader
 let mapleader = ","
@@ -171,53 +217,37 @@ set guifont=Ubuntu\ Mono\ derivative\ Powerline\ Nerd\ Font\ Complete:h15 "set g
 
 "Set gui vim
 if has('gui_running')
-  set guioptions-=T " Hide toolbar in GUI vim
+	set guioptions-=T " Hide toolbar in GUI vim
 endif
 
 " }}}
 " }}}
-" Plugins Options {{{
-
-""""""""""""""""""""""""
-"  RainbowParentheses  "
-""""""""""""""""""""""""
-
+" Plugins Settings {{{
+" RainbowParentheses {{{
 au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
-
-"""""""""""""""
-"  Colorizer  "
-"""""""""""""""
-
+" }}} RainbowParentheses
+" Colorizer {{{
 " Make files look nice
 autocmd FileType css,scss,sass,less :ColorHighlight "For Colorizer Plugin
-
-"""""""""""""""""""
-"  Autoformatter  "
-"""""""""""""""""""
-
-" Plugin autoformat
+" }}} Colorizer
+" Autoformat {{{
+" autoformat shortcut
 noremap <c-t> :Autoformat<CR>
-
-""""""""""""""""""""
-"  MatchTagAlways  "
-""""""""""""""""""""
+" }}} Autoformat
+" MatchTagAlways {{{
 let g:mta_use_matchparen_group = 0
 let g:mta_set_default_matchtag_color = 0
 highlight MatchTag ctermfg=black ctermbg=lightgreen guifg=black guibg=lightgreen
-nnoremap <localleader>m :MtaJumpToOtherTag<cr>
-
-"""""""""""""
-"  Airline  "
-"""""""""""""
-
+nnoremap <leader>m :MtaJumpToOtherTag<cr>
+" }}} Matchtagalways
+" Airline {{{
 let g:airline_powerline_fonts = 1 "use powerline font
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline#extensions#tabline#show_tab_nr = 1
-
 
 " Tabline part of vim-airline
 
@@ -244,18 +274,12 @@ nmap <leader>6 <Plug>AirlineSelectTab6
 nmap <leader>7 <Plug>AirlineSelectTab7
 nmap <leader>8 <Plug>AirlineSelectTab8
 nmap <leader>9 <Plug>AirlineSelectTab9
-
-""""""""""""""
-"  Fugitive  "
-""""""""""""""
-
+" }}} Airline
+" Fugitive {{{
 nnoremap <Leader>gs :Gstatus<CR>
 nnoremap <Leader>gc :Gcommit<CR>
-
-"""""""""""""""
-"  Syntastic  "
-"""""""""""""""
-
+" }}} Fugitive
+" Syntastic {{{
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
@@ -286,52 +310,44 @@ let g:syntastic_warning_symbol = '!'
 
 " Disable the less checker
 let g:syntastic_less_checkers=['']
-
-""""""""""""
-"  Tagbar  "
-""""""""""""
-
+" }}} Syntastic
+" Tagbar {{{
 nmap <F8> :TagbarToggle<CR>
-
-"""""""""""
-"  Emmet  "
-"""""""""""
-
+" }}} Tagbar
+" Emmet {{{
 " Remap <C-y>
 " let g:user_emmet_leader_key='e'
 imap   <leader>,   <plug>(emmet-expand-abbr)
 
 let g:user_emmet_install_global = 0
 autocmd FileType html,css,less,scss EmmetInstall
-
-"""""""""""
-"  CtrlP  "
-"""""""""""
-
+" }}} Emmet
+" CtrlP {{{
 " modify default opening behavior with an interactive argument <C-o>
 let g:ctrlp_arg_map = 1
 
 " Add the Silver Searcher as the backend to use the agignore with ctrlp
 let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
-
-""""""""""""""
-"  NERDTree  "
-""""""""""""""
-
+" }}} CtrlP
+" NERDTree {{{
 " Toggle NERDTree
 map <leader>t :NERDTreeToggle<CR>
 
-""""""""""""""
-"  Markdown  "
-""""""""""""""
+" Start vim with NERDTree
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
+" Move the cursor in the editor window
+""autocmd VimEnter * wincmd p
+
+" Auto close NERDTree if it is the only window open
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+" }}} NERDTRee
+"  Markdown {{{
 " disable markdown-syntax folding
 let g:vim_markdown_folding_disabled=1
-
-"""""""""""""""
-"  UltiSnips  "
-"""""""""""""""
-
+" }}} Markdown
+" UltiSnips {{{
 " make YCM compatible with UltiSnips (using supertab)
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
@@ -344,78 +360,89 @@ let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
-
-""""""""
-"  Ag  "
-""""""""
+" }}} UltiSnips
+" Ag {{{
 nnoremap <leader>a :Ag<space>
-
-""""""""""""""
-"  Hardmode  "
-""""""""""""""
-nnoremap <localleader>h <Esc>:call ToggleHardMode()<CR>
-
+" }}} Ag
+" Vim-Move {{{
+let g:move_map_keys = 0
+map <F4> = j
+map <F5> = k
+vmap <F4> <Plug>MoveBlockDown
+vmap <F5> <Plug>MoveBlockUp
+nmap <F4> <Plug>MoveLineDown
+nmap <F5> <Plug>MoveLineUp
+" }}} vim-Move
 " }}}
 " Mappings {{{
+
+" Editing {{{
 " Delete everything in the buffer and enter insert mode
 nnoremap <leader>d gg<S-v><S-g>c
 imap <leader>d <esc>gg<S-v><S-g>c
 
 " Delete line and into insert mode
 inoremap <C-d> <esc>ddi
+" }}} Editing
 
-  " Fix the C-h conflict in Neovim
+" Fix the C-h conflict in Neovim
 if has('nvim')
-  nmap <BS> <C-W>h
+	nmap <BS> <C-W>h
 endif
+
+" Double tab 'v' to visual-line mode
+nnoremap vv V
+
+" Folding {{{
 
 " Space to toggle folds.
 nnoremap <Space> za
 vnoremap <Space> za
 
-" Searching
+" }}} Folding
+" Searching {{{
+
 nnoremap / /\v
 vnoremap / /\v
 nnoremap ? ?\v
 vnoremap ? ?\v
 
-" Double tab 'v' to visual-line mode
-nnoremap vv V
+" Get rid of  Search Highlight
+nnoremap <leader><space> :noh<CR>
+
+" }}} Searching
+" Window remapping {{{
+
 " Remap Ctrl-W
 nnoremap <leader>w <C-w>
-
-" " Switch window
-" map <C-h> <C-w>h
-" map <C-j> <C-w>j
-" map <C-k> <C-w>k
-" map <C-l> <C-w>l
 
 " Quickly resize vertical window
 map - <C-W>-
 map + <C-W>+
+
 " Quickly increase/decrease the width of the window
 map <F7> <C-W><
 map <F9> <C-W>>
 
+" }}} Window remapping
+" File Command {{{
 " Type <leader>s to save file
 nnoremap <leader>s :w<CR>
 inoremap <leader>s <esc>:w<CR>
 
 " Type <leader>q to quit  buffer
 nnoremap <leader>q :q<CR>
-nnoremap <leader>aq :wqa<CR>
 
-" Buffer mappings
-nnoremap <silent> [b :bprevious<CR>
-nnoremap <silent> ]b :bnext<CR>
-nnoremap <silent> [B :bfirst<CR>
-nnoremap <silent> ]B :blast<CR>
+" }}} File Command
+" Tab {{{
 
 " Open the current buffer window in a new tab
 nnoremap tt :tab split<CR>
 " Move the current window to a new tab
 nnoremap TT <C-w>T
+" }}} Tab
 
+" Mvim Mapping {{{
 "Tab Mapping with Cmd Key
 map <D-1> 1gt
 map <D-2> 2gt
@@ -428,9 +455,8 @@ nmap <D-[> <<
 nmap <D-]> >>
 vmap <D-[> <gv
 vmap <D-]> >gv
+" }}} Mvim Mapping
 
-" Get rid of  Search Highlight
-nnoremap <leader><space> :noh<CR>
 
 " Type 12<Enter> to go to line 12 and Hit ENTER to go to end of file
 nnoremap <CR> G
@@ -461,9 +487,6 @@ inoremap jl <esc>2li
 
 " move up one line and indent
 inoremap kk <esc>kA<CR>
-
-" Map omni-completion key to Ctrl-Space
-inoremap <leader>x <C-x><C-o>
 
 " Copy to system clipboard in visual mode.
 vnoremap <C-c> "*y
@@ -497,55 +520,48 @@ inoremap <C-k> <C-g>k
 "Autocmd and Functions{{{
 " Autocmd {{{
 if has("autocmd")
-  " Start vim with NERDTree
-  autocmd vimenter * if !argc() | NERDTree | endif
-  " Move the cursor in the editor window
-  ""autocmd VimEnter * wincmd p
-  " Auto close NERDTree if it is the only window open
-  autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+	" Folding with marker
+	autocmd BufRead * setlocal foldmethod=marker
+	autocmd BufRead * normal zM
 
-  " Folding with marker
-  autocmd BufRead * setlocal foldmethod=marker
-  autocmd BufRead * normal zM
+	" Customisations based on house-style
+	autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
+	autocmd FileType css setlocal ts=2 sts=2 sw=2 expandtab
+	autocmd FileType less setlocal ts=2 sts=2 sw=2 expandtab
+	autocmd FileType javascript setlocal ts=4 sts=4 sw=4 noexpandtab
+	autocmd FileType json setlocal ts=2 sts=2 sw=2 noexpandtab
 
-  " Customisations based on house-style
-  autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
-  autocmd FileType css setlocal ts=2 sts=2 sw=2 expandtab
-  autocmd FileType less setlocal ts=2 sts=2 sw=2 expandtab
-  autocmd FileType javascript setlocal ts=4 sts=4 sw=4 noexpandtab relativenumber
-  autocmd FileType json setlocal ts=2 sts=2 sw=2 noexpandtab
-
-  " Treat .rss files as XML
-  autocmd BufNewFile,BufRead *.rss, *.atom setfiletype xml
+	" Treat .rss files as XML
+	autocmd BufNewFile,BufRead *.rss, *.atom setfiletype xml
 endif
 " }}}
 " Functions {{{
 " Set tabstop, softtabstop and shiftwidth to the same value
 command! -nargs=* Stab call Stab()
 function! Stab()
-  let l:tabstop = 1 * input('set tabstop = softtabstop = shiftwidth = ')
-  if l:tabstop > 0
-    let &l:sts = l:tabstop
-    let &l:ts = l:tabstop
-    let &l:sw = l:tabstop
-  endif
-  call SummarizeTabs()
+	let l:tabstop = 1 * input('set tabstop = softtabstop = shiftwidth = ')
+	if l:tabstop > 0
+		let &l:sts = l:tabstop
+		let &l:ts = l:tabstop
+		let &l:sw = l:tabstop
+	endif
+	call SummarizeTabs()
 endfunction
 
 function! SummarizeTabs()
-  try
-    echohl ModeMsg
-    echon 'tabstop='.&l:ts
-    echon ' shiftwidth='.&l:sw
-    echon ' softtabstop='.&l:sts
-    if &l:et
-      echon ' expandtab'
-    else
-      echon ' noexpandtab'
-    endif
-  finally
-    echohl None
-  endtry
+	try
+		echohl ModeMsg
+		echon 'tabstop='.&l:ts
+		echon ' shiftwidth='.&l:sw
+		echon ' softtabstop='.&l:sts
+		if &l:et
+			echon ' expandtab'
+		else
+			echon ' noexpandtab'
+		endif
+	finally
+		echohl None
+	endtry
 endfunction
 
 "Strip Trailing spaces
@@ -553,15 +569,15 @@ endfunction
 " Hit <F2> to strip trailing spaces.
 nnoremap <silent> <F2> :call <SID>StripTrailingWhitespaces()<CR>
 function! <SID>StripTrailingWhitespaces()
-  " Preparation: save last search, and cursor position.
-  let _s=@/
-  let l = line(".")
-  let c = col(".")
-  " Do the business:
-  %s/\s\+$//e
-  " Clean up: restore previous search history, and cursor position
-  let @/=_s
-  call cursor(l, c)
+	" Preparation: save last search, and cursor position.
+	let _s=@/
+	let l = line(".")
+	let c = col(".")
+	" Do the business:
+	%s/\s\+$//e
+	" Clean up: restore previous search history, and cursor position
+	let @/=_s
+	call cursor(l, c)
 endfunction
 
 " Delete blank lines
