@@ -27,6 +27,7 @@ Plug 'mtth/scratch.vim'
 Plug 'Tpope/vim-commentary'
 Plug 'Tpope/vim-surround'
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+Plug 'wikitopian/hardmode' " disable character and arrow movement
 
 " Git Helpers
 Plug 'tpope/vim-fugitive'
@@ -57,7 +58,6 @@ Plug 'chrisbra/Colorizer'
 call plug#end() " required/end of plugins loading
 
 "}}}
-
 " General Settings {{{
 
 " Set relative line numbers
@@ -198,7 +198,6 @@ let g:python_host_prog = '/usr/bin/python'
 " Auto load file when changes detected
 set autoread
 " }}}
-
 " Colorscheme & background, Fonts {{{
 
 set t_Co=256
@@ -216,7 +215,6 @@ if has('gui_running')
 endif
 
 " }}}
-
 " Plugins Options {{{
 
 """"""""""""""""""""""""
@@ -391,8 +389,12 @@ let g:UltiSnipsEditSplit="vertical"
 """"""""
 nnoremap <leader>a :Ag<space>
 
-" }}}
+""""""""""""""
+"  Hardmode  "
+""""""""""""""
+nnoremap <localleader>h <Esc>:call ToggleHardMode()<CR>
 
+" }}}
 " Mappings {{{
 " Delete everything in the buffer and enter insert mode
 nnoremap <leader>d gg<S-v><S-g>c
@@ -534,7 +536,6 @@ inoremap <C-k> <C-g>k
 " endfunction
 
 " }}}
-
 "Autocmd Settings {{{
 if has("autocmd")
   " Start vim with NERDTree
@@ -561,7 +562,6 @@ if has("autocmd")
 
 endif
 "}}}
-
 "Functions {{{
 
 " Set tabstop, softtabstop and shiftwidth to the same value
