@@ -375,7 +375,34 @@ nmap <F5> <Plug>MoveLineUp
 " }}} vim-Move
 " }}}
 " Mappings {{{
+" Moving Around {{{
 
+" Type 12<Enter> to go to line 12 and Hit ENTER to go to end of file
+nnoremap <CR> G
+
+" switch to normal mode
+inoremap jk <esc>
+
+" Start a new line below the current line
+inoremap jo <esc>o
+
+" Start a new line above the current line
+inoremap jO <esc>O
+
+" Move to end of line
+inoremap ja <esc>A
+
+" Move behind next letter in insert mode
+inoremap jl <esc>2li
+
+" move up one line and indent
+inoremap kk <esc>kA<CR>
+
+" Move cursor up or down in insert mode
+inoremap <C-j> <C-g>j
+inoremap <C-k> <C-g>k
+
+" }}} Moving around
 " Editing {{{
 " Delete everything in the buffer and enter insert mode
 nnoremap <leader>d gg<S-v><S-g>c
@@ -383,21 +410,32 @@ imap <leader>d <esc>gg<S-v><S-g>c
 
 " Delete line and into insert mode
 inoremap <C-d> <esc>ddi
-" }}} Editing
-
-" Fix the C-h conflict in Neovim
-if has('nvim')
-	nmap <BS> <C-W>h
-endif
 
 " Double tab 'v' to visual-line mode
 nnoremap vv V
 
+" Indent
+nmap <F10> <<
+nmap <F11> >>
+vmap <F10> <gv
+vmap <F11> >gv
+
+" Copy to system clipboard in visual mode.
+vnoremap <C-c> "*y
+
+" Paste from the system clipboard to vim in insert mode
+nnoremap <leader>v "*pa
+inoremap <leader>v <C-r><C-p>*
+" }}} Editing
 " Folding {{{
+set foldlevelstart=0
 
 " Space to toggle folds.
 nnoremap <Space> za
 vnoremap <Space> za
+
+" Refocus folds
+nnoremap <leader>z zMzvzz
 
 " }}} Folding
 " Searching {{{
@@ -425,13 +463,36 @@ map <F7> <C-W><
 map <F9> <C-W>>
 
 " }}} Window remapping
+" Buffer {{{
+" Open a horizontal buffer
+nnoremap <leader>sp :sp<cr>
+" Start a vertical buffer
+nnoremap <leader>vs :vs<cr>
+" }}}
 " File Command {{{
 " Type <leader>s to save file
 nnoremap <leader>s :w<CR>
 inoremap <leader>s <esc>:w<CR>
 
-" Type <leader>q to quit  buffer
-nnoremap <leader>q :q<CR>
+
+" Kill window
+nnoremap K :q<cr>
+
+" Shortcut to rapidly toggle 'set list'
+nmap <leader>l :set list!<CR>
+
+" quick access to the register
+nnoremap <leader>r :reg<CR>
+inoremap <leader>r <esc>:reg<CR>
+
+" Command Mapping
+cnoremap <C-p> <Up>
+cnoremap <C-n> <Down>
+
+" Fix the C-h conflict in Neovim
+if has('nvim')
+	nmap <BS> <C-W>h
+endif
 
 " }}} File Command
 " Tab {{{
@@ -441,81 +502,28 @@ nnoremap tt :tab split<CR>
 " Move the current window to a new tab
 nnoremap TT <C-w>T
 " }}} Tab
-
-" Mvim Mapping {{{
-"Tab Mapping with Cmd Key
-map <D-1> 1gt
-map <D-2> 2gt
-map <D-3> 3gt
-map <D-4> 4gt
-map <D-0> :tablast<CR>
-
-" Indentation mapping
-nmap <D-[> <<
-nmap <D-]> >>
-vmap <D-[> <gv
-vmap <D-]> >gv
-" }}} Mvim Mapping
-
-
-" Type 12<Enter> to go to line 12 and Hit ENTER to go to end of file
-nnoremap <CR> G
-
+" Quick editing files {{{
 " Edit vimrc file in a vertically split window
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 
 " Source the vimrc file
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
-" Shortcut to rapidly toggle 'set list'
-nmap <leader>l :set list!<CR>
+" Edit the zshrc file
+nnoremap <leader>ez :vsplit ~/.zshrc<cr>
 
-" switch to normal mode
-inoremap jk <esc>
+" Edit the custom alias file
+nnoremap <leader>ea :vsplit ~/bin/dotfiles/custom/aliases.zsh<cr>
 
-" Start a new line below the current line
-inoremap jo <esc>o
-
-" Start a new line above the current line
-inoremap jO <esc>O
-
-" Move to end of line
-inoremap ja <esc>A
-
-" Move behind next letter in insert mode
-inoremap jl <esc>2li
-
-" move up one line and indent
-inoremap kk <esc>kA<CR>
-
-" Copy to system clipboard in visual mode.
-vnoremap <C-c> "*y
-
-" Paste from the system clipboard to vim in insert mode
-nnoremap <leader>v "*pa
-inoremap <leader>v <C-r><C-p>*
-
-" quick access to the register
-nnoremap <leader>r :reg<CR>
-inoremap <leader>r <esc>:reg<CR>
-
-" quick set the filetype to less
-nnoremap <leader>less :setfiletype less<CR>
-
-" Command Mapping
-cnoremap <C-p> <Up>
-cnoremap <C-n> <Down>
-
-" Move cursor up or down in insert mode
-inoremap <C-j> <C-g>j
-inoremap <C-k> <C-g>k
-
-" Mapping F4 to execute javascript in nodejs;
-" map <F4> :call RunJavascript() <CR>
-" function RunJavascript()
-"   exec "! node %"
-" endfunction
-
+" }}} Commands
+" Easy filetype switching {{{
+nnoremap _md :set ft=markdown<cr>
+nnoremap _scs :set ft=scss<cr>
+nnoremap _less :set ft=less<cr>
+nnoremap _js :set ft=javascript<cr>
+nnoremap _css :set ft=css<cr>
+nnoremap _jn :set ft=json<cr>
+"}}}
 " }}}
 "Autocmd and Functions{{{
 " Autocmd {{{
@@ -582,6 +590,11 @@ endfunction
 
 " Delete blank lines
 nnoremap <F3> :g/^$/d<CR>
+" Mapping F4 to execute javascript in nodejs;
+" map <F4> :call RunJavascript() <CR>
+" function RunJavascript()
+"   exec "! node %"
+" endfunction
 " }}}
 " }}}
 
