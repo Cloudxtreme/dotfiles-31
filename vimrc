@@ -3,7 +3,7 @@
 " let vim-plug manage my Plugins
 call plug#begin('~/.vim/bundle') "Set the plugins path
 
-" Utilities
+" Utilities {{{
 Plug 'Chiel92/vim-autoformat'
 Plug 'godlygeek/tabular'
 Plug 'scrooloose/nerdtree'
@@ -15,8 +15,9 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'Valloric/YouCompleteMe'
 Plug 'severin-lemaignan/vim-minimap'
 Plug 'rking/ag.vim'
-
-" Editing
+Plug 'scrooloose/syntastic'
+"}}}
+" Editing {{{
 Plug 'terryma/vim-multiple-cursors'
 Plug 'matze/vim-move'
 Plug 'Raimondi/delimitMate'
@@ -26,53 +27,68 @@ Plug 'bronson/vim-trailing-whitespace'
 Plug 'mtth/scratch.vim'
 Plug 'Tpope/vim-commentary'
 Plug 'Tpope/vim-surround'
-" Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
-Plug 'wikitopian/hardmode' " disable character and arrow movement
+Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'nelstrom/vim-markdown-folding' " foloding markdown files
-
-" Git Helpers
+"}}}
+" Git Helpers {{{
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'Xuyuanp/nerdtree-git-plugin'
-
-" Syntax
+"}}}
+" Syntax {{{
 Plug 'digitalToad/vim-jade'
 Plug 'othree/html5.vim'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'tpope/vim-markdown'
-Plug 'scrooloose/syntastic'
-Plug 'tmux-plugins/vim-tmux' "Add Tmux syntax highlight
 Plug 'pangloss/vim-javascript' | Plug 'mxw/vim-jsx'
 Plug '1995eaton/vim-better-javascript-completion'
 Plug 'elzr/vim-json'
 Plug 'othree/javascript-libraries-syntax.vim'
-
-
-
-" Vim Themes and Icons
+Plug 'tmux-plugins/vim-tmux' "Add Tmux syntax highlight
+"}}}
+" Vim Themes and Icons {{{
 Plug 'bling/vim-airline'
 Plug 'ryanoasis/vim-devicons'
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'nanotech/jellybeans.vim'
 Plug 'chrisbra/Colorizer'
+"}}}
 
 call plug#end() " required/end of plugins loading
 
 "}}}
-" General Settings {{{
-
-" Set relative line numbers
-set relativenumber
+" Settings {{{
+" general settings {{{
 
 "Switch syntax highlight on, when the terminal has colors
 filetype plugin indent on    " required
-syntax on
 
-" Set buffer modifiable
-set modifiable
+syntax on
 
 " Use vim, not vi api
 set nocompatible
+
+" Don't show intro
+set shortmess+=I
+
+" Get rid of the delay when pressing 0 (for example)
+set timeout timeoutlen=1000 ttimeoutlen=100
+
+" Always show status bar
+set laststatus=2
+
+" Set the status line to something useful
+set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
+
+"}}}
+" file-encoding, Backup, buffer, history {{{
+" UTF encoding
+set fileencoding=utf-8
+if !has('nvim')
+  set encoding=utf-8
+endif
+" Set buffer modifiable
+set modifiable
 
 " No backup files
 set nobackup
@@ -85,85 +101,15 @@ set noswapfile
 
 " Command history
 set history=200
-
-" Always show cursor
-set ruler
-
-" Show incomplete commands
-set showcmd
-
-"Search"
-" Incremental Searching (search as you type)
-set incsearch
-
-" Highlight search matches
-set hlsearch
-
-" Ignore case in search
-set smartcase
-
-" Make sure any searches /searchPhrase doesn't need the \c escape character
-set ignorecase
-
-" When substitute, all match in a line is substituted instead of one
-set gdefault
-
-
-" A buffer is marked as 'hidden' if it has unsaved changes, and it is not
-" currently loaded in a window. If you try to quit Vim while there are hidden
-" buffers you will raise an error: E162: No write since last change for buffer
-" "a.txt"
-set hidden
-
-" Turn word wrap off
-" set nowrap
-
-" Allow backspace to delete end of line, indent and start of line characters
-set backspace=indent,eol,start
-
-" Convert tabs to spaces
-set expandtab
-
-" Set tab size in spaces (this is for manual editing)
-set tabstop=2
-
-" Set softtabstop equal to shiftwidth
-set softtabstop=2
-" The number of spaces inserted for a tab (used for auto indenting)
-set shiftwidth=2
-
-
+"}}}
+" Line number {{{
 " Turn on line numbers
 set number
 
-" Highlight tailing whitespace
-set listchars=tab:▸\ ,eol:¬
-
-" Get rid of the delay when pressing 0 (for example)
-set timeout timeoutlen=1000 ttimeoutlen=100
-
-" Always show status bar
-set laststatus=2
-
-" Set the status line to something useful
-" set statusline=%f\ \ line:%l/%L\ %p%%\ %y
-set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
-
-" UTF encoding
-set fileencoding=utf-8
-if !has('nvim')
-  set encoding=utf-8
-endif
-
-" Autoload files that have changed outside of vim
-set autoread
-
-" Use system clipboard
-set clipboard+=unnamed
-
-" Don't show intro
-set shortmess+=I
-
+" Set relative line numbers
+set relativenumber
+"}}}
+" Window, Menu, cursor {{{
 " Better splits (new windows appear below and to the right)
 set splitbelow
 set splitright
@@ -178,28 +124,41 @@ set visualbell
 " Highlight the current line
 set cursorline
 
+" Always show cursor
+set ruler
+"}}}
+" Leader mapping {{{
+" set up the map leader
+let mapleader = ","
+
+" set up the local leader key
+let maplocalleader = "\\"
+"}}}
+"Cmd, omnicomplete, interpreter, clipboard {{{
+
 " Redraw only when need to (i.e. don't redraw when executing a macro)
 set lazyredraw
 
 " When a bracket is inserted, briefly jump to the matching one
 set showmatch
 
-" set up the map leader
-let mapleader = ","
+" Show incomplete commands
+set showcmd
 
-" set up the local leader key
-let maplocalleader = "\\"
+" Autoload files that have changed outside of vim
+set autoread
+
+" Use system clipboard
+set clipboard+=unnamed
 
 " Set syntax complete function on
 set omnifunc=syntaxcomplete#Complete
 
 " Set python interpreter
 let g:python_host_prog = '/usr/bin/python'
-
-" Auto load file when changes detected
-set autoread
-" }}}
+"}}}
 " Colorscheme & background, Fonts {{{
+
 
 set t_Co=256
 set background=dark
@@ -215,6 +174,7 @@ if has('gui_running')
   set guioptions-=T " Hide toolbar in GUI vim
 endif
 
+" }}}
 " }}}
 " Plugins Options {{{
 
@@ -413,9 +373,6 @@ endif
 nnoremap <Space> za
 vnoremap <Space> za
 
-" Capital R to reveal all folds
-nnoremap R zr
-
 " Searching
 nnoremap / /\v
 vnoremap / /\v
@@ -537,7 +494,8 @@ inoremap <C-k> <C-g>k
 " endfunction
 
 " }}}
-"Autocmd Settings {{{
+"Autocmd and Functions{{{
+" Autocmd {{{
 if has("autocmd")
   " Start vim with NERDTree
   autocmd vimenter * if !argc() | NERDTree | endif
@@ -559,12 +517,9 @@ if has("autocmd")
 
   " Treat .rss files as XML
   autocmd BufNewFile,BufRead *.rss, *.atom setfiletype xml
-
-
 endif
-"}}}
-"Functions {{{
-
+" }}}
+" Functions {{{
 " Set tabstop, softtabstop and shiftwidth to the same value
 command! -nargs=* Stab call Stab()
 function! Stab()
@@ -611,4 +566,7 @@ endfunction
 
 " Delete blank lines
 nnoremap <F3> :g/^$/d<CR>
+" }}}
+" }}}
+
 
