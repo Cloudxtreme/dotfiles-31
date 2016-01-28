@@ -26,8 +26,9 @@ Plug 'bronson/vim-trailing-whitespace'
 Plug 'mtth/scratch.vim'
 Plug 'Tpope/vim-commentary'
 Plug 'Tpope/vim-surround'
-Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+" Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'wikitopian/hardmode' " disable character and arrow movement
+Plug 'nelstrom/vim-markdown-folding' " foloding markdown files
 
 " Git Helpers
 Plug 'tpope/vim-fugitive'
