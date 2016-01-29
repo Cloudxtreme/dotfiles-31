@@ -333,6 +333,7 @@ let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
 " NERDTree {{{
 " Toggle NERDTree
 map <leader>t :NERDTreeToggle<CR>
+let NERDTreeMapActivateNode='<space>'
 
 " Start vim with NERDTree
 autocmd StdinReadPre * let s:std_in=1
@@ -449,17 +450,6 @@ vnoremap <C-c> "*y
 nnoremap <leader>v "*pa
 inoremap <leader>v <C-r><C-p>*
 " }}} Editing
-" Folding {{{
-set foldlevelstart=0
-
-" Space to toggle folds.
-nnoremap <Space> za
-vnoremap <Space> za
-
-" Refocus folds
-nnoremap <leader>z zMzvzz
-
-" }}} Folding
 " Searching {{{
 
 nnoremap / /\v
@@ -551,8 +541,20 @@ nnoremap _jn :set ft=json<cr>
 "}}}
 " }}}
 " Folding {{{
-" Folding all on default
-autocmd BufRead * normal zM
+
+" Start file with all folds closed.
+set foldlevelstart=0
+
+" Space to toggle folds.
+nnoremap <Space> za
+vnoremap <Space> za
+
+" Make zO recursively open whatever fold we're in, even if it's partially open.
+nnoremap zo zczO
+nnoremap zO zo
+
+" Refocus folds
+nnoremap <leader>z zMzvzz
 
 augroup ft_vim
   au!
@@ -560,6 +562,17 @@ augroup ft_vim
   au FileType vim setlocal foldmethod=marker
   au FileType help setlocal textwidth=78
   au BufWinEnter *.txt if &ft == 'help' | wincmd L | endif
+augroup END
+
+augroup ft_css
+  au!
+
+  au BufNewFile,BufRead *.less setlocal filetype=less
+
+  au FileType less,css,scss setlocal foldmethod=marker
+  au FileType less,css,scss setlocal foldmarker={,}
+  au FileType less,css,scss setlocal omnifunc=csscomplete#CompleteCSS
+  au FileType less,css,scss setlocal iskeyword+=-
 augroup END
 " }}}
 "Autocmd and Functions{{{
