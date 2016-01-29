@@ -345,7 +345,10 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 " }}} NERDTRee
 "  Markdown {{{
 " disable markdown-syntax folding
-let g:vim_markdown_folding_disabled=1
+" let g:vim_markdown_folding_disabled=1
+" let g:markdown_fenced_languages = ['ruby', 'javascript', 'json', 'css', 'html', 'less', 'bash=sh']
+" Turn off instant-markdown autostart
+let g:instant_markdown_autostart = 0
 " }}} Markdown
 " UltiSnips {{{
 " make YCM compatible with UltiSnips (using supertab)
@@ -478,6 +481,9 @@ inoremap <leader>s <esc>:w<CR>
 " Kill window
 nnoremap K :q<cr>
 
+" Kill all windows
+nnoremap <leader>q :qa!<cr>
+
 " Shortcut to rapidly toggle 'set list'
 nmap <leader>l :set list!<CR>
 
@@ -525,12 +531,21 @@ nnoremap _css :set ft=css<cr>
 nnoremap _jn :set ft=json<cr>
 "}}}
 " }}}
+" Folding {{{
+" Folding all on default
+autocmd BufRead * normal zM
+
+augroup ft_vim
+  au!
+
+  au FileType vim setlocal foldmethod=marker
+  au FileType help setlocal textwidth=78
+  au BufWinEnter *.txt if &ft == 'help' | wincmd L | endif
+augroup END
+" }}}
 "Autocmd and Functions{{{
 " Autocmd {{{
 if has("autocmd")
-	" Folding with marker
-	autocmd BufRead * setlocal foldmethod=marker
-	autocmd BufRead * normal zM
 
 	" Customisations based on house-style
 	autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
