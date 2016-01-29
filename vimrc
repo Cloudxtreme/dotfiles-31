@@ -333,7 +333,8 @@ let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
 " NERDTree {{{
 " Toggle NERDTree
 map <leader>t :NERDTreeToggle<CR>
-let NERDTreeMapActivateNode='<space>'
+" Open a node in nerdtree window with spacebar
+:autocmd FileType nerdtree nmap <buffer> <space> o
 
 " Start vim with NERDTree
 autocmd StdinReadPre * let s:std_in=1
