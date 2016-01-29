@@ -16,6 +16,7 @@ Plug 'Valloric/YouCompleteMe'
 Plug 'severin-lemaignan/vim-minimap'
 Plug 'rking/ag.vim'
 Plug 'scrooloose/syntastic'
+Plug 'mbbill/undotree'
 "}}}
 " Editing {{{
 Plug 'terryma/vim-multiple-cursors'
@@ -376,6 +377,24 @@ vmap <F5> <Plug>MoveBlockUp
 nmap <F4> <Plug>MoveLineDown
 nmap <F5> <Plug>MoveLineUp
 " }}} vim-Move
+" Undotree {{{
+nnoremap <F6> :UndotreeToggle<cr>
+" Set persistent_undo
+if has("persistent_undo")
+  set undodir=~/.undodir/
+  set undofile
+endif
+" undotree layout style
+if !exists('g:undotree_WindowLayout')
+    let g:undotree_WindowLayout = 1
+endif
+
+" undotree window width
+if !exists('g:undotree_SplitWidth')
+    let g:undotree_SplitWidth = 40
+endif
+
+" }}}
 " }}}
 " Mappings {{{
 " Moving Around {{{
