@@ -386,7 +386,7 @@ if has("persistent_undo")
 endif
 " undotree layout style
 if !exists('g:undotree_WindowLayout')
-    let g:undotree_WindowLayout = 1
+    let g:undotree_WindowLayout = 4
 endif
 
 " undotree window width
