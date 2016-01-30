@@ -127,6 +127,9 @@ set cursorline
 
 " Always show cursor
 set ruler
+
+" Enable mouse
+set mouse=a
 "}}}
 " Tab, Backspace, Wordwrap, hidden etc. {{{
 " A buffer is marked as 'hidden' if it has unsaved changes, and it is not
