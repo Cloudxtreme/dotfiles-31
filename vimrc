@@ -374,7 +374,9 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 " disable markdown-syntax folding
 " let g:vim_markdown_folding_disabled=1
 " let g:markdown_fenced_languages = ['ruby', 'javascript', 'json', 'css', 'html', 'less', 'bash=sh']
-" Turn off instant-markdown autostart
+
+" Turn off instant-markdown autostart, use :InstantMarkdownPreview to preview
+" the buffer.
 let g:instant_markdown_autostart = 0
 " }}} Markdown
 " UltiSnips {{{
