@@ -38,6 +38,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 "}}}
 " Syntax {{{
 Plug 'digitalToad/vim-jade'
+Plug 'wavded/vim-stylus'
 Plug 'othree/html5.vim'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'tpope/vim-markdown'
@@ -235,7 +236,7 @@ au Syntax * RainbowParenthesesLoadBraces
 " }}} RainbowParentheses
 " Colorizer {{{
 " Make files look nice
-autocmd FileType css,scss,sass,less :ColorHighlight "For Colorizer Plugin
+autocmd FileType css,scss,sass,less,stylus :ColorHighlight "For Colorizer Plugin
 " }}} Colorizer
 " Autoformat {{{
 " autoformat shortcut
@@ -341,7 +342,21 @@ autocmd FileType html,css,less,scss EmmetInstall
 let g:ctrlp_arg_map = 1
 
 " Add the Silver Searcher as the backend to use the agignore with ctrlp
-let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
+let g:ctrlp_user_command = 'ag %s -l -i --nogroup --nocolor --hidden
+  \ --ignore .git
+  \ --ignore .svn
+  \ --ignore .hg
+  \ --ignore .DS_Store
+  \ --ignore "**/*.pyc"
+  \ --ignore lib
+  \ -g ""'
+" Use regular expression as search default
+" let g:ctrlp_regexp = 1
+
+" Disable caching
+" let g:ctrlp_use_caching = 0
+
+
 " }}} CtrlP
 " NERDTree {{{
 " Toggle NERDTree
