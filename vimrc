@@ -288,30 +288,39 @@ nnoremap <Leader>gc :Gcommit<CR>
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+
+" Display errors in the same window for all checkers
+let g:syntastic_aggregate_errors = 1
+
+" Better interface symbols
+let g:syntastic_error_symbol = '✗'
+let g:syntastic_warning_symbol = '!'
+let g:syntastic_style_error_symbol = '✗'
+let g:syntastic_style_warning_symbol = '!'
+
 
 " Close Syntastic list window
-nnoremap <Leader>lc :lclose<CR>
+nnoremap <Leader>ll :lclose<CR>
 
 " Open error list window
 nnoremap <Leader>le :Errors<CR>
 
 " Go to next error
-nnoremap <leader>ln :lnext<CR>
+nnoremap <leader>lj :lnext<CR>
 
 " Go to previous error
-nnoremap <leader>lp :lprev<CR>
+nnoremap <leader>lk :lprev<CR>
 
 " Do a syntastic manual check
-nnoremap <leader>sc :SyntasticCheck<CR>
+nnoremap <leader>lc :SyntasticCheck<CR>
 
-" Better interface symbols
-let g:syntastic_error_symbol = '✗'
-let g:syntastic_warning_symbol = '!'
+noremap <leader>lt :SyntasticToggleMode<CR>
+let g:syntastic_mode_map = { 'passive_filetypes': ['sass', 'scss','html','less'] }
+
 
 " Disable the less checker
 let g:syntastic_less_checkers=['']
