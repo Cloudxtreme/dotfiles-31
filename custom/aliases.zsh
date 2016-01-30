@@ -6,7 +6,6 @@ alias eg="nvim ~/.oh-my-zsh/custom/gitaliases.zsh && reload" # edit custom git a
 alias et="nvim ~/.tmux.conf" # edit tmux configuration
 alias vimrc="nvim ~/.vimrc" # Edit vimrc
 
-
 # Finder aliases
 alias ll="ls -lhFA"
 alias l="ls -lhF"
@@ -26,7 +25,6 @@ alias reboot="sudo shutdown -r now"
 
 alias rub="./rub"
 alias mongobrew="mongod --config /usr/local/etc/mongod.conf"
-alias vim="nvim" # use nvim as default vim
 
 alias e="exit"
 alias :q="exit"
@@ -71,96 +69,96 @@ alias plex="sudo ~/Applications/PlexConnect/PlexConnect.py"
 
 # Functions
 function cdl() {
-    cd $1; l
+cd $1; l
 } # enter a directory and list its contents
 
 function ag() {
-    alias | grep "$1"
+alias | grep "$1"
 } # grep related alias
 
 function fd() {
-    find . -iname "$1" $2
+find . -iname "$1" $2
 }
 
 
 # Functions
 function take() {
-    mkdir $1
-    cd $1
+mkdir $1
+cd $1
 } # create a new directory and cd into that directory
 
 
 function killnamed() {
-    ps ax | grep $1 | cut -d ' ' -f 1 | xargs kill
+ps ax | grep $1 | cut -d ' ' -f 1 | xargs kill
 }
 
 
 # Google Chrome Download
 function googledownload() {
-    proxychains4 wget -O googlechrome-stable.dmg https://dl.google.com/chrome/mac/stable/GGRO/googlechrome.dmg
+proxychains4 wget -O googlechrome-stable.dmg https://dl.google.com/chrome/mac/stable/GGRO/googlechrome.dmg
 }
 function canarydownload() {
-    proxychains4 wget -O GoogleChrome-canary.dmg https://storage.googleapis.com/chrome-canary/GoogleChromeCanary.dmg
+proxychains4 wget -O GoogleChrome-canary.dmg https://storage.googleapis.com/chrome-canary/GoogleChromeCanary.dmg
 
 }
 
 # Misc.
 function zipr() {
-    zip -r $1.zip $*
+zip -r $1.zip $*
 }
 
 function tarz() {
-    tar -czvf $1.tgz $*
+tar -czvf $1.tgz $*
 }
 
 function tarx() {
-    tar -xzvf $1
+tar -xzvf $1
 }
 
 function lg () {
-    clear
-    ll | grep -i "$1"
+clear
+ll | grep -i "$1"
 } # list the directories with the keyword
 
 # New site based on my starter template
 function newSite() {
 if [ ! -d /Volumes/Data/Download/coding/$1 ]
-  then
-    mkdir /Volumes/Data/Download/coding/$1
-  	git clone git@github.com:samumist/starter_stylus.git /Volumes/Data/Download/coding/$1
-  	subl /Volumes/Data/Download/coding/$1
-  else
-  	echo "$1 is already in use, please choose another name."
+then
+  mkdir /Volumes/Data/Download/coding/$1
+  git clone git@github.com:samumist/starter_stylus.git /Volumes/Data/Download/coding/$1
+  subl /Volumes/Data/Download/coding/$1
+else
+  echo "$1 is already in use, please choose another name."
 fi
 }
 
 # update documentation site
 function documentation() {
-    cd /Volumes/Data/Documents/docs/documentation/
-    ./generate
-    cp -r static ~/Sites/
-    open http://localhost/static/
+cd /Volumes/Data/Documents/docs/documentation/
+./generate
+cp -r static ~/Sites/
+open http://localhost/static/
 
 }
 
 # copy .csv template to course json directory
 function cpcsv() {
-    cp /Volumes/Data/project/course/csveat/p101.csv .
+cp /Volumes/Data/project/course/csveat/p101.csv .
 }
 
 function cpgitignore {
-    cp ~/.gitignore_global ./.gitignore
+cp ~/.gitignore_global ./.gitignore
 }
 
 # Pomodoro Daily log
 function pomodorodaily {
-  cd /Volumes/Data/Documents/docs/pomodoro/
-  touch log.md
-  vim log.md
+cd /Volumes/Data/Documents/docs/pomodoro/
+touch log.md
+vim log.md
 }
 
 # Create a new file and open it with Mvim
 function new {
-  touch $1
-  mvim $1
+touch $1
+mvim $1
 }
