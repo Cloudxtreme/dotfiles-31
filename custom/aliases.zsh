@@ -28,7 +28,7 @@ alias mongobrew="mongod --config /usr/local/etc/mongod.conf"
 
 alias e="exit"
 alias :q="exit"
-
+alias ,q="exit"
 alias o="open ."
 alias md="mkdir -p"
 alias rm="rm -i"
