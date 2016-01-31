@@ -36,7 +36,7 @@ ZSH_THEME="xxf"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git brew nvm osx vi-mode npm extract sublime sudo web-search)
+plugins=(git brew nvm npm tmux extract sublime sudo osx vi-mode web-search)
 
 # Include z Configuration
 . `brew --prefix`/etc/profile.d/z.sh
@@ -46,8 +46,8 @@ source $ZSH/oh-my-zsh.sh
 # Customize to your needs...
 export PATH=/usr/local/bin:/usr/local/sbin:~/bin:$PATH
 
-# Set Editor to Nvim
-export EDITOR=nvim
+# Set Editor to vim
+export EDITOR=vim
 
 # Zsh Completions
 fpath=(/usr/local/share/zsh-completions $fpath)
