@@ -36,7 +36,7 @@ ZSH_THEME="xxf"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git colored-man colorize github brew zsh-syntax-highlighting nvm osx vi-mode tmux npm extract node bower sublime sudo web-search)
+plugins=(git brew nvm osx vi-mode npm extract sublime sudo web-search)
 
 # Include z Configuration
 . `brew --prefix`/etc/profile.d/z.sh
@@ -60,7 +60,4 @@ export CHEATCOLORS=true
 
 # rbenv initialisation
 eval "$(rbenv init -)"
-
-# Add tmuxinator completion file
-source ~/bin/dotfiles/tmuxinator.zsh
 
