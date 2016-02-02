@@ -1,4 +1,6 @@
-# utility
+### General Aliaes {{{1
+
+# Dotfiles editing {{{2
 alias reload="source ~/.zshrc"
 alias ez="nvim ~/.zshrc && reload" # Edit default zsh config file and reload
 alias ea="nvim ~/.oh-my-zsh/custom/aliases.zsh && reload" # edit custom aliases and functions config and reload
@@ -6,7 +8,7 @@ alias eg="nvim ~/.oh-my-zsh/custom/gitaliases.zsh && reload" # edit custom git a
 alias et="nvim ~/.tmux.conf" # edit tmux configuration
 alias vimrc="nvim ~/.vimrc" # Edit vimrc
 
-# Finder aliases
+# Finder aliases {{{2
 alias ll="ls -lhFA"
 alias l="ls -lhF"
 alias l.="ls -dl .[^.]*"
@@ -14,17 +16,16 @@ alias l.="ls -dl .[^.]*"
 alias dl="cd /Volumes/Data/Download/"
 alias dc="cd /Volumes/Data/Documents/"
 alias sb="cd ~/Documents/sandbox"
-alias cdd="cd -"
+alias tuts="cd /Volumes/MB3/tutorials/Tutsplus/; lg" # list directories that contains the keyword in given direcectory. e.g. tuts $1
+alias lynda="cd /Volumes/MB3/tutorials/Lynda.com/; lg"
+alias cdd="cd -" # go to previious directory
 
+
+# Terminal commands {{{2
 alias c="clear"
+alias clera="clear"
 alias cl="clear; l"
 alias h="history"
-
-alias shutdown="sudo shutdown -h now"
-alias reboot="sudo shutdown -r now"
-
-alias rub="./rub"
-alias mongobrew="mongod --config /usr/local/etc/mongod.conf"
 
 alias e="exit"
 alias :q="exit"
@@ -33,25 +34,15 @@ alias o="open ."
 alias md="mkdir -p"
 alias rm="rm -i"
 
-# Tree Commands
+# Tree Commands {{{2
 alias tree1='tree -L 1' # show directory structure one level
 alias tree2='tree -L 2' # show directory structure two level
 alias tree3='tree -L 3' # show directory sturcture 3 level
 alias tree4='tree -L 4'
 
-# NPM
-alias npmlsg="npm list -g --depth=0"
-alias npmls="npm list --depth=0"
-
-alias tuts="cd /Volumes/MB3/tutorials/Tutsplus/; lg"
-alias lynda="cd /Volumes/MB3/tutorials/Lynda.com/; lg"
-
-# Site & Server
-alias sites="cd ~/Sites/"
-alias opensite="open http://localhost"
-
-# Misc.
-alias openelaine="open vnc://192.168.0.5:5900"
+# System aliases {{{2
+alias shutdown="sudo shutdown -h now"
+alias reboot="sudo shutdown -r now"
 
 # Processes
 alias tu="top -o cpu" # cpu
@@ -59,50 +50,64 @@ alias tm="top -o vsize" # memory
 alias vhttpd="ps aux | grep httpd"
 alias vmysql="ps aux | grep mysql"
 
-# Apache
+# Misc.
+alias openelaine="open vnc://192.168.0.5:5900"
+alias plex="sudo ~/Applications/PlexConnect/PlexConnect.py" # Run PlexConnect
+
+### Development aliases {{{1
+alias rub="./rub"
+alias mongobrew="mongod --config /usr/local/etc/mongod.conf"
+
+# NPM {{{2
+alias npmlsg="npm list -g --depth=0"
+alias npmls="npm list --depth=0"
+
+# Site & Server {{{2
+alias sites="cd ~/Sites/"
+alias opensite="open http://localhost"
+
+# Apache {{{2
 alias restartapache="sudo apachectl restart"
 alias stopapache="sudo apachectl stop"
 alias startapache="sudo apachectl start"
 
-# Run PlexConnect
-alias plex="sudo ~/Applications/PlexConnect/PlexConnect.py"
+### Functions {{{1
 
-# Functions
+## Directory {{{2
+# Enter a directory and list its contents
 function cdl() {
 cd $1; l
-} # enter a directory and list its contents
+}
 
+# create a new directory and cd into that directory
+function take() {
+mkdir $1
+cd $1
+}
+
+## Grep and Find {{{2
+# grep related alias
 function ag() {
 alias | grep "$1"
-} # grep related alias
+}
 
+# Find string $1 in file $2
 function fd() {
 find . -iname "$1" $2
 }
 
+# list the directories with the keyword
+function lg () {
+clear
+ll | grep -i "$1"
+}
 
-# Functions
-function take() {
-mkdir $1
-cd $1
-} # create a new directory and cd into that directory
-
-
+# Kill named process
 function killnamed() {
 ps ax | grep $1 | cut -d ' ' -f 1 | xargs kill
 }
 
-
-# Google Chrome Download
-function googledownload() {
-proxychains4 wget -O googlechrome-stable.dmg https://dl.google.com/chrome/mac/stable/GGRO/googlechrome.dmg
-}
-function canarydownload() {
-proxychains4 wget -O GoogleChrome-canary.dmg https://storage.googleapis.com/chrome-canary/GoogleChromeCanary.dmg
-
-}
-
-# Misc.
+## Archives {{{2
 function zipr() {
 zip -r $1.zip $*
 }
@@ -115,23 +120,19 @@ function tarx() {
 tar -xzvf $1
 }
 
-function lg () {
-clear
-ll | grep -i "$1"
-} # list the directories with the keyword
+## Misc. {{{2
 
-# New site based on my starter template
-function newSite() {
-if [ ! -d /Volumes/Data/Download/coding/$1 ]
-then
-  mkdir /Volumes/Data/Download/coding/$1
-  git clone git@github.com:samumist/starter_stylus.git /Volumes/Data/Download/coding/$1
-  subl /Volumes/Data/Download/coding/$1
-else
-  echo "$1 is already in use, please choose another name."
-fi
+# Download google chrome browser
+function googledownload() {
+proxychains4 wget -O googlechrome-stable.dmg https://dl.google.com/chrome/mac/stable/GGRO/googlechrome.dmg
 }
 
+# Download google canary browser
+function canarydownload() {
+proxychains4 wget -O GoogleChrome-canary.dmg https://storage.googleapis.com/chrome-canary/GoogleChromeCanary.dmg
+}
+
+## Workflow {{{2
 # update documentation site
 function documentation() {
 cd /Volumes/Data/Documents/docs/documentation/
@@ -157,8 +158,22 @@ touch log.md
 vim log.md
 }
 
-# Create a new file and open it with Mvim
-function new {
+# Create a new file and open it with Nvim
+function nnew {
 touch $1
-mvim $1
+nvim $1
 }
+
+# New site based on my starter template
+# function newSite() {
+# if [ ! -d /Volumes/Data/Download/coding/$1 ]
+# then
+#   mkdir /Volumes/Data/Download/coding/$1
+#   git clone git@github.com:samumist/starter_stylus.git /Volumes/Data/Download/coding/$1
+#   subl /Volumes/Data/Download/coding/$1
+# else
+#   echo "$1 is already in use, please choose another name."
+# fi
+# }
+# vim:fdm=marker:
+
