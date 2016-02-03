@@ -458,10 +458,7 @@ inoremap <C-k> <C-g>k
 nnoremap <leader>d gg<S-v><S-g>c
 imap <leader>d <esc>gg<S-v><S-g>c
 
-" Delete line and into insert mode
-inoremap <C-d> <esc>ddi
-
-" Double tab 'v' to visual-line mode
+" Double tap 'v' to visual-line mode
 nnoremap vv V
 
 " Indent
