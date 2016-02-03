@@ -76,7 +76,9 @@ alias startapache="sudo apachectl start"
 ## Directory {{{2
 # Enter a directory and list its contents
 function cdl() {
-cd $1; l
+  cd $1
+  clear
+  l
 }
 
 # create a new directory and cd into that directory
