@@ -1,0 +1,26 @@
+# Search for a gem
+gem search mysql --remote gems.rubyforge.org
+
+# Installing a gem
+[sudo] gem install mysql
+
+# Install a gem with dependencies
+[sudo] gem install mysql --include-dependencies
+
+# to get a list of gems that are now outdated
+gem outdated
+
+# to update all the installed ruby gems
+gem update
+
+# to update a specific gem
+gem update mysql
+
+# remove outdated versions of gems that are installed, leaving the new updated version
+gem clean
+
+# remove a gem
+[sudo] gem uninstall mysql
+
+# to get a list of locally installed gems
+gem list

@@ -1,0 +1,53 @@
+# create a notebook
+geeknote notebook-create --title "notebook title"
+
+# show list of tags
+geeknote tag-list
+
+# create a new tag
+geeknote tag-create --title "tag name to create"
+
+# Create a note
+geeknote create --title "note title" --tags "tag1, tag2, tag3" --notebook "Inbox" --content "Some contents here"
+
+# Search notes in Evernote
+geeknote find --search "text to find"  
+
+Options:
+
+--tags <list of tags that notes should have>
+--notebooks <list on notebooks where to make search >
+--date <data ro data range>
+--count <how many results to show>
+--exact-entry
+--content-search
+--url-only
+
+# Show the list of notebooks
+geeknote notebook-list
+
+# Edit an exisiting note
+geeknote edit --note "title of the note" --content "a new content" --tags "new list of tags" --note "new notebook"
+
+# How to do a geeknote sync?
+gnsync --path /home/project/xmpp/logs/
+--mask "*.logs"
+--logpath /home/user/logs/xmpp2evernote.log
+--notebook "XMPP logs"
+--format markdown
+
+# rename notebook
+geeknote notebook-edit --notebook "old name" --title "new name"
+
+# remove tags
+geeknote tag-remove --tagname "tag name" --force
+
+# rename the tag
+geeknote tag-edit --tagname "old name" --title "new name"
+
+# Show the 2nd entry of the last geeknote search result
+geeknote show 2
+
+# remove a note
+geeknote remove --note "Shopping list"
+

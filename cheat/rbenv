@@ -1,0 +1,22 @@
+# list all available ruby versions
+rbenv install -l
+
+# Install a ruby version
+rbenv install 2.2.0-p247
+
+# Uninstall Ruby versions
+just rm -rf the directory of version you want to remove;
+
+or
+rbenv uninstall 2.2.0-p247
+
+# Uninstall RBENV
+1. disable rbenv by removing the rbenv init line from .zshrc or .bashrc file.
+2. remove the .rbenv directory with `rm -rf ~/.rbenv`
+
+If install with `homebrew`, run:
+`brew uninstall rbenv`
+
+for more info and usage, check the github project page: https://github.com/rbenv/rbenv
+
+

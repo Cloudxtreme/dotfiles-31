@@ -1,0 +1,26 @@
+# To search for an application
+brew search
+
+# To install an appliation
+brew install <application-name>
+
+# to list all apps installed by Homebrew
+brew list
+
+# To remove an installed application
+brew remove <application-name>
+
+# To update homebrew
+brew update
+
+# Where does homebrew install stuff ... in the Cellar
+/usr/local/Cellar
+
+# Brew project github page
+https://github.com/Homebrew/homebrew
+
+# Get Command Line Tools
+xcode-select --install
+
+# Check for any issues with brew
+brew doctor

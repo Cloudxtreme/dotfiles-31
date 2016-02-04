@@ -1,0 +1,10 @@
+# Creating a Disk Image of a Folder
+hdiutil create imagename.dmg -volname "Name_of_Volume" -srcfolder /path_to_folder
+
+# Creating a Disk Image of 100m in size of which data can be added later
+hdiutil create imagename.dmg -volname "Name of Volume" -size 100m -format UDRW -srcfoloder /path_to_folder
+
+# Createing Encrypted Disk Images
+hdiutil create imagename.dmg -encryption -size 10m -volname "Name of the Volume" -fs JHFS+ -srcfolder /path_to_folder
+
+

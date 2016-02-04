@@ -1,0 +1,11 @@
+# Create zip file
+zip archive.zip file1 directory/
+
+# Create a zip file excluding .DS_Store and _MACOSX
+zip -r Target.zip Source -x "*.DS_Store" -x "__MACOSX"
+
+# delete hidden .DS_Store and __MACOSX file in a zip file
+zip -d filename.zip __MACOSX/\* \*/.DS_Store
+
+# To list, test and extract zip archives, see unzip
+cheat unzip

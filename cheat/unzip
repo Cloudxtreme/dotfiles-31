@@ -1,0 +1,14 @@
+# Extract archive
+unzip archive.zip
+
+# Test integrity of archive
+unzip -tq archive.zip
+
+# List files and directories in a file
+unzip -l archive.zip
+
+# Extract all files in the current directory and overwrite same file quietly
+unzip -oq '*.zip'
+
+# Extract all files into a directory
+unzip archive.zip -d directory_name
