@@ -236,7 +236,7 @@ au Syntax * RainbowParenthesesLoadBraces
 " }}} RainbowParentheses
 " Colorizer {{{
 " Make files look nice
-autocmd FileType css,scss,sass,less,stylus :ColorHighlight "For Colorizer Plugin
+" autocmd FileType css,scss,sass,less,stylus :ColorHighlight "For Colorizer Plugin
 " }}} Colorizer
 " Autoformat {{{
 " autoformat shortcut
