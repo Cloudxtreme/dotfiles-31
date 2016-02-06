@@ -34,6 +34,7 @@ alias o="open ."
 alias md="mkdir -p"
 alias rm="rm -i"
 
+alias ag='ag --path-to-agignore=~/.agignore' # global agignore file
 # Tree Commands {{{2
 alias tree1='tree -L 1' # show directory structure one level
 alias tree2='tree -L 2' # show directory structure two level
