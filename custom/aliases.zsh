@@ -177,5 +177,4 @@ nvim $1
 #   echo "$1 is already in use, please choose another name."
 # fi
 # }
-# vim:fdm=marker:
 

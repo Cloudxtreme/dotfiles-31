@@ -236,7 +236,7 @@ au Syntax * RainbowParenthesesLoadBraces
 " }}} RainbowParentheses
 " Colorizer {{{
 " Make files look nice
-" autocmd FileType css,scss,sass,less,stylus :ColorHighlight "For Colorizer Plugin
+autocmd FileType css,scss,sass,less,stylus :ColorHighlight "For Colorizer Plugin
 " }}} Colorizer
 " Autoformat {{{
 " autoformat shortcut
@@ -439,7 +439,7 @@ inoremap jo <esc>o
 " Start a new line above the current line
 inoremap jO <esc>O
 
-" Move to end of line
+" Move to end of line and enter into insert mode
 inoremap ja <esc>A
 
 " Move behind next letter in insert mode
@@ -456,7 +456,7 @@ inoremap <C-k> <C-g>k
 " Editing {{{
 " Delete everything in the buffer and enter insert mode
 nnoremap <leader>d gg<S-v><S-g>c
-imap <leader>d <esc>gg<S-v><S-g>c
+inoremap <leader>d <esc>gg<S-v><S-g>c
 
 " Double tap 'v' to visual-line mode
 nnoremap vv V
@@ -585,6 +585,7 @@ augroup ft_vim
 
   au FileType vim setlocal foldmethod=marker
   au FileType tmux setlocal foldmethod=marker
+  au FileType zsh setlocal foldmethod=marker
   au FileType help setlocal textwidth=78
   au BufWinEnter *.txt if &ft == 'help' | wincmd L | endif
 augroup END
