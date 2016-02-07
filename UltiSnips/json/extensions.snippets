@@ -1,10 +1,6 @@
-#######################################################################
-#                         Extension Snippets                          #
-#######################################################################
-
-###########################
-#  Assessment in Article  #
-###########################
+################
+#  Assessment  #
+################
 
 snippet assessment-in-article "assessment in the article.json" b
 "_assessment": {
@@ -33,7 +29,6 @@ snippet assessment-in-article "assessment in the article.json" b
 	"_attempts": "infinite"
 }$0
 endsnippet
-
 snippet assessment-in-course "assessment in the course.json" b
 "_assessment": {
 		"_postTotalScoreToLms": ${1:true},
@@ -43,9 +38,9 @@ snippet assessment-in-course "assessment in the course.json" b
 }$0
 endsnippet
 
-#######################
-#  Trickle in Course  #
-#######################
+#############
+#  Trickle  #
+#############
 
 snippet trickle-in-course "trickle in the course.json" b
 "_trickle": {
@@ -56,13 +51,11 @@ snippet trickle-in-course "trickle in the course.json" b
 	}
 }$0
 endsnippet
-
 snippet trickle-in-article "enable trickle for all blocks in an article" b
 "_trickle": {
 		"_isEnabled": ${1:true}
 },$0
 endsnippet
-
 snippet trickle-in-block "manulally add trickle for each block" b
 "_trickle": {
 "_isEnabled": ${1:true},
@@ -87,6 +80,7 @@ snippet trickle-in-block "manulally add trickle for each block" b
 }
 },$0
 endsnippet
+
 #################
 #  Bookmarking  #
 #################
@@ -104,11 +98,6 @@ snippet bookmarking-en "add bookmarking in the course.json" b
 	}
 }$0
 endsnippet
-
-####################
-#  Bookmarking Zh  #
-####################
-
 snippet bookmarking-zh "add bookmarking in the course.json" b
 
 "_bookmarking": {
@@ -167,11 +156,6 @@ snippet resources-en "add this to the course.json" b
 		]
 }$0
 endsnippet
-
-##################
-#  Resources Zh  #
-##################
-
 snippet resources-zh "add this to the course.json" b
 "_resources": {
 		"title": "${1:辅助学习资源}",
@@ -211,11 +195,6 @@ snippet resources-zh "add this to the course.json" b
 		]
 }$0
 endsnippet
-
-######################
-#  Resources Option  #
-######################
-
 snippet resources-item "add a resources item" b
 {
 	"_type": "${1:document|media|link}",
@@ -255,4 +234,5 @@ snippet Covermenu "add the covermenu into the contentObjects.json for each menu 
 		}
 },$0
 endsnippet
+
 # vim:ft=snippets:
