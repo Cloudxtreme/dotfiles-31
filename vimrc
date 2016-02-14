@@ -241,6 +241,9 @@ autocmd FileType css,scss,sass,less,stylus :ColorHighlight "For Colorizer Plugin
 " Autoformat {{{
 " autoformat shortcut
 noremap <c-t> :Autoformat<CR>
+" enable ranged definitions for python
+let g:formatdef_autopep8 = "'autopep8 - --range '.a:firstline.' '.a:lastline"
+let g:formatters_python = ['autopep8']
 " }}} Autoformat
 " MatchTagAlways {{{
 let g:mta_use_matchparen_group = 0

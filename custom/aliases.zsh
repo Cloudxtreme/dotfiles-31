@@ -18,6 +18,7 @@ alias dc="cd /Volumes/Data/Documents/"
 alias sb="cd ~/Documents/sandbox"
 alias tuts="cd /Volumes/MB3/tutorials/Tutsplus/; lg" # list directories that contains the keyword in given direcectory. e.g. tuts $1
 alias lynda="cd /Volumes/MB3/tutorials/Lynda.com/; lg"
+alias treehouse="cd /Volumes/Data/Documents/tutorial/treehouse; lg"
 alias cdd="cd -" # go to previious directory
 
 
