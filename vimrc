@@ -539,10 +539,8 @@ endif
 " }}} File Command
 " Tab {{{
 
-" Open the current buffer window in a new tab
-nnoremap tt :tab split<CR>
 " Move the current window to a new tab
-nnoremap TT <C-w>T
+nnoremap tt <C-w>T
 " }}} Tab
 " Quick editing files {{{
 " Edit vimrc file in a vertically split window
