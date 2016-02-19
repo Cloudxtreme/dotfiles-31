@@ -1,0 +1,28 @@
+# Edit default permission on a debien system e.g. ubuntu.
+sudo vim /etc/login.defs
+
+# Check user account, password and group
+tail /etc/passwd # account
+tail /etc/shadow # password
+tail /etc/group # group
+
+# Add a user and set up user directory and default shell
+useradd -m -d /home/smith -s /bin/bash smith
+
+# Put files created for all new users in the skel directory
+touch file_name /etc/skel/
+
+# Set password for a user
+sudo passwd username # then type in the password in the new prompt
+
+# Lock an user account
+sudo usermod -L user_name
+
+# Unlock an user account
+sudo usermod -U user_name
+
+# Delete an user
+sudo userdel user_name # need to delete user directory seperately
+
+# Add priority to a process id
+nice (renice) -5 process_id #e.g. nice -5 3233; -20 to 20, negative high priority
