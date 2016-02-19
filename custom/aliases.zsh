@@ -3,8 +3,8 @@
 # Dotfiles editing {{{2
 alias reload="source ~/.zshrc"
 alias ez="nvim ~/.zshrc && reload" # Edit default zsh config file and reload
-alias ea="nvim ~/.oh-my-zsh/custom/aliases.zsh && reload" # edit custom aliases and functions config and reload
-alias eg="nvim ~/.oh-my-zsh/custom/gitaliases.zsh && reload" # edit custom git aliases and functions config and reload
+alias ea="nvim ~/bin/dotfiles/custom/aliases.zsh && reload" # edit custom aliases and functions config and reload
+alias eg="nvim ~/bin/dotfiles/custom/gitaliases.zsh && reload" # edit custom git aliases and functions config and reload
 alias et="nvim ~/.tmux.conf" # edit tmux configuration
 alias vimrc="nvim ~/.vimrc" # Edit vimrc
 
