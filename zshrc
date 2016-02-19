@@ -39,7 +39,7 @@ ZSH_CUSTOM=~/bin/dotfiles/custom
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git brew npm tmux extract sublime sudo osx vi-mode web-search)
+plugins=(git brew npm tmux extract sublime sudo osx vi-mode web-search zsh-completions)
 
 # Include z Configuration
 . `brew --prefix`/etc/profile.d/z.sh
@@ -51,9 +51,6 @@ export PATH=/usr/local/bin:/usr/local/sbin:~/bin:$PATH
 
 # Set Editor to vim
 export EDITOR=vim
-
-# Zsh Completions
-fpath=(/usr/local/share/zsh-completions $fpath)
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
