@@ -26,7 +26,7 @@ alias cdd="cd -" # go to previious directory
 alias c="clear"
 alias clera="clear"
 alias cl="clear; l"
-alias h="history"
+# alias h="history" # use zsh plugin history instead
 
 alias e="exit"
 alias :q="exit"
@@ -36,6 +36,7 @@ alias md="mkdir -p"
 alias rm="rm -i"
 
 alias ag='ag --path-to-agignore=~/.agignore' # global agignore file
+alias mux="tmuxinator" # Important for auto completion for tmuxinator
 # Tree Commands {{{2
 alias tree1='tree -L 1' # show directory structure one level
 alias tree2='tree -L 2' # show directory structure two level
