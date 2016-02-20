@@ -87,7 +87,7 @@ set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 " UTF encoding
 set fileencoding=utf-8
 if !has('nvim')
-	set encoding=utf-8
+  set encoding=utf-8
 endif
 " Set buffer modifiable
 set modifiable
@@ -222,7 +222,7 @@ set guifont=Ubuntu\ Mono\ derivative\ Powerline\ Nerd\ Font\ Complete:h15 "set g
 
 "Set gui vim
 if has('gui_running')
-	set guioptions-=T " Hide toolbar in GUI vim
+  set guioptions-=T " Hide toolbar in GUI vim
 endif
 
 " }}}
@@ -417,12 +417,12 @@ if has("persistent_undo")
 endif
 " undotree layout style
 if !exists('g:undotree_WindowLayout')
-    let g:undotree_WindowLayout = 4
+  let g:undotree_WindowLayout = 4
 endif
 
 " undotree window width
 if !exists('g:undotree_SplitWidth')
-    let g:undotree_SplitWidth = 40
+  let g:undotree_SplitWidth = 40
 endif
 
 " }}}
@@ -533,7 +533,7 @@ cnoremap <C-n> <Down>
 
 " Fix the C-h conflict in Neovim
 if has('nvim')
-	nmap <BS> <C-W>h
+  nmap <BS> <C-W>h
 endif
 
 " }}} File Command
@@ -606,44 +606,44 @@ augroup END
 " Autocmd {{{
 if has("autocmd")
 
-	" Customisations based on house-style
-	autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
-	autocmd FileType css setlocal ts=2 sts=2 sw=2 expandtab
-	autocmd FileType less setlocal ts=2 sts=2 sw=2 expandtab
-	autocmd FileType javascript setlocal ts=4 sts=4 sw=4 noexpandtab
-	autocmd FileType json setlocal ts=2 sts=2 sw=2 noexpandtab
+  " Customisations based on house-style
+  autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
+  autocmd FileType css setlocal ts=2 sts=2 sw=2 expandtab
+  autocmd FileType less setlocal ts=2 sts=2 sw=2 expandtab
+  autocmd FileType javascript setlocal ts=4 sts=4 sw=4 noexpandtab
+  autocmd FileType json setlocal ts=2 sts=2 sw=2 noexpandtab
 
-	" Treat .rss files as XML
-	autocmd BufNewFile,BufRead *.rss, *.atom setfiletype xml
+  " Treat .rss files as XML
+  autocmd BufNewFile,BufRead *.rss, *.atom setfiletype xml
 endif
 " }}}
 " Functions {{{
 " Set tabstop, softtabstop and shiftwidth to the same value
 command! -nargs=* Stab call Stab()
 function! Stab()
-	let l:tabstop = 1 * input('set tabstop = softtabstop = shiftwidth = ')
-	if l:tabstop > 0
-		let &l:sts = l:tabstop
-		let &l:ts = l:tabstop
-		let &l:sw = l:tabstop
-	endif
-	call SummarizeTabs()
+  let l:tabstop = 1 * input('set tabstop = softtabstop = shiftwidth = ')
+  if l:tabstop > 0
+    let &l:sts = l:tabstop
+    let &l:ts = l:tabstop
+    let &l:sw = l:tabstop
+  endif
+  call SummarizeTabs()
 endfunction
 
 function! SummarizeTabs()
-	try
-		echohl ModeMsg
-		echon 'tabstop='.&l:ts
-		echon ' shiftwidth='.&l:sw
-		echon ' softtabstop='.&l:sts
-		if &l:et
-			echon ' expandtab'
-		else
-			echon ' noexpandtab'
-		endif
-	finally
-		echohl None
-	endtry
+  try
+    echohl ModeMsg
+    echon 'tabstop='.&l:ts
+    echon ' shiftwidth='.&l:sw
+    echon ' softtabstop='.&l:sts
+    if &l:et
+      echon ' expandtab'
+    else
+      echon ' noexpandtab'
+    endif
+  finally
+    echohl None
+  endtry
 endfunction
 
 "Strip Trailing spaces
@@ -651,15 +651,15 @@ endfunction
 " Hit <F2> to strip trailing spaces.
 nnoremap <silent> <F2> :call <SID>StripTrailingWhitespaces()<CR>
 function! <SID>StripTrailingWhitespaces()
-	" Preparation: save last search, and cursor position.
-	let _s=@/
-	let l = line(".")
-	let c = col(".")
-	" Do the business:
-	%s/\s\+$//e
-	" Clean up: restore previous search history, and cursor position
-	let @/=_s
-	call cursor(l, c)
+  " Preparation: save last search, and cursor position.
+  let _s=@/
+  let l = line(".")
+  let c = col(".")
+  " Do the business:
+  %s/\s\+$//e
+  " Clean up: restore previous search history, and cursor position
+  let @/=_s
+  call cursor(l, c)
 endfunction
 
 " Delete blank lines
