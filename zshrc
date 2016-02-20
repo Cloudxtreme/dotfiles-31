@@ -40,7 +40,7 @@ ZSH_CUSTOM=~/bin/dotfiles/custom
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git brew npm tmux extract sublime sudo osx web-search zsh-completions history tmuxinator vi-mode z)
+plugins=(git brew npm tmux extract sublime sudo osx web-search zsh-completions history tmuxinator vi-mode z zsh-syntax-highlighting)
 
 
 # Source configuration
@@ -67,6 +67,3 @@ export HISTCONTROL=ignoredups
 # keybindings
 # reverse search in history, this import for Ctrl-R to work
 bindkey "^R" history-incremental-search-backward
-
-# source zsh-syntax-highlighting
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
