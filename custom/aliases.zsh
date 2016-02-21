@@ -35,6 +35,21 @@ alias o="open ."
 alias md="mkdir -p"
 alias rm="rm -i"
 
+alias t='tail -f'
+alias -g H='| head'
+alias -g T='| tail'
+alias -g G='| grep'
+alias -g L='| less'
+alias -g M='| most'
+
+alias dud='du -d 1 -h'
+alias duf='du -sh *'
+alias fd='find . -type d -name'
+alias ff='find . -type f -name'
+alias p='ps -f'
+
+
+
 alias ag='ag --path-to-agignore=~/.agignore' # global agignore file
 alias mux="tmuxinator" # Important for auto completion for tmuxinator
 # Tree Commands {{{2
@@ -110,6 +125,11 @@ ll | grep -i "$1"
 # Kill named process
 function killnamed() {
 ps ax | grep $1 | cut -d ' ' -f 1 | xargs kill
+}
+
+# grep named process
+function psg() {
+  ps aux | grep $1
 }
 
 ## Archives {{{2
