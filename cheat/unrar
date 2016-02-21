@@ -1,6 +1,6 @@
 # Extract files without archive path in overwritten mode
-unrar e -o+ *.rar
+"unrar e -o+ *.rar"
 
 # Extract a zipped bundle and then unrar
-unzip -oq '*.zip'
-unrar e -o+ '*.zip'
+"unzip -oq '*.zip'"
+"unrar e -o+ '*.zip'"

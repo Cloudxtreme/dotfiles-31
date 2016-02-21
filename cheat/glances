@@ -1,20 +1,20 @@
 # Install Glances
-sudo apt-get install glances
+"sudo apt-get install glances"
 
 # Run glances
-glances
+"glances"
 
 # Quit glances
 Press ESC or "Ctrl-C"
 
 # Set interval time to 5 seconds instead the default 1 second
-glances -t 5
+"glances -t 5"
 
 # Glances Color Code meaning
 Green: OK; Blue: CAREFUL; Violet: ALERT; RED: CRITICAL
 
 # Glances Configuration File
-/etc/glances/glances.conf
+"/etc/glances/glances.conf"
 
 # Glances to monitor Remote Systems
 Check Evernote Entry for details.

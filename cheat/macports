@@ -1,25 +1,25 @@
 # List all available ports
-port list
+"port list"
 
 # List all installed port on local machine
-port installed
+"port installed"
 
 # find more info about a port
-port info port_name
+"port info port_name"
 
 # list outdated ports
-port outdated
+"port outdated"
 
 # chect updates
-sudo port selfupdate
+"sudo port selfupdate"
 
 # upgrade outdated
-sudo port upgrade outdated
+"sudo port upgrade outdated"
 
 # removing inactive versions of upgraded ports
-sudo port uninstall inactive
+"sudo port uninstall inactive"
 
 # list of inactive ports
-port installed inactive
+"port installed inactive"
 
 For more infomation, check out the [Macports Guide](http://guide.macports.org/#using.common-tasks)

@@ -59,10 +59,10 @@ d{motion}       delete text that {motion} moves over
 
 # read range of lines from a file into current buffer
 # Examples:
-:r! sed -n 233,256p /path/to/file/foo.c
+":r! sed -n 233,256p /path/to/file/foo.c"
 
 # Open a buffer in a vertical split window
-:vert sb N
+":vert sb N"
 
 # Open a buffer in a split to the right
-:vert belowright sb N
+":vert belowright sb N"

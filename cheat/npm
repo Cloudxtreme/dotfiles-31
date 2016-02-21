@@ -1,41 +1,41 @@
 # Install a package as dependency
-npm install <package_name> --save
+"npm install <package_name> --save"
 
 # Install a package as devDependency
-npm install --save-dev <package_name>
+"npm install --save-dev <package_name>"
 
 # update npm to the latest version
-[sudo] npm install npm@latest -g
+"[sudo] npm install npm@latest -g"
 
 # List all the npm packages installed for the project?
-npm list
+"npm list"
 
 # list all npm packages installed globally?
-npm list -g
+"npm list -g"
 
 # list all installed packages at depth 0?
-npm list -g --depth=0 or with the shortcut 'npmlsg'
+"npm list -g --depth=0 or with the shortcut 'npmlsg'"
 
 # list outdated npm packages?
-npm outdated
+"npm outdated"
 
 # how to install a package to a project as devDependency?
-npm install --save-dev package_name
+"npm install --save-dev package_name"
 
 # how to install a package as a dependency?
-npm install --save package_name
+"npm install --save package_name"
 
 # How to uninstall a package and remove it from the package.json file as devDependency?
-npm uninstall --save-dev package_name
+"npm uninstall --save-dev package_name"
 
 # how to update all installed packages?
-npm update
+"npm update"
 
 # how to update a single package?
-npm update package_name
+"npm update package_name"
 
 # how to update all packages installed globally?
-npm update -g
+"npm update -g"
 
 # How to remove extraneous packages?
-npm prune
+"npm prune"

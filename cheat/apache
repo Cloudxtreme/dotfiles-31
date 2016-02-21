@@ -1,20 +1,20 @@
 # To start apache webserver
-sudo apachectl start
+"sudo apachectl start"
 
 # to stop apache webserver
-sudo apachectl stop
+"sudo apachectl stop"
 
 # to restart apache webserver
-sudo apachectl restart
+"sudo apachectl restart"
 
 # to Find apache version
-httpd -v
+"httpd -v"
 
 # to test local apache configuration
-apachectl configtest
+"apachectl configtest"
 
 # Apache httpd configuratio file location
-/etc/apache2/httpd.conf
+"/etc/apache2/httpd.conf"
 
 # Default system document root
-/Library/WebServer/Documents/
+"/Library/WebServer/Documents/"

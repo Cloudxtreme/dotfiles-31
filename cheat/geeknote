@@ -11,7 +11,7 @@ geeknote tag-create --title "tag name to create"
 geeknote create --title "note title" --tags "tag1, tag2, tag3" --notebook "Inbox" --content "Some contents here"
 
 # Search notes in Evernote
-geeknote find --search "text to find"  
+geeknote find --search "text to find"
 
 Options:
 

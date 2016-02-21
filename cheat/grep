@@ -1,17 +1,17 @@
 # Search a file for a pattern
-grep pattern file
+"grep pattern file"
 
 # Case insensitive search (with line numbers)
-grep -in pattern file
+"grep -in pattern file"
 
 # Recursively grep for string <pattern> in folder:
-grep -R pattern folder
+"grep -R pattern folder"
 
 # Read search patterns from a file (one per line)
-grep -f pattern_file file
+"grep -f pattern_file file"
 
 # Find lines NOT containing pattern
-grep -v pattern file
+"grep -v pattern file"
 
 # You can grep with regular expressions
 grep "^00" file  #Match lines starting with 00
