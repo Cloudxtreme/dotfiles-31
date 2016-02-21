@@ -1,6 +1,8 @@
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 
+# Set Editor to vim
+export EDITOR=nvim
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -49,8 +51,6 @@ source $ZSH/oh-my-zsh.sh
 # Customize to your needs...
 export PATH=/usr/local/bin:/usr/local/sbin:~/bin:$PATH
 
-# Set Editor to vim
-export EDITOR=vim
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
