@@ -107,7 +107,7 @@ cd $1
 
 ## Grep and Find {{{2
 # grep related alias
-function aliasgrep() {
+function agrep() {
 alias | grep "$1"
 }
 
