@@ -53,6 +53,7 @@ alias p='ps -f'
 alias ag='ag --path-to-agignore=~/.agignore' # global agignore file
 alias mux="tmuxinator" # Important for auto completion for tmuxinator
 # Tree Commands {{{2
+alias tree='tree -C'
 alias tree1='tree -L 1' # show directory structure one level
 alias tree2='tree -L 2' # show directory structure two level
 alias tree3='tree -L 3' # show directory sturcture 3 level
