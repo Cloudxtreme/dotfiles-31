@@ -53,6 +53,7 @@ alias p='ps -f'
 alias ag='ag --path-to-agignore=~/.agignore' # global agignore file
 alias mux="tmuxinator" # Important for auto completion for tmuxinator
 # Tree Commands {{{2
+alias tree='tree -C'
 alias tree1='tree -L 1' # show directory structure one level
 alias tree2='tree -L 2' # show directory structure two level
 alias tree3='tree -L 3' # show directory sturcture 3 level
@@ -72,6 +73,11 @@ alias vmysql="ps aux | grep mysql"
 alias openelaine="open vnc://192.168.0.5:5900"
 alias plex="sudo ~/Applications/PlexConnect/PlexConnect.py" # Run PlexConnect
 
+# Mplayer
+alias m="mpv --no-audio-display"
+alias ms="mpv --shuffle --no-audio-display"
+alias mp="mpv --no-audio-display --playlist=playlist.m3u"
+alias msp="mpv --shuffle --no-audio-display --playlist=playlist.m3u"
 ### Development aliases {{{1
 alias rub="./rub"
 alias mongobrew="mongod --config /usr/local/etc/mongod.conf"
