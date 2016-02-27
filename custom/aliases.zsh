@@ -157,6 +157,10 @@ function canarydownload() {
 proxychains4 wget -O GoogleChrome-canary.dmg https://storage.googleapis.com/chrome-canary/GoogleChromeCanary.dmg
 }
 
+# Create a playlist in the current directory
+function plist() {
+find . -type f \( -iname "*.$1" -or -iname "*.$2" -or -iname "*.$3" \) > playlist.m3u
+}
 ## Workflow {{{2
 # update documentation site
 function documentation() {
