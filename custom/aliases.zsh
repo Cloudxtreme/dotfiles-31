@@ -63,21 +63,27 @@ alias tree4='tree -L 4'
 alias shutdown="sudo shutdown -h now"
 alias reboot="sudo shutdown -r now"
 
-# Processes
 alias tu="top -o cpu" # cpu
 alias tm="top -o vsize" # memory
 alias vhttpd="ps aux | grep httpd"
 alias vmysql="ps aux | grep mysql"
 
-# Misc.
+# Misc. {{{2
 alias openelaine="open vnc://192.168.0.5:5900"
 alias plex="sudo ~/Applications/PlexConnect/PlexConnect.py" # Run PlexConnect
 
-# Mplayer
+# MPV{{{2
 alias m="mpv --no-audio-display"
 alias ms="mpv --shuffle --no-audio-display"
 alias mp="mpv --no-audio-display --playlist=playlist.m3u"
 alias msp="mpv --shuffle --no-audio-display --playlist=playlist.m3u"
+
+# Youtube-DL
+alias udl1080='proxychains4 youtube-dl -f 137'
+alias udl='proxychains4 youtube-dl -f 22'
+alias udl480='proxychains4 youtube-dl -f 135'
+alias udl360='proxychains4 youtube-dl -f 18'
+alias udlf='proxychains4 youtube-dl -F'
 ### Development aliases {{{1
 alias rub="./rub"
 alias mongobrew="mongod --config /usr/local/etc/mongod.conf"
