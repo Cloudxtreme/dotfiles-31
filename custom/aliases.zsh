@@ -88,6 +88,9 @@ alias udl='proxychains4 youtube-dl -f 22'
 alias udl480='proxychains4 youtube-dl -f 135'
 alias udl360='proxychains4 youtube-dl -f 18'
 alias udlf='proxychains4 youtube-dl -F'
+
+# Greg {{{2
+alias greg='proxychains4 greg'
 ### Development aliases {{{1
 alias rub="./rub"
 alias mongobrew="mongod --config /usr/local/etc/mongod.conf"
