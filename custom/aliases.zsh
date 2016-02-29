@@ -21,6 +21,10 @@ alias lynda="cd /Volumes/MB3/tutorials/Lynda.com/; lg"
 alias treehouse="cd /Volumes/Data/Documents/tutorial/treehouse; lg"
 alias cdd="cd -" # go to previious directory
 alias tad="ta 0" # go to the default tmux session
+alias ta1="ta sys" # go to the default tmux session
+alias tk1="tkss sys" # go to the default tmux session
+alias ta2="ta work" # go to the default tmux session
+alias tk2="tkss work" # go to the default tmux session
 
 # Terminal commands {{{2
 alias c="clear"
@@ -31,6 +35,7 @@ alias cl="clear; l"
 alias e="exit"
 alias :q="exit"
 alias ,q="exit"
+alias qall="tkss work && tkss sys"
 alias o="open ."
 alias md="mkdir -p"
 alias rm="rm -i"
@@ -53,6 +58,7 @@ alias p='ps -f'
 alias ag='ag --path-to-agignore=~/.agignore' # global agignore file
 alias mux="tmuxinator" # Important for auto completion for tmuxinator
 # Tree Commands {{{2
+alias tree='tree -C'
 alias tree1='tree -L 1' # show directory structure one level
 alias tree2='tree -L 2' # show directory structure two level
 alias tree3='tree -L 3' # show directory sturcture 3 level
@@ -62,16 +68,30 @@ alias tree4='tree -L 4'
 alias shutdown="sudo shutdown -h now"
 alias reboot="sudo shutdown -r now"
 
-# Processes
 alias tu="top -o cpu" # cpu
 alias tm="top -o vsize" # memory
 alias vhttpd="ps aux | grep httpd"
 alias vmysql="ps aux | grep mysql"
 
-# Misc.
+# Misc. {{{2
 alias openelaine="open vnc://192.168.0.5:5900"
 alias plex="sudo ~/Applications/PlexConnect/PlexConnect.py" # Run PlexConnect
 
+# MPV{{{2
+alias m="mpv --no-audio-display *"
+alias ms="mpv --shuffle --no-audio-display *"
+alias mp="mpv --no-audio-display --playlist=playlist.m3u"
+alias msp="mpv --shuffle --no-audio-display --playlist=playlist.m3u"
+
+# Youtube-DL
+alias udl1080='proxychains4 youtube-dl -f 137'
+alias udl='proxychains4 youtube-dl -f 22'
+alias udl480='proxychains4 youtube-dl -f 135'
+alias udl360='proxychains4 youtube-dl -f 18'
+alias udlf='proxychains4 youtube-dl -F'
+
+# Greg {{{2
+alias greg='proxychains4 greg'
 ### Development aliases {{{1
 alias rub="./rub"
 alias mongobrew="mongod --config /usr/local/etc/mongod.conf"
@@ -157,6 +177,10 @@ function canarydownload() {
 proxychains4 wget -O GoogleChrome-canary.dmg https://storage.googleapis.com/chrome-canary/GoogleChromeCanary.dmg
 }
 
+# Create a playlist in the current directory
+function plist() {
+find . -type f \( -iname "*.$1" -or -iname "*.$2" -or -iname "*.$3" \) > playlist.m3u
+}
 ## Workflow {{{2
 # update documentation site
 function documentation() {
@@ -183,10 +207,10 @@ touch log.md
 vim log.md
 }
 
-# Create a new file and open it with Nvim
-function nnew {
+# Create a new file and open it with vim
+function new {
 touch $1
-nvim $1
+vim $1
 }
 
 # New site based on my starter template
