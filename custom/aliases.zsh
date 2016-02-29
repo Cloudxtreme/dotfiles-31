@@ -20,7 +20,10 @@ alias tuts="cd /Volumes/MB3/tutorials/Tutsplus/; lg" # list directories that con
 alias lynda="cd /Volumes/MB3/tutorials/Lynda.com/; lg"
 alias treehouse="cd /Volumes/Data/Documents/tutorial/treehouse; lg"
 alias cdd="cd -" # go to previious directory
-alias tad="ta 0" # go to the default tmux session
+alias ta1="ta sys" # go to the default tmux session
+alias tk1="tkss sys" # go to the default tmux session
+alias ta2="ta work" # go to the default tmux session
+alias tk2="tkss work" # go to the default tmux session
 
 # Terminal commands {{{2
 alias c="clear"
@@ -31,6 +34,7 @@ alias cl="clear; l"
 alias e="exit"
 alias :q="exit"
 alias ,q="exit"
+alias qall="tkss work && tkss sys"
 alias o="open ."
 alias md="mkdir -p"
 alias rm="rm -i"
@@ -199,10 +203,10 @@ touch log.md
 vim log.md
 }
 
-# Create a new file and open it with Nvim
-function nnew {
+# Create a new file and open it with vim
+function new {
 touch $1
-nvim $1
+vim $1
 }
 
 # New site based on my starter template
