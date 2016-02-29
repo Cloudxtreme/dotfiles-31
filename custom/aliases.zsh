@@ -20,6 +20,7 @@ alias tuts="cd /Volumes/MB3/tutorials/Tutsplus/; lg" # list directories that con
 alias lynda="cd /Volumes/MB3/tutorials/Lynda.com/; lg"
 alias treehouse="cd /Volumes/Data/Documents/tutorial/treehouse; lg"
 alias cdd="cd -" # go to previious directory
+alias tad="ta 0" # go to the default tmux session
 alias ta1="ta sys" # go to the default tmux session
 alias tk1="tkss sys" # go to the default tmux session
 alias ta2="ta work" # go to the default tmux session
