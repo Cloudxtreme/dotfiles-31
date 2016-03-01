@@ -8,7 +8,7 @@ export EDITOR=vim
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="xxf"
+ZSH_THEME=""
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -66,3 +66,6 @@ export HISTCONTROL=ignoredups
 # keybindings
 # reverse search in history, this import for Ctrl-R to work
 bindkey "^R" history-incremental-search-backward
+
+source "/usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh"
+
