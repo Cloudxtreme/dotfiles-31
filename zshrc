@@ -66,3 +66,7 @@ export HISTCONTROL=ignoredups
 # keybindings
 # reverse search in history, this import for Ctrl-R to work
 bindkey "^R" history-incremental-search-backward
+
+# Powerline Zsh Prompt
+# source "/usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh"
+
