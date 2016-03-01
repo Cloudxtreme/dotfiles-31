@@ -2,13 +2,6 @@
 	"segments": {
 		"right": [
 			{
-				"function": "powerline.segments.common.vcs.branch",
-				"name": "branch",
-				"args": {
-					"status_colors": true
-				}
-			},
-			{
 				"function": "powerline.segments.common.wthr.weather",
 				"name": "weather",
 				"priority": 80,
