@@ -50,3 +50,5 @@ bash/
 
 # custom plugins
 custom/plugins/
+custom/tmux/
+custom/tmux.start.zsh
