@@ -17,16 +17,6 @@
 				}
 			},
 			{
-				"function": "powerline.segments.common.mail.email_imap_alert",
-				"args": {
-					"username": "sam.tsiu@gmail.com",
-					"password": "Cu7O0frI9U",
-					"server": "imap.gmail.com",
-					"port": 993,
-					"folder": "INBOX"
-				}
-			},
-			{
 				"function": "powerline.segments.common.bat.battery"
 			},
 			{
