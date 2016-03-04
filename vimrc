@@ -47,6 +47,7 @@ Plug '1995eaton/vim-better-javascript-completion'
 Plug 'elzr/vim-json'
 Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'tmux-plugins/vim-tmux' "Add Tmux syntax highlight
+Plug 'vim-ruby/vim-ruby'
 "}}}
 " Vim Themes and Icons {{{
 Plug 'bling/vim-airline'

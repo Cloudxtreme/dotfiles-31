@@ -78,7 +78,7 @@ alias openelaine="open vnc://192.168.0.5:5900"
 alias plex="sudo ~/Applications/PlexConnect/PlexConnect.py" # Run PlexConnect
 
 # MPV{{{2
-alias m="mpv --no-audio-display *"
+alias m="mpv --no-audio-display"
 alias ms="mpv --shuffle --no-audio-display *"
 alias mp="mpv --no-audio-display --playlist=playlist.m3u"
 alias msp="mpv --shuffle --no-audio-display --playlist=playlist.m3u"
