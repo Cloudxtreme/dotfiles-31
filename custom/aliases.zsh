@@ -77,6 +77,8 @@ alias vmysql="ps aux | grep mysql"
 alias openelaine="open vnc://192.168.0.5:5900"
 alias plex="sudo ~/Applications/PlexConnect/PlexConnect.py" # Run PlexConnect
 
+# Shadowsocks
+alias sslocal="sslocal -c ~/.config/Shadowsocks/config.json"
 # MPV{{{2
 alias m="mpv --no-audio-display"
 alias ms="mpv --shuffle --no-audio-display *"
