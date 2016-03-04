@@ -54,6 +54,7 @@ Plug 'bling/vim-airline'
 Plug 'ryanoasis/vim-devicons'
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'nanotech/jellybeans.vim'
+Plug 'ajh17/Spacegray.vim'
 Plug 'chrisbra/Colorizer'
 "}}}
 
@@ -215,6 +216,7 @@ let g:python_host_prog = '/usr/bin/python'
 set t_Co=256
 set background=dark
 syntax enable
+" colorscheme spacegray
 colorscheme jellybeans
 
 "Fonts
