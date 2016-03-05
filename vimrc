@@ -12,7 +12,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'ervandew/supertab'
 Plug 'majutsushi/tagbar'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'Valloric/YouCompleteMe'
+" Plug 'Valloric/YouCompleteMe'
 Plug 'severin-lemaignan/vim-minimap'
 Plug 'rking/ag.vim'
 Plug 'scrooloose/syntastic'
@@ -47,12 +47,14 @@ Plug '1995eaton/vim-better-javascript-completion'
 Plug 'elzr/vim-json'
 Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'tmux-plugins/vim-tmux' "Add Tmux syntax highlight
+Plug 'vim-ruby/vim-ruby'
 "}}}
 " Vim Themes and Icons {{{
 Plug 'bling/vim-airline'
 Plug 'ryanoasis/vim-devicons'
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'nanotech/jellybeans.vim'
+Plug 'ajh17/Spacegray.vim'
 Plug 'chrisbra/Colorizer'
 "}}}
 
@@ -214,6 +216,7 @@ let g:python_host_prog = '/usr/bin/python'
 set t_Co=256
 set background=dark
 syntax enable
+" colorscheme spacegray
 colorscheme jellybeans
 
 "Fonts
