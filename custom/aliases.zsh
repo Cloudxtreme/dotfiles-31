@@ -76,14 +76,15 @@ alias vmysql="ps aux | grep mysql"
 # Misc. {{{2
 alias openelaine="open vnc://192.168.0.5:5900"
 alias plex="sudo ~/Applications/PlexConnect/PlexConnect.py" # Run PlexConnect
+alias acache='apt-cache search --names-only'
 
 # Shadowsocks
 alias sslocal="sslocal -c ~/.config/Shadowsocks/config.json"
 # MPV{{{2
-alias m="mpv --no-audio-display"
-alias ms="mpv --shuffle --no-audio-display *"
-alias mp="mpv --no-audio-display --playlist=playlist.m3u"
-alias msp="mpv --shuffle --no-audio-display --playlist=playlist.m3u"
+alias mpv="mpv --no-audio-display"
+alias mpvs="mpv --shuffle --no-audio-display *"
+alias mpvlist="mpv --no-audio-display --playlist=playlist.m3u"
+alias mpvslist="mpv --shuffle --no-audio-display --playlist=playlist.m3u"
 
 # Youtube-DL
 alias udl1080='proxychains4 youtube-dl -f 137'
@@ -92,8 +93,26 @@ alias udl480='proxychains4 youtube-dl -f 135'
 alias udl360='proxychains4 youtube-dl -f 18'
 alias udlf='proxychains4 youtube-dl -F'
 
+# Mplayer {{{2
+alias m='mplayer'
+alias mp='mplayer -playlist'
+alias ms='mplayer -shuffle'
+alias msp='mplayer -shuffle -playlist'
 # Greg {{{2
 alias greg='proxychains4 greg'
+# PodGrab.py Utuntu only {{{2
+alias pod-dla="proxychains PodGrab.py -u"
+alias pod-dl="PodGrab.py -d"
+alias pod-list="PodGrab.py -l"
+alias pod-add="PodGrab.py -s"
+# Transmission {{{2
+alias t-start='sudo service transmission-daemon start'
+alias t-stop='sudo service transmission-daemon stop'
+alias t-reload='sudo service transmission-daemon reload'
+alias tr='transmission-remote -n 'transmission:transmission''
+alias t-list='tr -l'
+alias t-bs='tr -st'
+alias t-fs='tr -si'
 ### Development aliases {{{1
 alias rub="./rub"
 alias mongobrew="mongod --config /usr/local/etc/mongod.conf"
@@ -167,7 +186,12 @@ function tarx() {
 tar -xzvf $1
 }
 
-## Misc. {{{2
+## Gooalias acache='apt-cache search --names-only'
+#alias m='mplayer'
+#alias mp='mplayer -playlist'
+#alias ms='mplayer -shuffle'
+#alias msp='mplayer -shuffle -playlist'
+# Chrome Download {{{2
 
 # Download google chrome browser
 function googledownload() {
@@ -179,12 +203,12 @@ function canarydownload() {
 proxychains4 wget -O GoogleChrome-canary.dmg https://storage.googleapis.com/chrome-canary/GoogleChromeCanary.dmg
 }
 
-# Create a playlist in the current directory
+# Create a playlist in the current directory {{{2
 function plist() {
 find . -type f \( -iname "*.$1" -or -iname "*.$2" -or -iname "*.$3" \) > playlist.m3u
 }
 ## Workflow {{{2
-# update documentation site
+# update documentation site {{{3
 function documentation() {
 cd /Volumes/Data/Documents/docs/documentation/
 ./generate
@@ -193,23 +217,24 @@ open http://localhost/static/
 
 }
 
-# copy .csv template to course json directory
+# copy .csv template to course json directory {{{3
 function cpcsv() {
 cp /Volumes/Data/project/course/csveat/p101.csv .
 }
 
+# copy gitignore {{{3
 function cpgitignore {
 cp ~/.gitignore_global ./.gitignore
 }
 
-# Pomodoro Daily log
+# Pomodoro Daily log {{{3
 function pomodorodaily {
 cd /Volumes/Data/Documents/docs/pomodoro/
 touch log.md
 vim log.md
 }
 
-# Create a new file and open it with vim
+# Create a new file and open it with vim {{{3
 function new {
 touch $1
 vim $1
