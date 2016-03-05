@@ -79,7 +79,7 @@ alias plex="sudo ~/Applications/PlexConnect/PlexConnect.py" # Run PlexConnect
 alias acache='apt-cache search --names-only'
 
 # Shadowsocks
-alias sslocal="sslocal -c ~/.config/Shadowsocks/config.json"
+alias sslocal="sslocal -c ~/.config/shadowsocks/config.json"
 # MPV{{{2
 alias mpv="mpv --no-audio-display"
 alias mpvs="mpv --shuffle --no-audio-display *"
