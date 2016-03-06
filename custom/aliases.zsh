@@ -53,10 +53,9 @@ alias fd='find . -type d -name'
 alias ff='find . -type f -name'
 alias p='ps -f'
 
-
-
 alias ag='ag --path-to-agignore=~/.agignore' # global agignore file
 alias mux="tmuxinator" # Important for auto completion for tmuxinator
+
 # Tree Commands {{{2
 alias tree='tree -C'
 alias tree1='tree -L 1' # show directory structure one level
@@ -78,15 +77,16 @@ alias openelaine="open vnc://192.168.0.5:5900"
 alias plex="sudo ~/Applications/PlexConnect/PlexConnect.py" # Run PlexConnect
 alias acache='apt-cache search --names-only'
 
-# Shadowsocks
+# Shadowsocks {{{2
 alias sslocal="sslocal -c ~/.config/shadowsocks/config.json"
+
 # MPV{{{2
 alias mpv="mpv --no-audio-display"
 alias mpvs="mpv --shuffle --no-audio-display *"
 alias mpvlist="mpv --no-audio-display --playlist=playlist.m3u"
 alias mpvslist="mpv --shuffle --no-audio-display --playlist=playlist.m3u"
 
-# Youtube-DL
+# Youtube-DL {{{2
 alias udl1080='proxychains4 youtube-dl -f 137'
 alias udl='proxychains4 youtube-dl -f 22'
 alias udl480='proxychains4 youtube-dl -f 135'
@@ -98,13 +98,16 @@ alias m='mplayer'
 alias mp='mplayer -playlist'
 alias ms='mplayer -shuffle'
 alias msp='mplayer -shuffle -playlist'
+
 # Greg {{{2
 alias greg='proxychains4 greg'
+
 # PodGrab.py Utuntu only {{{2
 alias pod-dla="proxychains PodGrab.py -u"
 alias pod-dl="PodGrab.py -d"
 alias pod-list="PodGrab.py -l"
 alias pod-add="PodGrab.py -s"
+
 # Transmission {{{2
 alias t-start='sudo service transmission-daemon start'
 alias t-stop='sudo service transmission-daemon stop'
@@ -113,7 +116,10 @@ alias tr='transmission-remote -n 'transmission:transmission''
 alias t-list='tr -l'
 alias t-bs='tr -st'
 alias t-fs='tr -si'
+
 ### Development aliases {{{1
+
+# Adapt {{{{2
 alias rub="./rub"
 alias mongobrew="mongod --config /usr/local/etc/mongod.conf"
 
@@ -186,11 +192,6 @@ function tarx() {
 tar -xzvf $1
 }
 
-## Gooalias acache='apt-cache search --names-only'
-#alias m='mplayer'
-#alias mp='mplayer -playlist'
-#alias ms='mplayer -shuffle'
-#alias msp='mplayer -shuffle -playlist'
 # Chrome Download {{{2
 
 # Download google chrome browser
@@ -207,6 +208,7 @@ proxychains4 wget -O GoogleChrome-canary.dmg https://storage.googleapis.com/chro
 function plist() {
 find . -type f \( -iname "*.$1" -or -iname "*.$2" -or -iname "*.$3" \) > playlist.m3u
 }
+
 ## Workflow {{{2
 # update documentation site {{{3
 function documentation() {
@@ -214,7 +216,6 @@ cd /Volumes/Data/Documents/docs/documentation/
 ./generate
 cp -r static ~/Sites/
 open http://localhost/static/
-
 }
 
 # copy .csv template to course json directory {{{3
