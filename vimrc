@@ -457,6 +457,9 @@ inoremap kk <esc>kA<CR>
 " Move cursor up or down in insert mode
 inoremap <C-j> <C-g>j
 inoremap <C-k> <C-g>k
+" bind Shift-L to move to the end
+nnoremap L $
+nnoremap H 0
 
 " }}} Moving around
 " Editing {{{
