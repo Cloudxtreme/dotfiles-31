@@ -207,6 +207,9 @@ set clipboard+=unnamed
 " Set syntax complete function on
 set omnifunc=syntaxcomplete#Complete
 
+" spellcheck complete
+set complete+=kspell
+
 " Set python interpreter
 let g:python_host_prog = '/usr/bin/python'
 "}}}
@@ -621,6 +624,10 @@ if has("autocmd")
 
   " Treat .rss files as XML
   autocmd BufNewFile,BufRead *.rss, *.atom setfiletype xml
+
+  " markdown spell check and textwidth
+  autocmd BufRead,BufNewFile *.md, setlocal textwidth=80
+  autocmd BufRead,BufNewFile *.md, setlocal spell
 endif
 " }}}
 " Functions {{{
