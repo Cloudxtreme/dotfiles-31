@@ -517,8 +517,8 @@ nnoremap <leader>vs :vs<cr>
 " }}}
 " File Command {{{
 " Type <leader>s to save file
-nnoremap <leader>w :w<CR>
-inoremap <leader>w <esc>:w<CR>
+nnoremap <leader>s :w<CR>
+inoremap <leader>s <esc>:w<CR>
 
 
 " Kill window
@@ -572,12 +572,11 @@ nnoremap _css :set ft=css<cr>
 nnoremap _jn :set ft=json<cr>
 "}}}
 " Spell check {{{
-imap <leader>ss <C-o>:setlocal spell!<CR>
-nmap <leader>ss :setlocal spell!<CR>
+map <leader>ss :setlocal spell! spelllang=en_gb<CR>
 map <leader>sn ]s
 map <leader>sp [s
 map <leader>sa zg
-map <leader>sc z=
+map <leader>sf z=
 "}}}
 " }}}
 " Folding {{{
@@ -633,7 +632,7 @@ if has("autocmd")
 
   " markdown spell check and textwidth
   autocmd BufRead,BufNewFile *.md setlocal textwidth=80
-  autocmd BufRead,BufNewFile *.md setlocal spell
+  autocmd BufRead,BufNewFile *.md setlocal spell spelllang=en_gb
 endif
 " }}}
 " Functions {{{
