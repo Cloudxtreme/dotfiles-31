@@ -258,3 +258,8 @@ vim $1
 # fi
 # }
 
+# Open in the Google Chrome Browser {{{3
+
+function gopen {
+  open -a "/Applications/Google Chrome.app" $1
+}

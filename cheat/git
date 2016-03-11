@@ -105,5 +105,8 @@ git clone --depth 1 <remote-url>
 # To unshallow a clone
 git pull --unshallow
 
+# To delete a remote branch
+git push origin --delete <branch_name>
+
 # reset repo url from https to ssh
 git remote set-url origin git@github.com:username/repository.git
