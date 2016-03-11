@@ -17,7 +17,7 @@
 "npm list -g --depth=0 or with the shortcut 'npmlsg'"
 
 # list outdated npm packages?
-"npm outdated"
+"npm outdated -g"
 
 # how to install a package to a project as devDependency?
 "npm install --save-dev package_name"

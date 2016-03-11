@@ -1,0 +1,12 @@
+# how to partially disable System Integrity Protection
+
+1. Boot to Recovery OS with `Cmd + R` key pressed simultaneously;;
+2. Launch Terminal from the Utilities menu.
+3. Enter the following command: `csrutil enable --without debug`
+4. Reboot computer.
+
+# how to revert System Integrity Protection to original state
+Boot to Recovery OS and enter the following command: `csrutil clear`.
+
+
+
