@@ -153,15 +153,10 @@ mkdir $1
 cd $1
 }
 
-## Grep and Find {{{2
-# grep related alias
+## Grep {{{2
+# grep string $1 in aliases
 function agrep() {
 alias | grep "$1"
-}
-
-# Find string $1 in file $2
-function fd() {
-find . -iname "$1" $2
 }
 
 # list the directories with the keyword
@@ -180,6 +175,15 @@ function psg() {
   ps aux | grep $1
 }
 
+## Find {{{2
+# Find string $1 in file $2
+function fd() {
+find . -iname $1 $2
+}
+
+function moveallfile() {
+  find . -type f -iname "$1" -print -exec mv {} $2 \;
+}
 ## Archives {{{2
 function zipr() {
 zip -r $1.zip $*
