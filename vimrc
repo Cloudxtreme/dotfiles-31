@@ -29,7 +29,7 @@ Plug 'mtth/scratch.vim'
 Plug 'Tpope/vim-commentary'
 Plug 'Tpope/vim-surround'
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
-Plug 'nelstrom/vim-markdown-folding' " foloding markdown files
+Plug 'nelstrom/vim-markdown-folding' " folding markdown files
 "}}}
 " Git Helpers {{{
 Plug 'tpope/vim-fugitive'
@@ -122,7 +122,7 @@ set splitright
 set wildmenu
 set wildmode=full
 
-" Ensure vim doesn't beep at you everyt time you make a mistype
+" Ensure vim doesn't beep at you every time you make a mistype
 set visualbell
 
 " Highlight the current line
@@ -134,7 +134,7 @@ set ruler
 " Enable mouse
 set mouse=a
 "}}}
-" Tab, Backspace, Wordwrap, hidden etc. {{{
+" Tab, Backspace, Word wrap, hidden etc. {{{
 " A buffer is marked as 'hidden' if it has unsaved changes, and it is not
 " currently loaded in a window. If you try to quit Vim while there are hidden
 " buffers you will raise an error: E162: No write since last change for buffer
@@ -512,15 +512,13 @@ map <F9> <C-W>>
 
 " }}} Window remapping
 " Buffer {{{
-" Open a horizontal buffer
-nnoremap <leader>sp :sp<cr>
 " Start a vertical buffer
 nnoremap <leader>vs :vs<cr>
 " }}}
 " File Command {{{
 " Type <leader>s to save file
-nnoremap <leader>s :w<CR>
-inoremap <leader>s <esc>:w<CR>
+nnoremap <leader>w :w<CR>
+inoremap <leader>w <esc>:w<CR>
 
 
 " Kill window
@@ -572,6 +570,14 @@ nnoremap _less :set ft=less<cr>
 nnoremap _js :set ft=javascript<cr>
 nnoremap _css :set ft=css<cr>
 nnoremap _jn :set ft=json<cr>
+"}}}
+" Spell check {{{
+imap <leader>ss <C-o>:setlocal spell!<CR>
+nmap <leader>ss :setlocal spell!<CR>
+map <leader>sn ]s
+map <leader>sp [s
+map <leader>sa zg
+map <leader>sc z=
 "}}}
 " }}}
 " Folding {{{
@@ -626,8 +632,8 @@ if has("autocmd")
   autocmd BufNewFile,BufRead *.rss, *.atom setfiletype xml
 
   " markdown spell check and textwidth
-  autocmd BufRead,BufNewFile *.md, setlocal textwidth=80
-  autocmd BufRead,BufNewFile *.md, setlocal spell
+  autocmd BufRead,BufNewFile *.md setlocal textwidth=80
+  autocmd BufRead,BufNewFile *.md setlocal spell
 endif
 " }}}
 " Functions {{{
