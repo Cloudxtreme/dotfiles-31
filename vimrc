@@ -84,6 +84,8 @@ set laststatus=2
 " Set the status line to something useful
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 
+" Set default keyword search to help
+set keywordprg=:help
 "}}}
 " file-encoding, Backup, buffer, history {{{
 " UTF encoding
@@ -457,6 +459,15 @@ inoremap jl <esc>2li
 " move up one line and indent
 inoremap kk <esc>kA<CR>
 
+" zz in insert mode
+inoremap zz <C-o>zz
+
+" zt in insert mode
+inoremap zt <C-o>zt
+
+" zb in insert mode
+inoremap zb <C-o>zb
+
 " Move cursor up or down in insert mode
 inoremap <C-j> <C-g>j
 inoremap <C-k> <C-g>k
@@ -466,10 +477,6 @@ nnoremap H 0
 
 " }}} Moving around
 " Editing {{{
-" Delete everything in the buffer and enter insert mode
-nnoremap <leader>d gg<S-v><S-g>c
-inoremap <leader>d <esc>gg<S-v><S-g>c
-
 " Double tap 'v' to visual-line mode
 nnoremap vv V
 
@@ -520,13 +527,9 @@ nnoremap <leader>vs :vs<cr>
 nnoremap <leader>s :w<CR>
 inoremap <leader>s <esc>:w<CR>
 
-
-" Kill window
-nnoremap K :q<cr>
-
 " Kill all windows
-nnoremap <leader>q :qa!<cr>
-
+nnoremap <leader>Q :qa!<cr>
+nnoremap <leader>q :q<cr>
 " Shortcut to rapidly toggle 'set list'
 nmap <leader>l :set list!<CR>
 
