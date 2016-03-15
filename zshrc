@@ -70,3 +70,8 @@ bindkey "^R" history-incremental-search-backward
 # Powerline Zsh Prompt
 # source "/usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh"
 
+# enable syntax highlighting in less with vim's less.vim. Pree 'h' for a short command help.
+VLESS=$(find /usr/local/share/vim/vim74 -name 'less.sh')
+if [ ! -z $VLESS ]; then
+  alias less=$VLESS
+fi
