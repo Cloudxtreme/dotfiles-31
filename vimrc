@@ -468,9 +468,6 @@ inoremap zt <C-o>zt
 " zb in insert mode
 inoremap zb <C-o>zb
 
-" Move cursor up or down in insert mode
-inoremap <C-j> <C-g>j
-inoremap <C-k> <C-g>k
 " bind Shift-L to move to the end
 nnoremap L $
 nnoremap H 0
@@ -575,11 +572,16 @@ nnoremap _css :set ft=css<cr>
 nnoremap _jn :set ft=json<cr>
 "}}}
 " Spell check {{{
-map <leader>ss :setlocal spell! spelllang=en_gb<CR>
-map <leader>sn ]s
-map <leader>sp [s
-map <leader>sa zg
-map <leader>sf z=
+nnoremap <leader>ss :setlocal spell! spelllang=en_gb<CR>
+nnoremap <leader>sn ]s
+nnoremap <leader>sp [s
+nnoremap <leader>sa 1zg
+nnoremap <leader>sb 2zg
+nnoremap <leader>sf 1z=
+nnoremap <leader>sr z=
+
+inoremap <leader>ss <C-o>:setlocal spell! spelllang=en_gb<CR>
+inoremap <leader>sn <C-x>s
 "}}}
 " }}}
 " Folding {{{
@@ -633,9 +635,10 @@ if has("autocmd")
   " Treat .rss files as XML
   autocmd BufNewFile,BufRead *.rss, *.atom setfiletype xml
 
-  " markdown spell check and textwidth
+  " markdown textwidth
   autocmd BufRead,BufNewFile *.md setlocal textwidth=80
-  autocmd BufRead,BufNewFile *.md setlocal spell spelllang=en_gb
+  autocmd BufRead,BufNewFile *.md setlocal spellfile=~/.vim/spell/en.utf-8.add
+  autocmd BufRead,BufNewFile *.md setlocal spellfile+=~/.vim/spell/jargon.utf-8.add
 endif
 " }}}
 " Functions {{{
