@@ -1,0 +1,5 @@
+### Double Quotes
+double quotes are suppressed all but $, \ (back slash) and ` (back tick).
+
+### Single Quotes
+single quotes suppress everything.

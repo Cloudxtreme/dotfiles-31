@@ -1,0 +1,33 @@
+### Path Expansions
+$ ls -d .[!.]?* //=> show all hidden files, but not . and ..
+$ echo /usr/local/*/powerline //=> show all directories that contain "powerline".
+
+### Tilde Expansion
+$ ~foo //=>/home/foo
+$ ~ //=>/home/me
+
+### Arithmetic Expansion
+$ echo $(($((5 ** 2)) * 3 )) => Multiply 52 by 3.
+$ echo $(((5**2) *3))
+
+### Brace Expansion
+$ echo Front-{A,B,C}-Back => Front-A-Back Front-B-Back Front-C-Back
+$ echo Number_{1..3} => Number_1 Number_2 Number_3
+$ echo {Z..A} => Z Y X ... C B A
+
+### Nested Brace
+$ echo a{A{1,2,}, B{3,4}}b => aA1b aA2b aB3b aB4b
+
+# make a directory set of multiple year and month
+$ mkdir {2012..2015}{01..09} {2012..2015}1{0..2}
+
+### Parameter Expansion
+$ echo $USER => me
+
+### Command Substitution
+Use output of a command as an expansion
+
+$ echo $(ls)
+$ ls -l $(which cp) => -rwxr-x-r-x ........ /bin/cp
+
+
