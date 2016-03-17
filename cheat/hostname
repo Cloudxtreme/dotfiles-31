@@ -1,0 +1,6 @@
+# change hostname
+sudo vim /etc/hostname
+
+# To enable hostname change, stop the service and then start. relogin to see the change.
+sudo service hostname stop
+sudo service hostname start
