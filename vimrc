@@ -637,8 +637,8 @@ if has("autocmd")
 
   " markdown textwidth
   autocmd BufRead,BufNewFile *.md setlocal textwidth=80
-  autocmd BufRead,BufNewFile *.md setlocal spellfile=~/.vim/spell/en.utf-8.add
-  autocmd BufRead,BufNewFile *.md setlocal spellfile+=~/.vim/spell/jargon.utf-8.add
+  autocmd BufRead,BufNewFile * setlocal spellfile=~/.vim/spell/en.utf-8.add
+  autocmd BufRead,BufNewFile * setlocal spellfile+=~/.vim/spell/jargon.utf-8.add
 endif
 " }}}
 " Functions {{{
