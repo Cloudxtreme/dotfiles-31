@@ -263,3 +263,7 @@ vim $1
 function gopen {
   open -a "/Applications/Google Chrome.app" $1
 }
+
+### Git Actions {{{1
+alias pullall="ls | xargs -P10 -I{} git -C {} pull"
+alias gcmall="ls | xargs -P10 -I{} git -C {} checkout master"
