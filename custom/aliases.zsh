@@ -76,7 +76,7 @@ alias vmysql="ps aux | grep mysql"
 alias openelaine="open vnc://192.168.0.5:5900"
 alias plex="sudo ~/Applications/PlexConnect/PlexConnect.py" # Run PlexConnect
 alias acache='apt-cache search --names-only'
-alias tmuxsys='tmux -f $HOME/.oh-my-zsh/custom/tmux.default.conf attach'
+alias td='tmux -f $HOME/.oh-my-zsh/custom/tmux.default.conf attach'
 alias vimnilla='vim -u ~/.config/vanilla.vim'
 
 # Shadowsocks {{{2
