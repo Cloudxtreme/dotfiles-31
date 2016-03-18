@@ -156,7 +156,7 @@ cd $1
 
 ## Grep {{{2
 # grep string $1 in aliases
-function agrep() {
+function aga() {
 alias | grep "$1"
 }
 
