@@ -1,0 +1,21 @@
+# check all services status
+sudo service --status-all
+
+# stop a service
+sudo service apache2 stop
+
+# check status of a service
+sudo service apache2 status
+
+# start a service
+sudo service apache2 start
+
+# find a service PID
+ps -aux
+
+# kill a process
+kill <PID>
+
+# kill a process that is not responding
+kill -9 <PID>
+

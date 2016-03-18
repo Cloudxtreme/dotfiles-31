@@ -1,0 +1,20 @@
+# General rule of wildcards (globbing)
+* any character
+? any single character
+[characters] any character that is a member of the character set
+[!characters] any character that is NOT a member of the character set
+[[:class:]] any character that is a member of the specified class.
+
+# class
+[[:alnum:]]
+[[:alpha:]]
+[[:digit:]]
+[[:lower:]]
+[[:upper:]]
+
+# Examples
+[abc]* any file beginning with either a, b, or c.
+BACKUP.[0-9][0-9][0-9] any file beginning with BACKUP, followed by 3 numerals.
+[[:upper:]]* any file beginning with one upper letter.
+[![:digit:]]* any file not beginning with a numeral.
+*[[:digit:]123] any file ending with a lower-case letter or the numeral 1, 2, 3.

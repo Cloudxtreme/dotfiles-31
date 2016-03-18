@@ -29,3 +29,6 @@ grep 'install ' /var/log/dpkg.log
 
 # Find a programme in the repo
 "apt-cache search --names-only programme_name"
+
+# app a new repo to the app source list
+sudo vim /etc/apt/sources.list

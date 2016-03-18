@@ -1,0 +1,16 @@
+### Escaping characters
+
+Use \ (back slash) to escape special characters
+
+\a => alert
+\b => Backspace
+\n => newline
+\r => return
+\t => tab
+
+Remember:
+Adding "-e" option for "echo" to interpret escape sequence.
+
+# Example
+$ sleep 10; echo -e "Time's up\a"
+$ sleep 10; echo "Time's up" $'\a'
