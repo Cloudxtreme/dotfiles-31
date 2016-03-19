@@ -1,0 +1,57 @@
+# To implement a for loop:
+for file in *;
+do
+    echo $file found;
+done
+
+# To implement a case command:
+case "$1"
+in
+    0) echo "zero found";;
+    1) echo "one found";;
+    2) echo "two found";;
+    3*) echo "something beginning with 3 found";;
+esac
+
+# Turn on debugging:
+set -x
+
+# Turn off debugging:
+set +x
+
+# Retrieve N-th piped command exit status
+printf 'foo' | fgrep 'foo' | sed 's/foo/bar/'
+echo ${PIPESTATUS[0]}  # replace 0 with N
+
+# Lock file:
+( set -o noclobber; echo > my.lock ) || echo 'Failed to create lock file'
+
+# programme wait for user action
+read -p "Press any key to continue or Ctrl-c to abort..."  -n1 -s
+
+
+# User confirmation with IF-Else
+read -p "Are you sure?[Y/n]" -n 1 -r
+echo
+if [[ ! $REPLY =~ ^[Yy]$ ]]
+then
+  exit 1
+fi
+
+echo "Glad you like it."
+
+# User confirmation action with CASE
+read -p "Continue... (y/n)?" choice
+case "$choice" in
+  y|Y ) git clone https://github.com/samumist/dotfiles.git;;
+  n|N ) echo "ok. Move on to next...";;
+  * ) echo "invalid";;
+esac
+
+echo "This is the out of the case."
+
+# add color to script
+GREEN='\033[0;32m'
+NC='\033[0;m'
+
+printf "I ${GREEN}love${NC} stack overflow\n"
