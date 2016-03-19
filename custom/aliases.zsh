@@ -204,6 +204,13 @@ taz() {
 tax() {
   tar -xzvf $1
 }
+# extract a special bundle of archives {{{2
+unpack() {
+  cd $1
+  unzip -oq '*.zip' # unarchive zip package to current director
+  unrar e -o+ *.rar # extract files without archive path in overwritten mode
+}
+
 
 # Chrome Download {{{1
 # Download google chrome browser
