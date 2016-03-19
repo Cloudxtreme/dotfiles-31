@@ -44,10 +44,6 @@ bower_components/
 build/
 node_modules/
 
-# Bash
-bash*
-bash/
-
 # custom plugins
 custom/plugins/
 custom/tmux/
