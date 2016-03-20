@@ -55,3 +55,10 @@ GREEN='\033[0;32m'
 NC='\033[0;m'
 
 printf "I ${GREEN}love${NC} stack overflow\n"
+
+# the meaning of ${num}
+$0: the name of the current script
+$1: the first argument. $1..9
+$#: the number of the arguments
+$@: all arguments, treating as a collection of SEPERATE strings.
+$*: all arguments, but treating all arguments collection of a string.
