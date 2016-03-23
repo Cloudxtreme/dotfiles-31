@@ -1,5 +1,5 @@
 " Vim-plug setup {{{1
-
+" Vim-plug call and plugins path {{{2
 " let vim-plug manage my Plugins
 call plug#begin('~/.vim/bundle') "Set the plugins path
 
@@ -573,7 +573,7 @@ inoremap <leader>sn <C-x>s
 " Folding {{{1
 
 " Start file with all folds closed.
-set foldlevelstart=0
+set foldlevelstart=1
 
 " Space to toggle folds.
 nnoremap <Space> za
@@ -585,6 +585,16 @@ nnoremap zO zo
 
 " Refocus folds
 nnoremap <leader>z zMzvzz
+
+" autogroup Json
+au! BufRead,BufNewFile *.json set filetype=json
+
+augroup ft_json
+  au!
+
+  au FileType json setlocal foldmethod=syntax
+  au FileType json setlocal expandtab
+augroup END
 
 augroup ft_vim
   au!
