@@ -54,12 +54,9 @@ Plug 'bling/vim-airline'
 Plug 'ryanoasis/vim-devicons'
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'nanotech/jellybeans.vim'
-Plug 'ajh17/Spacegray.vim'
 Plug 'chrisbra/Colorizer'
 
-
 call plug#end() " required/end of plugins loading
-
 
 " Settings {{{1
 " general settings {{{2
@@ -163,7 +160,6 @@ set shiftwidth=2
 
 " Highlight tailing white space
 set listchars=tab:▸\ ,eol:¬
-
 
 " Search {{{
 " Incremental Searching (search as you type)
@@ -451,14 +447,6 @@ inoremap jl <esc>2li
 " move up one line and indent
 inoremap kk <esc>kA<CR>
 
-" zz in insert mode
-inoremap zz <C-o>zz
-
-" zt in insert mode
-inoremap zt <C-o>zt
-
-" zb in insert mode
-inoremap zb <C-o>zb
 
 " bind Shift-L to move to the end
 nnoremap L $
