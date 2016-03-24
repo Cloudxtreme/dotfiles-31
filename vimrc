@@ -561,25 +561,40 @@ inoremap <leader>sn <C-x>s
 " Folding {{{1
 
 " Start file with all folds closed.
-set foldlevelstart=1
+set foldenable
+set foldlevelstart=999
 
-" Space to toggle folds.
-nnoremap <Space> za
-vnoremap <Space> za
+" lower s = toggle; Upper s = toggle recursive
+nnoremap s za
+nnoremap <space> za
+nnoremap S zA
 
-" Make zO recursively open whatever fold we're in, even if it's partially open.
-nnoremap zo zczO
-nnoremap zO zo
+" Maps for folding, unfolding all
+nnoremap <leader>fu zM<CR>
+nnoremap <leader>uf zR<CR>
+
+" Quick fold to level 1
+nmap <leader>fld :set foldlevel=1<CR>
+
+" Maps for setting fold level
+nnoremap <leader>fl1 :set foldlevel=1<CR>
+nnoremap <leader>fl2 :set foldlevel=2<CR>
+nnoremap <leader>fl3 :set foldlevel=3<CR>
+nnoremap <leader>fl4 :set foldlevel=4<CR>
+
+" Set foldlevel to match current line
+nnoremap <leader>flc :execute 'set foldlevel=' . foldlevel('.')<CR>
+
 
 " Refocus folds
 nnoremap <leader>z zMzvzz
 
 " autogroup Json
-au! BufRead,BufNewFile *.json set filetype=json
 
 augroup ft_json
   au!
 
+  au BufRead,BufNewFile *.json set filetype=json
   au FileType json setlocal foldmethod=syntax
   au FileType json setlocal expandtab
 augroup END
@@ -591,6 +606,7 @@ augroup ft_vim
   au FileType tmux setlocal foldmethod=marker
   au FileType zsh setlocal foldmethod=marker
   au FileType help setlocal textwidth=78
+  au FileType vim,tmux,zsh,help setlocal foldlevel=1
   au BufWinEnter *.txt if &ft == 'help' | wincmd L | endif
 augroup END
 
