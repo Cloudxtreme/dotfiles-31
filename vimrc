@@ -559,7 +559,7 @@ inoremap <leader>ss <C-o>:setlocal spell! spelllang=en_gb<CR>
 inoremap <leader>sn <C-x>s
 
 " Folding {{{1
-
+" Folding key binding {{{2
 " Start file with all folds closed.
 set foldenable
 set foldlevelstart=999
@@ -589,6 +589,7 @@ nnoremap <leader>flc :execute 'set foldlevel=' . foldlevel('.')<CR>
 " Refocus folds
 nnoremap <leader>z zMzvzz
 
+" Folding Autogroup {{{2
 " autogroup Json
 
 augroup ft_json
