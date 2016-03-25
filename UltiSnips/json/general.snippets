@@ -156,7 +156,30 @@ endsnippet
 #  contentObject  #
 ###################
 
-snippet contentobject "Page or menu item add to the contentObject.json" b
+snippet contentobjects-en "Page or menu item add to the contentObject.json" b
+{
+	"_id": "co-${1:05}",
+	"_parentId": "${2:course}",
+	"_type": "page",
+	"_classes": "",
+	"title": "$3",
+	"displayTitle": "${4:$3}",
+	"body": "$5",
+	"pageBody": "${6:$5}",
+	"_graphic": {
+		"src": "course/en/images/co-$1.${7:jpg}",
+		"alt": "${8:$3}"
+	},
+	"linkText": "${9:view}",
+	"durationLabel": "Duration:",
+	"duration": "${11:10} mins",
+	"_pageLevelProgress": {
+		"_isEnabled": ${12:true}
+	}
+}$0
+endsnippet
+
+snippet contentobjects-cn "Page or menu item add to the contentObject.json" b
 {
 	"_id": "co-${1:05}",
 	"_parentId": "${2:course}",
@@ -171,13 +194,13 @@ snippet contentobject "Page or menu item add to the contentObject.json" b
 		"alt": "${8:$3}"
 	},
 	"linkText": "${9:开始}",
+	"durationLabel": "",
 	"duration": "${11:10}分钟",
 	"_pageLevelProgress": {
 		"_isEnabled": ${12:true}
 	}
 }$0
 endsnippet
-
 #############
 #  Article  #
 #############
