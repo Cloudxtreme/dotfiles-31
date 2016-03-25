@@ -213,12 +213,12 @@ unpack() {
 
 
 # Chrome Download {{{1
-# Download google chrome browser
+# Download google chrome browser {{{2
 chrome-dl() {
   proxychains4 wget -O googlechrome-stable.dmg https://dl.google.com/chrome/mac/stable/GGRO/googlechrome.dmg
 }
 
-# Download google canary browser
+# Download google canary browser {{{2
 canary-dl() {
   proxychains4 wget -O GoogleChrome-canary.dmg https://storage.googleapis.com/chrome-canary/GoogleChromeCanary.dmg
 }
