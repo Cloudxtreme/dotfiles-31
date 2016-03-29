@@ -58,10 +58,10 @@ alias mux="tmuxinator" # Important for auto completion for tmuxinator
 
 # Tree Commands {{{2
 alias tree='tree -C'
-alias tree1='tree -L 1' # show directory structure one level
-alias tree2='tree -L 2' # show directory structure two level
-alias tree3='tree -L 3' # show directory sturcture 3 level
-alias tree4='tree -L 4'
+alias t1='tree -L 1' # show directory structure one level
+alias t2='tree -L 2' # show directory structure two level
+alias t3='tree -L 3' # show directory sturcture 3 level
+alias t4='tree -L 4'
 
 # System aliases {{{2
 alias shutdown="sudo shutdown -h now"
