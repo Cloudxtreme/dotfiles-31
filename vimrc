@@ -13,7 +13,7 @@ Plug 'ervandew/supertab'
 Plug 'majutsushi/tagbar'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'Valloric/YouCompleteMe'
-Plug 'severin-lemaignan/vim-minimap'
+" Plug 'severin-lemaignan/vim-minimap'
 Plug 'rking/ag.vim'
 Plug 'scrooloose/syntastic'
 Plug 'mbbill/undotree'
@@ -38,16 +38,17 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " Syntax {{{2
 Plug 'digitalToad/vim-jade'
-Plug 'wavded/vim-stylus'
-Plug 'othree/html5.vim'
+" Plug 'wavded/vim-stylus'
+" Plug 'othree/html5.vim'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'tpope/vim-markdown'
-Plug 'pangloss/vim-javascript' | Plug 'mxw/vim-jsx'
-Plug '1995eaton/vim-better-javascript-completion'
+" Plug 'pangloss/vim-javascript' | Plug 'mxw/vim-jsx'
+" Plug '1995eaton/vim-better-javascript-completion'
 Plug 'elzr/vim-json'
 Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'tmux-plugins/vim-tmux' "Add Tmux syntax highlight
 Plug 'vim-ruby/vim-ruby'
+Plug 'tpope/vim-haml'
 
 " Vim Themes and Icons {{{2
 Plug 'bling/vim-airline'
@@ -235,9 +236,12 @@ au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 
 " Colorizer {{{2
+" skip comments
+let g:colorizer_skip_comments = 1
 " Make files look nice
 autocmd FileType css,scss,sass,less,stylus :ColorHighlight "For Colorizer Plugin
-
+" enable default colorizer mapping: <leader>cC; <leader>cT; <leader>cF
+let g:colorizer_auto_map = 1
 " Autoformat {{{2
 " autoformat shortcut
 noremap <c-t> :Autoformat<CR>
@@ -323,7 +327,7 @@ nnoremap <leader>lk :lprev<CR>
 nnoremap <leader>lc :SyntasticCheck<CR>
 
 noremap <leader>lt :SyntasticToggleMode<CR>
-let g:syntastic_mode_map = { 'passive_filetypes': ['sass', 'scss','html','less'] }
+let g:syntastic_mode_map = { 'passive_filetypes': ['html','less'] }
 
 
 " Disable the less checker
@@ -334,11 +338,11 @@ nmap <F8> :TagbarToggle<CR>
 
 " Emmet {{{2
 " Remap <C-y>
-" let g:user_emmet_leader_key='e'
+let g:user_emmet_leader_key='e'
 imap   <leader>,   <plug>(emmet-expand-abbr)
 
 let g:user_emmet_install_global = 0
-autocmd FileType html,css,less,scss EmmetInstall
+autocmd FileType html,css,less,scss,sass EmmetInstall
 
 " CtrlP {{{2
 " modify default opening behaviour with an interactive argument <C-o>
