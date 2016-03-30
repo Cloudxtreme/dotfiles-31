@@ -1,0 +1,13 @@
+# Declare a mixin and use it
+@mixin border-radius($radius) { -webkit-border-radius: $radius; border-radius: $radius;}
+
+.box {
+  @include border-radius(10px);
+}
+
+# Extend
+.box { background-color: #fff; padding: 10px; }
+.box-alt {
+  @extend .box;
+  background-color: red;
+}

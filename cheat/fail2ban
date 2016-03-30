@@ -1,0 +1,18 @@
+# install fail2ban
+sudo apt-get install fail2ban
+
+# set up fail2ban configuration
+sudo cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
+
+
+# start fail2ban service
+sudo service fail2ban start
+
+# stop fail2ban service
+sudo service fail2ban stop
+
+# edit jail configuration file
+sudo vim /etc/fail2ban/jail.local
+
+# for a howto tutorial, check out:
+https://www.digitalocean.com/community/tutorials/how-to-protect-ssh-with-fail2ban-on-ubuntu-14-04
