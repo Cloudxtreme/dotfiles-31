@@ -338,8 +338,8 @@ nmap <F8> :TagbarToggle<CR>
 
 " Emmet {{{2
 " Remap <C-y>
-let g:user_emmet_leader_key='e'
-imap   <leader>,   <plug>(emmet-expand-abbr)
+let g:user_emmet_leader_key='f'
+" imap   <leader>,   <plug>(emmet-expand-abbr)
 
 let g:user_emmet_install_global = 0
 autocmd FileType html,css,less,scss,sass EmmetInstall
@@ -577,10 +577,8 @@ nnoremap S zA
 nnoremap <leader>fu zM<CR>
 nnoremap <leader>uf zR<CR>
 
-" Quick fold to level 1
-nmap <leader>fld :set foldlevel=1<CR>
-
 " Maps for setting fold level
+nnoremap <leader>fl0 :set foldlevel=0<CR>
 nnoremap <leader>fl1 :set foldlevel=1<CR>
 nnoremap <leader>fl2 :set foldlevel=2<CR>
 nnoremap <leader>fl3 :set foldlevel=3<CR>
