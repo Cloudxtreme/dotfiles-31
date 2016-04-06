@@ -338,8 +338,8 @@ nmap <F8> :TagbarToggle<CR>
 
 " Emmet {{{2
 " Remap <C-y>
-let g:user_emmet_leader_key='f'
-" imap   <leader>,   <plug>(emmet-expand-abbr)
+" let g:user_emmet_leader_key='f'
+imap   fj   <plug>(emmet-expand-abbr)
 
 let g:user_emmet_install_global = 0
 autocmd FileType html,css,less,scss,sass EmmetInstall
@@ -448,11 +448,6 @@ inoremap jl <esc>2li
 " move up one line and indent
 inoremap kk <esc>kA<CR>
 
-
-" bind Shift-L to move to the end
-nnoremap L $
-nnoremap H 0
-
 " Editing {{{2
 " Double tap 'v' to visual-line mode
 nnoremap vv V
@@ -482,9 +477,6 @@ nnoremap <leader><space> :noh<CR>
 
 " Window remapping {{{2
 
-" Remap Ctrl-W
-nnoremap <leader>w <C-w>
-
 " Quickly resize vertical window
 map - <C-W>-
 map + <C-W>+
@@ -500,10 +492,10 @@ nnoremap <leader>vs :vs<cr>
 " File Command {{{2
 " Type <leader>s to save file
 nnoremap <leader>s :w<CR>
-inoremap <leader>s <esc>:w<CR>
+inoremap <leader>s <esc>:w<CR>a
 
 " Kill all windows
-nnoremap <leader>Q :qa!<cr>
+nnoremap <leader>w :qa!<cr>
 nnoremap <leader>q :q<cr>
 " Shortcut to rapidly toggle 'set list'
 nmap <leader>l :set list!<CR>

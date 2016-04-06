@@ -1,3 +1,4 @@
+## Mixins
 # Declare a mixin and use it
 @mixin border-radius($radius) { -webkit-border-radius: $radius; border-radius: $radius;}
 
@@ -5,9 +6,225 @@
   @include border-radius(10px);
 }
 
-# Extend
-.box { background-color: #fff; padding: 10px; }
-.box-alt {
-  @extend .box;
-  background-color: red;
+# multiple arguments
+@mixin box-shadow($args...) {
+  -webkit-box-shadow: $args;
+  box-shadow: $args;
+}
+
+.element {
+  @include box-shadow(1px 1px 5px 0 #ccc);
+}
+
+## Extend directives
+.btn {
+  font-size: 1rem;
+  background-color: white;
+  border: 1px solid tomato;
+}
+
+# extend the base btn
+.btn-large {
+  @extend .btn;
+  font-size: 2rem;
+}
+
+# extend the extend
+.btn-xlarge {
+  @extend .btn-large;
+  font-size: 3rem;
+}
+
+.btn-primary {
+  color: white;
+  text-transform: uppercase;
+}
+
+# double extend
+.btn-cta {
+  @extend .btn-xlarge;
+  @extend .btn-primary;
+}
+
+# extend inside a media quiry
+@media screen and (max-width: 1000px) {
+  .submit {
+    background-color: #ccc;
+    color: #999;
+  }
+
+  input[type="submit"] {
+    @extend .submit; # this is ok
+    @extend .btn; # Wrong! cannot extend outer selector
+  }
+}
+## Maps
+
+# exmaples
+$colors: (
+  1: #89c3ab,
+  2: #636363
+);
+
+# another example
+$additional-colors: (
+  'color-1': red,
+  'color-2': blue
+);
+
+# one more example
+$margins: (
+  tight: 10px 20px,
+  compact: 30px,
+  large: 5em
+);
+
+# If the inner lists have the same separater , as the outer list, use parantheses
+
+$fonts: (
+  option-1: (Arial, sans-serif),
+  opton-2: (Helvetica, sans-serif)
+);
+# notes:
+use () for key pairs
+use , to divide key pairs
+use : as in object
+
+## Using maps
+
+footer {
+  background-color: map-get($colors, 1);
+  border-color: map-get($additional-colors, 'color-2');
+  margin: map-get($margins, tight);
+  font-family: map-get($fonts, option-1);
+}
+
+## Import
+@import "general.scss";
+@import "lib/vendor.scss";
+@import "general.scss", "lib/vendor.scss"; # in one statement;
+
+# import partials
+partials make organising sass files easier as scss won't compile partials.
+
+_layout.scss - this is a partial sass file, import it as normal sass file.
+
+# Variable interpolation
+#{$vars} when used in property name or with calculations
+
+## media quiries
+$tablet-breakpoint: "all and (max-width: 760px)";
+@media #{$tablet-breakpoint} {
+  float: none;
+  a {
+    display: block;
+  }
+  @media (orientation: portrait) { # media quiry in media quiry
+    border-bottom: 1px;
+  }
+}
+
+## IF directive
+
+# cold, warm, neutral
+$theme: neutral;
+
+.button {
+  @if $theme == warm {
+    background-color: orange;
+  } @else if $theme == cold {
+    background-color: blue;
+  } @else {
+    background-color: gray;
+  }
+}
+
+## For directive
+
+@for $i from 1 to 3 # doesn't include 3
+@for $i through 3 { # include 3
+  .cell {
+    background-color: blue;
+  }
+}
+
+$comment-count: 10
+
+@for $i from 1 through $comment-count {
+  #comment-#{$i}:before {
+    content: "#{$i}";
+  }
+}
+
+.bar {
+  width: 2em;
+  display: inline-block;
+  background: #ccc;
+  margin-right: 1px;
+  float: left;
+}
+
+@for $i from 1 through 4 {
+  #bar-#{$i} {
+    @extend .bar;
+    height: 1em * $i;
+  }
+}
+
+## @each directive
+
+@each $section in featured, about, contact {
+ ##{$section}-part {
+    background-image: url('img/bg-#{$section}.jpg');
+  }
+}
+
+@each $section, $color in (featured, red), (about, green) {
+  .section-#{$section} {
+    background-color: $color;
+  }
+}
+
+# use the map method to achive the same code as above
+$section-colors: ( # this is a map
+  featured: red,
+  about: green
+);
+
+@each $section, $color in $section-colors {
+  .section-#{$section} {
+    background-color: $color;
+  }
+}
+
+# another example with map
+
+$headings (
+  h1: 4em,
+  h2: 2.8em,
+  h3: 2em,
+  h4: 1.2em
+);
+
+@each $element, $size in $headings {
+  #{$element} {
+    font-size: $size;
+  }
+} # each is better suited for the list and maps
+
+$j: 1;
+@while $j <=4 {
+  h#{$j} {
+    font-size: map-get($headings, h#{$j});
+  }
+  $j: $j + 1;
+} # the while method
+## @while directive
+
+$i: 1;
+@while $i < 10 {
+  .item-#{$i} {
+    top: 5em * $i;
+    $i: $i + 1;
+  }
 }
