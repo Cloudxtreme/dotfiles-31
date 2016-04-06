@@ -312,19 +312,19 @@ let g:syntastic_style_warning_symbol = '!'
 
 
 " Close Syntastic list window
-nnoremap <Leader>ll :lclose<CR>
+nnoremap <Leader>lc :lclose<CR>
 
 " Open error list window
 nnoremap <Leader>le :Errors<CR>
 
 " Go to next error
-nnoremap <leader>lj :lnext<CR>
+nnoremap <leader>ln :lnext<CR>
 
 " Go to previous error
-nnoremap <leader>lk :lprev<CR>
+nnoremap <leader>lp :lprev<CR>
 
 " Do a syntastic manual check
-nnoremap <leader>lc :SyntasticCheck<CR>
+nnoremap <leader>ll :SyntasticCheck<CR>
 
 noremap <leader>lt :SyntasticToggleMode<CR>
 let g:syntastic_mode_map = { 'passive_filetypes': ['html','less'] }
@@ -429,9 +429,6 @@ endif
 
 " Mappings {{{1
 " Moving Around {{{2
-
-" Type 12<Enter> to go to line 12 and Hit ENTER to go to end of file
-nnoremap <CR> G
 
 " switch to normal mode
 inoremap jk <esc>
