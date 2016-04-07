@@ -148,7 +148,7 @@ set hidden
 set backspace=indent,eol,start
 
 " Convert tabs to spaces
-set expandtab
+set noexpandtab
 
 " Set tab size in spaces (this is for manual editing)
 set tabstop=2
@@ -492,7 +492,7 @@ nnoremap <leader>vs :vs<cr>
 " File Command {{{2
 " Type <leader>s to save file
 nnoremap <leader>s :w<CR>
-inoremap <leader>s <esc>:w<CR>a
+inoremap <leader>s <esc>:w<CR>
 
 " Kill all windows
 nnoremap <leader>w :qa!<cr>
