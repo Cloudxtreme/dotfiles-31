@@ -618,17 +618,18 @@ augroup END
 if has("autocmd")
 
   " Customisations based on house-style
-  autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
-  autocmd FileType css setlocal ts=2 sts=2 sw=2 expandtab
-  autocmd FileType less setlocal ts=2 sts=2 sw=2 expandtab
-  autocmd FileType javascript setlocal ts=4 sts=4 sw=4 noexpandtab
-  autocmd FileType json setlocal ts=2 sts=2 sw=2 noexpandtab
+  autocmd FileType jade setlocal ts=4 sts=4 sw=4 noexpandtab
+  autocmd FileType html setlocal ts=4 sts=4 sw=4 noexpandtab
+  " autocmd FileType css setlocal ts=2 sts=2 sw=2 expandtab
+  " autocmd FileType less setlocal ts=2 sts=2 sw=2 expandtab
+  " autocmd FileType javascript setlocal ts=2 sts=2 sw=2 noexpandtab
+  " autocmd FileType json setlocal ts=2 sts=2 sw=2 noexpandtab
 
   " Treat .rss files as XML
   autocmd BufNewFile,BufRead *.rss, *.atom setfiletype xml
 
   " markdown textwidth
-  autocmd BufRead,BufNewFile *.md setlocal textwidth=80
+  " autocmd BufRead,BufNewFile *.md setlocal textwidth=80
   autocmd BufRead,BufNewFile * setlocal spellfile=~/.vim/spell/en.utf-8.add
   autocmd BufRead,BufNewFile * setlocal spellfile+=~/.vim/spell/jargon.utf-8.add
 endif
