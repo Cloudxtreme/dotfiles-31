@@ -1,5 +1,5 @@
 # Add a new group
-sudo addground <group_name>
+sudo addgroup <group_name>
 
 # Change a directory ownership to a specific group
 sudo chgrp <group_name> <directory_name>
