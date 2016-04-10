@@ -13,7 +13,7 @@ Plug 'ervandew/supertab'
 Plug 'majutsushi/tagbar'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'Valloric/YouCompleteMe'
-Plug 'severin-lemaignan/vim-minimap'
+" Plug 'severin-lemaignan/vim-minimap'
 Plug 'rking/ag.vim'
 Plug 'scrooloose/syntastic'
 Plug 'mbbill/undotree'
@@ -38,16 +38,17 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " Syntax {{{2
 Plug 'digitalToad/vim-jade'
-Plug 'wavded/vim-stylus'
-Plug 'othree/html5.vim'
+" Plug 'wavded/vim-stylus'
+" Plug 'othree/html5.vim'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'tpope/vim-markdown'
-Plug 'pangloss/vim-javascript' | Plug 'mxw/vim-jsx'
-Plug '1995eaton/vim-better-javascript-completion'
+" Plug 'pangloss/vim-javascript' | Plug 'mxw/vim-jsx'
+" Plug '1995eaton/vim-better-javascript-completion'
 Plug 'elzr/vim-json'
 Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'tmux-plugins/vim-tmux' "Add Tmux syntax highlight
 Plug 'vim-ruby/vim-ruby'
+Plug 'tpope/vim-haml'
 
 " Vim Themes and Icons {{{2
 Plug 'bling/vim-airline'
@@ -147,7 +148,7 @@ set hidden
 set backspace=indent,eol,start
 
 " Convert tabs to spaces
-set expandtab
+set noexpandtab
 
 " Set tab size in spaces (this is for manual editing)
 set tabstop=2
@@ -235,9 +236,12 @@ au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 
 " Colorizer {{{2
+" skip comments
+let g:colorizer_skip_comments = 1
 " Make files look nice
 autocmd FileType css,scss,sass,less,stylus :ColorHighlight "For Colorizer Plugin
-
+" enable default colorizer mapping: <leader>cC; <leader>cT; <leader>cF
+let g:colorizer_auto_map = 1
 " Autoformat {{{2
 " autoformat shortcut
 noremap <c-t> :Autoformat<CR>
@@ -308,22 +312,22 @@ let g:syntastic_style_warning_symbol = '!'
 
 
 " Close Syntastic list window
-nnoremap <Leader>ll :lclose<CR>
+nnoremap <Leader>lc :lclose<CR>
 
 " Open error list window
 nnoremap <Leader>le :Errors<CR>
 
 " Go to next error
-nnoremap <leader>lj :lnext<CR>
+nnoremap <leader>ln :lnext<CR>
 
 " Go to previous error
-nnoremap <leader>lk :lprev<CR>
+nnoremap <leader>lp :lprev<CR>
 
 " Do a syntastic manual check
-nnoremap <leader>lc :SyntasticCheck<CR>
+nnoremap <leader>ll :SyntasticCheck<CR>
 
 noremap <leader>lt :SyntasticToggleMode<CR>
-let g:syntastic_mode_map = { 'passive_filetypes': ['sass', 'scss','html','less'] }
+let g:syntastic_mode_map = { 'passive_filetypes': ['html','less'] }
 
 
 " Disable the less checker
@@ -334,11 +338,11 @@ nmap <F8> :TagbarToggle<CR>
 
 " Emmet {{{2
 " Remap <C-y>
-" let g:user_emmet_leader_key='e'
-imap   <leader>,   <plug>(emmet-expand-abbr)
+" let g:user_emmet_leader_key='f'
+imap   fj   <plug>(emmet-expand-abbr)
 
 let g:user_emmet_install_global = 0
-autocmd FileType html,css,less,scss EmmetInstall
+autocmd FileType html,css,less,scss,sass EmmetInstall
 
 " CtrlP {{{2
 " modify default opening behaviour with an interactive argument <C-o>
@@ -426,9 +430,6 @@ endif
 " Mappings {{{1
 " Moving Around {{{2
 
-" Type 12<Enter> to go to line 12 and Hit ENTER to go to end of file
-nnoremap <CR> G
-
 " switch to normal mode
 inoremap jk <esc>
 
@@ -446,11 +447,6 @@ inoremap jl <esc>2li
 
 " move up one line and indent
 inoremap kk <esc>kA<CR>
-
-
-" bind Shift-L to move to the end
-nnoremap L $
-nnoremap H 0
 
 " Editing {{{2
 " Double tap 'v' to visual-line mode
@@ -481,9 +477,6 @@ nnoremap <leader><space> :noh<CR>
 
 " Window remapping {{{2
 
-" Remap Ctrl-W
-nnoremap <leader>w <C-w>
-
 " Quickly resize vertical window
 map - <C-W>-
 map + <C-W>+
@@ -502,7 +495,7 @@ nnoremap <leader>s :w<CR>
 inoremap <leader>s <esc>:w<CR>
 
 " Kill all windows
-nnoremap <leader>Q :qa!<cr>
+nnoremap <leader>w :qa!<cr>
 nnoremap <leader>q :q<cr>
 " Shortcut to rapidly toggle 'set list'
 nmap <leader>l :set list!<CR>
@@ -573,10 +566,8 @@ nnoremap S zA
 nnoremap <leader>fu zM<CR>
 nnoremap <leader>uf zR<CR>
 
-" Quick fold to level 1
-nmap <leader>fld :set foldlevel=1<CR>
-
 " Maps for setting fold level
+nnoremap <leader>fl0 :set foldlevel=0<CR>
 nnoremap <leader>fl1 :set foldlevel=1<CR>
 nnoremap <leader>fl2 :set foldlevel=2<CR>
 nnoremap <leader>fl3 :set foldlevel=3<CR>
@@ -627,17 +618,18 @@ augroup END
 if has("autocmd")
 
   " Customisations based on house-style
-  autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
-  autocmd FileType css setlocal ts=2 sts=2 sw=2 expandtab
-  autocmd FileType less setlocal ts=2 sts=2 sw=2 expandtab
-  autocmd FileType javascript setlocal ts=4 sts=4 sw=4 noexpandtab
-  autocmd FileType json setlocal ts=2 sts=2 sw=2 noexpandtab
+  autocmd FileType jade setlocal ts=4 sts=4 sw=4 noexpandtab
+  autocmd FileType html setlocal ts=4 sts=4 sw=4 noexpandtab
+  " autocmd FileType css setlocal ts=2 sts=2 sw=2 expandtab
+  " autocmd FileType less setlocal ts=2 sts=2 sw=2 expandtab
+  " autocmd FileType javascript setlocal ts=2 sts=2 sw=2 noexpandtab
+  " autocmd FileType json setlocal ts=2 sts=2 sw=2 noexpandtab
 
   " Treat .rss files as XML
   autocmd BufNewFile,BufRead *.rss, *.atom setfiletype xml
 
   " markdown textwidth
-  autocmd BufRead,BufNewFile *.md setlocal textwidth=80
+  " autocmd BufRead,BufNewFile *.md setlocal textwidth=80
   autocmd BufRead,BufNewFile * setlocal spellfile=~/.vim/spell/en.utf-8.add
   autocmd BufRead,BufNewFile * setlocal spellfile+=~/.vim/spell/jargon.utf-8.add
 endif
