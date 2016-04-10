@@ -1,0 +1,6 @@
+# find files with name begins with zip
+locate bin/zip
+
+or 
+
+locate zip | grep bin
