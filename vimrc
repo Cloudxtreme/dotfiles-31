@@ -181,6 +181,8 @@ set gdefault
 " Leader mapping {{{2
 " set up the map leader
 let mapleader = ","
+" set "\" for reverse search
+nnoremap \ ,
 
 " set up the local leader key
 let maplocalleader = "\\"
