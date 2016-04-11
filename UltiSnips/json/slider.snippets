@@ -1,0 +1,41 @@
+snippet slider "a slider question component" b
+{
+	"_id": "c-${1:05}",
+	"_parentId": "b-${2:$1}",
+	"_type": "component",
+	"_component": "slider",
+	"_classes": "",
+	"_layout": "${3:full}",
+	"_attempts": ${4:2},
+	"_questionWeight": 1,
+	"_canShowModelAnswer": ${5:true},
+	"_shouldDisplayAttempts": ${6:false},
+	"_showNumber": ${7:true},
+	"_showScaleIndicator": ${8:true},
+	"_scaleStart": ${9:1},
+	"_scaleEnd": ${10:10},
+	"title": "$11",
+	"displayTitle": "${12:$11}",
+	"body": "$13",
+	"instruction": "$14",
+	"labelStart": "$15",
+	"labelEnd": "$16",
+	"_correctAnswer": "$17",
+	"_correctRange": {
+		"_bottom": ${18:4},
+		"_top": ${19:9}
+	},
+	"_feedback": {
+		"correct": "$20",
+		"_incorrect": {
+			"notFinal": "$21",
+			"final": "$22"
+		}
+	},
+	"_pageLevelProgress": {
+		"_isEnabled": ${23:true}
+	}
+}$0
+endsnippet
+
+# vim:ft=snippets:fdm=indent:

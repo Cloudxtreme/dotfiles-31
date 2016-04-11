@@ -1,0 +1,79 @@
+snippet textinput "a text input question component" b
+{
+	"_id": "c-${1:05}",
+	"_parentId": "b-${2:$1}",
+	"_type": "component",
+	"_component": "textinput",
+	"_classes": "",
+	"_layout": "${3:full}",
+	"_attempts": ${4:2},
+	"_questionWeight": 1,
+	"_canShowModelAnswer": ${5:true},
+	"_shouldDisplayAttempts": ${6:false},
+	"_isRandom": ${7:true},
+	"_allowsAnyCase": ${8:true},
+	"_allowsPunctuation": ${9:true},
+	"title": "$10",
+	"displayTitle": "${11:$10}",
+	"body": "$12",
+	"instruction": "$13",
+	"_answers": [],
+	"_items": [
+		{
+			"prefix": "$14",
+			"placeholder": "请在此处输入你的答案",
+			"_answers": [
+				"${15:answer-01}",
+				"${16:answer-02}"
+			],
+			"suffix": "$17"
+		},
+		{
+			"prefix": "$18",
+			"placeholder": "请在此处输入你的答案",
+			"_answers": [
+				"${19:answer-01}",
+				"${20:answer-02}"
+			],
+			"suffix": "$21"
+		},
+		{
+			"prefix": "$22",
+			"placeholder": "请在此处输入你的答案",
+			"_answers": [
+				"${23:answer-01}",
+				"${24:answer-02}"
+			],
+			"suffix": "$25"
+		}
+	],
+	"_feedback": {
+		"correct": "$26",
+		"_partlyCorrect": {
+			"notFinal": "$27",
+			"final": "$28"
+		},
+		"_incorrect": {
+			"notFinal": "$29",
+			"final": "$30"
+		}
+	},
+	"_pageLevelProgress": {
+		"_isEnabled": ${31:true}
+	}
+}$0
+endsnippet
+
+snippet TextInput-item "single item of textinput" b
+{
+	"prefix": "$1",
+	"placeholder": "请在此处输入你的答案",
+	"_answers": [
+		"${2:answer-01}",
+		"${3:answer-02}"
+	],
+	"suffix": "$4"
+}$0
+endsnippet
+
+# vim:ft=snippets:fdm=indent:

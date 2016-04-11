@@ -1,0 +1,61 @@
+snippet mcq "a multiple choice question component" b
+{
+	"_id": "c-${1:05}",
+	"_parentId": "b-${2:$1}",
+	"_type": "component",
+	"_component": "mcq",
+	"_classes": "",
+	"_layout": "${3:full}",
+	"_attempts": ${4:2},
+	"_questionWeight": 1,
+	"_canShowModelAnswer": ${5:true},
+	"_shouldDisplayAttempts": ${6:false},
+	"_isRandom": ${7:true},
+	"_selectable": ${8:4},
+	"title": "$9",
+	"displayTitle": "${10:$9}",
+	"body": "$11",
+	"instruction": "$12",
+	"_items": [
+		{
+			"text": "$13",
+			"_shouldBeSelected": ${14:true}
+		},
+		{
+			"text": "${15:text}",
+			"_shouldBeSelected": ${16:false}
+		},
+		{
+			"text": "$17",
+			"_shouldBeSelected": ${18:true}
+		},
+		{
+			"text": "$19",
+			"_shouldBeSelected": ${20:true}
+		}
+	],
+	"_feedback": {
+		"correct": "$21",
+		"_partlyCorrect": {
+			"notFinal": "$22",
+			"final": "$23"
+		},
+		"_incorrect": {
+			"notFinal": "$24",
+			"final": "$25"
+		}
+	},
+	"_pageLevelProgress": {
+		"_isEnabled": ${26:true}
+	}
+}$0
+endsnippet
+
+snippet mcq-item "single option of mcq components" b
+{
+	"text": "$1",
+	"_shouldBeSelected": ${2:true}
+}$0
+endsnippet
+
+# vim:ft=snippets:fdm=indent:

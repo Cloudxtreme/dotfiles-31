@@ -1,0 +1,86 @@
+snippet gmcq "a graphic mcq question component" b
+{
+	"_id": "c-${1:05}",
+	"_parentId": "b-${2:$1}",
+	"_type": "component",
+	"_component": "gmcq",
+	"_classes": "",
+	"_layout": "${3:full}",
+	"_attempts": ${4:2},
+	"_questionWeight": 1,
+	"_canShowModelAnswer": ${5:true},
+	"_shouldDisplayAttempts": ${6:false},
+	"_isRandom": ${7:true},
+	"_selectable": ${8:4},
+	"title": "$9",
+	"displayTitle": "${10:$9}",
+	"body": "$11",
+	"instruction": "$12",
+	"_items": [
+		{
+			"text": "$13",
+			"_shouldBeSelected": ${14:true},
+			"_graphic": {
+				"large": "course/en/images/c-$1-1.${15:png}",
+				"small": "course/en/images/c-$1-1${16:-sm}.$15",
+				"alt": "${17:$13}"
+			}
+		},
+		{
+			"text": "$18",
+			"_shouldBeSelected": ${19:true},
+			"_graphic": {
+				"large": "course/en/images/c-$1-2.$15}",
+				"small": "course/en/images/c-$1-2${20:-sm}.$15",
+				"alt": "${21:$18}"
+			}
+		},
+		{
+			"text": "${22:text}",
+			"_shouldBeSelected": ${23:true},
+			"_graphic": {
+				"large": "course/en/images/c-$1-3.$15}",
+				"small": "course/en/images/c-$1-3${24:-sm}.$15",
+				"alt": "${25:$22}"
+			}
+		},
+		{
+			"text": "${26:text}",
+			"_shouldBeSelected": ${27:true},
+			"_graphic": {
+				"large": "course/en/images/c-$1-4.$15}",
+				"small": "course/en/images/c-$1-4${28:-sm}.$15",
+				"alt": "${29:$26}"
+			}
+		}
+	],
+	"_feedback": {
+		"correct": "${30:correct}",
+		"_partlyCorrect": {
+			"notFinal": "${31:notFinal}",
+			"final": "${32:final}"
+		},
+		"_incorrect": {
+			"notFinal": "${33:notFinal}",
+			"final": "${34:final}"
+		}
+	},
+	"_pageLevelProgress": {
+		"_isEnabled": ${35:true}
+	}
+}$0
+endsnippet
+
+snippet gmcq-item "single option of gmcq component" b
+{
+	"text": "$1",
+	"_shouldBeSelected": ${2:true},
+	"_graphic": {
+		"large": "course/en/images/c-${3:05}-$4.${5:png}",
+		"small": "course/en/images/c-$1-$4${6:-sm}.$5",
+		"alt": "${7:$1}"
+	}
+}$0
+endsnippet
+
+# vim:ft=snippets:fdm=indent:
