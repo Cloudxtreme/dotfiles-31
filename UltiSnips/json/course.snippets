@@ -1,7 +1,3 @@
-####################
-#  Course English  #
-####################
-
 snippet course-en "english version" b
 {
 	"_id": "course",
@@ -151,91 +147,6 @@ snippet course-en "english version" b
 	}$0
 }
 endsnippet
-
-###################
-#  contentObject  #
-###################
-
-snippet contentobjects-en "Page or menu item add to the contentObject.json" b
-{
-	"_id": "co-${1:05}",
-	"_parentId": "${2:course}",
-	"_type": "page",
-	"_classes": "",
-	"title": "$3",
-	"displayTitle": "${4:$3}",
-	"body": "$5",
-	"pageBody": "${6:$5}",
-	"_graphic": {
-		"src": "course/en/images/co-$1.${7:jpg}",
-		"alt": "${8:$3}"
-	},
-	"linkText": "${9:view}",
-	"durationLabel": "Duration:",
-	"duration": "${11:10} mins",
-	"_pageLevelProgress": {
-		"_isEnabled": ${12:true}
-	}
-}$0
-endsnippet
-
-snippet contentobjects-cn "Page or menu item add to the contentObject.json" b
-{
-	"_id": "co-${1:05}",
-	"_parentId": "${2:course}",
-	"_type": "page",
-	"_classes": "",
-	"title": "$3",
-	"displayTitle": "${4:$3}",
-	"body": "$5",
-	"pageBody": "${6:$5}",
-	"_graphic": {
-		"src": "course/en/images/co-$1.${7:jpg}",
-		"alt": "${8:$3}"
-	},
-	"linkText": "${9:开始}",
-	"durationLabel": "",
-	"duration": "${11:10}分钟",
-	"_pageLevelProgress": {
-		"_isEnabled": ${12:true}
-	}
-}$0
-endsnippet
-#############
-#  Article  #
-#############
-
-snippet article "add to the articles.json" b
-{
-	"_id": "a-${1:05}",
-	"_parentId": "co-${2:05}",
-	"_type": "article",
-	"_classes": "",
-	"title": "${3:a-$1}",
-	"displayTitle": "$4",
-	"body": "$5"
-}$0
-endsnippet
-
-###########
-#  Block  #
-###########
-
-snippet block "add to the blocks.json" b
-{
-	"_id": "b-${1:05}",
-	"_parentId": "a-${2:$1}",
-	"_type": "block",
-	"_classes": "",
-	"title": "${3:b-$1}",
-	"displayTitle": "$4",
-	"body": "$5"
-}$0
-endsnippet
-
-####################
-#  Course Chinese  #
-####################
 
 snippet course-zh "The Chinese version for the course.json" b
 {
@@ -388,5 +299,4 @@ snippet course-zh "The Chinese version for the course.json" b
 
 endsnippet
 
-# vim:ft=snippets:
-
+# vim:ft=snippets:foldmethod=indent:

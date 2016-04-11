@@ -1,0 +1,13 @@
+snippet block "add to the blocks.json" b
+{
+	"_id": "b-${1:05}",
+	"_parentId": "a-${2:$1}",
+	"_type": "block",
+	"_classes": "",
+	"title": "${3:b-$1}",
+	"displayTitle": "$4",
+	"body": "$5"
+}$0
+endsnippet
+
+# vim:ft=snippets:fdm=indent:
