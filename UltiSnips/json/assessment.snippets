@@ -1,0 +1,37 @@
+snippet assessment-in-article "assessment in the article.json" b
+"_assessment": {
+	"_isEnabled": true,
+	"_id": "a-${1:articleID}",
+	"_isPercentageBased": ${2:true},
+	"_scoreToPass": 75,
+	"_includeInTotalScore": true,
+	"_assessmentWeight": 1,
+	"_banks": {
+		"_isEnabled": false,
+		"_split": "2,1",
+		"_randomisation": false
+	},
+	"_randomisation": {
+		"_isEnabled": false,
+		"_blockCount": 1
+	},
+	"_questions": {
+		"_resetType": "hard",
+		"_canShowFeedback": true,
+		"_canShowMarking": true
+		"_canShowModelAnswer": true
+	},
+	"_isResetOnRevisit": true,
+	"_attempts": "infinite"
+}$0
+endsnippet
+
+snippet assessment-in-course "assessment in the course.json" b
+"_assessment": {
+		"_postTotalScoreToLms": ${1:true},
+		"_isPercentageBased": ${2:true},
+		"_scoreToPass": ${3:75},
+		"_requireAssessmentPassed": ${4:true}
+}$0
+endsnippet
+# vim:ft=snippets:

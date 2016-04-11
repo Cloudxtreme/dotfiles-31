@@ -1,0 +1,92 @@
+snippet resources-en "add this to the course.json" b
+"_resources": {
+		"_isEnabled": true,
+		"title": "Resources",
+		"description": "Select here to view resources for this course",
+		"_filterButtons": {
+			"all": "All",
+			"document": "PDF",
+			"media": "Media",
+			"link": "Link"
+		},
+		"_filterAria": {
+			"allAria": "View all resources",
+			"documentAria": "View document resources",
+			"mediaAria": "View media resources",
+			"linkAria": "View resource links"
+		},
+		"itemAriaExternal": "This content will open in a new window",
+		"_resourcesItems": [
+			{
+				"_type": "document",
+				"title": "$4",
+				"description": "$5",
+				"_link": "course/en/${6:pdf}/${7:link}.${8:pdf}"
+			},
+			{
+				"_type": "media",
+				"title": "$9",
+				"description": "$10",
+				"_link": "course/en/${11:media}/${12:link}.${13:mp4}"
+			},
+			{
+				"_type": "link",
+				"title": "$14",
+				"description": "$15",
+				"_link": "http://$16"
+			}
+		]
+}$0
+endsnippet
+
+snippet resources-zh "add this to the course.json" b
+"_resources": {
+		"_isEnabled": true,
+		"title": "${1:辅助学习资源}",
+		"description": "${2:点击这里显示该课程相关辅助学习资源}",
+		"_filterButtons": {
+				"all": "全部显示",
+				"document": "PDF文件",
+				"media": "多媒体文件",
+				"link": "外部链接"
+		},
+		"_filterAria": {
+				"allAria": "显示所有资料",
+				"documentAria": "显示PDF资料",
+				"mediaAria": "显示多媒体资料",
+				"linkAria": "显示外部链接"
+		},
+		"itemAriaExternal": "此内容将会在一个新窗口中打开。",
+		"_resourcesItems": [
+				{
+						"_type": "document",
+						"title": "$4",
+						"description": "$5",
+						"_link": "course/en/${6:pdf}/${7:link}.${8:pdf}"
+				},
+				{
+						"_type": "media",
+						"title": "$9",
+						"description": "$10",
+						"_link": "course/en/${11:media}/${12:link}.${13:mp4}"
+				},
+				{
+						"_type": "link",
+						"title": "$14",
+						"description": "$15",
+						"_link": "http://$16"
+				}
+		]
+}$0
+endsnippet
+
+snippet resources-item "add a resources item" b
+{
+	"_type": "${1:document|media|link}",
+		"title": "$2",
+		"description": "$3",
+		"_link": "${4:course/en/${5:pdf}/${6:file_name}.${7:pdf}}"
+}$0
+endsnippet
+
+# vim:ft=snippets:

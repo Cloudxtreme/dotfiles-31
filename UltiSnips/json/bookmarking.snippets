@@ -1,0 +1,30 @@
+snippet bookmarking-en "add bookmarking in the course.json" b
+"_bookmarking": {
+	"_isEnabled": ${1:true},
+	"_comment": "_level = page | block | component",
+	"_level": "${2:block}",
+	"title": "Bookmarking",
+	"body": "Would you like to continue where you left off?",
+	"_buttons": {
+		"yes": "Yes",
+		"no": "No"
+	}
+}$0
+endsnippet
+
+snippet bookmarking-zh "add bookmarking in the course.json" b
+
+"_bookmarking": {
+		"_isEnabled": ${1:true},
+		"_comment": "_level = page | block | component",
+		"_level": "${2:block}",
+		"title": "'继续学习' 或 '重新开始'",
+		"body": "请选择是否从上次停止处继续学习？",
+		"_buttons": {
+				"yes": "继续学习",
+				"no": "重新开始"
+		}
+}$0
+endsnippet
+
+# vim:ft=snippets:

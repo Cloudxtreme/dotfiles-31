@@ -1,0 +1,17 @@
+snippet Covermenu "add the covermenu into the contentObjects.json for each menu object. Replace the _graphic object" b
+"_coverMenu":{
+		"_backgroundGraphic": {
+				"alt": "${1:alt}",
+				"src": "course/en/images/menu-item-${2:01}.${3:jpg}"
+		},
+		"_indicatorGraphic": {
+				"_isComplete": "course/en/images/menu-item-$2-complete.$3",
+				"_isVisited": "course/en/images/menu-item-$2-visited.$3",
+				"_isLocked":"course/en/images/menu-item-$2-default.$3",
+				"_default":"course/en/images/menu-item-$2-default.$3",
+				"_accessibilityEnabled": "course/en/images/menu-item-$2-default.$3"
+		}
+},$0
+endsnippet
+
+# vim:ft=snippets
