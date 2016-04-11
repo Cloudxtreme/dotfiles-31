@@ -1,0 +1,93 @@
+snippet narrative "an image gallery component" b
+{
+	"_id": "c-${1:05}",
+	"_parentId": "b-${2:$1}",
+	"_type": "component",
+	"_component": "narrative",
+	"_classes": "",
+	"_layout": "${3:full}",
+	"_comment": "setCompletionOn = inview | allItems",
+	"_setCompletionOn": "allItems",
+	"_hasNavigationInTextArea": false,
+	"title": "$4",
+	"displayTitle": "${5:$4}",
+	"body": "$6",
+	"instruction": "$7",
+	"mobileInstruction": "$15",
+	"_items": [
+		{
+			"title": "$8",
+			"body": "$9",
+			"_graphic": {
+				"src": "course/en/images/c-$1-1.${10:png}",
+				"alt": "${11:$8}"
+			},
+			"strapline": "${12:$8}"
+		},
+		{
+			"title": "$13",
+			"body": "$14",
+			"_graphic": {
+				"src": "course/en/images/c-$1-2.$10",
+				"alt": "${16:$13}"
+			},
+			"strapline": "${17:$13}"
+		},
+		{
+			"title": "$18",
+			"body": "$19",
+			"_graphic": {
+				"src": "course/en/images/c-$1-3.$10",
+				"alt": "${21:$18}"
+			},
+			"strapline": "${22:$18}"
+		},
+		{
+			"title": "$23",
+			"body": "$24",
+			"_graphic": {
+				"src": "course/en/images/c-$1-4.$10",
+				"alt": "${26:$23}"
+			},
+			"strapline": "${27:$23}"
+		},
+		{
+			"title": "$28",
+			"body": "$29",
+			"_graphic": {
+				"src": "course/en/images/c-$1-5.$10",
+				"alt": "${31:$28}"
+			},
+			"strapline": "${32:$28}"
+		},
+		{
+			"title": "$33",
+			"body": "$34",
+			"_graphic": {
+				"src": "course/en/images/c-$1-6.$10",
+				"alt": "${36:$33}"
+			},
+			"strapline": "${37:$33}"
+		}
+	],
+	"_pageLevelProgress": {
+		"_isEnabled": ${38:true}
+	}
+}$0
+endsnippet
+
+snippet narrative-item "a single narrative item" b
+{
+	"title": "$1",
+	"body": "$2",
+	"_graphic": {
+		"src": "course/en/images/c-$3-$4.${5:png}",
+		"alt": "${7:$1}"
+	},
+	"strapline": "${8:$1}"
+}$0
+endsnippet
+
+# vim:ft=snippets:fdm=indent:
+
+

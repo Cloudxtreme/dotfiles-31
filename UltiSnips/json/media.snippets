@@ -1,0 +1,43 @@
+snippet media "a media component for video or audio" b
+{
+	"_id": "c-${1:05}",
+	"_parentId": "b-${2:$1}",
+	"_type": "component",
+	"_component": "media",
+	"_classes": "",
+	"_layout": "${3:full}",
+	"_comment": "_setCompletionOn = inview | play | ended",
+	"_setCompletionOn": "play",
+	"_useClosedCaptions": false,
+	"title": "$4",
+	"displayTitle": "${5:$4}",
+	"body": "$6",
+	"instruction": "$7",
+	"_media": {
+		"mp4": "course/en/video/c-$1.mp4",
+		"ogv": "course/en/video/c-$1.ogv",
+		"poster": "course/en/video/c-$1.${8:jpg}",
+		"cc": [
+			{
+				"srclang": "en",
+				"src": "course/en/video/c-$1.vtt"
+			}
+		]
+	},
+	"_transcript": {
+		"_inlineTranscript": ${9:true},
+		"_externalTranscript": ${10:false},
+		"inlineTranscriptButton": "${11:Transcript}",
+		"inlineTranscriptCloseButton": "${12:Close Transcript}",
+		"inlineTranscriptBody": "${13:inlineTranscriptBody}",
+		"transcriptLinkButton": "${14:Transcript}",
+		"transcriptLink": "course/en/video/c-$1.${15:pdf}"
+	},
+	"_pageLevelProgress": {
+		"_isEnabled": ${16:true}
+	}
+}$0
+endsnippet
+
+# vim:ft=snippets:fdm=indent:
+
