@@ -1,0 +1,63 @@
+# Some useful vim plugins here for a quick learning.
+
+# vim-comment
+`gcc` to toggle comment a line
+`gc` to comment out selections in visual mode
+`gcap` or `gc`+`motion` to comment out a paragraph.
+
+# vim-fugitive
+`:Gstatus` - `git status` `-` toggle for `git add` `p` for `git add --patch`
+`:Gcommit` = `git commit`
+`:Gread` = `git checkout --filename`
+`:Gmove` `git mv new_file_name`
+`:Gblame` `git blame`
+
+# CtrlP
+use `C-P` or `<leader>o` to open a list of files for filtering
+
+# How to open multiple files?
+1. Use arrow key to locate the file
+2. `C-z` to mark the file
+3. Repeat step 1 and 2 for all files
+4. `C-o` to open an interactive command to select open method
+
+# How to refreshing the file list?
+Press `F5`
+
+# How to create directory and files with CtrlP?
+Type in the non-existing directory or file name and press `C-y`.
+
+# How to exclude certain files and directories in CtrlP?
+CtrlP will ignore files and directories configured in the .gitignore files.
+To exclude other files or directories in the file list, a quick way is to adopt the silver Searcher as the backend for this and use a .agignore file (just like the gitignore file) at the project level or global level `~/.agignore`.
+
+The Silver Search can be installed on OSX with the following command:
+`brew install the_silver_searcher`;
+
+Then configure it in the `.vimrc` with the following line:
+`let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'`
+
+Finally, set up the `.agignore` file at project level or local level.
+
+# Vim Surround
+- `cs"'` change surrounding `"` for `'`
+- `ds"` delete surrounding `"`
+- `ysiw]` add surrounding word with []
+- `ys3iw]` add surrounding [ ] for 3 words
+- `yss(` add surrounding () for the sentence
+- `ysiw<em>` add surrounding `<em>`
+- `S<p class="highlight">` for visual mode selection
+
+# Tabular
+The basic usage is:
+`:Tabularize /=` to align with the `=` sign
+
+# Syntastic
+
+- `:Errors` - to show the list window
+- `:lclose` - close the list window
+- `:lnext`  - go to the next error
+- `:lprev`  - go to the previous error
+- `:SyntasticToggleMode` - Toggle the active and passive mode
+- `:SyntasticCheck` - conduct a manual check
+

@@ -1,3 +1,44 @@
 # swap panes
 tmux swap-pane -[UDLR]
 prefix { or }
+
+# Customize Tuxinator Layout
+A step-by-step guide for setting up the desired layout in tmuxinator.
+
+1. First, set up your layout in a normal tmux session.
+2. Then, run `tmux list-windows`
+3. Copy the `layout b147,208x73...` and paste it into tmuxinator configuration file
+
+The tmuxinator configuration should look like this:
+```
+  - editor:
+      layout: b147,208x73...105,63}]
+      panes:
+        - vim
+        - #empty, will just run plain bash
+        - top
+```
+
+# Create a new session with a window named editor*, then detach from it
+
+` tmux new -s session-name -n window-name -d `
+
+# Split a window horizontally with one window take 10% height
+
+`tmux split-window -v -p 10 -t session-name`
+
+# Send Keys
+
+`tmux send-keys -t session-name:window-name.1 'cd ~/tmp' C-m`
+
+# Select Layout
+
+`tmux select-layout -t session-name:window-name main-horizontal`
+
+# Create a new window in an existing session
+
+`tmux new-window -n console -t session-name`
+
+# Select a pane 2
+
+`tmux select-pane -t session-name:windown-name.2`

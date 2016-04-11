@@ -1,0 +1,24 @@
+# Sublime Text 3 tips, hints and learning notes will be recorded here in this section. This will be learned in conjunction with other learning tools such as anki to record certain card to enhance memorization.
+
+# Excluding Files & Folders from Search
+
+There may be files or folders that you do not want to see in your Goto Anything searches. Things like compiled JavaScript, compiled CSS from Sass or any other assets. If you'd like to exclude specific files you can by modifying your user settings file (Preferences-> Settings - User) and defining the `binary_file_patterns` property.
+
+```
+"binary_file_patterns": [".DS_Store", ".gitignore", "*.psd"]
+```
+
+The example above ignores any `.DS_Store, .gitignore` or `.psd` files. To exclude entire folders, you can append a forward slash `/` to the end of a folder name.
+
+```
+"binary_file_patterns": ["node_modules/", "vendor/", "tmp/"]
+```
+
+**Note**: You may be tempted to use the `file_exclude_patterns` or `folder_exclude_patterns` properties to exclude files from Goto Anything instead of `binary_file_patterns`; While these both do the job, they also happen to remove those files and folders from the sidebar - which may not be a desirable outcome.
+
+# Line Bubbling
+
+Instead of cutting and pasting a line or lines, simply move them up and down inside the document.
+
+To to this, simply delete any amount of text with the shortcut <kbd>CMD</kbd> + <kbd>L</kbd> then hold down <kbd>CMD</kbd> + <kbd>Ctrl</kbd> and use arrow key to move the selected line(s) up and down.
+
