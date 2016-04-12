@@ -1,23 +1,24 @@
 # vim plugin surrounding
 
 # change surrounding `"` for `'`
-`cs"'`
+cs"'
 
 # delete surrounding `"`
-`ds"`
+ds"
 
 # add surrounding word with []
-`ysiw]`
+ysiw]
 
 # add surrounding [ ] for 3 words
-`ys3iw]`
+ys3iw]
+
 # add surrounding () for the sentence
-`yss(`
+yss(
 
 # add surrounding `<em>`
-`ysiw<em>`
+ysiw<em>
 
 # for visual mode selection
-`S<p class="highlight">`
+S<p class="highlight">
 
 

@@ -1,23 +1,23 @@
 # vim plugin fugitive
 
 # git status
-`:Gstatus` <leader>gs
+":Gstatus" <leader>gs
 
 # Git add
-`-` toggle for `git add`
+toggle for "git add"
 
 # Git add --patch
-`p` for `git add --patch`
+"p" for "git add --patch"
 
 # Git commit
-`:Gcommit` <leader>gc
+":Gcommit" <leader>gc
 
 # Git Checkout --filename
-`:Gread`
+":Gread"
 
 # Git mv new_file_name
-`:Gmove`
+":Gmove"
 
 # Git blame
-`:Gblame`
+":Gblame"
 

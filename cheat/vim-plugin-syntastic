@@ -1,19 +1,19 @@
 # Syntastic
 
 # to show the list window
-`:Errors` <leader>le
+":Errors" <leader>le
 
 # close the list window
-`:lclose` <leader>lc
+":lclose" <leader>lc
 
 # go to the next error
-`:lnext` <leader>ln
+":lnext" <leader>ln
 
 # go to the previous error
-`:lprev` <leader>lp
+":lprev" <leader>lp
 
 # Toggle the active and passive mode
-`:SyntasticToggleMode` <leader>lt
+":SyntasticToggleMode" <leader>lt
 
 # conduct a manual check
-`:SyntasticCheck` <leader>ll
+":SyntasticCheck" <leader>ll
