@@ -13,7 +13,7 @@ Plug 'ervandew/supertab'
 Plug 'majutsushi/tagbar'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'Valloric/YouCompleteMe'
-" Plug 'severin-lemaignan/vim-minimap'
+Plug 'severin-lemaignan/vim-minimap'
 Plug 'rking/ag.vim'
 Plug 'scrooloose/syntastic'
 Plug 'mbbill/undotree'
@@ -429,6 +429,22 @@ if !exists('g:undotree_SplitWidth')
   let g:undotree_SplitWidth = 40
 endif
 
+" Tabular {{{2
+if exists(":Tabularize")
+	nmap <leader>b= :Tabularize /=<CR>
+	vmap <leader>b= :Tabularize /=<CR>
+	nmap <leader>bl= :Tabularize /=/l1c1l0<CR>
+	vmap <leader>bl= :Tabularize /=/l1c1l0<CR>
+	nmap <leader>br= :Tabularize /=/r1c1l0<CR>
+	vmap <leader>br= :Tabularize /=/r1c1l0<CR>
+	nmap <leader>b: :Tabularize /:\zs<CR>
+	vmap <leader>b: :Tabularize /:\zs<CR>
+	nmap <leader>bl: :Tabularize /:/l1c1l0<CR>
+	vmap <leader>bl: :Tabularize /:/l1c1l0<CR>
+	nmap <leader>br: :Tabularize /:/r1c1l0<CR>
+	vmap <leader>br: :Tabularize /:/r1c1l0<CR>
+endif
+
 " Mappings {{{1
 " Moving Around {{{2
 
@@ -637,7 +653,7 @@ if has("autocmd")
 endif
 
 " Functions {{{2
-" Set tabstop, softtabstop and shiftwidth to the same value
+" Set tabstop, softtabstop and shiftwidth to the same value {{{3
 command! -nargs=* Stab call Stab()
 function! Stab()
   let l:tabstop = 1 * input('set tabstop = softtabstop = shiftwidth = ')
@@ -665,7 +681,7 @@ function! SummarizeTabs()
   endtry
 endfunction
 
-"Strip Trailing spaces
+"Strip Trailing spaces {{{3
 
 " Hit <F2> to strip trailing spaces.
 nnoremap <silent> <F2> :call <SID>StripTrailingWhitespaces()<CR>
@@ -689,4 +705,17 @@ nnoremap <F3> :g/^$/d<CR>
 "   exec "! node %"
 " endfunction
 
+" Insert mode cucumber alignment by Tim Popo {{{3
 
+inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
+
+function! s:align()
+	let p = '^\s*|\s.*\s|\s*$'
+	if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
+		let column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
+		let position = strlen(matchstr(getline('.')[0:col('.')],'.*|\s*\zs.*'))
+		Tabularize/|/l1
+		normal! 0
+		call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
+	endif
+endfunction
