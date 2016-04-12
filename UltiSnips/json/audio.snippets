@@ -1,0 +1,87 @@
+snippet audio-config "add this in the config.json" b
+"_audio": {
+	"_isEnabled": true
+},
+"_reducedText": {
+	"_isEnabled": true
+}$0
+endsnippet
+
+snippet audio-course "add this in the course.json" b
+"_audio": {
+	"_autoplay": true,
+	"_enableaudiodrawer": true,
+	"title": "audio",
+	"description": "click here to view the audio settings for this course.",
+	"_audioitems": [
+		{
+			"title": "narration",
+			"description": "this content in this course is narrated. you can save your preference here too."
+		},
+		{
+			"title": "sound fx",
+			"description": "if you don't want sound effects to play throughout the course you can switch them off here."
+		},
+		{
+			"title": "music",
+			"description": "some areas of the course may contain background music."
+		}
+	],
+	"_prompt": {
+		"title": "audio and text settings",
+		"body": "audio is turned on by default in this module. you can turn the audio on or off at any time by selecting the <span class='speaker-icon fa-volume-up audio-notify-icon'></span> icon.<br><br>you can choose either full or reduced on-screen text. the full text option matches the audio exactly. the reduced text option summarises the audio.<br><br>please select full or reduced text (you can change your preference at any time by selecting the <span class='speaker-icon fa-volume-up audio-notify-icon'></span> icon).",
+		"titlenoreduced": "audio setting",
+		"bodynoreduced": "audio is turned on by default in this module. please select continue or turn audio off (you can change your preference at any time by selecting the <span class='speaker-icon fa-volume-up audio-notify-icon'></span> icon).",
+		"_buttons": {
+			"full": "full",
+			"reduced": "reduced",
+			"continue": "continue",
+			"turnoff": "turn audio off"
+		},
+		"_graphic": {
+			"src": "adapt/css/assets/audio-icon.png"
+		}
+	},
+	"_toggleprompt": {
+		"title": "audio and text settings",
+		"bodyaudioon": "you have chosen to turn audio off. the on-screen text will default to full text.",
+		"bodyaudiooff": "you have chosen to turn audio on. please select whether you would like to view full or reduced text.",
+		"_buttons": {
+			"confirm": "confirm",
+			"cancel": "cancel",
+			"full": "full",
+			"reduced": "reduced"
+		},
+		"_graphic": {
+			"src": "adapt/css/assets/audio-icon.png"
+		}
+	}
+}$0
+endsnippet
+
+snippet audio "add this in article/block/component.json" b
+
+"displayTitleReduced": "${1:Reduced title}",
+"bodyReduced": "${2:Reduced text}",
+"_reducedText": {
+	"_isEnabled": true
+},
+"_audio": {
+	"_isEnabled": true,
+	"_showControls": false,
+	"_autoplay": true,
+	"_channel": 0,
+	"_location": "${3:top-right/top-left/bottom-left/bottom-right}",
+	"_media": {
+			"desktop": "course/en/audio/$4.mp3",
+			"mobile": "course/en/audio/$5.mp3"
+		}
+}$0
+endsnippet
+
+https://github.com/deltanet/adapt-audio/blob/master/example.json
+
+# vim:ft=snippets:fdm=indent:
+
+
+
