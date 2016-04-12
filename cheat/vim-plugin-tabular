@@ -1,0 +1,9 @@
+# vim-plugin tabular user mapping
+| mapping     | descriptions                     |
+| -------     | -----------                      |
+| <leader>b=  | default align with the "=" sign  |
+| <leader>b:  | default align with the ":" sign  |
+| <leader>bl: | align left with : in the center  |
+| <leader>br: | align right with : in the center |
+| <leader>bl= | align left with = in the center  |
+| <leader>br= | align right with = in the center |
