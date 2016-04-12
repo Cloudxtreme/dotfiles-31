@@ -1,8 +1,7 @@
 snippet bookmarking-en "add bookmarking in the course.json" b
 "_bookmarking": {
 	"_isEnabled": ${1:true},
-	"_comment": "_level = page | block | component",
-	"_level": "${2:block}",
+	"_level": "${2:block|page|component}"
 	"title": "Bookmarking",
 	"body": "Would you like to continue where you left off?",
 	"_buttons": {
@@ -15,16 +14,24 @@ endsnippet
 snippet bookmarking-zh "add bookmarking in the course.json" b
 
 "_bookmarking": {
-		"_isEnabled": ${1:true},
-		"_comment": "_level = page | block | component",
-		"_level": "${2:block}",
-		"title": "'继续学习' 或 '重新开始'",
-		"body": "请选择是否从上次停止处继续学习？",
-		"_buttons": {
-				"yes": "继续学习",
-				"no": "重新开始"
-		}
+	"_isEnabled": ${1:true},
+	"_level": "${2:block|page|component}"
+	"title": "'继续学习' 或 '重新开始'",
+	"body": "请选择是否从上次停止处继续学习？",
+	"_buttons": {
+		"yes": "继续学习",
+		"no": "重新开始"
+	}
 }$0
 endsnippet
+
+snippet bookmarking-page "contentObjects.json - will override course.json for each contentObject - _type 'page' only, if set. Set _isEnabled false if no bookmarking on page" b
+"_bookmarking": {
+	"_isEnabled": true,
+	"_level": "${1:page|block|component}"
+}$0
+endsnippet
+
+# https://github.com/adaptlearning/adapt-contrib-bookmarking/blob/master/example.json
 
 # vim:ft=snippets:

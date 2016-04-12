@@ -9,6 +9,7 @@ snippet media "a media component for video or audio" b
 	"_comment": "_setCompletionOn = inview | play | ended",
 	"_setCompletionOn": "play",
 	"_useClosedCaptions": false,
+	"_startLanguage": "en",
 	"title": "$4",
 	"displayTitle": "${5:$4}",
 	"body": "$6",
@@ -20,11 +21,16 @@ snippet media "a media component for video or audio" b
 		"cc": [
 			{
 				"srclang": "en",
-				"src": "course/en/video/c-$1.vtt"
+				"src": "course/en/video/c-$1-en.vtt"
+			},
+			{
+				"srclang": "zh-cn",
+				"src": "course/en/video/c-$1-zh-cn.vtt"
 			}
 		]
 	},
 	"_transcript": {
+		"_setCompletionOnView": true,
 		"_inlineTranscript": ${9:true},
 		"_externalTranscript": ${10:false},
 		"inlineTranscriptButton": "${11:Transcript}",
@@ -33,11 +39,50 @@ snippet media "a media component for video or audio" b
 		"transcriptLinkButton": "${14:Transcript}",
 		"transcriptLink": "course/en/video/c-$1.${15:pdf}"
 	},
+	"_playerOptions": {
+		"poster": "",
+		"showPosterWhenEnded": false,
+		"defaultVideoWidth": 480,
+		"defaultVideoHeight": 270,
+		"videoWidth": -1,
+		"videoHeight": -1,
+		"defaultAudioWidth": 400,
+		"defaultAudioHeight": 30,
+		"defaultSeekBackwardInterval": "(media.duration * 0.05)",
+		"defaultSeekForwardInterval": "(media.duration * 0.05)",
+		"audioWidth": -1,
+		"audioHeight": -1,
+		"startVolume": 0.8,
+		"loop": false,
+		"autoRewind": true,
+		"enableAutosize": true,
+		"alwaysShowHours": false,
+		"showTimecodeFrameCount": false,
+		"framesPerSecond": 25,
+		"autosizeProgress" : true,
+		"alwaysShowControls": false,
+		"hideVideoControlsOnLoad": false,
+		"clickToPlayPause": true,
+		"iPadUseNativeControls": false,
+		"iPhoneUseNativeControls": false,
+		"AndroidUseNativeControls": false,
+		"features": ["playpause","current","progress","duration","tracks","volume","fullscreen"],
+		"isVideo": true,
+		"enableKeyboard": true,
+		"pauseOtherPlayers": true,
+		"startLanguage": "",
+		"tracksText": "mejs.i18n.t('Captions/Subtitles')",
+		"hideCaptionsButtonWhenEmpty": true,
+		"toggleCaptionsButtonWhenOnlyOne": false,
+		"slidesSelector": ""
+	}
 	"_pageLevelProgress": {
 		"_isEnabled": ${16:true}
 	}
 }$0
 endsnippet
+
+# https://github.com/adaptlearning/adapt-contrib-media/blob/master/example.json
 
 # vim:ft=snippets:fdm=indent:
 

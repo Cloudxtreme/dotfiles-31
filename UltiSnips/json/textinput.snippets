@@ -1,4 +1,4 @@
-snippet textinput "a text input question component" b
+snippet textinput-ordered-multiple "a text input question component: Ordered, multiple correc answer" b
 {
 	"_id": "c-${1:05}",
 	"_parentId": "b-${2:$1}",
@@ -6,18 +6,18 @@ snippet textinput "a text input question component" b
 	"_component": "textinput",
 	"_classes": "",
 	"_layout": "${3:full}",
-	"_attempts": ${4:2},
+	"title": "$4",
+	"displayTitle": "${5:$4}",
+	"body": "$6",
+	"instruction": "$7",
+	"_attempts": ${8:2},
+	"_shouldDisplayAttempts": ${9:false},
 	"_questionWeight": 1,
-	"_canShowModelAnswer": ${5:true},
-	"_shouldDisplayAttempts": ${6:false},
-	"_isRandom": ${7:true},
-	"_allowsAnyCase": ${8:true},
-	"_allowsPunctuation": ${9:true},
-	"title": "$10",
-	"displayTitle": "${11:$10}",
-	"body": "$12",
-	"instruction": "$13",
-	"_answers": [],
+	"_isRandom": ${10:true},
+	"_canShowModelAnswer": ${11:true},
+	"_recordInteraction":true,
+	"_allowsAnyCase": ${12:true},
+	"_allowsPunctuation": ${13:true},
 	"_items": [
 		{
 			"prefix": "$14",
@@ -64,6 +64,69 @@ snippet textinput "a text input question component" b
 }$0
 endsnippet
 
+
+snippet textinput-unordered-single "a text input question component: unordered, single correc answer" b
+{
+	"_id": "c-${1:05}",
+	"_parentId": "b-${2:$1}",
+	"_type": "component",
+	"_component": "textinput",
+	"_classes": "",
+	"_layout": "${3:full}",
+	"title": "$4",
+	"displayTitle": "${5:$4}",
+	"body": "$6",
+	"instruction": "$7",
+	"_attempts": ${8:2},
+	"_shouldDisplayAttempts": ${9:false},
+	"_allowsAnyCase": ${12:true},
+	"_allowsPunctuation": ${13:true},
+	"_questionWeight": 1,
+	"_answers": [
+		["$14"],
+		["$15"],
+		["$16"],
+		["$17"]
+	],
+	"_items": [
+		{
+			"prefix": "$18",
+			"placeholder": "请在此处输入你的答案",
+			"suffix": "$19"
+		},
+		{
+			"prefix": "$20",
+			"placeholder": "请在此处输入你的答案",
+			"suffix": "$21"
+		},
+		{
+			"prefix": "$22",
+			"placeholder": "请在此处输入你的答案",
+			"suffix": "$23"
+		},
+		{
+			"prefix": "$24",
+			"placeholder": "请在此处输入你的答案",
+			"suffix": "$25"
+		}
+	],
+	"_feedback": {
+		"correct": "$26",
+		"_partlyCorrect": {
+			"notFinal": "$27",
+			"final": "$28"
+		},
+		"_incorrect": {
+			"notFinal": "$29",
+			"final": "$30"
+		}
+	},
+	"_pageLevelProgress": {
+		"_isEnabled": ${31:true}
+	}
+}$0
+endsnippet
+
 snippet TextInput-item "single item of textinput" b
 {
 	"prefix": "$1",
@@ -76,4 +139,5 @@ snippet TextInput-item "single item of textinput" b
 }$0
 endsnippet
 
+# https://github.com/adaptlearning/adapt-contrib-textInput/blob/master/example.json
 # vim:ft=snippets:fdm=indent:

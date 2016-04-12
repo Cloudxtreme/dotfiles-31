@@ -6,20 +6,22 @@ snippet slider "a slider question component" b
 	"_component": "slider",
 	"_classes": "",
 	"_layout": "${3:full}",
-	"_attempts": ${4:2},
+	"title": "$4",
+	"displayTitle": "${5:$4}",
+	"body": "$6",
+	"instruction": "$7",
+	"_attempts": ${8:2},
+	"_shouldDisplayAttempts": ${9:false},
 	"_questionWeight": 1,
-	"_canShowModelAnswer": ${5:true},
-	"_shouldDisplayAttempts": ${6:false},
-	"_showNumber": ${7:true},
-	"_showScaleIndicator": ${8:true},
-	"_scaleStart": ${9:1},
-	"_scaleEnd": ${10:10},
-	"title": "$11",
-	"displayTitle": "${12:$11}",
-	"body": "$13",
-	"instruction": "$14",
-	"labelStart": "$15",
-	"labelEnd": "$16",
+	"_canShowModelAnswer": ${10:true},
+	"_recordInteraction": true,
+	"_showNumber": ${11:true},
+	"_showScaleIndicator": ${12:true},
+	"_showScale": true,
+	"labelStart": "$13",
+	"labelEnd": "$14",
+	"_scaleStart": ${15:1},
+	"_scaleEnd": ${16:10},
 	"_correctAnswer": "$17",
 	"_correctRange": {
 		"_bottom": ${18:4},
@@ -30,6 +32,10 @@ snippet slider "a slider question component" b
 		"_incorrect": {
 			"notFinal": "$21",
 			"final": "$22"
+		},
+		"_partlyCorrect": {
+			"notFinal": "",
+			"final": ""
 		}
 	},
 	"_pageLevelProgress": {
@@ -37,5 +43,7 @@ snippet slider "a slider question component" b
 	}
 }$0
 endsnippet
+
+# https://github.com/adaptlearning/adapt-contrib-slider/blob/master/example.json
 
 # vim:ft=snippets:fdm=indent:

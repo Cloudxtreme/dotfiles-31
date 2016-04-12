@@ -12,6 +12,8 @@ snippet gmcq "a graphic mcq question component" b
 	"_shouldDisplayAttempts": ${6:false},
 	"_isRandom": ${7:true},
 	"_selectable": ${8:4},
+	"_recordInteraction": true,
+	"_columns": 3,
 	"title": "$9",
 	"displayTitle": "${10:$9}",
 	"body": "$11",
@@ -82,5 +84,7 @@ snippet gmcq-item "single option of gmcq component" b
 	}
 }$0
 endsnippet
+
+# https://github.com/adaptlearning/adapt-contrib-gmcq/blob/master/example.json
 
 # vim:ft=snippets:fdm=indent:

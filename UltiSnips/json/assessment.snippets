@@ -2,10 +2,6 @@ snippet assessment-in-article "assessment in the article.json" b
 "_assessment": {
 	"_isEnabled": true,
 	"_id": "a-${1:articleID}",
-	"_isPercentageBased": ${2:true},
-	"_scoreToPass": 75,
-	"_includeInTotalScore": true,
-	"_assessmentWeight": 1,
 	"_banks": {
 		"_isEnabled": false,
 		"_split": "2,1",
@@ -21,6 +17,10 @@ snippet assessment-in-article "assessment in the article.json" b
 		"_canShowMarking": true,
 		"_canShowModelAnswer": true
 	},
+	"_isPercentageBased": ${2:true},
+	"_scoreToPass": 75,
+	"_includeInTotalScore": true,
+	"_assessmentWeight": 1,
 	"_isResetOnRevisit": true,
 	"_attempts": "infinite"
 }$0
@@ -34,4 +34,7 @@ snippet assessment-in-course "assessment in the course.json" b
 		"_requireAssessmentPassed": ${4:true}
 }$0
 endsnippet
+
+# https://github.com/adaptlearning/adapt-contrib-assessment/blob/master/example.json
+
 # vim:ft=snippets:

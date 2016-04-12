@@ -1,9 +1,18 @@
-snippet start "add this to the course config" b
+snippet start "add this to the course.json" b
 "_start": {
 	"_isEnabled": "${1:true}",
-	"_id": "${2:contentObjectID}",
-	"_force": ${3:false}
+	"_startIds": [
+		{
+			"_id": "co-$2",
+			"_skipIfComplete": false,
+			"_className": ".size-small.touch, .size-medium.touch",
+		}
+	],
+	"_id": "${3:contentObjectID}",
+	"_force": ${4:false}
 }$0
 endsnippet
+
+# https://github.com/adaptlearning/adapt_framework/wiki/Content-starts-with-course.json
 
 # vim:ft=snippets:

@@ -12,6 +12,7 @@ snippet mcq "a multiple choice question component" b
 	"_shouldDisplayAttempts": ${6:false},
 	"_isRandom": ${7:true},
 	"_selectable": ${8:4},
+	"_recordInteraction": true,
 	"title": "$9",
 	"displayTitle": "${10:$9}",
 	"body": "$11",
@@ -57,5 +58,7 @@ snippet mcq-item "single option of mcq components" b
 	"_shouldBeSelected": ${2:true}
 }$0
 endsnippet
+
+# https://github.com/adaptlearning/adapt-contrib-mcq/blob/master/example.json
 
 # vim:ft=snippets:fdm=indent:

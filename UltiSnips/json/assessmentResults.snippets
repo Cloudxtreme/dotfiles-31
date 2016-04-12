@@ -6,43 +6,43 @@ snippet assessmentresults "put this in a different article from the questions ar
 	"_component": "assessmentResults",
 	"_classes": "",
 	"_layout": "$3",
-	"_isVisibleBeforeCompletion": false,
 	"_assessmentId": "a-$4",
 	"title": "$5",
 	"displayTitle": "${6:$5}",
 	"body": "$7",
 	"instruction": "$8",
+	"_isVisibleBeforeCompletion": false,
 	"_retry": {
 		"button": "${9:重新测验}",
 		"_comment": "use {{attempts}}, {{attemptsSpent}} and {{attemptsLeft}} to display attempts",
-		"feedback": "${10:feedback}"
+		"feedback": "${10:Why not have another try? You have used {{attemptsSpent}} of {{attempts}} attempt(s), which means you have {{attemptsLeft}} attempt(s) remaining.}"
 	},
 	"_comment": "use {{score}}, {{maxScore}} and {{scoreAsPercent}} to display score and percentage",
-	"_completionBody": "{{{feedback}}}",
+	"_completionBody": "This component you're reading is a results component.<br>You have finished the assessment.<br>You scored {{{score}}} out of {{{maxScore}}}.{{{feedback}}}",
 	"_bands": [
 		{
-			"_score": $11,
-			"feedback": "${12:feedback}",
+			"_score": ${11:0},
+			"feedback": "${12:Your score was below 25%.}",
 			"_allowRetry": ${13:true},
 			"_classes": ""
 		},
 		{
-			"_score": $14,
-			"feedback": "${15:feedback}",
+			"_score": ${14:25},
+			"feedback": "${15:Your score was below 50%.}",
 			"_allowRetry": ${16:true},
 			"_classes": ""
 		},
 		{
-			"_score": $17,
-			"feedback": "${18:feedback}",
+			"_score": ${17:50},
+			"feedback": "${18:Good effort, but your score was under 75%.}",
 			"_allowRetry": ${19:true},
 			"_classes": ""
 		},
 		{
-			"_score": $20,
-			"feedback": "${21:feedback}",
-			"_allowRetry": ${22:true},
-			"_classes": ""
+			"_score": ${20:75},
+			"feedback": "${21:Great work. You passed your assessment with {{{scoreAsPercent}}}%.}",
+			"_allowRetry": ${22:false},
+			"_classes": "high-score"
 		}
 	],
 	"_pageLevelProgress": {
@@ -50,3 +50,8 @@ snippet assessmentresults "put this in a different article from the questions ar
 	}
 }$0
 endsnippet
+
+# https://github.com/adaptlearning/adapt-contrib-assessmentResults/blob/master/example.json
+
+# vim:ft=snippets:fdm=indent:
+

@@ -1,20 +1,15 @@
-snippet trickle-in-course "trickle in the course.json" b
-"_trickle": {
-	"_isEnabled": ${1:true}
-}$0
-endsnippet
-
 snippet trickle-in-article "enable trickle for all blocks in an article" b
 "_trickle": {
 	"_isEnabled": ${1:true}
 },$0
 endsnippet
 
-snippet trickle-in-block "manulally add trickle for each block" b
+snippet trickle-manual "manulally add trickle for each block or article" b
 "_trickle": {
 	"_isEnabled": ${1:true},
 	"_scrollDuration": 500,
 	"_autoScroll": ${2:true},
+	"_onChildren": true,
 	"_scrollTo": "${3:@block +1}",
 	"_button": {
 		"_isEnabled": ${4:true},
@@ -35,4 +30,13 @@ snippet trickle-in-block "manulally add trickle for each block" b
 },$0
 endsnippet
 
-# vim:ft=snippets:
+# trickle in config.json
+snippet trickle-in-config.json "Overide which completion data attribute is used to test when the trickle button should be displayed." b
+"_trickle": {
+	"_completionAttribute": "_isInteractionComplete|_isComplete"
+} $0
+endsnippet
+
+# https://github.com/adaptlearning/adapt-contrib-trickle/blob/master/example.json
+
+# vim:ft=snippets:fdm=indent:
