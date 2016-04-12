@@ -1,0 +1,24 @@
+# How to open a list of files for filtering
+`C-P`
+
+# How to open multiple files?
+1. Use arrow key to locate the file
+2. `C-z` to mark the file
+3. Repeat step 1 and 2 for all files
+4. `C-o` to open an interactive command to select open method
+
+# How to create directory and files with CtrlP?
+Type in the non-existing directory or file name and press `C-y`.
+
+# How to exclude certain files and directories in CtrlP?
+CtrlP will ignore files and directories configured in the .gitignore files.
+To exclude other files or directories in the file list, a quick way is to adopt the silver Searcher as the backend for this and use a .agignore file (just like the gitignore file) at the project level or global level `~/.agignore`.
+
+The Silver Search can be installed on OSX with the following command:
+`brew install the_silver_searcher`;
+
+Then configure it in the `.vimrc` with the following line:
+`let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'`
+
+Finally, set up the `.agignore` file at the project level or local level.
+
