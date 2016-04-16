@@ -1,0 +1,40 @@
+# set a shell
+SHELL=/bin/bash
+
+# crontab format
+* * * * *  command_to_execute
+- - - - -
+| | | | |
+| | | | +- day of week (0 - 7) (where sunday is 0 and 7)
+| | | +--- month (1 - 12)
+| | +----- day (1 - 31)
+| +------- hour (0 - 23)
++--------- minute (0 - 59)
+
+# example entries
+# every 15 min
+*/15 * * * * /home/user/command.sh
+# every midnight
+0 * * * * /home/user/command.sh
+# every Saturday at 8:05 AM
+5 8 * * 6 /home/user/command.sh
+
+# view the current crontab entries?
+crontab -l
+
+# viw other user's contrabs entries
+1. login to root and
+2. crontab -u username -l
+
+# edit crontab entry
+crontab -e
+
+# schedule use keyword
+@yearly /home/user/command.sh
+@monthly /home/user/command.sh
+@daily /home/user/command.sh
+@hourly /home/user/command.sh
+
+# run at startup
+@reboot /home/user/command.sh
+
