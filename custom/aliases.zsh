@@ -1,5 +1,4 @@
 ### General Aliaes {{{1
-
 # Dotfiles editing {{{2
 alias reload="source ~/.zshrc"
 alias ez="$EDITOR ~/.zshrc && reload" # Edit default zsh config file and reload
@@ -120,7 +119,6 @@ alias t-bs='tr -st'
 alias t-fs='tr -si'
 
 ### Development aliases {{{1
-
 # Adapt {{{{2
 alias rub="./rub"
 alias mongobrew="mongod --config /usr/local/etc/mongod.conf"
@@ -189,7 +187,6 @@ trashall() {
   find . -type f \( -iname "*.$1" -or -iname "*.$2" -or -iname "*.$3" -or -iname "*.$4" \) -exec trash {} \;
 }
 ## Functions: Archives {{{1
-
 # add a zip file {{{2
 zir() {
   zip -r $1 $*
@@ -224,6 +221,10 @@ canary-dl() {
 }
 
 ### Functions: Workflow {{{1
+# Open with firefox {{{2
+function fopen() {
+	open -a /Applications/Firefox.app $1
+}
 # update documentation site {{{2
 documentation() {
   cd /Volumes/Data/Documents/docs/documentation/
@@ -245,7 +246,6 @@ new() {
 }
 
 ### Functions: not-in-active-use {{{1
-
 # Open in the Google Chrome Browser {{{2
 gopen() {
   open -a "/Applications/Google Chrome.app" $1
