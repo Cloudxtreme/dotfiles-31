@@ -448,8 +448,9 @@ endif
 " Mappings {{{1
 " Moving Around {{{2
 
-" switch to normal mode
-inoremap jk <esc>
+" switch to normal mode and write buffer
+inoremap jk <esc>:w<CR>
+nnoremap <leader>s :w<CR>
 
 " Start a new line below the current line
 inoremap jo <esc>o
@@ -458,10 +459,10 @@ inoremap jo <esc>o
 inoremap jO <esc>O
 
 " Move to end of line and enter into insert mode
-inoremap ja <esc>A
+inoremap jl <esc>A
 
 " Move behind next letter in insert mode
-inoremap jl <esc>2li
+inoremap jf <esc>2li
 
 " move up one line and indent
 inoremap kk <esc>kA<CR>
@@ -508,9 +509,6 @@ map <F9> <C-W>>
 nnoremap <leader>vs :vs<cr>
 
 " File Command {{{2
-" Type <leader>s to save file
-nnoremap <leader>s :w<CR>
-inoremap <leader>s <esc>:w<CR>
 
 " Kill all windows
 nnoremap <leader>w :qa!<cr>
