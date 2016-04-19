@@ -1,0 +1,103 @@
+# selector
+$("document") // select the tagName
+$(".selectors") // select a class
+$("#intro") // select an id
+
+# Advanced Selectors
+
+ The child selector "parent > child" selects "child" elements
+ that are immediate descendants of the "parent"
+ $("div > p").css("border", "3px solid red");
+
+The descendant selector "ancestor descendant" selects "descendant"
+elements as long as they have an "ancestor" element somewhere
+above them
+$("div p.a").css("border", "3px solid red");
+
+The next adjacent selector "prev + next" selects the "next"
+element if it is immediately preceded by a "prev" element
+$("ul + div").css("border", "3px solid red");
+
+Next sibling selector "prev ~ siblings" selects all "siblings"
+elements that come after a "prev" element
+$("#para1 ~ p").css("border", "3px solid red");
+
+
+# Filter
+:first, :last
+:even, :odd
+:gt(), :lt(), :eq()
+:animated
+:focus
+:not(expr)
+
+# some filter examples
+$("h2:first") // select and filter out the first h2 element
+$("h2:not(.selectors)"
+
+# Attribute Filter
+select all paragraph with a class
+$("p[class]").css("border", "3px solid red");
+
+select paragraph with an id named "para1"
+$("p[id=para1]").css("border", "3px solid red");
+
+select paragraph with an id name start with "para"
+$("p[id^=para]").css("border", "3px solid red");
+
+select paragraph with an id name start with "para" and "lang" attribute contains "en-"
+$("p[id^=para][lang*=en-]").css("border", "3px solid red");
+
+# Content filter
+select paragraph contains '3', USE the single quote for the content
+$("p:contains('3')").css("border", "3px solid red");
+
+# Parent filter
+select all p tag which is a parent
+$("p:parent").css("border", "3px solid red");
+
+# has Filter
+select the div that has a paragraph with a class named a
+$("div:has(p[class=a])").css("border", "3px solid red");
+
+# Child Filter
+select the paragraph which is the first child of a div
+$("div p:first-child").css("border", "3px solid red");
+
+select the last paragraph inside a div
+$("div p:last-of-type").css("border", "3px solid red");
+
+select the third paragraph inside a div
+$("div p:nth-child(3)").css("border", "3px solid red");
+
+select paragraph can be divided by 2 in side a div
+$("div p:nth-child(2n)").css("border", "3px solid red");
+
+# Traversing
+
+The children() function retrieves the immediate (that is,
+first-level down) child elements of the matched set,
+excluding text nodes.
+$("#example").children().css("border", "3px solid red");
+
+var elem = $("#para1");
+elem.prev().css("border", "3px solid red");
+elem.next().css("border", "3px solid green");
+elem.parents().css("border", "3px solid blue");
+
+elem.parentsUntil($("body")).css("border", "3px solid blue");
+
+use the find function to locate content within
+particular elements
+$("#example").find("#para4").css("border", "3px solid red");
+
+use the each function to iterate over a set of
+elements and operate on them
+var leftmargin = 0;
+var border = 3;
+$("#example p").each(function(index, element) {
+	$(element).css("border", border+"px solid red")
+						.css("margin-left", leftmargin);
+	border += 2;
+	leftmargin += 10;
+});
