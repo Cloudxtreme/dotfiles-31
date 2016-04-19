@@ -43,7 +43,7 @@ Plug 'digitalToad/vim-jade'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'tpope/vim-markdown'
 " Plug 'pangloss/vim-javascript' | Plug 'mxw/vim-jsx'
-" Plug '1995eaton/vim-better-javascript-completion'
+Plug '1995eaton/vim-better-javascript-completion'
 Plug 'elzr/vim-json'
 Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'tmux-plugins/vim-tmux' "Add Tmux syntax highlight
@@ -445,6 +445,8 @@ if exists(":Tabularize")
 	vmap <leader>br: :Tabularize /:/r1c1l0<CR>
 endif
 
+" vim-better-javascript-completion {{{2
+let g:vimjs#smartcomplete = 1
 " Mappings {{{1
 " Moving Around {{{2
 
