@@ -1,0 +1,6 @@
+
+# convert string to interger number
+parseInt(string);
+
+# convert string to float number
+parseFloat('3.14j'); //-> 3.14

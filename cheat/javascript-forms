@@ -1,0 +1,64 @@
+# getting form and form elements
+document.forms.formName.fieldName
+
+### TEXT Field
+
+# main property for form text field element
+the "value" property
+textField.value #value of a text field
+
+# main events for form textField
+onfocus
+onblur
+onchange
+
+onkeypress
+onkeydown
+onkeyup
+
+### Checkbox and Radio Button
+# main property for checkboxes and radio buttons
+
+the "checked" property
+myCheckBox.checked (true or false)
+
+# main events for checkbox and radio buttons
+onclick
+onchange
+
+### Lists
+# main property for lists
+the "type" property (select-one or select-multiple)
+mySelect.type
+
+# main events
+onchange
+
+# which is selected for type select-one
+mySelect.selectedIndex
+
+# which is selected for type select-multiple
+mySelect.optionx[x].selecte (true or false)
+
+### Form Events
+onsubmit
+
+### Show and hide sections of a form
+
+function prepareEventHandlers() {
+	document.getElementById("brochures").onclick = function () {
+		if (document.getElementById("brochures").checked) {
+			// use CSS style display to show it
+			document.getElementById("tourSelection").style.display = "block";
+		} else {
+			// hide it if it's not checked
+			document.getElementById("tourSelection").style.display = "none";
+		}
+	}
+	 // hide it on the initial pageload
+		document.getElementById("tourSelection").style.display = "none";
+}
+
+window.onload = function () {
+	prepareEventHandlers();
+}

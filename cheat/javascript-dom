@@ -1,0 +1,39 @@
+# Grab the Element by ID
+document.getElementById("idName");
+
+# Create a handle for an element
+var myElement = document.getElementById("idName");
+
+# grab all elements with a specific tag name
+document.getElementsByTagName("a");
+var myListItems  = document.getElementsByTagName("li"); # create an array for myListItems
+
+# Attributes
+#
+# Get an attribute
+myElement.getAttribute("align");
+
+# Set an attribute
+myElement.setAttribute("align", "left");
+
+# get content of an element
+var sidebar = document.getElementById("sidebar");
+var content = sidebar.innerHTML;
+
+# creating DOM content
+1. create the element
+var myNewElement = document.createElement("li");
+
+2. add the element to the document.
+myElement.appendChild(myNewElement);
+
+3. create a textNode
+var myText = document.createTextNode("This is a new text");
+
+4. Add the textNode to the newly added element
+myNewElement.appendChild(myText);
+
+# insert Content
+parent.insertBefore(newElement, existingElementj);
+
+

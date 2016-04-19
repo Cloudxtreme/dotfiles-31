@@ -1,0 +1,12 @@
+# Style Property Naming
+
+# hyphens to camelCase
+background-color: #193724; => myElement.style.backgroundColor = "#193742";
+
+font-weight: bold; => myElement.style.fontWeight = "bold";
+
+# Setting the Class
+myElement.className = "someCSSclass";
+
+# Clean the class
+myElement.className = "";

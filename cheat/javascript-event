@@ -1,0 +1,64 @@
+# Do I have to write an event?
+NO.
+You don't write event. You write event handler or event listener function to take action when an event is happening.
+
+# Anonymous function as event handler
+myElement.onclick = function() {
+	// your event handler code here
+	// ...
+	// ...
+};
+
+# A most common way to write event handler
+document.addEventListener('click', myFunction, false);
+
+// for IE8 and previous
+document.attachEvent('onclick', myFunction);
+
+# Prepare the document ready for event handler
+function prepareEventHandlers() {
+	var myImage = document.getElementById("mainImage");
+	myImage.onclick = function() {
+		alert("You clicked the image!");
+	}
+}
+
+window.onload = function() {
+	prepareEventHandlers();
+};
+
+# Set a timer with javascript for one-time
+setTimeout(myFunction, 5000);
+
+# set a interval timer
+setInterval(myFun,5000);
+
+# Examples
+
+# get the main image element
+var mainImage = document.getElementById("mainImage");
+
+# set an image source array
+var imageArray = ["_images/overlook.jpg", "_images/winery_sign.jpg", "_images/lunch.jpg", "_images/bigSur.jpg",
+									"_images/flag_photo.jpg", "_images/mission_look.jpg"];
+
+# set the initial imageIndex to 0
+var imageIndex = 0;
+
+# the changeImage function, start over when all images are shown
+function changeImage() {
+	mainImage.setAttribute("src", imageArray[imageIndex]);
+	imageIndex++;
+	if (imageIndex >= imageArray.length ) {
+		imageIndex = 0;
+	}
+}
+
+# set an change image interval
+var imageInterval = setInterval(changeImage,2000);
+
+# clear inteval on mouse click on main image
+mainImage.onclick = function () {
+	clearInterval(imageInterval);
+}
+
