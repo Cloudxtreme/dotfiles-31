@@ -7,7 +7,7 @@ call plug#begin('~/.vim/bundle') "Set the plugins path
 Plug 'Chiel92/vim-autoformat'
 Plug 'godlygeek/tabular'
 Plug 'scrooloose/nerdtree'
-Plug 'mattn/emmet-vim'
+" Plug 'mattn/emmet-vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'ervandew/supertab'
 Plug 'majutsushi/tagbar'
@@ -38,6 +38,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " Syntax {{{2
 Plug 'digitalToad/vim-jade'
+Plug 'groenewege/vim-less'
 " Plug 'wavded/vim-stylus'
 " Plug 'othree/html5.vim'
 Plug 'mustache/vim-mustache-handlebars'
@@ -148,7 +149,7 @@ set hidden
 set backspace=indent,eol,start
 
 " Convert tabs to spaces
-set noexpandtab
+set expandtab
 
 " Set tab size in spaces (this is for manual editing)
 set tabstop=2
@@ -341,10 +342,10 @@ nmap <F8> :TagbarToggle<CR>
 " Emmet {{{2
 " Remap <C-y>
 " let g:user_emmet_leader_key='f'
-imap   fj   <plug>(emmet-expand-abbr)
+" imap   fj   <plug>(emmet-expand-abbr)
 
-let g:user_emmet_install_global = 0
-autocmd FileType html,css,less,scss,sass EmmetInstall
+" let g:user_emmet_install_global = 0
+" autocmd FileType html,css,less,scss,sass EmmetInstall
 
 " CtrlP {{{2
 " modify default opening behaviour with an interactive argument <C-o>
@@ -612,23 +613,25 @@ augroup END
 augroup ft_vim
   au!
 
+  au FileType javascript setlocal foldmethod=marker
   au FileType vim setlocal foldmethod=marker
   au FileType tmux setlocal foldmethod=marker
   au FileType zsh setlocal foldmethod=marker
   au FileType help setlocal textwidth=78
-  au FileType vim,tmux,zsh,help setlocal foldlevel=1
+  au FileType javascript,vim,tmux,zsh,help setlocal foldlevel=1
   au BufWinEnter *.txt if &ft == 'help' | wincmd L | endif
 augroup END
 
 augroup ft_css
   au!
 
-  au BufNewFile,BufRead *.less setlocal filetype=less
+  au BufNewFile,BufRead *.less setlocal filetype=less.css
+  au BufNewFile,BufRead *.sass setlocal filetype=sass.scss
 
-  au FileType less,css,scss setlocal foldmethod=marker
-  au FileType less,css,scss setlocal foldmarker={,}
-  au FileType less,css,scss setlocal omnifunc=csscomplete#CompleteCSS
-  au FileType less,css,scss setlocal iskeyword+=-
+  au FileType less,css,scss,sass setlocal foldmethod=marker
+  au FileType less,css,scss,sass setlocal foldmarker={,}
+  au FileType less,css,scss,sass setlocal omnifunc=csscomplete#CompleteCSS
+  au FileType less,css,scss,sass setlocal iskeyword+=-
 augroup END
 
 "Autocmd and Functions{{{1
@@ -638,10 +641,10 @@ if has("autocmd")
   " Customisations based on house-style
   autocmd FileType jade setlocal ts=4 sts=4 sw=4 noexpandtab
   autocmd FileType html setlocal ts=4 sts=4 sw=4 noexpandtab
-  " autocmd FileType css setlocal ts=2 sts=2 sw=2 expandtab
-  " autocmd FileType less setlocal ts=2 sts=2 sw=2 expandtab
-  " autocmd FileType javascript setlocal ts=2 sts=2 sw=2 noexpandtab
-  " autocmd FileType json setlocal ts=2 sts=2 sw=2 noexpandtab
+  autocmd FileType css setlocal ts=2 sts=2 sw=2 expandtab
+  autocmd FileType less setlocal ts=2 sts=2 sw=2 expandtab
+  autocmd FileType javascript setlocal ts=2 sts=2 sw=2 noexpandtab
+  autocmd FileType json setlocal ts=2 sts=2 sw=2 noexpandtab
 
   " Treat .rss files as XML
   autocmd BufNewFile,BufRead *.rss, *.atom setfiletype xml
