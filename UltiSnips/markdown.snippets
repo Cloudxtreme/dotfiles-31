@@ -2,42 +2,34 @@
 #                            Pomodoro Log                             #
 #######################################################################
 
-snippet pomodoro "daily pomodoro-log" b
+snippet pl "daily pomodoro-log" b
 # Pomodoro Log
 **姓名**: Xu Zheng
-	
+
 **日期**: `date +%Y-%m-%d`
 
 |	    | 活动名称  | 番茄钟    | 误差      | 重估次数  |
 |	--- | --------- | --------- | --------- | --------- |
-|	 1  | ${1:text} | ${2:text} | ${3:text} | ${4:text} |
-|	 2  | ${5:text} | ${6:text} | ${7:text} | ${8:text} |
-|	 3  | ${9:text} | ${10:text}| ${11:text}| ${12:text}|
-|	 4  | ${13:text}| ${14:text}| ${15:text}| ${16:text}|
-|	 5  | ${17:text}| ${18:text}| ${19:text}| ${20:text}|
-|	 6  | ${21:text}| ${22:text}| ${23:text}| ${24:text}|
-|	    | Total     | $25       | $26       | $27         |
+|	 1  | ${1:text}
 
 ### 回顾
-$28
 
 ### 中断记录与分析
-$29
+
 $0
 endsnippet
 
-snippet pmdrmonthly "monthly pomodoro-log" b
+snippet plm "monthly pomodoro-log" b
 # Pomodoro Monthly Log
 **NAME**: Xu Zheng
 
 **MONTH**: $1
 
-|	 Dates | Pomodofo  | II | EI |
+|	 Dates | Pomodoro  | II | EI |
 |	------ | --------- | ---| -- |
-|	 $2    | $3        | $4 | $5 |
+|	 $2
 
 ### Review
-$6
 
 $0
 endsnippet
