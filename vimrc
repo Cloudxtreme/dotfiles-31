@@ -575,6 +575,7 @@ inoremap <leader>sn <C-x>s
 " Start file with all folds closed.
 set foldenable
 set foldlevelstart=999
+set foldmethod=marker
 
 " lower s = toggle; Upper s = toggle recursive
 nnoremap s za

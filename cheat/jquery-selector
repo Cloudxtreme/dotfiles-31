@@ -1,9 +1,9 @@
-# selector
+#  general selectors {{{1 #
 $("document") // select the tagName
 $(".selectors") // select a class
 $("#intro") // select an id
 
-# Advanced Selectors
+#  Advanced selectors {{{1 #
 
  The child selector "parent > child" selects "child" elements
  that are immediate descendants of the "parent"
@@ -23,7 +23,7 @@ elements that come after a "prev" element
 $("#para1 ~ p").css("border", "3px solid red");
 
 
-# Filter
+#  Filter {{{1 #
 :first, :last
 :even, :odd
 :gt(), :lt(), :eq()
@@ -31,11 +31,12 @@ $("#para1 ~ p").css("border", "3px solid red");
 :focus
 :not(expr)
 
-# some filter examples
+
 $("h2:first") // select and filter out the first h2 element
 $("h2:not(.selectors)"
 
-# Attribute Filter
+#  Attribute filter {{{2 #
+
 select all paragraph with a class
 $("p[class]").css("border", "3px solid red");
 
@@ -48,19 +49,19 @@ $("p[id^=para]").css("border", "3px solid red");
 select paragraph with an id name start with "para" and "lang" attribute contains "en-"
 $("p[id^=para][lang*=en-]").css("border", "3px solid red");
 
-# Content filter
+#  Content filter {{{2 #
 select paragraph contains '3', USE the single quote for the content
 $("p:contains('3')").css("border", "3px solid red");
 
-# Parent filter
+#  Parent filter {{{2 #
 select all p tag which is a parent
 $("p:parent").css("border", "3px solid red");
 
-# has Filter
+#  Has filter {{{2 #
 select the div that has a paragraph with a class named a
 $("div:has(p[class=a])").css("border", "3px solid red");
 
-# Child Filter
+#  Child filter {{{2 #
 select the paragraph which is the first child of a div
 $("div p:first-child").css("border", "3px solid red");
 
@@ -73,7 +74,7 @@ $("div p:nth-child(3)").css("border", "3px solid red");
 select paragraph can be divided by 2 in side a div
 $("div p:nth-child(2n)").css("border", "3px solid red");
 
-# Traversing
+#  Traversing {{{1 #
 
 The children() function retrieves the immediate (that is,
 first-level down) child elements of the matched set,
@@ -101,3 +102,5 @@ $("#example p").each(function(index, element) {
 	border += 2;
 	leftmargin += 10;
 });
+
+# vim:fdm=marker:fdl=0:
