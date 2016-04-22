@@ -7,7 +7,7 @@ call plug#begin('~/.vim/bundle') "Set the plugins path
 Plug 'Chiel92/vim-autoformat'
 Plug 'godlygeek/tabular'
 Plug 'scrooloose/nerdtree'
-" Plug 'mattn/emmet-vim'
+Plug 'mattn/emmet-vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'ervandew/supertab'
 Plug 'majutsushi/tagbar'
@@ -342,10 +342,10 @@ nmap <F8> :TagbarToggle<CR>
 " Emmet {{{2
 " Remap <C-y>
 " let g:user_emmet_leader_key='f'
-" imap   fj   <plug>(emmet-expand-abbr)
+imap   fj   <plug>(emmet-expand-abbr)
 
-" let g:user_emmet_install_global = 0
-" autocmd FileType html,css,less,scss,sass EmmetInstall
+let g:user_emmet_install_global = 0
+autocmd FileType html,css,less,scss,sass EmmetInstall
 
 " CtrlP {{{2
 " modify default opening behaviour with an interactive argument <C-o>

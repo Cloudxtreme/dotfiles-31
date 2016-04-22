@@ -6,6 +6,7 @@ alias ea="$EDITOR ~/bin/dotfiles/custom/aliases.zsh && reload" # edit custom ali
 alias eg="$EDITOR ~/bin/dotfiles/custom/gitaliases.zsh && reload" # edit custom git aliases and functions config and reload
 alias et="$EDITOR ~/.tmux.conf" # edit tmux configuration
 alias vimrc="$EDITOR ~/.vimrc" # Edit vimrc
+alias etd="$EDITOR ~/.oh-my-zsh/custom/tmux.default.conf" # Edit custom tmux configuration
 
 # Finder aliases {{{2
 alias ll="ls -lhFA"
@@ -13,6 +14,7 @@ alias l="ls -lhF"
 alias l.="ls -dl .[^.]*"
 
 alias dl="cd /Volumes/Data/Download/"
+alias tts="cd /Volumes/Data/Download/tutorial"
 alias dc="cd /Volumes/Data/Documents/"
 alias sb="cd ~/Documents/sandbox"
 alias tuts="cd /Volumes/MB3/tutorials/Tutsplus/; lg" # list directories that contains the keyword in given direcectory. e.g. tuts $1
