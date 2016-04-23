@@ -1,0 +1,22 @@
+# add this in component.json
+snippet triggered-component "hides components that can be triggered by a button" b
+"_triggered": {
+	"_isEnabled": ${1:true},
+	"_top": ${2:30},
+	"_left": ${3:30},
+	"showButtonText": "${4:Click me to show}",
+	"hideButtonText": "${5:Click me to hide}"
+},$0
+endsnippet
+
+# To go on a course
+snippet triggered-course "hides components that can be triggered by a button" b
+{
+	"_triggered": {
+		"_isEnabled": ${1:true}
+	}
+},$0
+endsnippet
+
+# vim:ft=snippets:
+# https://github.com/adaptlearning/adapt-contrib-triggered/blob/master/example.json
