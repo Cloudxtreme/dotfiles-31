@@ -85,7 +85,7 @@ canary-dl() {
 ### Functions: Workflow {{{1
 # Open with firefox {{{2
 function fopen() {
-	open -a /Applications/Firefox.app $1
+open -a /Applications/Firefox.app $1
 }
 # update documentation site {{{2
 documentation() {
@@ -125,16 +125,16 @@ cpgitignore() {
 
 # New site based on my starter template {{{2
 # newSite() {
-  # if [ ! -d /Volumes/Data/Download/coding/$1 ]
-  # then
-  #   mkdir /Volumes/Data/Download/coding/$1
-  #   git clone git@github.com:samumist/starter_stylus.git /Volumes/Data/Download/coding/$1
-  #   subl /Volumes/Data/Download/coding/$1
-  # else
-  #   echo "$1 is already in use, please choose another name."
-  # fi
+# if [ ! -d /Volumes/Data/Download/coding/$1 ]
+# then
+#   mkdir /Volumes/Data/Download/coding/$1
+#   git clone git@github.com:samumist/starter_stylus.git /Volumes/Data/Download/coding/$1
+#   subl /Volumes/Data/Download/coding/$1
+# else
+#   echo "$1 is already in use, please choose another name."
+# fi
 # }
-#  Snippets {{{1 # 
+#  Snippets {{{1 #
 snip() {
   cd $HOME/bin/dotfiles/UltiSnips/json
   vim "$1".snippets
