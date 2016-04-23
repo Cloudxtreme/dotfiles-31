@@ -12,7 +12,8 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'ervandew/supertab'
 Plug 'majutsushi/tagbar'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'Valloric/YouCompleteMe'
+" Plug 'Valloric/YouCompleteMe'
+Plug 'Shougo/neocomplete.vim'
 Plug 'severin-lemaignan/vim-minimap'
 Plug 'rking/ag.vim'
 Plug 'scrooloose/syntastic'
@@ -448,6 +449,8 @@ endif
 
 " vim-better-javascript-completion {{{2
 let g:vimjs#smartcomplete = 1
+" neocomplete {{{2 "
+let g:neocomplete#enable_at_startup = 1 
 " Mappings {{{1
 " Moving Around {{{2
 
