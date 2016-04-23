@@ -1,4 +1,5 @@
 # Git Aliases
+alias g='git status'
 alias gaa='git add -A' # git add all
 
 # Git Diff

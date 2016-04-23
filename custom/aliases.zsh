@@ -2,8 +2,9 @@
 # Dotfiles editing {{{2
 alias reload="source ~/.zshrc"
 alias ez="$EDITOR ~/.zshrc && reload" # Edit default zsh config file and reload
-alias ea="$EDITOR ~/bin/dotfiles/custom/aliases.zsh && reload" # edit custom aliases and functions config and reload
-alias eg="$EDITOR ~/bin/dotfiles/custom/gitaliases.zsh && reload" # edit custom git aliases and functions config and reload
+alias ea="$EDITOR $ALIASFILE && source $ALIASFILE" # edit custom aliases and functions config and reload
+alias ef="$EDITOR $FUNCFILE && source $FUNCFILE" # edit custom aliases and functions config and reload
+alias eg="$EDITOR $GITALIAS && source $GITALIAS" # edit custom git aliases and functions config and reload
 alias et="$EDITOR ~/.tmux.conf" # edit tmux configuration
 alias vimrc="$EDITOR ~/.vimrc" # Edit vimrc
 alias etd="$EDITOR ~/.oh-my-zsh/custom/tmux.default.conf" # Edit custom tmux configuration
@@ -137,4 +138,3 @@ alias opensite="open http://localhost"
 alias restartapache="sudo apachectl restart"
 alias stopapache="sudo apachectl stop"
 alias startapache="sudo apachectl start"
-

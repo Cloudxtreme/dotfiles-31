@@ -134,3 +134,8 @@ cpgitignore() {
   #   echo "$1 is already in use, please choose another name."
   # fi
 # }
+#  Snippets {{{1 # 
+snip() {
+  cd $HOME/bin/dotfiles/UltiSnips/json
+  vim "$1".snippets
+}

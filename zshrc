@@ -1,6 +1,11 @@
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 
+# set common variables
+ALIASFILE=$HOME/bin/dotfiles/custom/aliases.zsh
+FUNCFILE=$HOME/bin/dotfiles/custom/functions.zsh
+GITALIAS=$HOME/bin/dotfiles/custom/gitaliases.zsh
+
 # Set Editor to vim
 export EDITOR=vim
 
