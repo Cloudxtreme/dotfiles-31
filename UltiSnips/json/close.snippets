@@ -1,0 +1,29 @@
+# an extension to add a close button and/or prompts to course.json.
+
+snippet close "extension to add a close button and/or prompts" b
+"_close": {
+	"_button": {
+		"_isEnabled": ${1:true},
+		"_notifyPromptIfIncomplete": {
+			"_isEnabled": ${2:false},
+			"title": "${3:Confirm close}",
+			"body": "${4:Are you sure you want to close the window?}",
+			"confirm": "${5:Close window}",
+			"cancel": "${6:Cancel}"
+		},
+		"_notifyPromptIfComplete": {
+			"_isEnabled": ${7:false},
+			"title": "${8:Confirm close}",
+			"body": "${9:Are you sure you want to close the window?}",
+			"confirm": "${10:Close window}",
+			"cancel": "${11:Cancel}"
+		}
+	},
+	"browserPromptIfIncomplete": "",
+	"browserPromptIfComplete": ""
+	},$0
+endsnippet
+
+# vim:ft=snippets:
+# https://github.com/cgkineo/adapt-close/blob/master/example.json
+
