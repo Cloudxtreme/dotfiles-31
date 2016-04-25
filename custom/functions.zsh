@@ -110,7 +110,15 @@ new() {
 #  Snippets {{{2 #
 snip() {
   cd $HOME/bin/dotfiles/UltiSnips/json
-  vim "$1".snippets
+  if [[ $1 ]]; then
+    vim "$1".snippets
+  fi
+}
+
+#  mydocs {{{2 # open my documentation static site
+mydocs() {
+  cd $HOME/Sites/static
+  open http://localhost/static
 }
 ### Functions: not-in-active-use {{{1
 # Open in the Google Chrome Browser {{{2
