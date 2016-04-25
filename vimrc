@@ -10,7 +10,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'mattn/emmet-vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'ervandew/supertab'
-Plug 'majutsushi/tagbar'
+" Plug 'majutsushi/tagbar'
 Plug 'christoomey/vim-tmux-navigator'
 " Plug 'Valloric/YouCompleteMe'
 Plug 'Shougo/neocomplete.vim'
@@ -248,7 +248,7 @@ autocmd FileType css,scss,sass,less,stylus :ColorHighlight "For Colorizer Plugin
 let g:colorizer_auto_map = 1
 " Autoformat {{{2
 " autoformat shortcut
-noremap <c-t> :Autoformat<CR>
+" noremap <c-t> :Autoformat<CR>
 " enable ranged definitions for python
 let g:formatdef_autopep8 = "'autopep8 - --range '.a:firstline.' '.a:lastline"
 let g:formatters_python = ['autopep8']
@@ -338,7 +338,7 @@ let g:syntastic_mode_map = { 'passive_filetypes': ['html','less'] }
 let g:syntastic_less_checkers=['']
 
 " Tagbar {{{2
-nmap <F8> :TagbarToggle<CR>
+" nmap <F8> :TagbarToggle<CR>
 
 " Emmet {{{2
 " Remap <C-y>
@@ -704,8 +704,14 @@ function! <SID>StripTrailingWhitespaces()
   call cursor(l, c)
 endfunction
 
+" Ctags {{{2 "
+" search tags file recursively from current folder up to your home directory.
+set tags+=tags;$HOME
+" mapping to update ctags
+nnoremap <F3> :!ctags --exclude=node_modules --exclude=.git -R<CR>
+
 " Delete blank lines
-nnoremap <F3> :g/^$/d<CR>
+nnoremap <F8> :g/^$/d<CR>
 " Mapping F4 to execute javascript in nodejs;
 " map <F4> :call RunJavascript() <CR>
 " function RunJavascript()
