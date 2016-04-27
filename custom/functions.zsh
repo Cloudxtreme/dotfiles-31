@@ -158,11 +158,16 @@ cpgitignore() {
 #  Entertainment {{{1 #
 #  Radios {{{2 #
 radio() {
-  if [[ $1 == "bbc5" ]]; then
+  if [[ $1 == "5live" ]]; then
     proxychains4 mpv http://bbcmedia.ic.llnwd.net/stream/bbcmedia_radio5live_mf_p
   elif [[ $1 == "ts" ]]; then
     proxychains4 mpv http://radio.talksport.com/stream
-  elif [[ $1 == "bbcws" ]]; then
+  elif [[ $1 == "ws" ]]; then
     proxychains4 mpv http://bbcwssc.ic.llnwd.net/stream/bbcwssc_mp1_ws-eieuk
   fi
 }
+#  boku - internet surfing {{{2 #
+bs() {
+  buku -S $1
+}
+
