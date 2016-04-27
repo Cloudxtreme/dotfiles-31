@@ -87,7 +87,7 @@ canary-dl() {
 function fopen() {
 open -a /Applications/Firefox.app $1
 }
-#  browser-sync server {{{2 # 
+#  browser-sync server {{{2 #
 bss() {
   Browser-sync start -s "$1" -f "$1"
 }
@@ -155,3 +155,14 @@ cpgitignore() {
 #   echo "$1 is already in use, please choose another name."
 # fi
 # }
+#  Entertainment {{{1 #
+#  Radios {{{2 #
+radio() {
+  if [[ $1 == "bbc5" ]]; then
+    proxychains4 mpv http://bbcmedia.ic.llnwd.net/stream/bbcmedia_radio5live_mf_p
+  elif [[ $1 == "ts" ]]; then
+    proxychains4 mpv http://radio.talksport.com/stream
+  elif [[ $1 == "bbcws" ]]; then
+    proxychains4 mpv http://bbcwssc.ic.llnwd.net/stream/bbcwssc_mp1_ws-eieuk
+  fi
+}
