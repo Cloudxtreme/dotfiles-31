@@ -454,15 +454,18 @@ let g:neocomplete#enable_at_startup = 1
 " Mappings {{{1
 " Moving Around {{{2
 
-" switch to normal mode and write buffer
-inoremap jk <esc>:w<CR>
+" switch to normal mode
+inoremap jk <esc>
+
+" write to buffer
 nnoremap <leader>s :w<CR>
+inoremap <leader>s <esc>:w<CR>
 
 " Start a new line below the current line
-inoremap jo <esc>o
+" inoremap jo <esc>o
 
 " Start a new line above the current line
-inoremap jO <esc>O
+" inoremap jO <esc>O
 
 " Move to end of line and enter into insert mode
 inoremap jl <esc>A

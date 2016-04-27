@@ -87,6 +87,10 @@ canary-dl() {
 function fopen() {
 open -a /Applications/Firefox.app $1
 }
+#  browser-sync server {{{2 # 
+bss() {
+  Browser-sync start -s "$1" -f "$1"
+}
 # update documentation site {{{2
 documentation() {
   cd /Volumes/Data/Documents/docs/documentation/
@@ -119,6 +123,10 @@ snip() {
 mydocs() {
   cd $HOME/Sites/static
   open http://localhost/static
+}
+#  raname all directory from Upper case to lower case {{{2 #
+lowerdir() {
+  rename -f 'y/A-Z/a-z/' *
 }
 ### Functions: not-in-active-use {{{1
 # Open in the Google Chrome Browser {{{2
