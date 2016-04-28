@@ -2,7 +2,7 @@
 history | awk '{CMD[$2]++;count++;}END { for (a in CMD)print CMD[a] " " CMD[a]/count*100 "% " a;}' | grep -v "./" | column -c3 -s " " -t | sort -nr | nl | head -n10
 
 # To do a reverse search
-Press 'Ctrl-R' and type the "keyword"
+Press 'Ctrl-R' and type the "keyword" to do a reverse search. If you have more than one command which starts with the "keyword", press 'Ctrl-R' again and again until you find the match.
 
 # repeat last command
 press "!!" and "enter";
