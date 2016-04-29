@@ -111,11 +111,12 @@ new() {
   vim $1
 }
 
-#  Snippets {{{2 #
+#  Snippets  #
 snip() {
   cd $HOME/bin/dotfiles/UltiSnips/json
-  if [[ $1 ]]; then
-    vim "$1".snippets
+  if [ $1 ] ;
+    then
+      vim "$1".snippets
   fi
 }
 
