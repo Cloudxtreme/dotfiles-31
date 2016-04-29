@@ -129,6 +129,10 @@ mydocs() {
 lowerdir() {
   rename -f 'y/A-Z/a-z/' *
 }
+#  gitclone myrepo {{{2 #
+gclmyrepo() {
+  proxychains4 git clone git@github.com:samumist/$1.git $2
+}
 ### Functions: not-in-active-use {{{1
 # Open in the Google Chrome Browser {{{2
 gopen() {
