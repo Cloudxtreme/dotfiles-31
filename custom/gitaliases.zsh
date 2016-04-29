@@ -18,3 +18,6 @@ alias gbd='git branch -d' # delete branch
 ### Git Actions
 alias glall="ls | xargs -P10 -I{} git -C {} pull"
 alias gcmall="ls | xargs -P10 -I{} git -C {} checkout master"
+
+### git clone
+alias gcl="proxychains4 git clone"
