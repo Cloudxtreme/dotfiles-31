@@ -139,3 +139,6 @@ alias opensite="open http://localhost"
 alias restartapache="sudo apachectl restart"
 alias stopapache="sudo apachectl stop"
 alias startapache="sudo apachectl start"
+#  Adapt {{{2 #
+alias aset="adapt-setup"
+alias paset="proxychains4 adapt-setup"
