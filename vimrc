@@ -225,7 +225,7 @@ colorscheme jellybeans
 
 "Fonts
 let g:enable_bold_font = 1 " set some code to be bold
-set guifont=Ubuntu\ Mono\ derivative\ Powerline\ Nerd\ Font\ Complete:h15 "set gui powerline font
+set guifont=Ubuntu\ Mono\ derivative\ Powerline\ Nerd\ Font\ Complete:h14 "set gui powerline font
 
 "Set gui vim
 if has('gui_running')
