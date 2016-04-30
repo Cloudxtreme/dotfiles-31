@@ -6,6 +6,7 @@ snippet course-en "english version" b
 	"displayTitle": "${2:$1}",
 	"description": "",
 	"body": "$3",
+	"_lockType": "${4:sequential|unlockFirst|lockLast|custom}",
 	"_buttons": {
 		"_submit": {
 			"buttonText": "Submit",
@@ -129,7 +130,7 @@ snippet course-en "english version" b
 		}
 	},
 	"_pageLevelProgress": {
-		"_isEnabled": ${4:true},
+		"_isEnabled": ${5:true},
 		"_altText": "of components completed on this page."
 	}$0
 }
@@ -143,6 +144,7 @@ snippet course-zh "The Chinese version for the course.json" b
 	"displayTitle": "${2:$1}",
 	"description": "",
 	"body": "$3",
+	"_lockType": "${4:sequential|unlockFirst|lockLast|custom}",
 	"_buttons": {
 		"_submit": {
 			"buttonText": "提交答案",
@@ -266,7 +268,7 @@ snippet course-zh "The Chinese version for the course.json" b
 		}
 	},
 	"_pageLevelProgress": {
-		"_isEnabled": ${17:true},
+		"_isEnabled": ${5:true},
 		"_altText": "该页面已完成内容"
 	}$0
 }
