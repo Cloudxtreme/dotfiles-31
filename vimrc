@@ -614,6 +614,7 @@ augroup ft_json
 
   au BufRead,BufNewFile *.json set filetype=json
   au FileType json setlocal foldmethod=indent
+  au FileType json setlocal foldlevel=2
   au FileType json setlocal expandtab
 augroup END
 
