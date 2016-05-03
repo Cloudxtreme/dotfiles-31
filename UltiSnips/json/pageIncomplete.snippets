@@ -1,0 +1,34 @@
+snippet pageIncompletePrompt-in-course "page incomplete prompt, put this is course.json" b
+"_pageIncompletePrompt" : {
+	"_isEnabled": ${1:true},
+		"_buttons": {
+			"yes": "Yes",
+			"no": "No"
+		},
+		"title": "Page incomplete",
+		"message": "Are you sure you would like to leave?"
+}$0
+endsnippet
+
+snippet pageIncompletePrompt-in-course-Zh-cn "page incomplete prompt, put this is course.json" b
+"_pageIncompletePrompt" : {
+	"_isEnabled": ${1:true},
+		"_buttons": {
+			"yes": "确定",
+			"no": "取消"
+		},
+		"title": "页面内容还未完成",
+		"message": "你确定要离开吗？"
+}$0
+endsnippet
+
+
+snippet pageIncompletePrompt-in-ContentObjects "and or override this in course.json" b
+{
+	"_pageIncompletePrompt" : {
+		"_isEnabled": ${1:true}
+	}
+}$0
+endsnippet
+
+
