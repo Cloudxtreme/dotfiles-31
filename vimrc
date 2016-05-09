@@ -248,7 +248,7 @@ autocmd FileType css,scss,sass,less,stylus :ColorHighlight "For Colorizer Plugin
 let g:colorizer_auto_map = 1
 " Autoformat {{{2
 " autoformat shortcut
-" noremap <c-t> :Autoformat<CR>
+noremap <c-a> :Autoformat<CR>
 " enable ranged definitions for python
 let g:formatdef_autopep8 = "'autopep8 - --range '.a:firstline.' '.a:lastline"
 let g:formatters_python = ['autopep8']
@@ -647,8 +647,8 @@ augroup END
 if has("autocmd")
 
   " Customisations based on house-style
-  autocmd FileType jade setlocal ts=4 sts=4 sw=4 noexpandtab
-  autocmd FileType html setlocal ts=4 sts=4 sw=4 noexpandtab
+  autocmd FileType jade setlocal ts=2 sts=2 sw=2 noexpandtab
+  autocmd FileType html setlocal ts=2 sts=2 sw=2 noexpandtab
   autocmd FileType css setlocal ts=2 sts=2 sw=2 expandtab
   autocmd FileType less setlocal ts=2 sts=2 sw=2 expandtab
   autocmd FileType javascript setlocal ts=2 sts=2 sw=2 noexpandtab
